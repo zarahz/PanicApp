@@ -12,7 +12,6 @@
 		AE81C8AF208F635D0031BC42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE81C8AD208F635D0031BC42 /* Main.storyboard */; };
 		AE81C8B1208F635D0031BC42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE81C8B0208F635D0031BC42 /* Assets.xcassets */; };
 		AE81C8B4208F635D0031BC42 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE81C8B2208F635D0031BC42 /* LaunchScreen.storyboard */; };
-		AE81C8BC208F645E0031BC42 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = AE81C8BB208F645E0031BC42 /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,7 +22,6 @@
 		AE81C8B0208F635D0031BC42 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE81C8B3208F635D0031BC42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE81C8B5208F635D0031BC42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AE81C8BB208F645E0031BC42 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +54,6 @@
 		AE81C8A8208F635C0031BC42 /* app */ = {
 			isa = PBXGroup;
 			children = (
-				AE81C8BB208F645E0031BC42 /* .gitignore */,
 				AE81C8A9208F635D0031BC42 /* AppDelegate.swift */,
 				AE81C8AB208F635D0031BC42 /* ViewController.swift */,
 				AE81C8AD208F635D0031BC42 /* Main.storyboard */,
@@ -126,7 +123,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE81C8BC208F645E0031BC42 /* .gitignore in Resources */,
 				AE81C8B4208F635D0031BC42 /* LaunchScreen.storyboard in Resources */,
 				AE81C8B1208F635D0031BC42 /* Assets.xcassets in Resources */,
 				AE81C8AF208F635D0031BC42 /* Main.storyboard in Resources */,
