@@ -410,29 +410,102 @@ Panic</string>
             </objects>
             <point key="canvasLocation" x="2396" y="-279.31034482758622"/>
         </scene>
-        <!--View Controller-->
+        <!--Tipps Controller-->
         <scene sceneID="alI-C7-bq1">
             <objects>
-                <viewController id="Gh4-sY-vXy" sceneMemberID="viewController">
+                <viewController id="Gh4-sY-vXy" customClass="TippsController" customModule="app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Bq5-FF-szD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tipps und Tricks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PeW-wK-89Q">
-                                <rect key="frame" x="16" y="20" width="126" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vxC-G9-jag">
+                                <rect key="frame" x="16" y="617" width="343" height="30"/>
                                 <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o15-tK-VLP">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="doX-7P-Mn4">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                            <containerView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="THl-bt-s0o">
+                                <rect key="frame" x="20" y="84" width="335" height="513"/>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="vxC-G9-jag" firstAttribute="leading" secondItem="xlX-uj-Pwx" secondAttribute="leading" constant="16" id="07M-kO-Lk8"/>
+                            <constraint firstItem="xlX-uj-Pwx" firstAttribute="trailing" secondItem="THl-bt-s0o" secondAttribute="trailing" constant="20" id="1eZ-xd-llS"/>
+                            <constraint firstItem="THl-bt-s0o" firstAttribute="leading" secondItem="xlX-uj-Pwx" secondAttribute="leading" constant="20" id="85Y-Z8-dOW"/>
+                            <constraint firstItem="o15-tK-VLP" firstAttribute="bottom" secondItem="xlX-uj-Pwx" secondAttribute="bottom" id="BIG-5c-BMw"/>
+                            <constraint firstItem="THl-bt-s0o" firstAttribute="top" secondItem="xlX-uj-Pwx" secondAttribute="top" constant="20" id="WQ1-01-bq8"/>
+                            <constraint firstItem="xlX-uj-Pwx" firstAttribute="bottom" secondItem="vxC-G9-jag" secondAttribute="bottom" constant="20" id="iNa-sA-NX7"/>
+                            <constraint firstItem="vxC-G9-jag" firstAttribute="top" secondItem="THl-bt-s0o" secondAttribute="bottom" constant="20" id="ifW-5Z-3Jp"/>
+                            <constraint firstItem="o15-tK-VLP" firstAttribute="top" secondItem="Bq5-FF-szD" secondAttribute="top" id="mzs-VR-bSv"/>
+                            <constraint firstItem="xlX-uj-Pwx" firstAttribute="trailing" secondItem="vxC-G9-jag" secondAttribute="trailing" constant="16" id="pge-Pf-WP0"/>
+                            <constraint firstItem="o15-tK-VLP" firstAttribute="leading" secondItem="xlX-uj-Pwx" secondAttribute="leading" id="xmL-Qi-jSE"/>
+                            <constraint firstItem="o15-tK-VLP" firstAttribute="trailing" secondItem="xlX-uj-Pwx" secondAttribute="trailing" id="yz6-hi-OaW"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="xlX-uj-Pwx"/>
                     </view>
+                    <connections>
+                        <outlet property="popupContainer" destination="THl-bt-s0o" id="k4K-FF-er8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gdn-a1-MO0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2238" y="-650"/>
+            <point key="canvasLocation" x="3176.8000000000002" y="-843.32833583208401"/>
+        </scene>
+        <!--Tipps Popup Controller-->
+        <scene sceneID="Qrf-j1-SGB">
+            <objects>
+                <viewController storyboardIdentifier="TippsPopup" id="z8Q-Bm-TWx" customClass="TippsPopupController" customModule="app" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" opaque="NO" contentMode="scaleToFill" id="NQf-Wk-E8A">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fbN-hl-W2j">
+                                <rect key="frame" x="340" y="25" width="30" height="54"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <state key="normal" title="×"/>
+                                <connections>
+                                    <action selector="close:" destination="z8Q-Bm-TWx" eventType="touchUpInside" id="xxu-3o-F3h"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="n7r-I3-dxN">
+                                <rect key="frame" x="0.0" y="99" width="375" height="183.5"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8K8-4b-e05">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="183.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ZPN-TI-o38" firstAttribute="trailing" secondItem="fbN-hl-W2j" secondAttribute="trailing" constant="5" id="BzQ-xO-rcH"/>
+                            <constraint firstItem="fbN-hl-W2j" firstAttribute="top" secondItem="NQf-Wk-E8A" secondAttribute="topMargin" constant="5" id="DEQ-R2-28G"/>
+                            <constraint firstItem="ZPN-TI-o38" firstAttribute="trailing" secondItem="n7r-I3-dxN" secondAttribute="trailing" id="N3j-Cc-UKK"/>
+                            <constraint firstItem="n7r-I3-dxN" firstAttribute="top" secondItem="fbN-hl-W2j" secondAttribute="bottom" constant="20" id="Ujq-Wp-LGc"/>
+                            <constraint firstItem="n7r-I3-dxN" firstAttribute="leading" secondItem="ZPN-TI-o38" secondAttribute="leading" id="XeO-gv-d15"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ZPN-TI-o38"/>
+                    </view>
+                    <connections>
+                        <outlet property="stackView" destination="n7r-I3-dxN" id="oN5-eW-qBK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HPk-Q8-6Tz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3944.8000000000002" y="-843.32833583208401"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="dYO-Vi-fJX">
@@ -601,7 +674,7 @@ Panic</string>
     </scenes>
     <resources>
         <image name="background" width="562" height="1218"/>
-        <image name="bubble" width="800" height="800"/>
+        <image name="bubble" width="592" height="592"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="lNl-T1-9vn"/>
