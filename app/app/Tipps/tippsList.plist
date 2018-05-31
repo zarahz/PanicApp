@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>heading</key>
+		<string>Überschrift 1</string>
+		<key>content</key>
+		<string>Das ist der erste Tipp aus der tippsList.plist Datei</string>
+	</dict>
+	<dict>
+		<key>heading</key>
+		<string>Überschrift 2</string>
+		<key>content</key>
+		<string>Das ist der zweite Tipp aus der tippsList.plist Datei. Er ist ein bisschen länger. </string>
+	</dict>
+</array>
+</plist>
