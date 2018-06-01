@@ -13,6 +13,10 @@ class SettingsMenuController: UIViewController {
     
     @IBOutlet var atHome: UIButton!
     
+    var onRoadImage = UIImage(named: "jellyfish");
+    var atHomeImage = UIImage(named: "bubble");
+    var delegate: UpdateModeImageProtocol!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("loaded settings");
@@ -22,12 +26,12 @@ class SettingsMenuController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    @IBAction func test(_ sender: Any) {
-        let alertView = UIAlertView()
-        alertView.addButton(withTitle: "Ok")
-        alertView.title = "My first swift app!!"
-        alertView.message = "Hello World"
-        alertView.show()
+    
+    @IBAction func atHomeClicked(_ sender: Any) {
+        delegate?.modeChanged(image: atHomeImage!)    }
+    
+    @IBAction func onRoadClicked(_ sender: Any) {
+        delegate?.modeChanged(image: onRoadImage!)
     }
 }
 

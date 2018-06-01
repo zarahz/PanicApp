@@ -77,23 +77,24 @@ Panic</string>
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Einstellungen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nsL-0J-REj">
-                                <rect key="frame" x="25" y="176" width="151" height="31.333333333333343"/>
+                                <rect key="frame" x="38" y="142" width="151" height="28"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TXj-Uw-qFu" userLabel="MenuContainer">
-                                <rect key="frame" x="0.0" y="207.33333333333331" width="375" height="604.66666666666674"/>
+                                <rect key="frame" x="0.0" y="197.33333333333331" width="375" height="614.66666666666674"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <segue destination="5GY-kU-cAt" kind="embed" id="T1i-ue-5vA"/>
+                                    <segue destination="5GY-kU-cAt" kind="embed" identifier="menuContainer" id="T1i-ue-5vA"/>
                                 </connections>
                             </containerView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bubble" translatesAutoresizingMaskIntoConstraints="NO" id="KcJ-3w-9sM">
-                                <rect key="frame" x="309" y="98" width="56" height="56"/>
+                                <rect key="frame" x="303" y="34" width="56" height="46"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="56" id="B0X-aC-TBB"/>
-                                    <constraint firstAttribute="height" constant="56" id="L71-cb-y3n"/>
+                                    <constraint firstAttribute="height" constant="46" id="L71-cb-y3n"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="35" id="m5t-sE-Y4f"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -101,29 +102,30 @@ Panic</string>
                         <constraints>
                             <constraint firstItem="dgj-AC-ZoM" firstAttribute="bottom" secondItem="zjs-Hs-9gY" secondAttribute="bottom" constant="34" id="5kN-IK-S7R"/>
                             <constraint firstItem="dgj-AC-ZoM" firstAttribute="trailing" secondItem="TXj-Uw-qFu" secondAttribute="trailing" id="9Oy-W9-SxE"/>
-                            <constraint firstItem="nsL-0J-REj" firstAttribute="top" secondItem="zjs-Hs-9gY" secondAttribute="top" constant="88" id="GFx-D3-jkg"/>
+                            <constraint firstItem="nsL-0J-REj" firstAttribute="top" secondItem="zjs-Hs-9gY" secondAttribute="top" constant="54" id="GFx-D3-jkg"/>
                             <constraint firstItem="dgj-AC-ZoM" firstAttribute="leading" secondItem="TXj-Uw-qFu" secondAttribute="leading" id="Ig8-Y2-um0"/>
-                            <constraint firstItem="TXj-Uw-qFu" firstAttribute="top" secondItem="KcJ-3w-9sM" secondAttribute="bottom" constant="53.329999999999998" id="Jd9-FH-Ngs"/>
-                            <constraint firstItem="TXj-Uw-qFu" firstAttribute="top" secondItem="nsL-0J-REj" secondAttribute="bottom" id="Jfa-YP-3jU"/>
-                            <constraint firstItem="KcJ-3w-9sM" firstAttribute="top" secondItem="zjs-Hs-9gY" secondAttribute="top" constant="10" id="Joh-EP-VdR"/>
-                            <constraint firstItem="nsL-0J-REj" firstAttribute="leading" secondItem="0io-vk-crq" secondAttribute="leading" constant="25" id="Lua-BI-7vR"/>
+                            <constraint firstItem="TXj-Uw-qFu" firstAttribute="top" secondItem="KcJ-3w-9sM" secondAttribute="bottom" constant="117.33333333333331" id="Jd9-FH-Ngs"/>
+                            <constraint firstItem="TXj-Uw-qFu" firstAttribute="top" secondItem="nsL-0J-REj" secondAttribute="bottom" constant="27.333333333333314" id="Jfa-YP-3jU"/>
+                            <constraint firstItem="KcJ-3w-9sM" firstAttribute="top" secondItem="zjs-Hs-9gY" secondAttribute="top" constant="-54" id="LDS-DC-tsj"/>
+                            <constraint firstItem="nsL-0J-REj" firstAttribute="leading" secondItem="0io-vk-crq" secondAttribute="leading" constant="38" id="Lua-BI-7vR"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="nsL-0J-REj" secondAttribute="trailing" id="RB3-TK-oUG"/>
                             <constraint firstItem="TXj-Uw-qFu" firstAttribute="bottom" secondItem="zjs-Hs-9gY" secondAttribute="bottom" constant="34" id="RvA-Zb-t9D"/>
                             <constraint firstItem="TXj-Uw-qFu" firstAttribute="leading" secondItem="0io-vk-crq" secondAttribute="leading" id="bRb-c6-pS8"/>
-                            <constraint firstItem="KcJ-3w-9sM" firstAttribute="leading" secondItem="zjs-Hs-9gY" secondAttribute="leading" constant="309" id="eqg-9d-JZu"/>
+                            <constraint firstItem="KcJ-3w-9sM" firstAttribute="leading" secondItem="zjs-Hs-9gY" secondAttribute="leading" constant="303" id="eqg-9d-JZu"/>
                             <constraint firstItem="dgj-AC-ZoM" firstAttribute="top" secondItem="0io-vk-crq" secondAttribute="top" id="gTj-as-95X"/>
-                            <constraint firstItem="zjs-Hs-9gY" firstAttribute="trailing" secondItem="KcJ-3w-9sM" secondAttribute="trailing" constant="10" id="q8B-06-KLJ"/>
+                            <constraint firstItem="zjs-Hs-9gY" firstAttribute="trailing" secondItem="KcJ-3w-9sM" secondAttribute="trailing" constant="16" id="q8B-06-KLJ"/>
                             <constraint firstAttribute="trailing" secondItem="TXj-Uw-qFu" secondAttribute="trailing" id="qeU-FV-DSi"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zjs-Hs-9gY"/>
                     </view>
                     <connections>
                         <outlet property="atHome" destination="Pf3-o6-HUt" id="aBh-V7-SUt"/>
+                        <outlet property="modeImage" destination="KcJ-3w-9sM" id="L7q-aR-eku"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CP0-rc-78i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1455.2" y="570.44334975369463"/>
+            <point key="canvasLocation" x="2037.5999999999999" y="604.43349753694588"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="3oy-sR-TqP">
@@ -388,7 +390,7 @@ Panic</string>
             <objects>
                 <viewController id="5GY-kU-cAt" customClass="SettingsMenuController" customModule="app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Fsy-pH-EKl">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="604.66666666666674"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="614.66666666666674"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <stackView contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="zrt-pE-MOd">
@@ -412,8 +414,8 @@ Panic</string>
                                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.79943331866197198" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
                                                         <connections>
+                                                            <action selector="atHomeClicked:" destination="5GY-kU-cAt" eventType="touchUpInside" id="ddT-gh-bTP"/>
                                                             <action selector="test:" destination="u8k-DK-eSc" eventType="touchUpInside" id="Vgf-dj-eFf"/>
-                                                            <action selector="test:" destination="5GY-kU-cAt" eventType="touchUpInside" id="ddT-gh-bTP"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Adv-CG-gJ0">
@@ -421,6 +423,9 @@ Panic</string>
                                                         <state key="normal" title="Unterwegs">
                                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="onRoadClicked:" destination="5GY-kU-cAt" eventType="touchUpInside" id="bnO-H7-L6n"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="0.79943331866197198" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
