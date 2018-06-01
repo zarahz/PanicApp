@@ -62,7 +62,7 @@ class TippsController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        showPopup()
+        //showPopup()
         // Loads tipps in tableview
         popupController?.loadSearchResult(searchQuery: textField.text)
         textField.text = nil

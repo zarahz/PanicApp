@@ -4,15 +4,33 @@
 <array>
 	<dict>
 		<key>heading</key>
-		<string>Überschrift 1</string>
+		<string>Überschrift 2</string>
 		<key>content</key>
-		<string>Das ist der erste Tipp aus der tippsList.plist Datei</string>
+		<string>Das ist der zweite Tipp aus der tippsList.plist Datei. Er ist ein bisschen länger. </string>
 	</dict>
 	<dict>
 		<key>heading</key>
 		<string>Überschrift 2</string>
 		<key>content</key>
 		<string>Das ist der zweite Tipp aus der tippsList.plist Datei. Er ist ein bisschen länger. </string>
+	</dict>
+	<dict>
+		<key>heading</key>
+		<string>Überschrift 3</string>
+		<key>content</key>
+		<string>Das ist der dritte Tipp aus der tippsList.plist Datei. Er ist ein bisschen länger. </string>
+	</dict>
+	<dict>
+		<key>heading</key>
+		<string>Überschrift 4</string>
+		<key>content</key>
+		<string>Das ist der vierte Tipp aus der tippsList.plist Datei</string>
+	</dict>
+	<dict>
+		<key>heading</key>
+		<string>Überschrift 5</string>
+		<key>content</key>
+		<string>Das ist der fünfte Tipp aus der tippsList.plist Datei. Er ist ein bisschen länger. </string>
 	</dict>
 </array>
 </plist>

@@ -82,7 +82,6 @@ class TippsPopupController: UIViewController, UITableViewDataSource, UITableView
             }
         }
         tableView.reloadData()
-        
     }
     
     func loadRandomTipp() {
