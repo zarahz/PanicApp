@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AE28F7B320AF1CF1001D36A0 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE28F7B220AF1CF1001D36A0 /* SettingsController.swift */; };
+		AE28F7B320AF1CF1001D36A0 /* SettingsMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE28F7B220AF1CF1001D36A0 /* SettingsMenuController.swift */; };
+		AE28F7B520BE9E16001D36A0 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE28F7B420BE9E16001D36A0 /* SettingsController.swift */; };
 		AE81C8AA208F635D0031BC42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE81C8A9208F635D0031BC42 /* AppDelegate.swift */; };
 		AE81C8AC208F635D0031BC42 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE81C8AB208F635D0031BC42 /* ViewController.swift */; };
 		AE81C8AF208F635D0031BC42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE81C8AD208F635D0031BC42 /* Main.storyboard */; };
@@ -24,7 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		AE28F7B220AF1CF1001D36A0 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		AE28F7B220AF1CF1001D36A0 /* SettingsMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsMenuController.swift; sourceTree = "<group>"; };
+		AE28F7B420BE9E16001D36A0 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		AE81C8A6208F635C0031BC42 /* app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE81C8A9208F635D0031BC42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE81C8AB208F635D0031BC42 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -81,7 +83,8 @@
 				AE81C8B0208F635D0031BC42 /* Assets.xcassets */,
 				AE81C8B2208F635D0031BC42 /* LaunchScreen.storyboard */,
 				AE81C8B5208F635D0031BC42 /* Info.plist */,
-				AE28F7B220AF1CF1001D36A0 /* SettingsController.swift */,
+				AE28F7B220AF1CF1001D36A0 /* SettingsMenuController.swift */,
+				AE28F7B420BE9E16001D36A0 /* SettingsController.swift */,
 				DAC01EEB20BDAE0E00A6BE28 /* BubbleButton.swift */,
 			);
 			path = app;
@@ -172,7 +175,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE28F7B320AF1CF1001D36A0 /* SettingsController.swift in Sources */,
+				AE28F7B520BE9E16001D36A0 /* SettingsController.swift in Sources */,
+				AE28F7B320AF1CF1001D36A0 /* SettingsMenuController.swift in Sources */,
 				AE81C8AC208F635D0031BC42 /* ViewController.swift in Sources */,
 				DAB2279920C00E040070CABF /* TippTableViewCell.swift in Sources */,
 				DAC01EEE20BDBAA400A6BE28 /* TippsController.swift in Sources */,
