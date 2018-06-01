@@ -95,10 +95,10 @@
 		DAB2279320BFD1DE0070CABF /* Tipps */ = {
 			isa = PBXGroup;
 			children = (
-				DAB2279820C00E040070CABF /* TippTableViewCell.swift */,
 				DAC01EED20BDBAA400A6BE28 /* TippsController.swift */,
-				DAB227A020C09A670070CABF /* ResizingTableView.swift */,
 				DAC01EF520BF1B6200A6BE28 /* TippsPopupController.swift */,
+				DAB2279820C00E040070CABF /* TippTableViewCell.swift */,
+				DAB227A020C09A670070CABF /* ResizingTableView.swift */,
 				DAB2279620C00ACD0070CABF /* Tipp.swift */,
 				DAB2279C20C0511A0070CABF /* tippsList.plist */,
 			);

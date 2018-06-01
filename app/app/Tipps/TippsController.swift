@@ -11,18 +11,31 @@ import UIKit
 class TippsController: UIViewController, UITextFieldDelegate {
     
     var bubbles = [BubbleButton]()
-    var popupController = UIStoryboard(name: "Main", bundle: nil) .
-        instantiateViewController(withIdentifier: "TippsPopup") as? TippsPopupController
-
-    @IBOutlet weak var popupContainer: UIView!
+    var tipps = [Tipp]()
+    var popupController: TippsPopupController?
     
+    
+    @IBOutlet weak var tippView: UIView!
+    @IBOutlet weak var tippHeading: UILabel!
+    @IBOutlet weak var tippContent: UILabel!
+    
+    @IBOutlet weak var popupContainer: UIView!
     @IBOutlet weak var searchField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         searchField.delegate = self
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.png")!)
         createBubbles()
+        loadTipps()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let popupController = segue.destination as? TippsPopupController {
+            self.popupController = popupController
+            popupController.delegate = self
+        }
     }
     
     func createBubbles() {
@@ -40,32 +53,55 @@ class TippsController: UIViewController, UITextFieldDelegate {
     }
     
     @objc func showRandomTipp() {
-        showPopup()
-        popupController?.loadRandomTipp()
+        print("random tipp")
+        
+        let randomIndex = Int(arc4random_uniform(UInt32(tipps.count)))
+        tippHeading.text = popupController!.tipps[randomIndex].heading
+        tippContent.text = popupController!.tipps[randomIndex].content
+        
+        tippView.isHidden = false
     }
     
-   func showPopup() {
+    @IBAction func closeTipp(_ sender: UIButton) {
+        tippView.isHidden = true
+    }
+    
+    func closePopup() {
+        popupContainer.isHidden = true
+    }
+    
+    func showPopup() {
+        print("show popup")
+        tippView.isHidden = true
         guard let popup = self.popupController else {
             fatalError("TippsPopupController couldn't be loaded")
         }
-        self.addChildViewController(popup)
-        popup.view.frame = popupContainer.frame
-        UIView.transition(with: self.view, duration: 0.5, options: UIViewAnimationOptions.transitionCrossDissolve,
-                                  animations: {self.view.addSubview(popup.view)}, completion: nil)
-        popup.didMove(toParentViewController: self)
+        UIView.animate(withDuration:0.2, animations: {popup.view.frame.origin.y = self.popupContainer.frame.origin.y},
+                       completion: nil)
+        popupContainer.isHidden = false
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        // Hides the keyboard
         searchField.resignFirstResponder()
         return true
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        //showPopup()
-        // Loads tipps in tableview
-        popupController?.loadSearchResult(searchQuery: textField.text)
-        textField.text = nil
+        showPopup()
+        popupController!.showSearchResult(searchQuery: textField.text)
     }
-
+    
+    private func loadTipps() {
+        let tippsListURL: URL = URL(fileURLWithPath:Bundle.main.path(forResource:"tippsList", ofType: "plist")!)
+        
+        do {
+            let data = try Data(contentsOf: tippsListURL)
+            let decoder = PropertyListDecoder()
+            self.tipps = try decoder.decode([Tipp].self, from: data)
+        } catch {
+            print(error)
+        }
+        
+    }
+    
 }

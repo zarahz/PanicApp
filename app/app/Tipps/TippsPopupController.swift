@@ -11,6 +11,8 @@ import UIKit
 class TippsPopupController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var tipps = [Tipp]()
     var displayedTipps = [Tipp]()
+    var searchQuery: String?
+    var delegate: TippsController?
     
     let spacingBetweenRows:CGFloat = 10
     
@@ -18,11 +20,12 @@ class TippsPopupController: UIViewController, UITableViewDataSource, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadTipps()
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.backgroundColor = UIColor.clear
+        loadTipps()
     }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
@@ -56,23 +59,14 @@ class TippsPopupController: UIViewController, UITableViewDataSource, UITableView
         return cell
     }
     
-    
-    func loadSampleTipps() {
-        for i in 1...3 {
-            let tipp = Tipp(heading: "Tipp \(i)", content: "dfsg gs dvfms fsgjzdfgsjdz svdfg fsdgfhs sf end\ntefthf tfefth ttae tafe fxgje jtejrshshtdj  trstrsrsjrs rs tes trs zrs zsrs z udtdzrsos tdsztisrs zrdrd")
-            tipps.append(tipp)
-        }
-    }
-    
-    
     @IBAction func close(_ sender: UIButton) {
-        self.removeFromParentViewController()
-        self.view.removeFromSuperview()
+        delegate?.closePopup()
         displayedTipps.removeAll()
         tableView.reloadData()
     }
     
-    func loadSearchResult(searchQuery: String?) {
+    func showSearchResult(searchQuery: String?) {
+        print("show search result")
         displayedTipps.removeAll()
         if let search = searchQuery {
             for tip in tipps {
@@ -81,13 +75,7 @@ class TippsPopupController: UIViewController, UITableViewDataSource, UITableView
                 }
             }
         }
-        tableView.reloadData()
-    }
-    
-    func loadRandomTipp() {
-        displayedTipps.removeAll()
-        let randomIndex = Int(arc4random_uniform(UInt32(tipps.count)))
-        displayedTipps.append(tipps[randomIndex])
+        print("results: \(displayedTipps.count)")
         tableView.reloadData()
     }
     
