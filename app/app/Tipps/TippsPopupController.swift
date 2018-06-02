@@ -14,7 +14,7 @@ class TippsPopupController: UIViewController, UITableViewDataSource, UITableView
     var searchQuery: String?
     var delegate: TippsController?
     
-    let spacingBetweenRows:CGFloat = 10
+    let spacingBetweenRows:CGFloat = 15
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -65,17 +65,14 @@ class TippsPopupController: UIViewController, UITableViewDataSource, UITableView
         tableView.reloadData()
     }
     
-    func showSearchResult(searchQuery: String?) {
-        print("show search result")
+    func showSearchResult(searchQuery: String) {
         displayedTipps.removeAll()
-        if let search = searchQuery {
-            for tip in tipps {
-                if tip.content.contains(search)  {
-                    displayedTipps.append(tip)
-                }
+        for tip in tipps {
+            if tip.content.lowercased().contains(searchQuery.lowercased()) ||
+                tip.heading.lowercased().contains(searchQuery.lowercased()) {
+                displayedTipps.append(tip)
             }
         }
-        print("results: \(displayedTipps.count)")
         tableView.reloadData()
     }
     

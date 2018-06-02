@@ -8,27 +8,50 @@
 
 import UIKit
 
-class TippsController: UIViewController, UITextFieldDelegate {
+class TippsController: UIViewController, UISearchBarDelegate {
     
     var bubbles = [BubbleButton]()
     var tipps = [Tipp]()
     var popupController: TippsPopupController?
     
     
+    @IBOutlet weak var bubbleView: UIView!
     @IBOutlet weak var tippView: UIView!
     @IBOutlet weak var tippHeading: UILabel!
     @IBOutlet weak var tippContent: UILabel!
     
+    @IBOutlet weak var searchField: UISearchBar!
     @IBOutlet weak var popupContainer: UIView!
-    @IBOutlet weak var searchField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardChanged(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
+        
+        tippView.layer.shadowColor = UIColor.black.cgColor
+        tippView.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        tippView.layer.shadowOpacity = 1.0
+        tippView.layer.shadowRadius = 8.0
         
         searchField.delegate = self
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.png")!)
         createBubbles()
         loadTipps()
+    }
+    
+    @objc func keyboardChanged(notification: NSNotification) {
+        if let userInfo = notification.userInfo {
+            let keyboardRect = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+            let keyboardY = keyboardRect?.origin.y ?? 0
+            let duration:TimeInterval = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
+            let animationCurveRawNSN = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber
+            
+            UIView.animate(withDuration: duration,
+                           delay: 0,
+                           options: UIViewAnimationOptions(rawValue: UIViewAnimationOptions.RawValue(truncating: animationCurveRawNSN!)),
+                           animations: { self.view.frame.size.height = keyboardY},
+                           completion: nil)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -48,22 +71,22 @@ class TippsController: UIViewController, UITextFieldDelegate {
             let bubble = BubbleButton(frame: CGRect(x: xPos, y: yPos, width: bubbleWidth, height: bubbleWidth))
             bubble.addTarget(self, action: #selector(TippsController.showRandomTipp), for: .touchDown)
             bubbles.append(bubble)
-            self.view.insertSubview(bubble, at: 0)
+            self.bubbleView.insertSubview(bubble, at:0)
         }
     }
     
     @objc func showRandomTipp() {
-        print("random tipp")
-        
         let randomIndex = Int(arc4random_uniform(UInt32(tipps.count)))
         tippHeading.text = popupController!.tipps[randomIndex].heading
         tippContent.text = popupController!.tipps[randomIndex].content
         
         tippView.isHidden = false
+        view.bringSubview(toFront: tippView)
     }
     
-    @IBAction func closeTipp(_ sender: UIButton) {
+    @IBAction func closeTipp() {
         tippView.isHidden = true
+        view.sendSubview(toBack: tippView)
     }
     
     func closePopup() {
@@ -71,24 +94,31 @@ class TippsController: UIViewController, UITextFieldDelegate {
     }
     
     func showPopup() {
-        print("show popup")
-        tippView.isHidden = true
         guard let popup = self.popupController else {
             fatalError("TippsPopupController couldn't be loaded")
         }
+        popup.view.frame.origin.y = view.frame.height
         UIView.animate(withDuration:0.2, animations: {popup.view.frame.origin.y = self.popupContainer.frame.origin.y},
                        completion: nil)
         popupContainer.isHidden = false
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        searchField.resignFirstResponder()
-        return true
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        closeTipp()
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        showPopup()
-        popupController!.showSearchResult(searchQuery: textField.text)
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchField.resignFirstResponder()
+        if let searchQuery = searchBar.text {
+            if !searchQuery.isEmpty {
+                showPopup()
+                popupController!.showSearchResult(searchQuery: searchQuery)
+            }
+        }
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        //Display results while still typing?
     }
     
     private func loadTipps() {
