@@ -393,7 +393,7 @@ Panic</string>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <stackView contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="zrt-pE-MOd">
-                                <rect key="frame" x="37" y="48" width="301" height="460"/>
+                                <rect key="frame" x="37" y="54" width="301" height="516.66666666666663"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="aHL-VG-WgD">
                                         <rect key="frame" x="0.0" y="0.0" width="301" height="115"/>
@@ -557,23 +557,23 @@ Panic</string>
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="U2f-z6-BKU">
-                                        <rect key="frame" x="0.0" y="345" width="301" height="115"/>
+                                        <rect key="frame" x="0.0" y="345" width="301" height="171.66666666666663"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spotify" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Tn-JL-Jww">
-                                                <rect key="frame" x="0.0" y="0.0" width="80" height="55"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="80" height="111.66666666666667"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                 <color key="textColor" red="0.38090997409999999" green="0.38090997409999999" blue="0.38090997409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VWf-fK-sz6">
-                                                <rect key="frame" x="0.0" y="55" width="301" height="60"/>
+                                                <rect key="frame" x="0.0" y="111.66666666666669" width="301" height="60"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v2n-jC-GgT">
-                                                        <rect key="frame" x="38" y="21" width="46" height="18"/>
+                                                        <rect key="frame" x="38" y="20.999999999999943" width="46" height="18"/>
                                                         <state key="normal" title="Button"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LMa-FQ-hPH">
-                                                        <rect key="frame" x="235" y="21" width="46" height="18"/>
+                                                        <rect key="frame" x="235" y="20.999999999999943" width="46" height="18"/>
                                                         <state key="normal" title="Button"/>
                                                     </button>
                                                 </subviews>
@@ -606,8 +606,9 @@ Panic</string>
                         </subviews>
                         <constraints>
                             <constraint firstItem="zrt-pE-MOd" firstAttribute="centerX" secondItem="Fsy-pH-EKl" secondAttribute="centerX" id="5sO-MT-DF9"/>
+                            <constraint firstItem="zrt-pE-MOd" firstAttribute="top" secondItem="8ml-gd-cDl" secondAttribute="top" constant="10" id="NT4-2v-641"/>
+                            <constraint firstItem="8ml-gd-cDl" firstAttribute="bottom" secondItem="zrt-pE-MOd" secondAttribute="bottom" constant="10" id="dcp-15-1Ul"/>
                             <constraint firstItem="zrt-pE-MOd" firstAttribute="leading" secondItem="8ml-gd-cDl" secondAttribute="leading" constant="37" id="fhs-5F-kNP"/>
-                            <constraint firstItem="zrt-pE-MOd" firstAttribute="centerY" secondItem="Fsy-pH-EKl" secondAttribute="centerY" constant="-29.5" id="qhN-OM-fzu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8ml-gd-cDl"/>
                     </view>
