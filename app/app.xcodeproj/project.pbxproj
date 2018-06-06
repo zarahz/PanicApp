@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8443F22F20C175AB003721F7 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8443F22E20C175AB003721F7 /* HomeController.swift */; };
 		AE28F7B320AF1CF1001D36A0 /* SettingsMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE28F7B220AF1CF1001D36A0 /* SettingsMenuController.swift */; };
 		AE28F7B520BE9E16001D36A0 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE28F7B420BE9E16001D36A0 /* SettingsController.swift */; };
 		AE81C8AA208F635D0031BC42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE81C8A9208F635D0031BC42 /* AppDelegate.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8443F22E20C175AB003721F7 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		AE28F7B220AF1CF1001D36A0 /* SettingsMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsMenuController.swift; sourceTree = "<group>"; };
 		AE28F7B420BE9E16001D36A0 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		AE81C8A6208F635C0031BC42 /* app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = app.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,6 +57,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8443F22D20C17557003721F7 /* home */ = {
+			isa = PBXGroup;
+			children = (
+				8443F22E20C175AB003721F7 /* HomeController.swift */,
+			);
+			path = home;
+			sourceTree = "<group>";
+		};
 		AE81C89D208F635C0031BC42 = {
 			isa = PBXGroup;
 			children = (
@@ -74,6 +84,7 @@
 		AE81C8A8208F635C0031BC42 /* app */ = {
 			isa = PBXGroup;
 			children = (
+				8443F22D20C17557003721F7 /* home */,
 				DA55051920B2EA5000A1DA7D /* TutorialPageViewController.swift */,
 				AE81C8A9208F635D0031BC42 /* AppDelegate.swift */,
 				AE81C8AB208F635D0031BC42 /* ViewController.swift */,
@@ -183,6 +194,7 @@
 				DA76468820BD55C50056A492 /* NavigationController.swift in Sources */,
 				DAC01EEC20BDAE0E00A6BE28 /* BubbleButton.swift in Sources */,
 				DAB2279720C00ACD0070CABF /* Tipp.swift in Sources */,
+				8443F22F20C175AB003721F7 /* HomeController.swift in Sources */,
 				DAC01EF620BF1B6200A6BE28 /* TippsPopupController.swift in Sources */,
 				AE81C8AA208F635D0031BC42 /* AppDelegate.swift in Sources */,
 				DA55051A20B2EA5000A1DA7D /* TutorialPageViewController.swift in Sources */,
