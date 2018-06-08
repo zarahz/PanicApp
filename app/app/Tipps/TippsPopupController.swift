@@ -9,8 +9,8 @@
 import UIKit
 
 class TippsPopupController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    var tipps = [Tipp]()
-    var displayedTipps = [Tipp]()
+    var tipps = [Message]()
+    var displayedTipps = [Message]()
     var searchQuery: String?
     var delegate: TippsController?
     
@@ -46,17 +46,25 @@ class TippsPopupController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellIdentifier = "TippTableViewCell"
+        let message = displayedTipps[indexPath.section]
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? TippTableViewCell else {
-            fatalError("The dequeued cell is not an instance of TippTableViewCell.")
+        var cellId:String {
+            if !message.isResponse {return "InputCell"}
+            else if message.heading.isEmpty {return "ResponseCell"}
+            else {return "TipCell"}
         }
         
-        let tipp = displayedTipps[indexPath.section]
-        cell.headingLabel.text = tipp.heading
-        cell.contentLabel.text = tipp.content
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? TippTableViewCell else {
+            fatalError("The dequeued cell is not an instance of TippTableViewCell.")
+        }
+        cell.headingLabel.text = message.heading
+        cell.contentLabel.text = message.content
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = UIColor.clear
     }
     
     @IBAction func close(_ sender: UIButton) {
@@ -76,13 +84,28 @@ class TippsPopupController: UIViewController, UITableViewDataSource, UITableView
         tableView.reloadData()
     }
     
+    func showResponse(response: String) {
+        let message = Message(content: response)
+        displayedTipps.append(message)
+        tableView.reloadData()
+        tableView.scrollToRow(at: IndexPath(row: 0, section: tableView.numberOfSections-1), at: .top , animated: true)
+    }
+    
+    func showInput(input: String) {
+        var message = Message(content: input)
+        message.isResponse = false
+        displayedTipps.append(message)
+        tableView.reloadData()
+        tableView.scrollToRow(at: IndexPath(row: 0, section: tableView.numberOfSections-1), at: .bottom , animated: true)
+    }
+    
     private func loadTipps() {
         let tippsListURL: URL = URL(fileURLWithPath:Bundle.main.path(forResource:"tippsList", ofType: "plist")!)
         
         do {
             let data = try Data(contentsOf: tippsListURL)
             let decoder = PropertyListDecoder()
-            self.tipps = try decoder.decode([Tipp].self, from: data)
+            self.tipps = try decoder.decode([Message].self, from: data)
         } catch {
             print(error)
         }

@@ -1,5 +1,5 @@
 //
-//  Tipp.swift
+//  Message.swift
 //  app
 //
 //  Created by Paula Wikidal on 31.05.18.
@@ -8,8 +8,9 @@
 
 import Foundation
 
-struct Tipp: Decodable {
+struct Message: Decodable {
     
+    var isResponse = true
     var heading: String
     var content: String
     
