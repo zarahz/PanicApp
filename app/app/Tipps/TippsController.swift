@@ -70,9 +70,9 @@ class TippsController: UIViewController, UISearchBarDelegate {
         
         tippView.isHidden = false
         
-         tippView.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
-         UIView.transition(with: tippView, duration: 0.2, options: .transitionCrossDissolve, animations: { self.tippView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)}, completion: nil)
- 
+        tippView.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+        UIView.transition(with: tippView, duration: 0.2, options: .transitionCrossDissolve, animations: { self.tippView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)}, completion: nil)
+        
         view.bringSubview(toFront: tippView)
     }
     
@@ -106,6 +106,7 @@ class TippsController: UIViewController, UISearchBarDelegate {
                            options: UIViewAnimationOptions(rawValue: UIViewAnimationOptions.RawValue(truncating: animationCurveRawNSN!)),
                            animations: { self.view.frame.size.height = keyboardY},
                            completion: nil)
+            popupController.scrollToBottom()
         }
     }
     
@@ -134,7 +135,7 @@ class TippsController: UIViewController, UISearchBarDelegate {
             }
         }, failure: { (request, error) in
             print(error!)
-            self.popupController.showResponse(response: "Verbindung zum Chatbot zur Zeit nicht möglich" )
+            self.popupController.showResponse(response: "Verbindung zum Chatbot nicht möglich" )
         })
         ApiAI.shared().enqueue(welcomeRequest)
     }
@@ -158,6 +159,7 @@ class TippsController: UIViewController, UISearchBarDelegate {
     
     func sendMessageToBot(text: String) {
         self.popupController.showInput(input: text )
+        self.searchField.text = ""
         
         let request = ApiAI.shared().textRequest()
         request?.query = text
@@ -169,7 +171,7 @@ class TippsController: UIViewController, UISearchBarDelegate {
             }
         }, failure: { (request, error) in
             print(error!)
-            self.popupController.showResponse(response: "Verbindung zum Chatbot zur Zeit nicht möglich")
+            self.popupController.showResponse(response: "Verbindung zum Chatbot nicht möglich")
         })
         
         ApiAI.shared().enqueue(request)

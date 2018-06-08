@@ -16,6 +16,8 @@ class TippsPopupController: UIViewController, UITableViewDataSource, UITableView
     
     let spacingBetweenRows:CGFloat = 15
     
+    
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -25,7 +27,6 @@ class TippsPopupController: UIViewController, UITableViewDataSource, UITableView
         self.tableView.backgroundColor = UIColor.clear
         loadTipps()
     }
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
@@ -88,7 +89,7 @@ class TippsPopupController: UIViewController, UITableViewDataSource, UITableView
         let message = Message(content: response)
         displayedTipps.append(message)
         tableView.reloadData()
-        tableView.scrollToRow(at: IndexPath(row: 0, section: tableView.numberOfSections-1), at: .top , animated: true)
+        scrollToBottom()
     }
     
     func showInput(input: String) {
@@ -96,7 +97,13 @@ class TippsPopupController: UIViewController, UITableViewDataSource, UITableView
         message.isResponse = false
         displayedTipps.append(message)
         tableView.reloadData()
-        tableView.scrollToRow(at: IndexPath(row: 0, section: tableView.numberOfSections-1), at: .bottom , animated: true)
+        scrollToBottom()
+    }
+    
+    func scrollToBottom() {
+        if tableView.numberOfSections > 0 {
+            tableView.scrollToRow(at: IndexPath(row: 0, section: tableView.numberOfSections-1), at: .top , animated: false)
+        }
     }
     
     private func loadTipps() {
@@ -111,5 +118,4 @@ class TippsPopupController: UIViewController, UITableViewDataSource, UITableView
         }
         
     }
-    
 }
