@@ -51,7 +51,7 @@ class TippsController: UIViewController, UISearchBarDelegate {
             bubble.addTarget(self, action: #selector(TippsController.pop(_:)), for: .touchDown)
             bubbles.append(bubble)
             self.bubbleView.insertSubview(bubble, at:0)
-            //bubble.animate()
+            bubble.animate()
         }
     }
     
@@ -105,7 +105,7 @@ class TippsController: UIViewController, UISearchBarDelegate {
                            delay: 0,
                            options: UIViewAnimationOptions(rawValue: UIViewAnimationOptions.RawValue(truncating: animationCurveRawNSN!)),
                            animations: { self.view.frame.size.height = keyboardY},
-                           completion: nil)
+                           completion: {_ in self.popupController.scrollToBottom()})
             popupController.scrollToBottom()
         }
     }
@@ -178,15 +178,17 @@ class TippsController: UIViewController, UISearchBarDelegate {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        closeTipp()
         let touch = touches.first
         let touchLocation = (touch?.location(in: self.bubbleView))!
-        
-        for bubble in bubbles {
-            if bubble.layer.presentation()?.hitTest(touchLocation) != nil {
-                bubble.sendActions(for: .touchDown)
+        if popupContainer.isHidden {
+            for bubble in bubbles {
+                if bubble.layer.presentation()?.hitTest(touchLocation) != nil {
+                    bubble.sendActions(for: .touchDown)
+                }
             }
         }
-        super.touchesBegan(touches, with: event)
+        //super.touchesBegan(touches, with: event)
     }
     
     private func loadTipps() {

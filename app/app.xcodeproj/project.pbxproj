@@ -17,9 +17,9 @@
 		AE81C8B4208F635D0031BC42 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE81C8B2208F635D0031BC42 /* LaunchScreen.storyboard */; };
 		DA76468820BD55C50056A492 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA76468720BD55C50056A492 /* NavigationController.swift */; };
 		DA85693620C9C695003DBA4E /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA85693520C9C695003DBA4E /* Message.swift */; };
+		DA85693820CAE8E9003DBA4E /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA85693720CAE8E9003DBA4E /* MessageTableViewCell.swift */; };
 		DAB2279920C00E040070CABF /* TippTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB2279820C00E040070CABF /* TippTableViewCell.swift */; };
 		DAB2279D20C0511A0070CABF /* tippsList.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAB2279C20C0511A0070CABF /* tippsList.plist */; };
-		DAB227A120C09A670070CABF /* ResizingTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB227A020C09A670070CABF /* ResizingTableView.swift */; };
 		DAC01EEC20BDAE0E00A6BE28 /* BubbleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC01EEB20BDAE0E00A6BE28 /* BubbleButton.swift */; };
 		DAC01EEE20BDBAA400A6BE28 /* TippsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC01EED20BDBAA400A6BE28 /* TippsController.swift */; };
 		DAC01EF620BF1B6200A6BE28 /* TippsPopupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC01EF520BF1B6200A6BE28 /* TippsPopupController.swift */; };
@@ -40,9 +40,9 @@
 		AE81C8B5208F635D0031BC42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA76468720BD55C50056A492 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		DA85693520C9C695003DBA4E /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		DA85693720CAE8E9003DBA4E /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 		DAB2279820C00E040070CABF /* TippTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TippTableViewCell.swift; sourceTree = "<group>"; };
 		DAB2279C20C0511A0070CABF /* tippsList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = tippsList.plist; sourceTree = "<group>"; };
-		DAB227A020C09A670070CABF /* ResizingTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizingTableView.swift; sourceTree = "<group>"; };
 		DAC01EEB20BDAE0E00A6BE28 /* BubbleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleButton.swift; sourceTree = "<group>"; };
 		DAC01EED20BDBAA400A6BE28 /* TippsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TippsController.swift; sourceTree = "<group>"; };
 		DAC01EF520BF1B6200A6BE28 /* TippsPopupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TippsPopupController.swift; sourceTree = "<group>"; };
@@ -118,9 +118,9 @@
 			children = (
 				DAC01EED20BDBAA400A6BE28 /* TippsController.swift */,
 				DA85693520C9C695003DBA4E /* Message.swift */,
+				DA85693720CAE8E9003DBA4E /* MessageTableViewCell.swift */,
 				DAC01EF520BF1B6200A6BE28 /* TippsPopupController.swift */,
 				DAB2279820C00E040070CABF /* TippTableViewCell.swift */,
-				DAB227A020C09A670070CABF /* ResizingTableView.swift */,
 				DAB2279C20C0511A0070CABF /* tippsList.plist */,
 			);
 			path = Tipps;
@@ -245,9 +245,9 @@
 				AE81C8AC208F635D0031BC42 /* ViewController.swift in Sources */,
 				DAB2279920C00E040070CABF /* TippTableViewCell.swift in Sources */,
 				DAC01EEE20BDBAA400A6BE28 /* TippsController.swift in Sources */,
+				DA85693820CAE8E9003DBA4E /* MessageTableViewCell.swift in Sources */,
 				DA76468820BD55C50056A492 /* NavigationController.swift in Sources */,
 				DA85693620C9C695003DBA4E /* Message.swift in Sources */,
-				DAB227A120C09A670070CABF /* ResizingTableView.swift in Sources */,
 				DAC01EEC20BDAE0E00A6BE28 /* BubbleButton.swift in Sources */,
 				DAC01EF620BF1B6200A6BE28 /* TippsPopupController.swift in Sources */,
 				AE81C8AA208F635D0031BC42 /* AppDelegate.swift in Sources */,

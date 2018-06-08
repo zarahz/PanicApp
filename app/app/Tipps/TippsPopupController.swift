@@ -14,7 +14,7 @@ class TippsPopupController: UIViewController, UITableViewDataSource, UITableView
     var searchQuery: String?
     var delegate: TippsController?
     
-    let spacingBetweenRows:CGFloat = 15
+    let spacingBetweenRows:CGFloat = 8
     
     
     
@@ -25,11 +25,21 @@ class TippsPopupController: UIViewController, UITableViewDataSource, UITableView
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.backgroundColor = UIColor.clear
+        
+        let bgView = UIVisualEffectView()
+        self.tableView.backgroundView = bgView
         loadTipps()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
+    }
+    
+    @IBAction func close(_ sender: UIButton) {
+        print("close")
+        delegate?.closePopup()
+        displayedTipps.removeAll()
+        tableView.reloadData()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -48,30 +58,35 @@ class TippsPopupController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let message = displayedTipps[indexPath.section]
+        var cellId:String
         
-        var cellId:String {
-            if !message.isResponse {return "InputCell"}
-            else if message.heading.isEmpty {return "ResponseCell"}
-            else {return "TipCell"}
+        if message.heading.isEmpty {
+            if message.isResponse {
+                cellId = "ResponseCell"
+            } else {
+                cellId = "InputCell"
+            }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? MessageTableViewCell else {
+                fatalError("The dequeued cell is not an instance of MessageTableViewCell.")
+            }
+            cell.messageLabel.text = message.content
+            return cell
         }
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? TippTableViewCell else {
-            fatalError("The dequeued cell is not an instance of TippTableViewCell.")
+        else {
+            cellId = "TipCell"
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? TippTableViewCell else {
+                fatalError("The dequeued cell is not an instance of TipTableViewCell.")
+            }
+            cell.headingLabel.text = message.heading
+            cell.contentLabel.text = message.content
+            
+            return cell
         }
-        cell.headingLabel.text = message.heading
-        cell.contentLabel.text = message.content
-        
-        return cell
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.backgroundColor = UIColor.clear
-    }
-    
-    @IBAction func close(_ sender: UIButton) {
-        delegate?.closePopup()
-        displayedTipps.removeAll()
-        tableView.reloadData()
     }
     
     func showSearchResult(searchQuery: String) {
