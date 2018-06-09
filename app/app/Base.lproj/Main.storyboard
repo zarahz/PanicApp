@@ -89,7 +89,7 @@ Panic</string>
                                     <segue destination="5GY-kU-cAt" kind="embed" identifier="menuContainer" id="T1i-ue-5vA"/>
                                 </connections>
                             </containerView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bubble" translatesAutoresizingMaskIntoConstraints="NO" id="KcJ-3w-9sM">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jellyfish" translatesAutoresizingMaskIntoConstraints="NO" id="KcJ-3w-9sM">
                                 <rect key="frame" x="319" y="48" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="7Sx-J4-6DZ"/>
@@ -405,7 +405,7 @@ Panic</string>
                                                 <rect key="frame" x="0.0" y="66.333333333333329" width="301" height="60"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="KWS-H1-oIA">
-                                                        <rect key="frame" x="26" y="10.000000000000014" width="249" height="40"/>
+                                                        <rect key="frame" x="20" y="10.000000000000014" width="261" height="40"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pf3-o6-HUt">
                                                                 <rect key="frame" x="0.0" y="0.0" width="66" height="40"/>
@@ -421,7 +421,7 @@ Panic</string>
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Adv-CG-gJ0">
-                                                                <rect key="frame" x="174" y="0.0" width="75" height="40"/>
+                                                                <rect key="frame" x="186" y="0.0" width="75" height="40"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="40" id="2jb-hj-elX"/>
                                                                 </constraints>
@@ -437,10 +437,10 @@ Panic</string>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="0.79943331866197198" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstItem="KWS-H1-oIA" firstAttribute="leading" secondItem="g48-ZX-5n4" secondAttribute="leading" constant="26" id="0Tg-Zp-5kp"/>
+                                                    <constraint firstItem="KWS-H1-oIA" firstAttribute="leading" secondItem="g48-ZX-5n4" secondAttribute="leading" constant="20" id="0Tg-Zp-5kp"/>
                                                     <constraint firstItem="KWS-H1-oIA" firstAttribute="top" secondItem="g48-ZX-5n4" secondAttribute="top" constant="10" id="8oh-kc-zH3"/>
                                                     <constraint firstAttribute="bottom" secondItem="KWS-H1-oIA" secondAttribute="bottom" constant="10" id="PyR-o8-VxU"/>
-                                                    <constraint firstAttribute="trailing" secondItem="KWS-H1-oIA" secondAttribute="trailing" constant="26" id="uyK-S1-fVz"/>
+                                                    <constraint firstAttribute="trailing" secondItem="KWS-H1-oIA" secondAttribute="trailing" constant="20" id="uyK-S1-fVz"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -462,7 +462,7 @@ Panic</string>
                                                 <rect key="frame" x="0.0" y="66.333333333333314" width="301" height="60"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="4pL-3k-GLu">
-                                                        <rect key="frame" x="26" y="10.000000000000028" width="249" height="40"/>
+                                                        <rect key="frame" x="20" y="10.000000000000028" width="261" height="40"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VCp-rY-9zO">
                                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
@@ -473,7 +473,7 @@ Panic</string>
                                                                 </constraints>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1by-E6-Br1">
-                                                                <rect key="frame" x="69.666666666666657" y="0.0" width="40" height="40"/>
+                                                                <rect key="frame" x="73.666666666666657" y="0.0" width="40" height="40"/>
                                                                 <color key="backgroundColor" red="0.59889439543612444" green="0.68244450128198619" blue="0.89512611040609136" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="40" id="Q9w-b1-zrp"/>
@@ -481,7 +481,7 @@ Panic</string>
                                                                 </constraints>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QKL-nR-pTm">
-                                                                <rect key="frame" x="139.33333333333334" y="0.0" width="40" height="40"/>
+                                                                <rect key="frame" x="147.33333333333334" y="0.0" width="40" height="40"/>
                                                                 <color key="backgroundColor" red="0.65531587474428066" green="0.89512611040609136" blue="0.7325759441768982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="40" id="cl2-Wh-Gdf"/>
@@ -489,7 +489,7 @@ Panic</string>
                                                                 </constraints>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U7P-Bc-rqO">
-                                                                <rect key="frame" x="209" y="0.0" width="40" height="40"/>
+                                                                <rect key="frame" x="221" y="0.0" width="40" height="40"/>
                                                                 <color key="backgroundColor" red="0.89512611040609136" green="0.57867408146557187" blue="0.52196675221149491" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="40" id="5yc-02-3GO"/>
@@ -502,9 +502,9 @@ Panic</string>
                                                 <color key="backgroundColor" white="1" alpha="0.79943331870000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="bottom" secondItem="4pL-3k-GLu" secondAttribute="bottom" constant="10" id="3b8-0y-4A1"/>
-                                                    <constraint firstItem="4pL-3k-GLu" firstAttribute="leading" secondItem="oF5-TR-CqU" secondAttribute="leading" constant="26" id="ajX-mq-Hkm"/>
+                                                    <constraint firstItem="4pL-3k-GLu" firstAttribute="leading" secondItem="oF5-TR-CqU" secondAttribute="leading" constant="20" id="ajX-mq-Hkm"/>
                                                     <constraint firstItem="4pL-3k-GLu" firstAttribute="top" secondItem="oF5-TR-CqU" secondAttribute="top" constant="10" id="u5X-Uh-ngb"/>
-                                                    <constraint firstAttribute="trailing" secondItem="4pL-3k-GLu" secondAttribute="trailing" constant="26" id="zyF-0z-CvC"/>
+                                                    <constraint firstAttribute="trailing" secondItem="4pL-3k-GLu" secondAttribute="trailing" constant="20" id="zyF-0z-CvC"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -516,41 +516,44 @@ Panic</string>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="1L8-hj-sFK">
                                         <rect key="frame" x="0.0" y="268.66666666666669" width="301" height="126"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GPS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7h-mh-dqK">
-                                                <rect key="frame" x="0.0" y="0.0" width="50" height="66"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GPS Heim " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7h-mh-dqK">
+                                                <rect key="frame" x="0.0" y="0.0" width="120.66666666666667" height="56"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="56" id="OM2-3R-e2u"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                 <color key="textColor" red="0.38090997409999999" green="0.38090997409999999" blue="0.38090997409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZXT-fJ-AYh">
-                                                <rect key="frame" x="0.0" y="66" width="301" height="60"/>
+                                                <rect key="frame" x="0.0" y="56" width="301" height="70"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="OHt-7Z-TqF">
-                                                        <rect key="frame" x="26" y="10" width="249" height="40"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OHt-7Z-TqF">
+                                                        <rect key="frame" x="20" y="10" width="261" height="50"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cef-Q9-k5c">
-                                                                <rect key="frame" x="0.0" y="0.0" width="46" height="40"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="40" id="v8t-1f-cH2"/>
-                                                                </constraints>
-                                                                <state key="normal" title="Button"/>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cul-fj-f33">
+                                                                <rect key="frame" x="0.0" y="0.0" width="130.66666666666666" height="50"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                <state key="normal" title="This Location"/>
+                                                                <connections>
+                                                                    <action selector="atHomeClicked:" destination="5GY-kU-cAt" eventType="touchUpInside" id="Caf-LE-yJs"/>
+                                                                    <action selector="homeLocationClicked:" destination="5GY-kU-cAt" eventType="touchUpInside" id="oCg-eA-Wen"/>
+                                                                </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hyn-ER-mcF">
-                                                                <rect key="frame" x="203" y="0.0" width="46" height="40"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="40" id="Clt-bi-LuZ"/>
-                                                                </constraints>
-                                                                <state key="normal" title="Button"/>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EoY-Cl-LOA">
+                                                                <rect key="frame" x="130.66666666666663" y="0.0" width="130.33333333333337" height="50"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                <state key="normal" title="Other Location as Home"/>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="0.79943331870000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstItem="OHt-7Z-TqF" firstAttribute="top" secondItem="ZXT-fJ-AYh" secondAttribute="top" constant="10" id="5ne-bu-hDT"/>
-                                                    <constraint firstAttribute="trailing" secondItem="OHt-7Z-TqF" secondAttribute="trailing" constant="26" id="BaR-xr-0Se"/>
-                                                    <constraint firstAttribute="bottom" secondItem="OHt-7Z-TqF" secondAttribute="bottom" constant="10" id="M0P-Jz-VOA"/>
-                                                    <constraint firstItem="OHt-7Z-TqF" firstAttribute="leading" secondItem="ZXT-fJ-AYh" secondAttribute="leading" constant="26" id="d0R-Pw-tsC"/>
+                                                    <constraint firstAttribute="trailing" secondItem="OHt-7Z-TqF" secondAttribute="trailing" constant="20" id="BaR-xr-0Se"/>
+                                                    <constraint firstItem="OHt-7Z-TqF" firstAttribute="top" secondItem="ZXT-fJ-AYh" secondAttribute="top" constant="10" id="SEH-bx-pgp"/>
+                                                    <constraint firstItem="OHt-7Z-TqF" firstAttribute="leading" secondItem="ZXT-fJ-AYh" secondAttribute="leading" constant="20" id="d0R-Pw-tsC"/>
+                                                    <constraint firstAttribute="bottom" secondItem="OHt-7Z-TqF" secondAttribute="bottom" constant="10" id="rq1-EN-hZq"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -572,7 +575,7 @@ Panic</string>
                                                 <rect key="frame" x="0.0" y="66.333333333333314" width="301" height="60"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Ysd-dS-hCZ">
-                                                        <rect key="frame" x="26" y="10" width="249" height="40"/>
+                                                        <rect key="frame" x="20" y="10" width="261" height="40"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v2n-jC-GgT">
                                                                 <rect key="frame" x="0.0" y="0.0" width="46" height="40"/>
@@ -582,7 +585,7 @@ Panic</string>
                                                                 <state key="normal" title="Button"/>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LMa-FQ-hPH">
-                                                                <rect key="frame" x="203" y="0.0" width="46" height="40"/>
+                                                                <rect key="frame" x="215" y="0.0" width="46" height="40"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="40" id="IfT-Oe-lYD"/>
                                                                 </constraints>
@@ -593,10 +596,10 @@ Panic</string>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="0.79943331870000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstItem="Ysd-dS-hCZ" firstAttribute="leading" secondItem="VWf-fK-sz6" secondAttribute="leading" constant="26" id="Jc7-Cc-iOu"/>
+                                                    <constraint firstItem="Ysd-dS-hCZ" firstAttribute="leading" secondItem="VWf-fK-sz6" secondAttribute="leading" constant="20" id="Jc7-Cc-iOu"/>
                                                     <constraint firstAttribute="bottom" secondItem="Ysd-dS-hCZ" secondAttribute="bottom" constant="10" id="KCJ-he-UEl"/>
                                                     <constraint firstItem="Ysd-dS-hCZ" firstAttribute="top" secondItem="VWf-fK-sz6" secondAttribute="top" constant="10" id="jLl-6A-8en"/>
-                                                    <constraint firstAttribute="trailing" secondItem="Ysd-dS-hCZ" secondAttribute="trailing" constant="26" id="nwU-NU-Ig7"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Ysd-dS-hCZ" secondAttribute="trailing" constant="20" id="nwU-NU-Ig7"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -621,7 +624,9 @@ Panic</string>
                         <outlet property="blueDesignButton" destination="1by-E6-Br1" id="U5b-RH-56I"/>
                         <outlet property="defaultDesignButton" destination="VCp-rY-9zO" id="F38-XP-boL"/>
                         <outlet property="greenDesignButton" destination="QKL-nR-pTm" id="f0x-9C-T6U"/>
+                        <outlet property="homeLocationButton" destination="Cul-fj-f33" id="J66-p3-1qY"/>
                         <outlet property="redDesignButton" destination="U7P-Bc-rqO" id="6Ef-qy-HjB"/>
+                        <outlet property="setHomeLocationButton" destination="EoY-Cl-LOA" id="MEY-87-w2T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kXz-37-6RI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -632,6 +637,7 @@ Panic</string>
     <resources>
         <image name="background" width="562" height="1218"/>
         <image name="bubble" width="592" height="592"/>
+        <image name="jellyfish" width="1000" height="1000"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="lNl-T1-9vn"/>

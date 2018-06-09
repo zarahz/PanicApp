@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE20F2AA20CBEF25003F7FA9 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4D2C9920C854380067C06D /* MapKit.framework */; };
 		AE28F7B320AF1CF1001D36A0 /* SettingsMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE28F7B220AF1CF1001D36A0 /* SettingsMenuController.swift */; };
 		AE28F7B520BE9E16001D36A0 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE28F7B420BE9E16001D36A0 /* SettingsController.swift */; };
 		AE4D2C9C20C856280067C06D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4D2C9B20C856280067C06D /* CoreLocation.framework */; };
@@ -50,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE20F2AA20CBEF25003F7FA9 /* MapKit.framework in Frameworks */,
 				AE4D2C9C20C856280067C06D /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

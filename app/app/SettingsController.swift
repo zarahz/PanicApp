@@ -14,55 +14,59 @@ protocol UpdateModeImageProtocol {
     func modeChanged(image: UIImage)
 }
 
-class SettingsController: UIViewController, UpdateModeImageProtocol, CLLocationManagerDelegate {
+class SettingsController: UIViewController, UpdateModeImageProtocol, SetHomeLocationProtocol, CLLocationManagerDelegate {
     
     var locationManager:CLLocationManager!
+    var atHomeClicked:Bool!;
+    var homePosition: CLLocation?
     
     @IBOutlet var modeImage: UIImageView!
     var image = UIImage(named: "bubble");
+    var jellyfishImage = UIImage(named: "jellyfish");
     var modeChanged: UpdateModeImageProtocol?;
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.png")!)
-        modeChanged(image: image!)
+        modeChanged(image: jellyfishImage!)
         print("loaded settings");
         
+        atHomeClicked = false;
         locationManager = CLLocationManager()
         locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+        //locationManager.distanceFilter = 1
+        //locationManager.allowsBackgroundLocationUpdates = true
+        //locationManager.pausesLocationUpdatesAutomatically = false
+        locationManager.activityType = .fitness
         locationManager.requestAlwaysAuthorization()
         
         if CLLocationManager.locationServicesEnabled(){
             locationManager.startUpdatingLocation()
         }
-        // Do any additional setup after loading the view, typically from a nib.
     }
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation :CLLocation = locations[0] as CLLocation
         
-        print("user latitude = \(userLocation.coordinate.latitude)")
-        print("user longitude = \(userLocation.coordinate.longitude)")
+        print("\(userLocation) \n")
         
-        let lat = "\(userLocation.coordinate.latitude)"
-        let long = "\(userLocation.coordinate.longitude)"
-        
-        let geocoder = CLGeocoder()
-        geocoder.reverseGeocodeLocation(userLocation) { (placemarks, error) in
-            if (error != nil){
-                print("error in reverseGeocode")
-            }
-            let placemark = placemarks! as [CLPlacemark]
-            if placemark.count>0{
-                let placemark = placemarks![0]
-                print(placemark.locality!)
-                print(placemark.administrativeArea!)
-                print(placemark.country!)
-                
-                let text = "\(placemark.locality!), \(placemark.administrativeArea!), \(placemark.country!)"
-            }
+        if (atHomeClicked && userLocation.horizontalAccuracy <= 10) {
+            homePosition = locations.last
+            atHomeClicked = false;
         }
         
+        if(homePosition != nil && userLocation.horizontalAccuracy <= 10){
+            let distance: CLLocationDistance =
+                homePosition!.distance(from: locations.last!)
+            if(distance > 15){
+                modeChanged(image: jellyfishImage!)
+                print("left radius")
+            }else {
+                modeChanged(image: image!)
+            }
+            print("\(String(describing: distance)) ------------- HOME POS : \(String(describing: homePosition)) \n")
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
@@ -75,12 +79,17 @@ class SettingsController: UIViewController, UpdateModeImageProtocol, CLLocationM
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "menuContainer" {
-            let nextView = segue.destination as! SettingsMenuController
-            nextView.delegate = self
+            let menuControllerNext = segue.destination as! SettingsMenuController
+            menuControllerNext.modeDelegate = self
+            menuControllerNext.locationDelegate = self
         }
     }
     
     func modeChanged(image: UIImage) {
         modeImage.image = image
+    }
+    
+    func getHomeCoordinates(){
+        atHomeClicked = true;
     }
 }
