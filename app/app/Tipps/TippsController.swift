@@ -9,7 +9,7 @@
 import UIKit
 import ApiAI
 
-class TippsController: UIViewController, UISearchBarDelegate {
+class TippsController: UIViewController, UITextFieldDelegate {
     
     var bubbles = [BubbleButton]()
     var tipps = [Message]()
@@ -21,8 +21,9 @@ class TippsController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var tippView: UIView!
     @IBOutlet weak var tippHeading: UILabel!
     @IBOutlet weak var tippContent: UILabel!
+
+    @IBOutlet weak var searchField: UITextField!
     
-    @IBOutlet weak var searchField: UISearchBar!
     @IBOutlet weak var popupContainer: UIView!
     
     override func viewDidLoad() {
@@ -31,10 +32,17 @@ class TippsController: UIViewController, UISearchBarDelegate {
         searchField.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardChanged(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
         
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.hideKeyboard))
+        self.view.addGestureRecognizer(tapGesture)
+        
         tippView.layer.shadowColor = UIColor.black.cgColor
         tippView.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
         tippView.layer.shadowOpacity = 1.0
         tippView.layer.shadowRadius = 8.0
+        
+        let paddingView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 20))
+        searchField.leftView = paddingView
+        searchField.leftViewMode = .always
         
         createBubbles()
         loadTipps()
@@ -59,6 +67,7 @@ class TippsController: UIViewController, UISearchBarDelegate {
         UIView.transition(with: bubble, duration: 0.2, options: [.transitionCrossDissolve, .curveEaseIn], animations: { bubble.transform = CGAffineTransform(scaleX: 1.2, y: 1.2) }, completion: { _ in
             bubble.transform = CGAffineTransform(scaleX: 1, y: 1)
             bubble.layer.removeAllAnimations()
+            bubble.animate()
             self.showRandomTipp()
         } )
     }
@@ -92,6 +101,8 @@ class TippsController: UIViewController, UISearchBarDelegate {
     func closePopup() {
         popupContainer.isHidden = true
         chatBotIsActive = false
+        searchField.text = ""
+        searchField.resignFirstResponder()
     }
     
     @objc private func keyboardChanged(notification: NSNotification) {
@@ -113,11 +124,11 @@ class TippsController: UIViewController, UISearchBarDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let popupController = segue.destination as? TippsPopupController {
             self.popupController = popupController
-            popupController.delegate = self
+            popupController.tipsController = self
         }
     }
     
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
         if !chatBotIsActive {
             showPopup()
             sendWelcomeRequest()
@@ -144,9 +155,9 @@ class TippsController: UIViewController, UISearchBarDelegate {
         //Display results while still typing?
     }
     
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchField.resignFirstResponder()
-        if let searchQuery = searchBar.text {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        //searchField.resignFirstResponder()
+        if let searchQuery = searchField.text {
             if !searchQuery.isEmpty {
                 if chatBotIsActive {
                     sendMessageToBot(text: searchQuery)
@@ -155,6 +166,7 @@ class TippsController: UIViewController, UISearchBarDelegate {
                 }
             }
         }
+        return true
     }
     
     func sendMessageToBot(text: String) {
@@ -178,17 +190,25 @@ class TippsController: UIViewController, UISearchBarDelegate {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        closeTipp()
         let touch = touches.first
         let touchLocation = (touch?.location(in: self.bubbleView))!
         if popupContainer.isHidden {
-            for bubble in bubbles {
-                if bubble.layer.presentation()?.hitTest(touchLocation) != nil {
-                    bubble.sendActions(for: .touchDown)
+            if tippView.isHidden {
+                for bubble in bubbles {
+                    if bubble.layer.presentation()?.hitTest(touchLocation) != nil {
+                        bubble.sendActions(for: .touchDown)
+                        break
+                    }
                 }
+            } else {
+                closeTipp()
             }
         }
         //super.touchesBegan(touches, with: event)
+    }
+    
+    @objc func hideKeyboard() {
+        searchField.resignFirstResponder()
     }
     
     private func loadTipps() {

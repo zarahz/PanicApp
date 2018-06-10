@@ -12,7 +12,7 @@ class TippsPopupController: UIViewController, UITableViewDataSource, UITableView
     var tipps = [Message]()
     var displayedTipps = [Message]()
     var searchQuery: String?
-    var delegate: TippsController?
+    var tipsController: TippsController?
     
     let spacingBetweenRows:CGFloat = 8
     
@@ -26,8 +26,6 @@ class TippsPopupController: UIViewController, UITableViewDataSource, UITableView
         self.tableView.dataSource = self
         self.tableView.backgroundColor = UIColor.clear
         
-        let bgView = UIVisualEffectView()
-        self.tableView.backgroundView = bgView
         loadTipps()
     }
     
@@ -36,8 +34,7 @@ class TippsPopupController: UIViewController, UITableViewDataSource, UITableView
     }
     
     @IBAction func close(_ sender: UIButton) {
-        print("close")
-        delegate?.closePopup()
+        tipsController?.closePopup()
         displayedTipps.removeAll()
         tableView.reloadData()
     }
@@ -119,6 +116,17 @@ class TippsPopupController: UIViewController, UITableViewDataSource, UITableView
         if tableView.numberOfSections > 0 {
             tableView.scrollToRow(at: IndexPath(row: 0, section: tableView.numberOfSections-1), at: .top , animated: false)
         }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        tipsController?.searchField.resignFirstResponder()
+        print("popup touched")
+        super.touchesBegan(touches, with: event)
+    }
+    
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        tipsController?.searchField.resignFirstResponder()
+        return indexPath
     }
     
     private func loadTipps() {

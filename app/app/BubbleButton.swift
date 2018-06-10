@@ -42,22 +42,22 @@ import UIKit
     
     func animate() {
         let yPos = self.frame.origin.y
-        animate1(yPos: yPos)
-    }
-    
-    func animate1(yPos: CGFloat) {
         let duration = 20.0+Double(arc4random_uniform(10))
         let yDistance = UIScreen.main.bounds.height + 250
         let firstDuration = Double((yPos+250)/yDistance) * duration
-        let secondDuration = duration - firstDuration
         UIView.animate(withDuration: firstDuration, delay: 0, options: [.allowUserInteraction, .curveLinear], animations: {
             self.frame.origin.y = -250
-        }, completion: { _ in
-            self.frame.origin.y = UIScreen.main.bounds.height
-            UIView.animate(withDuration: secondDuration, delay: 0, options: [.allowUserInteraction, .curveLinear], animations: {
-                self.frame.origin.y = yPos
-            }, completion: {_ in self.animate1(yPos: yPos)})
-        }
+        }, completion: {_ in self.animateFromBottom()}
+        )
+    }
+    
+    private func animateFromBottom() {
+        self.frame.origin.y = UIScreen.main.bounds.height
+        let duration = 20.0+Double(arc4random_uniform(10))
+        let delay = Double(arc4random_uniform(5))
+        UIView.animate(withDuration: duration, delay: delay, options: [.allowUserInteraction, .curveLinear, .repeat], animations: {
+            self.frame.origin.y = -250
+        }, completion: nil
         )
     }
 }
