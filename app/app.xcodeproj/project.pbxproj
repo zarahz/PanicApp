@@ -11,6 +11,7 @@
 		AE28F7B320AF1CF1001D36A0 /* SettingsMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE28F7B220AF1CF1001D36A0 /* SettingsMenuController.swift */; };
 		AE28F7B520BE9E16001D36A0 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE28F7B420BE9E16001D36A0 /* SettingsController.swift */; };
 		AE4D2C9C20C856280067C06D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4D2C9B20C856280067C06D /* CoreLocation.framework */; };
+		AE57696420CFF8CE00305DB4 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE57696320CFF8CE00305DB4 /* HomeController.swift */; };
 		AE81C8AA208F635D0031BC42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE81C8A9208F635D0031BC42 /* AppDelegate.swift */; };
 		AE81C8AC208F635D0031BC42 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE81C8AB208F635D0031BC42 /* ViewController.swift */; };
 		AE81C8AF208F635D0031BC42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE81C8AD208F635D0031BC42 /* Main.storyboard */; };
@@ -26,11 +27,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8443F22E20C175AB003721F7 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		AE28F7B220AF1CF1001D36A0 /* SettingsMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsMenuController.swift; sourceTree = "<group>"; };
 		AE28F7B420BE9E16001D36A0 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		AE4D2C9920C854380067C06D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		AE4D2C9B20C856280067C06D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		AE57696320CFF8CE00305DB4 /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		AE81C8A6208F635C0031BC42 /* app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE81C8A9208F635D0031BC42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE81C8AB208F635D0031BC42 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +70,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		AE57696220CFF8CE00305DB4 /* home */ = {
+			isa = PBXGroup;
+			children = (
+				AE57696320CFF8CE00305DB4 /* HomeController.swift */,
+			);
+			path = home;
+			sourceTree = "<group>";
+		};
 		AE81C89D208F635C0031BC42 = {
 			isa = PBXGroup;
 			children = (
@@ -89,10 +98,6 @@
 		AE81C8A8208F635C0031BC42 /* app */ = {
 			isa = PBXGroup;
 			children = (
-
-				8443F22D20C17557003721F7 /* home */,
-				DA55051920B2EA5000A1DA7D /* TutorialPageViewController.swift */,
-
 				AE81C8A9208F635D0031BC42 /* AppDelegate.swift */,
 				AE81C8AB208F635D0031BC42 /* ViewController.swift */,
 				AE81C8AD208F635D0031BC42 /* Main.storyboard */,
@@ -104,6 +109,7 @@
 				AE28F7B220AF1CF1001D36A0 /* SettingsMenuController.swift */,
 				AE28F7B420BE9E16001D36A0 /* SettingsController.swift */,
 				DAC01EEB20BDAE0E00A6BE28 /* BubbleButton.swift */,
+				AE57696220CFF8CE00305DB4 /* home */,
 			);
 			path = app;
 			sourceTree = "<group>";
@@ -200,13 +206,13 @@
 			files = (
 				AE28F7B520BE9E16001D36A0 /* SettingsController.swift in Sources */,
 				AE28F7B320AF1CF1001D36A0 /* SettingsMenuController.swift in Sources */,
+				AE57696420CFF8CE00305DB4 /* HomeController.swift in Sources */,
 				AE81C8AC208F635D0031BC42 /* ViewController.swift in Sources */,
 				DAB2279920C00E040070CABF /* TippTableViewCell.swift in Sources */,
 				DAC01EEE20BDBAA400A6BE28 /* TippsController.swift in Sources */,
 				DA76468820BD55C50056A492 /* NavigationController.swift in Sources */,
 				DAC01EEC20BDAE0E00A6BE28 /* BubbleButton.swift in Sources */,
 				DAB2279720C00ACD0070CABF /* Tipp.swift in Sources */,
-				8443F22F20C175AB003721F7 /* HomeController.swift in Sources */,
 				DAC01EF620BF1B6200A6BE28 /* TippsPopupController.swift in Sources */,
 				AE81C8AA208F635D0031BC42 /* AppDelegate.swift in Sources */,
 			);
