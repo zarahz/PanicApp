@@ -26,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8443F22E20C175AB003721F7 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		AE28F7B220AF1CF1001D36A0 /* SettingsMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsMenuController.swift; sourceTree = "<group>"; };
 		AE28F7B420BE9E16001D36A0 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		AE4D2C9920C854380067C06D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -88,6 +89,10 @@
 		AE81C8A8208F635C0031BC42 /* app */ = {
 			isa = PBXGroup;
 			children = (
+
+				8443F22D20C17557003721F7 /* home */,
+				DA55051920B2EA5000A1DA7D /* TutorialPageViewController.swift */,
+
 				AE81C8A9208F635D0031BC42 /* AppDelegate.swift */,
 				AE81C8AB208F635D0031BC42 /* ViewController.swift */,
 				AE81C8AD208F635D0031BC42 /* Main.storyboard */,
@@ -201,6 +206,7 @@
 				DA76468820BD55C50056A492 /* NavigationController.swift in Sources */,
 				DAC01EEC20BDAE0E00A6BE28 /* BubbleButton.swift in Sources */,
 				DAB2279720C00ACD0070CABF /* Tipp.swift in Sources */,
+				8443F22F20C175AB003721F7 /* HomeController.swift in Sources */,
 				DAC01EF620BF1B6200A6BE28 /* TippsPopupController.swift in Sources */,
 				AE81C8AA208F635D0031BC42 /* AppDelegate.swift in Sources */,
 			);
@@ -353,6 +359,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = app/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = panic.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -374,6 +381,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = app/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = panic.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
