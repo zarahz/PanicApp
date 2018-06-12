@@ -9,44 +9,83 @@
 import Foundation
 import UIKit
 
-protocol SetHomeLocationProtocol: class {
-    func getHomeCoordinates()
-}
-
 class SettingsMenuController: UIViewController {
     
-    weak var locationDelegate: SetHomeLocationProtocol?
+    //MARK: protocols
+    var locationDelegate: SetHomeLocationProtocol?
+    var modeDelegate: UpdateModeImageProtocol!
     
+    //MARK: Design button outlets
     @IBOutlet var defaultDesignButton: UIButton!
     @IBOutlet var blueDesignButton: UIButton!
     @IBOutlet var greenDesignButton: UIButton!
     @IBOutlet var redDesignButton: UIButton!
     
+    //MARK: Location Button outlets
     @IBOutlet var setHomeLocationButton: UIButton!
     @IBOutlet var homeLocationButton: UIButton!
     
+    //MARK: Mode button outlets
+    @IBOutlet var onRoadMode: UIButton!
+    @IBOutlet var atHomeMode: UIButton!
+    @IBOutlet var GPSMode: UIButton!
     var onRoadImage = UIImage(named: "jellyfish");
     var atHomeImage = UIImage(named: "bubble");
-    var modeDelegate: UpdateModeImageProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("loaded menu");
-
-        adjustTextSize(homeLocationButton);
-        adjustTextSize(setHomeLocationButton);
         
+        //In case button labels are too long!
+        //adjustTextSize(homeLocationButton);
+        //adjustTextSize(setHomeLocationButton);
+        
+        //make design button circled
         shapeDesignButton(defaultDesignButton);
         shapeDesignButton(blueDesignButton);
         shapeDesignButton(greenDesignButton);
         shapeDesignButton(redDesignButton);
-        // Do any additional setup after loading the view, typically from a nib.
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
+    //MARK: Mode Click Handler
+    @IBAction func atHomeClicked(_ sender: Any) {
+        locationDelegate?.getHomeCoordinates(atHomeLocationClicked: false, stop: true);
+        highlightClickedButton(atHomeMode)
+        normalizeButton(onRoadMode)
+        normalizeButton(GPSMode)
+        modeDelegate?.modeChanged(image: atHomeImage!)
+    }
+    
+    @IBAction func onRoadClicked(_ sender: Any) {
+        locationDelegate?.getHomeCoordinates(atHomeLocationClicked: false, stop: true);
+        highlightClickedButton(onRoadMode)
+        normalizeButton(atHomeMode)
+        normalizeButton(GPSMode)
+        modeDelegate?.modeChanged(image: onRoadImage!)
+    }
+ 
+    //MARK: Location click handler
+    @IBAction func activateGPS(_ sender: Any) {
+        locationDelegate?.getHomeCoordinates(atHomeLocationClicked: false, stop: false);
+        normalizeButton(homeLocationButton)
+        normalizeButton(atHomeMode)
+        normalizeButton(onRoadMode)
+        highlightClickedButton(GPSMode)
+    }
+    
+    @IBAction func homeLocationClicked(_ sender: Any) {
+    locationDelegate?.getHomeCoordinates(atHomeLocationClicked: true, stop: false);
+        highlightClickedButton(GPSMode);
+        normalizeButton(homeLocationButton)
+        normalizeButton(onRoadMode)
+        normalizeButton(atHomeMode)
+    }
+    
+    //MARK: Design Button functions
     func shapeDesignButton(_ button:UIButton){
         button.layer.cornerRadius = 0.5 * button.bounds.size.width
         button.clipsToBounds = true
@@ -54,6 +93,11 @@ class SettingsMenuController: UIViewController {
         //view.addSubview(button)
     }
     
+    @IBAction func thumbsUpButtonPressed(_ sender: Any?) {
+        print("thumbs up button pressed")
+    }
+    
+    //MARK: Helper functions
     func adjustTextSize(_ button:UIButton){
         button.titleLabel?.minimumScaleFactor = 0.5
         button.titleLabel?.numberOfLines = 0
@@ -61,20 +105,13 @@ class SettingsMenuController: UIViewController {
         button.titleLabel?.textAlignment = NSTextAlignment.center
     }
     
-   @IBAction func thumbsUpButtonPressed(_ sender: Any?) {
-        print("thumbs up button pressed")
+    func highlightClickedButton(_ button:UIButton){
+        button.setTitleColor(UIColor(red: 111.0/255.0, green: 127.0/255.0, blue: 166.0/255.0,alpha:1), for: .normal);
     }
     
-    @IBAction func atHomeClicked(_ sender: Any) {
-        modeDelegate?.modeChanged(image: atHomeImage!)    }
-    
-    @IBAction func onRoadClicked(_ sender: Any) {
-        modeDelegate?.modeChanged(image: onRoadImage!)
+    func normalizeButton(_ button:UIButton){
+        button.setTitleColor(UIColor.black, for: .normal);
+        button.alpha = 0.8;
     }
- 
-    @IBAction func homeLocationClicked(_ sender: Any) {
-        locationDelegate?.getHomeCoordinates();
-    }
-    
 }
 

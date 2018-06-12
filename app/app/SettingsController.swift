@@ -14,46 +14,58 @@ protocol UpdateModeImageProtocol {
     func modeChanged(image: UIImage)
 }
 
+protocol SetHomeLocationProtocol {
+    func getHomeCoordinates(atHomeLocationClicked: Bool, stop: Bool)
+}
+
 class SettingsController: UIViewController, UpdateModeImageProtocol, SetHomeLocationProtocol, CLLocationManagerDelegate {
-    
+
+    //MARK: Location variables
     var locationManager:CLLocationManager!
-    var atHomeClicked:Bool!;
+    var isUpdatingLocation:Bool!;
+    var atHomeLocation:Bool!;
     var homePosition: CLLocation?
-    
-    @IBOutlet var modeImage: UIImageView!
+
+    //MARK: Mode variables
     var image = UIImage(named: "bubble");
     var jellyfishImage = UIImage(named: "jellyfish");
     var modeChanged: UpdateModeImageProtocol?;
+    
+    //MARK: Mode Outlets
+    @IBOutlet var modeImage: UIImageView!
+    
+    //MARK:SettingsMenuController
+    var menuController:SettingsMenuController?;
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.png")!)
         modeChanged(image: jellyfishImage!)
-        print("loaded settings");
+        //self.menuController?.locationStopDelegate = self;
         
-        atHomeClicked = false;
+        //locationManager
+        atHomeLocation = false;
+        isUpdatingLocation = false;
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-        //locationManager.distanceFilter = 1
-        //locationManager.allowsBackgroundLocationUpdates = true
-        //locationManager.pausesLocationUpdatesAutomatically = false
         locationManager.activityType = .fitness
         locationManager.requestAlwaysAuthorization()
-        
-        if CLLocationManager.locationServicesEnabled(){
-            locationManager.startUpdatingLocation()
-        }
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    //MARK: Locationmanager
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation :CLLocation = locations[0] as CLLocation
         
         print("\(userLocation) \n")
         
-        if (atHomeClicked && userLocation.horizontalAccuracy <= 10) {
+        if (atHomeLocation && userLocation.horizontalAccuracy <= 10) {
             homePosition = locations.last
-            atHomeClicked = false;
+            atHomeLocation = false;
         }
         
         if(homePosition != nil && userLocation.horizontalAccuracy <= 10){
@@ -73,10 +85,25 @@ class SettingsController: UIViewController, UpdateModeImageProtocol, SetHomeLoca
         print("Error \(error)")
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    func getHomeCoordinates(atHomeLocationClicked:Bool, stop:Bool){
+        
+        locationManager.stopUpdatingLocation();
+        
+        if(!stop){
+        //in case User clicked GPS button but home location was already set
+        if(homePosition != nil && !atHomeLocationClicked){
+            atHomeLocation = false;
+        }else {
+            atHomeLocation = true;
+        }
+        if CLLocationManager.locationServicesEnabled(){
+            locationManager.startUpdatingLocation()
+            isUpdatingLocation = true;
+        }
+        }
     }
     
+    //MARK: segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "menuContainer" {
             let menuControllerNext = segue.destination as! SettingsMenuController
@@ -85,11 +112,9 @@ class SettingsController: UIViewController, UpdateModeImageProtocol, SetHomeLoca
         }
     }
     
+    //MARK: mode
     func modeChanged(image: UIImage) {
         modeImage.image = image
     }
     
-    func getHomeCoordinates(){
-        atHomeClicked = true;
-    }
 }
