@@ -18,7 +18,7 @@ class HomeController: UIViewController {
     var counterStart = 0
     var counterBreath = 1
     var breathing = false
-    var timer5 : Timer!
+    var timer5 : Timer?
     var breatheIn = true
     var accData = Array(repeating: 0.0, count: 10)
     var singleData = 0.0
@@ -48,6 +48,10 @@ class HomeController: UIViewController {
             breathing = false
             print("Touched to end")
             print(breathing)
+            if timer5 != nil {
+                timer5?.invalidate()
+                timer5 = nil
+            }
         }
     }
     
