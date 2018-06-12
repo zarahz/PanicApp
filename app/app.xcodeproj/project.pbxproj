@@ -15,7 +15,6 @@
 		AE81C8AF208F635D0031BC42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE81C8AD208F635D0031BC42 /* Main.storyboard */; };
 		AE81C8B1208F635D0031BC42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE81C8B0208F635D0031BC42 /* Assets.xcassets */; };
 		AE81C8B4208F635D0031BC42 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE81C8B2208F635D0031BC42 /* LaunchScreen.storyboard */; };
-		DA55051A20B2EA5000A1DA7D /* TutorialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA55051920B2EA5000A1DA7D /* TutorialPageViewController.swift */; };
 		DA76468820BD55C50056A492 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA76468720BD55C50056A492 /* NavigationController.swift */; };
 		DAB2279720C00ACD0070CABF /* Tipp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB2279620C00ACD0070CABF /* Tipp.swift */; };
 		DAB2279920C00E040070CABF /* TippTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB2279820C00E040070CABF /* TippTableViewCell.swift */; };
@@ -36,7 +35,6 @@
 		AE81C8B0208F635D0031BC42 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE81C8B3208F635D0031BC42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE81C8B5208F635D0031BC42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DA55051920B2EA5000A1DA7D /* TutorialPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialPageViewController.swift; sourceTree = "<group>"; };
 		DA76468720BD55C50056A492 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		DAB2279620C00ACD0070CABF /* Tipp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tipp.swift; sourceTree = "<group>"; };
 		DAB2279820C00E040070CABF /* TippTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TippTableViewCell.swift; sourceTree = "<group>"; };
@@ -84,8 +82,10 @@
 		AE81C8A8208F635C0031BC42 /* app */ = {
 			isa = PBXGroup;
 			children = (
+
 				8443F22D20C17557003721F7 /* home */,
 				DA55051920B2EA5000A1DA7D /* TutorialPageViewController.swift */,
+
 				AE81C8A9208F635D0031BC42 /* AppDelegate.swift */,
 				AE81C8AB208F635D0031BC42 /* ViewController.swift */,
 				AE81C8AD208F635D0031BC42 /* Main.storyboard */,
@@ -197,7 +197,6 @@
 				8443F22F20C175AB003721F7 /* HomeController.swift in Sources */,
 				DAC01EF620BF1B6200A6BE28 /* TippsPopupController.swift in Sources */,
 				AE81C8AA208F635D0031BC42 /* AppDelegate.swift in Sources */,
-				DA55051A20B2EA5000A1DA7D /* TutorialPageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
