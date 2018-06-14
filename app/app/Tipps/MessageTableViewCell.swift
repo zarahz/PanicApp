@@ -1,17 +1,16 @@
 //
-//  Message.swift
+//  MessageTableViewCell.swift
 //  app
 //
-//  Created by Paula Wikidal on 31.05.18.
+//  Created by Paula Wikidal on 08.06.18.
 //  Copyright © 2018 Zarah Zahreddin. All rights reserved.
 //
 
 import UIKit
 
-class TippTableViewCell: UITableViewCell {
+class MessageTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var headingLabel: UILabel!
-    @IBOutlet weak var textLabel: UILabel!
+    @IBOutlet weak var messageLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
