@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8443F22F20C175AB003721F7 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8443F22E20C175AB003721F7 /* HomeController.swift */; };
+		84B5A6BB20D3D8D700554D97 /* sounds in Resources */ = {isa = PBXBuildFile; fileRef = 84B5A6BA20D3D8D700554D97 /* sounds */; };
 		AE28F7B320AF1CF1001D36A0 /* SettingsMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE28F7B220AF1CF1001D36A0 /* SettingsMenuController.swift */; };
 		AE28F7B520BE9E16001D36A0 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE28F7B420BE9E16001D36A0 /* SettingsController.swift */; };
 		AE81C8AA208F635D0031BC42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE81C8A9208F635D0031BC42 /* AppDelegate.swift */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		8443F22E20C175AB003721F7 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		84B5A6BA20D3D8D700554D97 /* sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sounds; sourceTree = "<group>"; };
 		AE28F7B220AF1CF1001D36A0 /* SettingsMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsMenuController.swift; sourceTree = "<group>"; };
 		AE28F7B420BE9E16001D36A0 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		AE81C8A6208F635C0031BC42 /* app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = app.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -58,6 +60,7 @@
 		8443F22D20C17557003721F7 /* home */ = {
 			isa = PBXGroup;
 			children = (
+				84B5A6BA20D3D8D700554D97 /* sounds */,
 				8443F22E20C175AB003721F7 /* HomeController.swift */,
 			);
 			path = home;
@@ -82,10 +85,7 @@
 		AE81C8A8208F635C0031BC42 /* app */ = {
 			isa = PBXGroup;
 			children = (
-
 				8443F22D20C17557003721F7 /* home */,
-				DA55051920B2EA5000A1DA7D /* TutorialPageViewController.swift */,
-
 				AE81C8A9208F635D0031BC42 /* AppDelegate.swift */,
 				AE81C8AB208F635D0031BC42 /* ViewController.swift */,
 				AE81C8AD208F635D0031BC42 /* Main.storyboard */,
@@ -172,6 +172,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84B5A6BB20D3D8D700554D97 /* sounds in Resources */,
 				AE81C8B4208F635D0031BC42 /* LaunchScreen.storyboard in Resources */,
 				DAB2279D20C0511A0070CABF /* tippsList.plist in Resources */,
 				AE81C8B1208F635D0031BC42 /* Assets.xcassets in Resources */,
