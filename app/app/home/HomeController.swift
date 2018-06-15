@@ -180,6 +180,7 @@ class HomeController: UIViewController {
             if index > 0{
                 if self.accData10[index] <= self.accData10[index-1] {
                 //give out some error sound
+                    //makeSounds(pat: "error-2")
                 }
             }
             
@@ -194,6 +195,7 @@ class HomeController: UIViewController {
             //beim ausatmen ist x fallend. es soll also dem nutzer melden, wenn es steigend ist, um ihn zu korrigieren.
             if self.accData10[index+5] >= self.accData10[index+4]{
                 //give out some errorsound
+                //makeSounds(pat: "error-2")
             }
         }
         self.index += 1
