@@ -391,10 +391,10 @@ PANIC</string>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="asA-Kv-fRi">
-                                                                        <rect key="frame" x="10" y="0.0" width="71.666666666666671" height="99.333333333333329"/>
+                                                                        <rect key="frame" x="10" y="0.0" width="71.666666666666671" height="99"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="viU-Dl-fDW">
-                                                                                <rect key="frame" x="14.999999999999996" y="10" width="41.666666666666657" height="79.333333333333329"/>
+                                                                                <rect key="frame" x="14.999999999999996" y="10" width="41.666666666666657" height="79"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -435,10 +435,10 @@ PANIC</string>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Uc-uX-i21">
-                                                                        <rect key="frame" x="273.33333333333331" y="0.0" width="71.666666666666686" height="99"/>
+                                                                        <rect key="frame" x="273.33333333333331" y="0.0" width="71.666666666666686" height="99.666666666666671"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBg-IA-x7u">
-                                                                                <rect key="frame" x="14.999999999999996" y="10" width="41.666666666666657" height="79"/>
+                                                                                <rect key="frame" x="14.999999999999996" y="10" width="41.666666666666657" height="79.666666666666671"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -479,10 +479,10 @@ PANIC</string>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hir-0L-jhw">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="355" height="99.666666666666671"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="355" height="99.333333333333329"/>
                                                                         <subviews>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" axis="vertical" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="BM8-Iz-Ij7">
-                                                                                <rect key="frame" x="5" y="5" width="345" height="86.666666666666671"/>
+                                                                                <rect key="frame" x="5" y="5" width="345" height="86.333333333333329"/>
                                                                                 <subviews>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gA0-zy-jEh">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="345" height="20.333333333333332"/>
@@ -491,7 +491,7 @@ PANIC</string>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pNq-eB-iPe">
-                                                                                        <rect key="frame" x="0.0" y="66.333333333333329" width="345" height="20.333333333333329"/>
+                                                                                        <rect key="frame" x="0.0" y="66" width="345" height="20.333333333333329"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                         <nil key="textColor"/>
                                                                                         <nil key="highlightedColor"/>
@@ -743,7 +743,7 @@ PANIC</string>
                                                         <state key="normal" title="Button"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hyn-ER-mcF">
-                                                        <rect key="frame" x="235" y="14.666666666666629" width="46" height="30"/>
+                                                        <rect key="frame" x="235" y="14.666666666666686" width="46" height="30"/>
                                                         <state key="normal" title="Button"/>
                                                     </button>
                                                 </subviews>
