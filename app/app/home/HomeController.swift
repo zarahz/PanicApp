@@ -13,6 +13,7 @@ import AVFoundation
 
 
 
+
 class HomeController: UIViewController {
     var myView = UIView(frame: CGRect(x: 0 , y: 0 , width: 1000 , height: 1000 ))
     var motionManager = CMMotionManager()
@@ -25,7 +26,7 @@ class HomeController: UIViewController {
     var accData10 = Array(repeating: 0.0, count: 10)
     var singleData = 0.0
     var index = 0
-    var audioPlayer : AVAudioPlayer = AVAudioPlayer()
+    var soundIn: AVAudioPlayer!
     
     
     //MARK: build up the view
@@ -121,6 +122,7 @@ class HomeController: UIViewController {
     
     //if it looks stupid but works, it is not stupid.
     //546123
+    //2311
     @objc func runTimedCode5(){
         self.index = 0
         //check if the user tapped a second time in order to stop the exercise
@@ -139,6 +141,9 @@ class HomeController: UIViewController {
             
             print("5")
             self.breathingData(index: index)
+            if breatheIn {
+                makeSounds(pat: "in-2")
+            }
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                 print("5+1")
@@ -169,16 +174,18 @@ class HomeController: UIViewController {
         
         
         if(self.breatheIn && index < 4){
+            
             self.accData10[index] = getAverage()
             //beim einatmen ist x steigend. es soll also dem nutzer melden, wenn es fallend ist, um ihn zu korrigieren
             if index > 0{
                 if self.accData10[index] <= self.accData10[index-1] {
-                //give out some sound
+                //give out some error sound
                 }
             }
             
             //breathe out --> ab letztem index bei breathe in und dann alles in breathein false
         } else if self.breatheIn && index == 4{
+            makeSounds(pat: "out")
             self.accData10[index] = getAverage()
             
             //breathe out
@@ -186,13 +193,23 @@ class HomeController: UIViewController {
             self.accData10[index+5] = getAverage()
             //beim ausatmen ist x fallend. es soll also dem nutzer melden, wenn es steigend ist, um ihn zu korrigieren.
             if self.accData10[index+5] >= self.accData10[index+4]{
-                //give out some sound
+                //give out some errorsound
             }
         }
         self.index += 1
         self.index = self.index%5
         if(!breathing && index == 4){
             motionManager.stopAccelerometerUpdates()
+        }
+    }
+    func makeSounds(pat: String){
+        let path = Bundle.main.path(forResource: pat, ofType: "mp3")!
+        let url = URL(fileURLWithPath: path)
+        do {
+            soundIn = try AVAudioPlayer(contentsOf: url)
+            soundIn?.play()
+        } catch {
+            // couldn't load file :(
         }
     }
 }
