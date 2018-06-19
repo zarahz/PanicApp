@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Q6G-ss-9iX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HSy-Hn-X7c">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -133,6 +133,81 @@ PANIC</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CP0-rc-78i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1855" y="696"/>
+        </scene>
+        <!--Tutorial View Controller-->
+        <scene sceneID="w71-TL-FvQ">
+            <objects>
+                <viewController id="HSy-Hn-X7c" customClass="TutorialViewController" customModule="app" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UMD-hb-GuV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tiq-GR-myg">
+                                <rect key="frame" x="50" y="144" width="275" height="534"/>
+                                <connections>
+                                    <segue destination="WVh-ul-aGk" kind="embed" id="yz6-3W-MyB"/>
+                                </connections>
+                            </containerView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="UmJ-3C-76K">
+                                <rect key="frame" x="168" y="92" width="39" height="37"/>
+                            </pageControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="tiq-GR-myg" firstAttribute="top" secondItem="UmJ-3C-76K" secondAttribute="bottom" constant="15" id="0sd-4t-mv8"/>
+                            <constraint firstItem="tiq-GR-myg" firstAttribute="leading" secondItem="2UJ-Wv-VBa" secondAttribute="leading" constant="50" id="duQ-tM-6Zh"/>
+                            <constraint firstItem="UmJ-3C-76K" firstAttribute="centerX" secondItem="UMD-hb-GuV" secondAttribute="centerX" id="lax-jE-TKL"/>
+                            <constraint firstItem="2UJ-Wv-VBa" firstAttribute="trailing" secondItem="tiq-GR-myg" secondAttribute="trailing" constant="50" id="uko-2A-25z"/>
+                            <constraint firstItem="tiq-GR-myg" firstAttribute="top" secondItem="2UJ-Wv-VBa" secondAttribute="top" constant="100" id="wW1-YS-W6e"/>
+                            <constraint firstItem="2UJ-Wv-VBa" firstAttribute="bottom" secondItem="tiq-GR-myg" secondAttribute="bottom" constant="100" id="xmj-1U-bRD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2UJ-Wv-VBa"/>
+                    </view>
+                    <connections>
+                        <outlet property="pageControl" destination="UmJ-3C-76K" id="cHi-6W-C3M"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M6u-QS-Usa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2739" y="895"/>
+        </scene>
+        <!--Tutorial Page View Controller-->
+        <scene sceneID="lQV-iU-vUS">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="WVh-ul-aGk" customClass="TutorialPageViewController" customModule="app" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eor-4B-qsK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3415" y="895"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="5Qw-Gf-5BC">
+            <objects>
+                <viewController storyboardIdentifier="tutorial0" id="6hx-Oj-OQu" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GaP-9b-wX9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="VQB-qU-hwX"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cej-Uc-Y7y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4182" y="895"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ISA-uu-YnH">
+            <objects>
+                <viewController storyboardIdentifier="tutorial1" id="YUT-u1-SWZ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6eW-4S-dRn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.79060913710000003" green="0.19987616750000001" blue="0.1065750437" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="muo-yQ-ZnH"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IA3-TW-vbk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4906" y="897"/>
         </scene>
         <!--Home-->
         <scene sceneID="3oy-sR-TqP">
@@ -391,10 +466,10 @@ PANIC</string>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="asA-Kv-fRi">
-                                                                        <rect key="frame" x="10" y="0.0" width="71.666666666666671" height="99"/>
+                                                                        <rect key="frame" x="10" y="0.0" width="71.666666666666671" height="99.666666666666671"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="viU-Dl-fDW">
-                                                                                <rect key="frame" x="14.999999999999996" y="10" width="41.666666666666657" height="79"/>
+                                                                                <rect key="frame" x="14.999999999999996" y="10" width="41.666666666666657" height="79.666666666666671"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -435,10 +510,10 @@ PANIC</string>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Uc-uX-i21">
-                                                                        <rect key="frame" x="273.33333333333331" y="0.0" width="71.666666666666686" height="99.666666666666671"/>
+                                                                        <rect key="frame" x="273.33333333333331" y="0.0" width="71.666666666666686" height="99.333333333333329"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBg-IA-x7u">
-                                                                                <rect key="frame" x="14.999999999999996" y="10" width="41.666666666666657" height="79.666666666666671"/>
+                                                                                <rect key="frame" x="14.999999999999996" y="10" width="41.666666666666657" height="79.333333333333329"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -479,10 +554,10 @@ PANIC</string>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hir-0L-jhw">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="355" height="99.333333333333329"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="355" height="99"/>
                                                                         <subviews>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" axis="vertical" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="BM8-Iz-Ij7">
-                                                                                <rect key="frame" x="5" y="5" width="345" height="86.333333333333329"/>
+                                                                                <rect key="frame" x="5" y="5" width="345" height="86"/>
                                                                                 <subviews>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gA0-zy-jEh">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="345" height="20.333333333333332"/>
@@ -491,7 +566,7 @@ PANIC</string>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pNq-eB-iPe">
-                                                                                        <rect key="frame" x="0.0" y="66" width="345" height="20.333333333333329"/>
+                                                                                        <rect key="frame" x="0.0" y="65.666666666666671" width="345" height="20.333333333333329"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                         <nil key="textColor"/>
                                                                                         <nil key="highlightedColor"/>
@@ -830,6 +905,19 @@ PANIC</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kXz-37-6RI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1458" y="1463"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="I5u-PG-88W">
+            <objects>
+                <viewController id="JUn-Gh-bzH" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6tT-1D-QCC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BoW-GL-RV9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
     <resources>
