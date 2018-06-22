@@ -4,15 +4,75 @@
 <array>
 	<dict>
 		<key>heading</key>
-		<string>Überschrift 1</string>
+		<string>UNTERSTÜTZUNG</string>
 		<key>content</key>
-		<string>Das ist der erste Tipp aus der tippsList.plist Datei</string>
+		<string>Suche dir Unterstützung in Situationen, die dich überfordern, z.B. durch Babysitter, Haushaltshilfe oder Psychotherapeut.</string>
+		<key>isResponse</key>
+		<true/>
 	</dict>
 	<dict>
 		<key>heading</key>
-		<string>Überschrift 2</string>
+		<string>SOZIALES UMFELD</string>
 		<key>content</key>
-		<string>Das ist der zweite Tipp aus der tippsList.plist Datei. Er ist ein bisschen länger. </string>
+		<string>Ein stabiler Freundeskreis und/ oder eine stabile Partnerschaft sind wichtig, um ein Gefühl der Sicherheit zu schaffen. </string>
+		<key>isResponse</key>
+		<true/>
+	</dict>
+	<dict>
+		<key>heading</key>
+		<string>SICHERHEIT</string>
+		<key>content</key>
+		<string>Versuche, deine Umwelt so zu gestalten, dass sie dir ein Gefühl der Sicherheit gibt. Achte auch auf sichere Wohn- und Arbeitsverhältnisse. </string>
+		<key>isResponse</key>
+		<true/>
+	</dict>
+	<dict>
+		<key>heading</key>
+		<string>KAFFEE &amp; CO.</string>
+		<key>content</key>
+		<string>Meide Koffein, Nikotin, Zucker und psychoaktive Drogen.</string>
+		<key>isResponse</key>
+		<true/>
+	</dict>
+	<dict>
+		<key>heading</key>
+		<string>SCHLAF</string>
+		<key>content</key>
+		<string>Achte darauf, ausreichend zu schlafen. </string>
+		<key>isResponse</key>
+		<true/>
+	</dict>
+	<dict>
+		<key>heading</key>
+		<string>SPORT</string>
+		<key>content</key>
+		<string>Treibe regelmäßig Sport. </string>
+		<key>isResponse</key>
+		<true/>
+	</dict>
+	<dict>
+		<key>heading</key>
+		<string>KOMMUNIKATION</string>
+		<key>content</key>
+		<string>Ziehe dich nicht zurück, sondern sprich mit einer vertrauenswürdigen Person aus Familie oder Freundeskreis über deine Panikattacken.</string>
+		<key>isResponse</key>
+		<true/>
+	</dict>
+	<dict>
+		<key>heading</key>
+		<string>PAUSEN</string>
+		<key>content</key>
+		<string>Vermeide dauerhafte Anspannung. Versuche, dir untertags immer wieder emotionale Pausen zu können.</string>
+		<key>isResponse</key>
+		<true/>
+	</dict>
+	<dict>
+		<key>heading</key>
+		<string>UNTERZUCKER</string>
+		<key>content</key>
+		<string>Iss regelmäßig kleinere Mahlzeiten, um eine Unterzuckerung zu vermeiden.</string>
+		<key>isResponse</key>
+		<true/>
 	</dict>
 </array>
 </plist>
