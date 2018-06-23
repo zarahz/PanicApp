@@ -374,11 +374,23 @@ Panic</string>
                                     <constraint firstAttribute="width" secondItem="HlP-PF-9c4" secondAttribute="height" multiplier="201:185" id="BHi-op-2JV"/>
                                 </constraints>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="jellyfish-head-red" translatesAutoresizingMaskIntoConstraints="NO" id="mJx-ii-3c4">
+                                <rect key="frame" x="91" y="196" width="201" height="185"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" image="jellyfish-eyes" translatesAutoresizingMaskIntoConstraints="NO" id="bET-ec-cXA">
                                 <rect key="frame" x="73" y="312" width="233" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="bET-ec-cXA" secondAttribute="height" multiplier="61:8" constant="95.75" id="Ohl-BA-dzq"/>
                                 </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bubble-opaque" translatesAutoresizingMaskIntoConstraints="NO" id="diw-2c-tQT">
+                                <rect key="frame" x="325" y="109" width="34" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bubble-opaque" translatesAutoresizingMaskIntoConstraints="NO" id="j4m-v5-tB4">
+                                <rect key="frame" x="291" y="109" width="34" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -408,7 +420,10 @@ Panic</string>
                     <connections>
                         <outlet property="breatheLabel" destination="ZMe-0I-A12" id="R4y-Ow-px8"/>
                         <outlet property="jellyfishHead" destination="HlP-PF-9c4" id="iyW-AF-9Z6"/>
+                        <outlet property="jellyfishRed" destination="mJx-ii-3c4" id="tja-0j-9sP"/>
                         <outlet property="jellyfishTentacles" destination="TuH-cb-D9D" id="DeS-DU-qN0"/>
+                        <outlet property="spotify" destination="j4m-v5-tB4" id="hy2-BI-qxf"/>
+                        <outlet property="tutorial" destination="diw-2c-tQT" id="heS-vS-0gC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ehl-ic-igq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -648,8 +663,10 @@ Panic</string>
     <resources>
         <image name="background" width="562" height="1218"/>
         <image name="bubble" width="592" height="592"/>
+        <image name="bubble-opaque" width="1000" height="1000"/>
         <image name="jellyfish-eyes" width="180" height="30"/>
         <image name="jellyfish-head-combined" width="1000" height="900"/>
+        <image name="jellyfish-head-red" width="1000" height="900"/>
         <image name="jellyfish-tentacles" width="144" height="174"/>
     </resources>
     <inferredMetricsTieBreakers>
