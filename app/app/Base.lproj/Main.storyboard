@@ -384,14 +384,16 @@ Panic</string>
                                     <constraint firstAttribute="width" secondItem="bET-ec-cXA" secondAttribute="height" multiplier="61:8" constant="95.75" id="Ohl-BA-dzq"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bubble-opaque" translatesAutoresizingMaskIntoConstraints="NO" id="diw-2c-tQT">
-                                <rect key="frame" x="325" y="109" width="34" height="34"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0BW-yn-lg1">
+                                <rect key="frame" x="325" y="111" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bubble-opaque" translatesAutoresizingMaskIntoConstraints="NO" id="j4m-v5-tB4">
-                                <rect key="frame" x="291" y="109" width="34" height="34"/>
+                                <state key="normal" backgroundImage="bubble-opaque"/>
+                            </button>
+                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aXK-kb-v56">
+                                <rect key="frame" x="293" y="111" width="29" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                                <state key="normal" backgroundImage="bubble-opaque"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -422,13 +424,65 @@ Panic</string>
                         <outlet property="jellyfishHead" destination="HlP-PF-9c4" id="iyW-AF-9Z6"/>
                         <outlet property="jellyfishRed" destination="mJx-ii-3c4" id="tja-0j-9sP"/>
                         <outlet property="jellyfishTentacles" destination="TuH-cb-D9D" id="DeS-DU-qN0"/>
-                        <outlet property="spotify" destination="j4m-v5-tB4" id="hy2-BI-qxf"/>
-                        <outlet property="tutorial" destination="diw-2c-tQT" id="heS-vS-0gC"/>
+                        <outlet property="spotifyButton" destination="aXK-kb-v56" id="ZBB-L1-phk"/>
+                        <outlet property="tutorialButton" destination="0BW-yn-lg1" id="aeG-Tn-ma2"/>
                     </connections>
                 </viewController>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bubble-opaque" id="bMS-AL-2DB">
+                    <rect key="frame" x="0.0" y="0.0" width="34" height="34"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ehl-ic-igq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3176.8000000000002" y="89.408866995073893"/>
+        </scene>
+        <!--Tutorial Popup Controller-->
+        <scene sceneID="hV7-3d-Xdj">
+            <objects>
+                <viewController id="qGS-D2-vjt" customClass="TutorialPopupController" customModule="app" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6aA-dt-zdc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="card-opaque" translatesAutoresizingMaskIntoConstraints="NO" id="U7U-aL-kGd">
+                                <rect key="frame" x="37" y="206" width="302" height="343"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Cq-JG-5aB">
+                                <rect key="frame" x="119" y="467" width="139" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.26666666666666666" green="0.40000000000000002" blue="0.53725490196078429" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Yes, I understand!">
+                                            <attributes>
+                                                <font key="NSFont" size="15" name="Poppins-Bold"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jg7-FR-fUe">
+                                <rect key="frame" x="100" y="294" width="177" height="166"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="This is some example text. Here, I'm going to explain you how that jellyfish thingy is working. Nice, isn't it?">
+                                        <attributes>
+                                            <font key="NSFont" size="17" name="Poppins-ExtraLight"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="evB-ze-qBD"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3eh-ji-8Hi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3864.8000000000002" y="88.669950738916256"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="S9i-ZK-YMY">
@@ -664,6 +718,7 @@ Panic</string>
         <image name="background" width="562" height="1218"/>
         <image name="bubble" width="592" height="592"/>
         <image name="bubble-opaque" width="1000" height="1000"/>
+        <image name="card-opaque" width="1000" height="1000"/>
         <image name="jellyfish-eyes" width="180" height="30"/>
         <image name="jellyfish-head-combined" width="1000" height="900"/>
         <image name="jellyfish-head-red" width="1000" height="900"/>

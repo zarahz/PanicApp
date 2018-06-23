@@ -13,8 +13,9 @@ class AnimationController: UIViewController {
     @IBOutlet weak var jellyfishHead: UIImageView!
     @IBOutlet weak var jellyfishTentacles: UIImageView!
     @IBOutlet weak var jellyfishRed: UIImageView!
-    @IBOutlet weak var spotify: UIImageView!
-    @IBOutlet weak var tutorial: UIImageView!
+    @IBOutlet weak var tutorialButton: UIButton!
+    @IBOutlet weak var spotifyButton: UIButton!
+    
     
     let defText = "Einatmen..."
     let breatheText = "Ausatmen..."
@@ -35,6 +36,12 @@ class AnimationController: UIViewController {
         jellyfishHead.isUserInteractionEnabled = true
         jellyfishHead.addGestureRecognizer(longPressGesture)
         
+        // Touch for Spotify shortcut
+        spotifyButton.addTarget(self, action: #selector(self.spotifyAction), for: .touchDown)
+        
+        // Touch for Tutorial popup
+        tutorialButton.addTarget(self, action: #selector(self.showTutorial), for: .touchDown)
+        
         // start default jiggling animation
         animateTentacles(delay:0.4)
         animateHead(delay:0.6)
@@ -50,8 +57,8 @@ class AnimationController: UIViewController {
             UIView.animate(withDuration: breatheIn,
                            delay: 0,
                            animations: {
-                            self.jellyfishHead.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
-                            self.jellyfishRed.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+                            self.jellyfishHead.transform = CGAffineTransform(scaleX: 1.15, y: 1.15)
+                            self.jellyfishRed.transform = CGAffineTransform(scaleX: 1.15, y: 1.15)
                             },
                            completion: nil
             )
@@ -112,6 +119,25 @@ class AnimationController: UIViewController {
         }
     }
     
+    
+    // open popup to show tutorial
+    
+    @objc func showTutorial () {
+        
+        breatheLabel.text = "Tutorial"
+        
+    }
+    
+    
+    // call Spotify shortcut
+    @objc func spotifyAction () {
+        
+        breatheLabel.text = "Spotify"
+        
+    }
+    
+    
+    // animates tentacles
     func animateTentacles(delay: Double) {
         
             UIView.animate(withDuration: 1,
@@ -124,6 +150,7 @@ class AnimationController: UIViewController {
         
     }
     
+    // animates head
     func animateHead(delay: Double) {
         
         UIView.animate(withDuration: 1,
