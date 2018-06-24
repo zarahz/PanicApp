@@ -16,6 +16,7 @@
 		AE81C8AF208F635D0031BC42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE81C8AD208F635D0031BC42 /* Main.storyboard */; };
 		AE81C8B1208F635D0031BC42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE81C8B0208F635D0031BC42 /* Assets.xcassets */; };
 		AE81C8B4208F635D0031BC42 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE81C8B2208F635D0031BC42 /* LaunchScreen.storyboard */; };
+		AEC211B020DD73F20069D683 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC211AF20DD73F20069D683 /* MapViewController.swift */; };
 		DA76468820BD55C50056A492 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA76468720BD55C50056A492 /* NavigationController.swift */; };
 		DA85693620C9C695003DBA4E /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA85693520C9C695003DBA4E /* Message.swift */; };
 		DA85693820CAE8E9003DBA4E /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA85693720CAE8E9003DBA4E /* MessageTableViewCell.swift */; };
@@ -43,6 +44,7 @@
 		AE81C8B5208F635D0031BC42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AEC211AA20DD64140069D683 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		AEC211AB20DD64180069D683 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		AEC211AF20DD73F20069D683 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		DA76468720BD55C50056A492 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		DA85693520C9C695003DBA4E /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		DA85693720CAE8E9003DBA4E /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 		AE81C8A8208F635C0031BC42 /* app */ = {
 			isa = PBXGroup;
 			children = (
+				AEC211AE20DD73BD0069D683 /* settings */,
 				AE81C8A9208F635D0031BC42 /* AppDelegate.swift */,
 				AE81C8AB208F635D0031BC42 /* ViewController.swift */,
 				AE81C8AD208F635D0031BC42 /* Main.storyboard */,
@@ -122,8 +125,6 @@
 				AE81C8B0208F635D0031BC42 /* Assets.xcassets */,
 				AE81C8B2208F635D0031BC42 /* LaunchScreen.storyboard */,
 				AE81C8B5208F635D0031BC42 /* Info.plist */,
-				AE28F7B220AF1CF1001D36A0 /* SettingsMenuController.swift */,
-				AE28F7B420BE9E16001D36A0 /* SettingsController.swift */,
 				DAC01EEB20BDAE0E00A6BE28 /* BubbleButton.swift */,
 				AE57696220CFF8CE00305DB4 /* home */,
 			);
@@ -136,6 +137,16 @@
 				8443F22E20C175AB003721F7 /* HomeController.swift */,
 			);
 			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		AEC211AE20DD73BD0069D683 /* settings */ = {
+			isa = PBXGroup;
+			children = (
+				AE28F7B220AF1CF1001D36A0 /* SettingsMenuController.swift */,
+				AE28F7B420BE9E16001D36A0 /* SettingsController.swift */,
+				AEC211AF20DD73F20069D683 /* MapViewController.swift */,
+			);
+			path = settings;
 			sourceTree = "<group>";
 		};
 		DAB2279320BFD1DE0070CABF /* Tipps */ = {
@@ -276,6 +287,7 @@
 				AE81C8AC208F635D0031BC42 /* ViewController.swift in Sources */,
 				DAB2279920C00E040070CABF /* TippTableViewCell.swift in Sources */,
 				DAC01EEE20BDBAA400A6BE28 /* TippsController.swift in Sources */,
+				AEC211B020DD73F20069D683 /* MapViewController.swift in Sources */,
 				DA85693820CAE8E9003DBA4E /* MessageTableViewCell.swift in Sources */,
 				DA76468820BD55C50056A492 /* NavigationController.swift in Sources */,
 				DA85693620C9C695003DBA4E /* Message.swift in Sources */,

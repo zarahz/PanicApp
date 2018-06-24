@@ -12,7 +12,7 @@ import UIKit
 class SettingsMenuController: UIViewController {
     
     //MARK: protocols
-    var locationDelegate: SetHomeLocationProtocol?
+    var locationDelegate: HomeLocationProtocol?
     var modeDelegate: UpdateModeImageProtocol!
     
     //MARK: Design button outlets
@@ -70,7 +70,7 @@ class SettingsMenuController: UIViewController {
  
     //MARK: Location click handler
     @IBAction func activateGPS(_ sender: Any) {
-        locationDelegate?.getHomeCoordinates(atHomeLocationClicked: false, stop: false);
+    locationDelegate?.getHomeCoordinates(atHomeLocationClicked: false, stop: false);
         normalizeButton(homeLocationButton)
         normalizeButton(atHomeMode)
         normalizeButton(onRoadMode)
@@ -112,6 +112,14 @@ class SettingsMenuController: UIViewController {
     func normalizeButton(_ button:UIButton){
         button.setTitleColor(UIColor.black, for: .normal);
         button.alpha = 0.8;
+    }
+    
+    //MARK: segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "map" {
+            let mapControllerNext = segue.destination as! MapViewController
+            mapControllerNext.locationDelegate = locationDelegate
+        }
     }
 }
 

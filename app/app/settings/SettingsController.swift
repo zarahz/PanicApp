@@ -14,11 +14,12 @@ protocol UpdateModeImageProtocol {
     func modeChanged(image: UIImage)
 }
 
-protocol SetHomeLocationProtocol {
+protocol HomeLocationProtocol {
     func getHomeCoordinates(atHomeLocationClicked: Bool, stop: Bool)
+    func setHomeLocation(location: CLLocation)
 }
 
-class SettingsController: UIViewController, UpdateModeImageProtocol, SetHomeLocationProtocol, CLLocationManagerDelegate {
+class SettingsController: UIViewController, UpdateModeImageProtocol, HomeLocationProtocol, CLLocationManagerDelegate {
 
     //MARK: Location variables
     var locationManager:CLLocationManager!
@@ -34,8 +35,9 @@ class SettingsController: UIViewController, UpdateModeImageProtocol, SetHomeLoca
     //MARK: Mode Outlets
     @IBOutlet var modeImage: UIImageView!
     
-    //MARK:SettingsMenuController
+    //MARK: Controller
     var menuController:SettingsMenuController?;
+    var mapController: MapViewController?;
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,10 +87,13 @@ class SettingsController: UIViewController, UpdateModeImageProtocol, SetHomeLoca
         print("Error \(error)")
     }
     
+    func setHomeLocation(location: CLLocation){
+        homePosition = location;
+        getHomeCoordinates(atHomeLocationClicked: false, stop: false)
+    }
+    
     func getHomeCoordinates(atHomeLocationClicked:Bool, stop:Bool){
-        
         locationManager.stopUpdatingLocation();
-        
         if(!stop){
         //in case User clicked GPS button but home location was already set
         if(homePosition != nil && !atHomeLocationClicked){
