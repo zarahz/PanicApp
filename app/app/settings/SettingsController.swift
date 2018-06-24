@@ -43,7 +43,6 @@ class SettingsController: UIViewController, UpdateModeImageProtocol, HomeLocatio
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.png")!)
-        modeChanged(image: jellyfishImage!)
         
         //locationManager
         atHomeModeActive = false;
@@ -94,6 +93,7 @@ class SettingsController: UIViewController, UpdateModeImageProtocol, HomeLocatio
     }
     
     func getHomeCoordinates(atHomeLocationClicked:Bool, stop:Bool){
+        if(locationManager != nil){
         locationManager.stopUpdatingLocation();
         if(!stop){
         //in case User clicked GPS button but home location was already set
@@ -106,7 +106,7 @@ class SettingsController: UIViewController, UpdateModeImageProtocol, HomeLocatio
             locationManager.startUpdatingLocation()
             isUpdatingLocation = true;
         }
-        }
+            }}
     }
     
     //MARK: segue

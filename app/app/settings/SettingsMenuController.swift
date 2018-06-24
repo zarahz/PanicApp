@@ -37,6 +37,8 @@ class SettingsMenuController: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         print("loaded menu");
         
+        highlightActiveButton();
+        
         //make design button circled
         shapeDesignButton(defaultDesignButton);
         shapeDesignButton(blueDesignButton);
@@ -55,10 +57,14 @@ class SettingsMenuController: UIViewController, CLLocationManagerDelegate {
         normalizeButton(onRoadMode)
         normalizeButton(GPSMode)
         modeDelegate?.modeChanged(image: atHomeImage!)
+        UserDefaults.standard.set(1, forKey: "mode")
+        UserDefaults.standard.removeObject(forKey: "homePosition")
     }
     
     @IBAction func onRoadClicked(_ sender: Any) {
         locationDelegate?.getHomeCoordinates(atHomeLocationClicked: false, stop: true);
+        UserDefaults.standard.set(0, forKey: "mode")
+        UserDefaults.standard.removeObject(forKey: "homePosition")
         highlightClickedButton(onRoadMode)
         normalizeButton(atHomeMode)
         normalizeButton(GPSMode)
@@ -67,6 +73,7 @@ class SettingsMenuController: UIViewController, CLLocationManagerDelegate {
     
     @IBAction func activateGPS(_ sender: Any) {
     locationDelegate?.getHomeCoordinates(atHomeLocationClicked: false, stop: false);
+        UserDefaults.standard.set(-1, forKey: "mode")
         normalizeButton(homeLocationButton)
         normalizeButton(atHomeMode)
         normalizeButton(onRoadMode)
@@ -79,11 +86,7 @@ class SettingsMenuController: UIViewController, CLLocationManagerDelegate {
     }
     
     @IBAction func homeLocationClicked(_ sender: Any) {
-    locationDelegate?.getHomeCoordinates(atHomeLocationClicked: true, stop: false);
-        highlightClickedButton(GPSMode);
-        normalizeButton(homeLocationButton)
-        normalizeButton(onRoadMode)
-        normalizeButton(atHomeMode)
+        activateGPS(self)
     }
     
     //MARK: Design Button functions
@@ -113,6 +116,16 @@ class SettingsMenuController: UIViewController, CLLocationManagerDelegate {
     func normalizeButton(_ button:UIButton){
         button.setTitleColor(UIColor.black, for: .normal);
         button.alpha = 0.8;
+    }
+    
+    func highlightActiveButton(){
+        if(UserDefaults.standard.integer(forKey: "mode") == 1){
+            atHomeClicked(self)
+        }else if(UserDefaults.standard.integer(forKey: "mode") == 0){
+            onRoadClicked(self)
+        }else{
+            activateGPS(self)
+        }
     }
     
     //MARK: segue
