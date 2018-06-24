@@ -17,6 +17,7 @@
 		AE81C8B1208F635D0031BC42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE81C8B0208F635D0031BC42 /* Assets.xcassets */; };
 		AE81C8B4208F635D0031BC42 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE81C8B2208F635D0031BC42 /* LaunchScreen.storyboard */; };
 		AEC211B020DD73F20069D683 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC211AF20DD73F20069D683 /* MapViewController.swift */; };
+		AEC211B220E010270069D683 /* UserDefaultExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC211B120E010270069D683 /* UserDefaultExtension.swift */; };
 		DA76468820BD55C50056A492 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA76468720BD55C50056A492 /* NavigationController.swift */; };
 		DA85693620C9C695003DBA4E /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA85693520C9C695003DBA4E /* Message.swift */; };
 		DA85693820CAE8E9003DBA4E /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA85693720CAE8E9003DBA4E /* MessageTableViewCell.swift */; };
@@ -45,6 +46,7 @@
 		AEC211AA20DD64140069D683 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		AEC211AB20DD64180069D683 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		AEC211AF20DD73F20069D683 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		AEC211B120E010270069D683 /* UserDefaultExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultExtension.swift; sourceTree = "<group>"; };
 		DA76468720BD55C50056A492 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		DA85693520C9C695003DBA4E /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		DA85693720CAE8E9003DBA4E /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				AE28F7B220AF1CF1001D36A0 /* SettingsMenuController.swift */,
 				AE28F7B420BE9E16001D36A0 /* SettingsController.swift */,
 				AEC211AF20DD73F20069D683 /* MapViewController.swift */,
+				AEC211B120E010270069D683 /* UserDefaultExtension.swift */,
 			);
 			path = settings;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEC211B220E010270069D683 /* UserDefaultExtension.swift in Sources */,
 				AE28F7B520BE9E16001D36A0 /* SettingsController.swift in Sources */,
 				AE28F7B320AF1CF1001D36A0 /* SettingsMenuController.swift in Sources */,
 				AE57696420CFF8CE00305DB4 /* HomeController.swift in Sources */,

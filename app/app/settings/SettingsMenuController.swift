@@ -8,8 +8,9 @@
 
 import Foundation
 import UIKit
+import CoreLocation
 
-class SettingsMenuController: UIViewController {
+class SettingsMenuController: UIViewController, CLLocationManagerDelegate {
     
     //MARK: protocols
     var locationDelegate: HomeLocationProtocol?
@@ -35,10 +36,6 @@ class SettingsMenuController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("loaded menu");
-        
-        //In case button labels are too long!
-        //adjustTextSize(homeLocationButton);
-        //adjustTextSize(setHomeLocationButton);
         
         //make design button circled
         shapeDesignButton(defaultDesignButton);
@@ -67,14 +64,18 @@ class SettingsMenuController: UIViewController {
         normalizeButton(GPSMode)
         modeDelegate?.modeChanged(image: onRoadImage!)
     }
- 
-    //MARK: Location click handler
+    
     @IBAction func activateGPS(_ sender: Any) {
     locationDelegate?.getHomeCoordinates(atHomeLocationClicked: false, stop: false);
         normalizeButton(homeLocationButton)
         normalizeButton(atHomeMode)
         normalizeButton(onRoadMode)
         highlightClickedButton(GPSMode)
+    }
+    //function that is called when map sets home location
+    func setHomeLocation(location: CLLocation){
+        locationDelegate?.setHomeLocation(location: location)
+        activateGPS((Any).self);
     }
     
     @IBAction func homeLocationClicked(_ sender: Any) {
@@ -118,7 +119,7 @@ class SettingsMenuController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "map" {
             let mapControllerNext = segue.destination as! MapViewController
-            mapControllerNext.locationDelegate = locationDelegate
+            mapControllerNext.menuController = self
         }
     }
 }

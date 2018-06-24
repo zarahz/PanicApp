@@ -12,7 +12,8 @@ import MapKit
 
 class MapViewController: UIViewController{
     @IBOutlet var mapView: MKMapView!
-    var locationDelegate: HomeLocationProtocol!
+    //var locationDelegate: HomeLocationProtocol!
+    var menuController: SettingsMenuController?
 
     let regionRadius: CLLocationDistance = 1000
     let annotation = MKPointAnnotation()
@@ -22,6 +23,10 @@ class MapViewController: UIViewController{
         // set initial location in Honolulu location in Honolulu
         let initialLocation = CLLocation(latitude: 21.282778, longitude: -157.829444)
         centerMapOnLocation(location:initialLocation)
+        
+        if(UserDefaults.standard.location(forKey: "homeLocation") != nil){
+        addAnnotationOnLocation(pointedCoordinate: (UserDefaults.standard.location(forKey: "homeLocation")?.coordinate)!);
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -44,9 +49,12 @@ class MapViewController: UIViewController{
     }
     
     func addAnnotationOnLocation(pointedCoordinate: CLLocationCoordinate2D){
+        
         let homeLocation =  CLLocation(latitude: pointedCoordinate.latitude, longitude: pointedCoordinate.longitude)
-
-        locationDelegate?.setHomeLocation(location: homeLocation)
+        UserDefaults.standard.set(location: homeLocation, forKey: "homeLocation");
+        
+        //locationDelegate?.setHomeLocation(location: homeLocation)
+        menuController?.setHomeLocation(location: homeLocation)
         annotation.coordinate = pointedCoordinate
         annotation.title = "Zu Hause"
         mapView.addAnnotation(annotation)

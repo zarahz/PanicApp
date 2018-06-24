@@ -20,11 +20,12 @@ protocol HomeLocationProtocol {
 }
 
 class SettingsController: UIViewController, UpdateModeImageProtocol, HomeLocationProtocol, CLLocationManagerDelegate {
+    
 
     //MARK: Location variables
     var locationManager:CLLocationManager!
     var isUpdatingLocation:Bool!;
-    var atHomeLocation:Bool!;
+    var atHomeModeActive:Bool!;
     var homePosition: CLLocation?
 
     //MARK: Mode variables
@@ -43,10 +44,9 @@ class SettingsController: UIViewController, UpdateModeImageProtocol, HomeLocatio
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.png")!)
         modeChanged(image: jellyfishImage!)
-        //self.menuController?.locationStopDelegate = self;
         
         //locationManager
-        atHomeLocation = false;
+        atHomeModeActive = false;
         isUpdatingLocation = false;
         locationManager = CLLocationManager()
         locationManager.delegate = self
@@ -65,9 +65,10 @@ class SettingsController: UIViewController, UpdateModeImageProtocol, HomeLocatio
         
         print("\(userLocation) \n")
         
-        if (atHomeLocation && userLocation.horizontalAccuracy <= 10) {
+        if (atHomeModeActive && userLocation.horizontalAccuracy <= 10) {
             homePosition = locations.last
-            atHomeLocation = false;
+            UserDefaults.standard.set(location: homePosition!, forKey: "homeLocation")
+            atHomeModeActive = false;
         }
         
         if(homePosition != nil && userLocation.horizontalAccuracy <= 10){
@@ -97,9 +98,9 @@ class SettingsController: UIViewController, UpdateModeImageProtocol, HomeLocatio
         if(!stop){
         //in case User clicked GPS button but home location was already set
         if(homePosition != nil && !atHomeLocationClicked){
-            atHomeLocation = false;
+            atHomeModeActive = false;
         }else {
-            atHomeLocation = true;
+            atHomeModeActive = true;
         }
         if CLLocationManager.locationServicesEnabled(){
             locationManager.startUpdatingLocation()
