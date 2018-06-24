@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import CoreLocation
 
-class SettingsMenuController: UIViewController, CLLocationManagerDelegate {
+class SettingsMenuController: UIViewController, CLLocationManagerDelegate, SPTAudioStreamingPlaybackDelegate, SPTAudioStreamingDelegate {
     
     //MARK: protocols
     var locationDelegate: HomeLocationProtocol?
@@ -33,11 +33,22 @@ class SettingsMenuController: UIViewController, CLLocationManagerDelegate {
     var onRoadImage = UIImage(named: "jellyfish");
     var atHomeImage = UIImage(named: "bubble");
     
+    //MARK: spotify
+    @IBOutlet var login: UIButton!
+    var auth = SPTAuth.defaultInstance()!
+    var session:SPTSession!
+    var player: SPTAudioStreamingController?
+    var loginUrl: URL?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("loaded menu");
         
         highlightActiveButton();
+        
+        //init spotify
+        setup()
+        NotificationCenter.default.addObserver(self, selector: #selector(SettingsMenuController.updateAfterFirstLogin), name: nil,                                        object: nil)
         
         //make design button circled
         shapeDesignButton(defaultDesignButton);
@@ -101,6 +112,59 @@ class SettingsMenuController: UIViewController, CLLocationManagerDelegate {
         print("thumbs up button pressed")
     }
     
+    //MARK: Spotify Functions
+    func setup(){
+        SPTAuth.defaultInstance().clientID = "50c794cf3c2e40888e3b43cd8c3556ee";
+        SPTAuth.defaultInstance().redirectURL = URL(string:"SpotifySDKDemo://panic.app");
+        SPTAuth.defaultInstance().requestedScopes = [SPTAuthStreamingScope, SPTAuthPlaylistReadPrivateScope, SPTAuthPlaylistModifyPublicScope, SPTAuthPlaylistReadPrivateScope];
+        loginUrl = SPTAuth.defaultInstance().spotifyWebAuthenticationURL();
+    }
+    
+    @objc func updateAfterFirstLogin () {
+        if let sessionObj:AnyObject = UserDefaults.standard.object(forKey: "SpotifySession") as AnyObject? {
+            let sessionDataObj = sessionObj as! Data
+            let firstTimeSession = NSKeyedUnarchiver.unarchiveObject(with: sessionDataObj) as! SPTSession
+            self.session = firstTimeSession
+            initializePlayer(authSession: session)
+        }
+    }
+    
+        func initializePlayer(authSession:SPTSession){
+            if self.player == nil {
+                self.player = SPTAudioStreamingController.sharedInstance()
+                self.player!.playbackDelegate = self
+                self.player!.delegate = self
+                try! player!.start(withClientId: auth.clientID)
+                self.player!.login(withAccessToken: authSession.accessToken)
+            }
+        }
+    
+    func audioStreamingDidLogin(_ audioStreaming: SPTAudioStreamingController!) {
+        // after a user authenticates a session, the SPTAudioStreamingController is then initialized and this method called
+        print("logged in")
+        self.player?.playSpotifyURI("spotify:track:58s6EuEYJdlb0kO7awm3Vp", startingWith: 0, startingWithPosition: 0, callback: { (error) in
+            if (error != nil) {
+                print("playing!")
+            }
+        })
+    }
+    
+    @IBAction func spotifyLoginPressed(_ sender: Any) {
+        if UIApplication.shared.openURL(loginUrl!) {
+            if auth.canHandle(auth.redirectURL) {
+                // To do - build in error handling
+            }
+        }
+    }
+    
+    //MARK: segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "map" {
+            let mapControllerNext = segue.destination as! MapViewController
+            mapControllerNext.menuController = self
+        }
+    }
+    
     //MARK: Helper functions
     func adjustTextSize(_ button:UIButton){
         button.titleLabel?.minimumScaleFactor = 0.5
@@ -125,14 +189,6 @@ class SettingsMenuController: UIViewController, CLLocationManagerDelegate {
             onRoadClicked(self)
         }else{
             activateGPS(self)
-        }
-    }
-    
-    //MARK: segue
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "map" {
-            let mapControllerNext = segue.destination as! MapViewController
-            mapControllerNext.menuController = self
         }
     }
 }

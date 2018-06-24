@@ -836,11 +836,14 @@ PANIC</string>
                                                         <rect key="frame" x="20" y="10" width="261" height="40"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v2n-jC-GgT">
-                                                                <rect key="frame" x="0.0" y="0.0" width="46" height="40"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="47" height="40"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="40" id="g8z-nt-6Lu"/>
                                                                 </constraints>
-                                                                <state key="normal" title="Button"/>
+                                                                <state key="normal" title="Sign In"/>
+                                                                <connections>
+                                                                    <action selector="spotifyLoginPressed:" destination="5GY-kU-cAt" eventType="touchUpInside" id="QEC-8E-SV1"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LMa-FQ-hPH">
                                                                 <rect key="frame" x="215" y="0.0" width="46" height="40"/>
