@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class TippsPopupController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var tipps = [Message]()
@@ -15,8 +16,9 @@ class TippsPopupController: UIViewController, UITableViewDataSource, UITableView
     var tipsController: TippsController?
     
     let spacingBetweenRows:CGFloat = 8
+    let speechSynthesizer = AVSpeechSynthesizer()
     
-    
+    var audioOn = false
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -25,7 +27,6 @@ class TippsPopupController: UIViewController, UITableViewDataSource, UITableView
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.backgroundColor = UIColor.clear
-        
         loadTipps()
     }
     
@@ -69,7 +70,7 @@ class TippsPopupController: UIViewController, UITableViewDataSource, UITableView
             cell.messageLabel.text = message.content
             return cell
         }
-        
+            
         else {
             cellId = "TipCell"
             guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? TippTableViewCell else {
@@ -102,6 +103,11 @@ class TippsPopupController: UIViewController, UITableViewDataSource, UITableView
         displayedTipps.append(message)
         tableView.reloadData()
         scrollToBottom()
+        if(audioOn) {
+            let speechUtterance = AVSpeechUtterance(string: response)
+            speechUtterance.voice = AVSpeechSynthesisVoice(language: "de-DE")
+            speechSynthesizer.speak(speechUtterance)
+        }
     }
     
     func showInput(input: String) {
@@ -112,15 +118,20 @@ class TippsPopupController: UIViewController, UITableViewDataSource, UITableView
         scrollToBottom()
     }
     
+    @IBAction func changeAudio(_ sender: UIButton) {
+        audioOn = !audioOn
+        sender.isSelected = !sender.isSelected
+    }
+    
     func scrollToBottom() {
         if tableView.numberOfSections > 0 {
-            tableView.scrollToRow(at: IndexPath(row: 0, section: tableView.numberOfSections-1), at: .top , animated: false)
+            tableView.scrollToRow(at: IndexPath(row: 0, section: tableView.numberOfSections-1), at: .bottom , animated: false)
+            tableView.layoutIfNeeded()
         }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         tipsController?.searchField.resignFirstResponder()
-        print("popup touched")
         super.touchesBegan(touches, with: event)
     }
     
