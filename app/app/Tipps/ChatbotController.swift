@@ -18,29 +18,16 @@ class ChatbotController {
     var popupController: TippsPopupController!
     var phoneNr: String?
     
-    func sendWelcomeRequest() {
-        let welcomeRequest = ApiAI.shared().eventRequest()
-        welcomeRequest?.event = AIEvent(name: "WELCOME")
-        welcomeRequest?.setMappedCompletionBlockSuccess({ (welcomeRequest, response) in
-            let response = response as! AIResponse
-            self.isActive = true
-            if let textResponse = response.result.fulfillment.messages[0]["speech"] as? String{
-                self.popupController.showResponse(response: textResponse )
-            }
-        }, failure: { (request, error) in
-            print(error!)
-            self.popupController.showResponse(response: "Verbindung zum Chatbot nicht möglich" )
-        })
-        ApiAI.shared().enqueue(welcomeRequest)
+    func sendEventRequest(eventName: String) {
+        let request = ApiAI.shared().eventRequest()
+        request?.event = AIEvent(name: eventName)
+        handleCompletion(request: request)
+        ApiAI.shared().enqueue(request)
     }
     
-    func sendMessageToBot(text: String) {
-        self.popupController.showInput(input: text )
-        
-        let request = ApiAI.shared().textRequest()
-        request?.query = text
-        
+    func handleCompletion(request: AIRequest?) {
         request?.setMappedCompletionBlockSuccess({ (request, response) in
+            self.isActive = true
             let response = response as! AIResponse
             if let textResponse = response.result.fulfillment.messages[0]["speech"] as? String {
                 if !self.handleAction(response: response) {
@@ -50,6 +37,14 @@ class ChatbotController {
         }, failure: { (request, error) in
             self.popupController.showResponse(response: "Verbindung zum Chatbot nicht möglich")
         })
+    }
+    
+    func sendMessageToBot(text: String) {
+        self.popupController.showInput(input: text )
+        
+        let request = ApiAI.shared().textRequest()
+        request?.query = text
+        handleCompletion(request: request)
         ApiAI.shared().enqueue(request)
     }
     
@@ -57,12 +52,18 @@ class ChatbotController {
         let action = response.result.action
         switch(action) {
         case "call":
-            print(response.result.parameters)
             guard var name = (response.result.parameters["given-name"] as? AIResponseParameter)?.stringValue else {
                 fatalError("Name parameter is missing")
             }
             if let lastName = (response.result.parameters["last-name"] as? AIResponseParameter)?.stringValue {
+                if !name.isEmpty {
                 name = name+" "+lastName
+                } else {
+                    name = lastName
+                }
+            }
+            if name.isEmpty {
+                return false
             }
             if getContact(name: name) {
                 self.popupController.showResponse(response: "Soll ich \(name) für dich anrufen?")
@@ -72,6 +73,15 @@ class ChatbotController {
             return true
         case "callConfirmed":
             callNumber()
+            return true
+        case "callSomeone":
+            let request = ApiAI.shared().textRequest()
+            request?.query = "Telefonat"
+            handleCompletion(request: request)
+            ApiAI.shared().enqueue(request)
+            return true
+        case "exampleQuestions":
+            sendEventRequest(eventName: "EXAMPLE_QUESTIONS")
             return true
         default: return false
         }

@@ -134,7 +134,7 @@ class TippsController: UIViewController, UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if !chatbotController.isActive {
             showPopup()
-            chatbotController.sendWelcomeRequest()
+            chatbotController.sendEventRequest(eventName: "WELCOME")
         }
     }
     
@@ -143,7 +143,7 @@ class TippsController: UIViewController, UITextFieldDelegate {
         if #available(iOS 10.0, *) {
             if !chatbotController.isActive {
                 showPopup()
-                chatbotController.sendWelcomeRequest()
+                chatbotController.sendEventRequest(eventName: "WELCOME")
             }
             SpeechListener(chatbotController: self.chatbotController, button: sender).transcribeSpeech()
         }
