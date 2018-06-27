@@ -19,7 +19,7 @@ class TutorialPageViewController: UIPageViewController, UIPageViewControllerData
         delegate = self
         
         //load viewControllers
-        for i in 0...1 {
+        for i in 0...2 {
             let vc = UIStoryboard(name: "Main", bundle: nil) .
                 instantiateViewController(withIdentifier:"tutorial\(i)")
             viewControllersList.append(vc)
