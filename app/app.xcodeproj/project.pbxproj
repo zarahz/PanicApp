@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		7DEBDBCD00C9B4F9EC43D87C /* Pods_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01718B50368B7167E2FFA1D2 /* Pods_app.framework */; };
-		8443F22F20C175AB003721F7 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8443F22E20C175AB003721F7 /* HomeController.swift */; };
 		AE28F7B320AF1CF1001D36A0 /* SettingsMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE28F7B220AF1CF1001D36A0 /* SettingsMenuController.swift */; };
 		AE28F7B520BE9E16001D36A0 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE28F7B420BE9E16001D36A0 /* SettingsController.swift */; };
+		AE57696420CFF8CE00305DB4 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE57696320CFF8CE00305DB4 /* HomeController.swift */; };
 		AE81C8AA208F635D0031BC42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE81C8A9208F635D0031BC42 /* AppDelegate.swift */; };
 		AE81C8AC208F635D0031BC42 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE81C8AB208F635D0031BC42 /* ViewController.swift */; };
 		AE81C8AF208F635D0031BC42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE81C8AD208F635D0031BC42 /* Main.storyboard */; };
@@ -31,10 +31,10 @@
 /* Begin PBXFileReference section */
 		01718B50368B7167E2FFA1D2 /* Pods_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		373137FC0A262B831C1191A2 /* Pods-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-app.debug.xcconfig"; path = "Pods/Target Support Files/Pods-app/Pods-app.debug.xcconfig"; sourceTree = "<group>"; };
-		8443F22E20C175AB003721F7 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		A8527A7842AFEEBF1F5E4972 /* Pods-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-app.release.xcconfig"; path = "Pods/Target Support Files/Pods-app/Pods-app.release.xcconfig"; sourceTree = "<group>"; };
 		AE28F7B220AF1CF1001D36A0 /* SettingsMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsMenuController.swift; sourceTree = "<group>"; };
 		AE28F7B420BE9E16001D36A0 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		AE57696320CFF8CE00305DB4 /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		AE81C8A6208F635C0031BC42 /* app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE81C8A9208F635D0031BC42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE81C8AB208F635D0031BC42 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -42,6 +42,8 @@
 		AE81C8B0208F635D0031BC42 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE81C8B3208F635D0031BC42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE81C8B5208F635D0031BC42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AEC211AA20DD64140069D683 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		AEC211AB20DD64180069D683 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		DA76468720BD55C50056A492 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		DA839E0F20D97FB70017C394 /* TutorialPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialPageViewController.swift; sourceTree = "<group>"; };
 		DA839E1120D98C420017C394 /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
@@ -69,17 +71,11 @@
 		460BB247B87249941129FD40 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				01718B50368B7167E2FFA1D2 /* Pods_app.framework */,
+			AEC211AB20DD64180069D683 /* CoreLocation.framework */,
+			AEC211AA20DD64140069D683 /* MapKit.framework */,
+			01718B50368B7167E2FFA1D2 /* Pods_app.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		8443F22D20C17557003721F7 /* home */ = {
-			isa = PBXGroup;
-			children = (
-				8443F22E20C175AB003721F7 /* HomeController.swift */,
-			);
-			path = home;
 			sourceTree = "<group>";
 		};
 		98F39DBDDD9DF1989C0B74F4 /* Pods */ = {
@@ -91,6 +87,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		AE57696220CFF8CE00305DB4 /* home */ = {
+			isa = PBXGroup;
+			children = (
+				AE57696320CFF8CE00305DB4 /* HomeController.swift */,
+			);
+			path = home;
+			sourceTree = "<group>";
+		};
 		AE81C89D208F635C0031BC42 = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +102,7 @@
 				AE81C8A7208F635C0031BC42 /* Products */,
 				98F39DBDDD9DF1989C0B74F4 /* Pods */,
 				460BB247B87249941129FD40 /* Frameworks */,
+				AEC211A920DD61210069D683 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -113,7 +118,6 @@
 			isa = PBXGroup;
 			children = (
 				DA839E0E20D97F710017C394 /* tutorial */,
-				8443F22D20C17557003721F7 /* home */,
 				AE81C8A9208F635D0031BC42 /* AppDelegate.swift */,
 				AE81C8AB208F635D0031BC42 /* ViewController.swift */,
 				AE81C8AD208F635D0031BC42 /* Main.storyboard */,
@@ -125,6 +129,7 @@
 				AE28F7B220AF1CF1001D36A0 /* SettingsMenuController.swift */,
 				AE28F7B420BE9E16001D36A0 /* SettingsController.swift */,
 				DAC01EEB20BDAE0E00A6BE28 /* BubbleButton.swift */,
+				AE57696220CFF8CE00305DB4 /* home */,
 			);
 			path = app;
 			sourceTree = "<group>";
@@ -186,6 +191,11 @@
 					AE81C8A5208F635C0031BC42 = {
 						CreatedOnToolsVersion = 9.3;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -267,6 +277,7 @@
 			files = (
 				AE28F7B520BE9E16001D36A0 /* SettingsController.swift in Sources */,
 				AE28F7B320AF1CF1001D36A0 /* SettingsMenuController.swift in Sources */,
+				AE57696420CFF8CE00305DB4 /* HomeController.swift in Sources */,
 				AE81C8AC208F635D0031BC42 /* ViewController.swift in Sources */,
 				DAB2279920C00E040070CABF /* TippTableViewCell.swift in Sources */,
 				DAC01EEE20BDBAA400A6BE28 /* TippsController.swift in Sources */,
@@ -276,7 +287,6 @@
 				DA839E1220D98C420017C394 /* TutorialViewController.swift in Sources */,
 				DA839E1020D97FB70017C394 /* TutorialPageViewController.swift in Sources */,
 				DAC01EEC20BDAE0E00A6BE28 /* BubbleButton.swift in Sources */,
-				8443F22F20C175AB003721F7 /* HomeController.swift in Sources */,
 				DAC01EF620BF1B6200A6BE28 /* TippsPopupController.swift in Sources */,
 				AE81C8AA208F635D0031BC42 /* AppDelegate.swift in Sources */,
 			);
@@ -424,7 +434,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 88MAJ7269L;
+				DEVELOPMENT_TEAM = D6NKU8X2U5;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -432,7 +442,7 @@
 				INFOPLIST_FILE = app/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = panic.ios.app;
+				PRODUCT_BUNDLE_IDENTIFIER = panic.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
@@ -447,7 +457,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 88MAJ7269L;
+				DEVELOPMENT_TEAM = D6NKU8X2U5;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -455,7 +465,7 @@
 				INFOPLIST_FILE = app/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = panic.ios.app;
+				PRODUCT_BUNDLE_IDENTIFIER = panic.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
