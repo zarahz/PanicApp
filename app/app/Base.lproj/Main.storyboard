@@ -217,110 +217,6 @@ PANIC</string>
             </objects>
             <point key="canvasLocation" x="4181.6000000000004" y="894.82758620689663"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="ISA-uu-YnH">
-            <objects>
-                <viewController storyboardIdentifier="tutorial1.1" id="YUT-u1-SWZ" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="6eW-4S-dRn">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="wfQ-o6-mC6">
-                                <rect key="frame" x="9.3333333333333428" y="54" width="356.33333333333326" height="674"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="VeP-PV-mFo">
-                                        <rect key="frame" x="0.0" y="0.0" width="356.33333333333331" height="60"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Atemübungen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mnX-xz-CbX">
-                                                <rect key="frame" x="0.0" y="0.0" width="356.33333333333331" height="42"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="gTe-Yg-8CU">
-                                                <rect key="frame" x="0.0" y="42" width="356.33333333333331" height="18"/>
-                                                <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lNA-Bo-1KC">
-                                                        <rect key="frame" x="0.0" y="8" width="191.66666666666666" height="2"/>
-                                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="2" id="ONi-Hf-GfV"/>
-                                                        </constraints>
-                                                    </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UNTERWEGS-MODUS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5q0-rl-Frc">
-                                                        <rect key="frame" x="201.66666666666669" y="0.0" width="154.66666666666669" height="18"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                            </stackView>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="leX-ki-9N1"/>
-                                        </constraints>
-                                    </stackView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="It0-K4-eyz">
-                                        <rect key="frame" x="0.0" y="60" width="356.33333333333331" height="614"/>
-                                        <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jellyfish" translatesAutoresizingMaskIntoConstraints="NO" id="Cd4-NI-UYH">
-                                                <rect key="frame" x="-129" y="0.0" width="614.33333333333337" height="614"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="Cd4-NI-UYH" secondAttribute="height" multiplier="1:1" id="cLK-nf-XWn"/>
-                                                </constraints>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Halte beim Einatmen die Qualle gedrückt ..." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DDx-gV-Cbt">
-                                                <rect key="frame" x="0.0" y="5.0000000000000036" width="150" height="57.333333333333343"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="150" id="tzO-Ny-1Q8"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="... und lasse sie beim Ausatmen wieder los. " textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jAS-DK-SrQ">
-                                                <rect key="frame" x="206.33333333333331" y="556.66666666666663" width="150" height="57.333333333333371"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="150" id="CZI-Cl-LAl"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="Cd4-NI-UYH" secondAttribute="bottom" id="937-uE-gam"/>
-                                            <constraint firstItem="Cd4-NI-UYH" firstAttribute="centerX" secondItem="It0-K4-eyz" secondAttribute="centerX" id="FhU-MD-XeX"/>
-                                            <constraint firstItem="DDx-gV-Cbt" firstAttribute="leading" secondItem="It0-K4-eyz" secondAttribute="leading" id="JIG-Ji-F1F"/>
-                                            <constraint firstItem="Cd4-NI-UYH" firstAttribute="bottom" secondItem="jAS-DK-SrQ" secondAttribute="bottom" id="VvR-Ip-2GQ"/>
-                                            <constraint firstAttribute="trailing" secondItem="jAS-DK-SrQ" secondAttribute="trailing" id="jGy-mv-XAM"/>
-                                            <constraint firstItem="DDx-gV-Cbt" firstAttribute="top" secondItem="Cd4-NI-UYH" secondAttribute="top" constant="5" id="p5b-O4-BpR"/>
-                                            <constraint firstItem="Cd4-NI-UYH" firstAttribute="top" secondItem="It0-K4-eyz" secondAttribute="top" id="t2u-TW-98v"/>
-                                        </constraints>
-                                    </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Konzentriere dich auf eine möglichst ruhige, tiefe Atmung. " lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tcx-W8-sW0" userLabel="Konzentriere dich auf eine möglichst ruhige, tiefe Atmung.">
-                                        <rect key="frame" x="0.0" y="674" width="356.33333333333331" height="0.0"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="muo-yQ-ZnH" firstAttribute="bottom" secondItem="wfQ-o6-mC6" secondAttribute="bottom" constant="50" id="5ui-85-6Wl"/>
-                            <constraint firstItem="wfQ-o6-mC6" firstAttribute="leading" secondItem="muo-yQ-ZnH" secondAttribute="leading" constant="10" id="OdL-8i-Juk"/>
-                            <constraint firstItem="wfQ-o6-mC6" firstAttribute="top" secondItem="muo-yQ-ZnH" secondAttribute="top" constant="10" id="jzH-rF-GqX"/>
-                            <constraint firstItem="muo-yQ-ZnH" firstAttribute="trailing" secondItem="wfQ-o6-mC6" secondAttribute="trailing" constant="10" id="kHP-y8-IEy"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="muo-yQ-ZnH"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IA3-TW-vbk" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4904.8000000000002" y="896.30541871921184"/>
-        </scene>
         <!--Home-->
         <scene sceneID="3oy-sR-TqP">
             <objects>
@@ -578,10 +474,10 @@ PANIC</string>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="asA-Kv-fRi">
-                                                                        <rect key="frame" x="10" y="0.0" width="71.666666666666671" height="99"/>
+                                                                        <rect key="frame" x="10" y="0.0" width="71.666666666666671" height="99.666666666666671"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="viU-Dl-fDW">
-                                                                                <rect key="frame" x="14.999999999999996" y="10" width="41.666666666666657" height="79"/>
+                                                                                <rect key="frame" x="14.999999999999996" y="10" width="41.666666666666657" height="79.666666666666671"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -622,10 +518,10 @@ PANIC</string>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Uc-uX-i21">
-                                                                        <rect key="frame" x="273.33333333333331" y="0.0" width="71.666666666666686" height="99.666666666666671"/>
+                                                                        <rect key="frame" x="273.33333333333331" y="0.0" width="71.666666666666686" height="99.333333333333329"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBg-IA-x7u">
-                                                                                <rect key="frame" x="14.999999999999996" y="10" width="41.666666666666657" height="79.666666666666671"/>
+                                                                                <rect key="frame" x="14.999999999999996" y="10" width="41.666666666666657" height="79.333333333333329"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -666,10 +562,10 @@ PANIC</string>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hir-0L-jhw">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="355" height="99.333333333333329"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="355" height="99"/>
                                                                         <subviews>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" axis="vertical" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="BM8-Iz-Ij7">
-                                                                                <rect key="frame" x="5" y="5" width="345" height="86.333333333333329"/>
+                                                                                <rect key="frame" x="5" y="5" width="345" height="86"/>
                                                                                 <subviews>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gA0-zy-jEh">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="345" height="20.333333333333332"/>
@@ -678,7 +574,7 @@ PANIC</string>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pNq-eB-iPe">
-                                                                                        <rect key="frame" x="0.0" y="66" width="345" height="20.333333333333329"/>
+                                                                                        <rect key="frame" x="0.0" y="65.666666666666671" width="345" height="20.333333333333329"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                         <nil key="textColor"/>
                                                                                         <nil key="highlightedColor"/>
@@ -1095,213 +991,6 @@ PANIC</string>
             </objects>
         </scene>
         <!--View Controller-->
-        <scene sceneID="hzr-Dq-OVB">
-            <objects>
-                <viewController storyboardIdentifier="tutorial2.1" id="tss-X7-LBu" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="NCt-RU-JNl">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Fhq-Dw-Jd9">
-                                <rect key="frame" x="10" y="54" width="355" height="674"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fud-UP-lmi">
-                                        <rect key="frame" x="0.0" y="0.0" width="355" height="60"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Atemübungen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nDj-Oh-Ygd">
-                                                <rect key="frame" x="0.0" y="0.0" width="355" height="42"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aYn-Ww-T7z">
-                                                <rect key="frame" x="0.0" y="42" width="355" height="18"/>
-                                                <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FaK-ii-Wqo">
-                                                        <rect key="frame" x="0.0" y="8" width="345" height="2"/>
-                                                        <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="2" id="iAX-Ke-Wbn"/>
-                                                        </constraints>
-                                                    </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ZUHAUSE-MODUS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VZo-Fv-eSq">
-                                                        <rect key="frame" x="355" y="0.0" width="0.0" height="18"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                            </stackView>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="l02-0J-WRC"/>
-                                        </constraints>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="y5c-RB-hCn">
-                                        <rect key="frame" x="0.0" y="80" width="355" height="594"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Im Zuhause-Modus wird dein Atemrhythmus mit Hilfe von Bewegungssensoren gemessen. " lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eS0-7G-H7Y">
-                                                <rect key="frame" x="0.0" y="0.0" width="355" height="38.333333333333336"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="luK-kB-X0Q">
-                                                <rect key="frame" x="0.0" y="174.66666666666669" width="355" height="50"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lege dir dein Handy auf den Bauch" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mJH-fF-FqL">
-                                                        <rect key="frame" x="205" y="5.6666666666666288" width="150" height="38.333333333333336"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="150" id="SOG-8s-gIF"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                                <constraints>
-                                                    <constraint firstItem="mJH-fF-FqL" firstAttribute="centerY" secondItem="luK-kB-X0Q" secondAttribute="centerY" id="0Uh-C0-89A"/>
-                                                    <constraint firstAttribute="height" constant="50" id="f5z-10-aWs"/>
-                                                    <constraint firstAttribute="trailing" secondItem="mJH-fF-FqL" secondAttribute="trailing" id="lWf-OZ-FUf"/>
-                                                </constraints>
-                                            </view>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tutorial-lying-down" translatesAutoresizingMaskIntoConstraints="NO" id="Jd7-vI-yqO">
-                                                <rect key="frame" x="0.0" y="361.33333333333331" width="355" height="77"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="Jd7-vI-yqO" secondAttribute="height" multiplier="365:79" id="af0-pf-5Ox"/>
-                                                </constraints>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Passe deine Atmung an das Audiofeedback an. " lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hT7-C3-NGD" userLabel="Konzentriere dich auf eine möglichst ruhige, tiefe Atmung.">
-                                                <rect key="frame" x="0.0" y="574.66666666666663" width="355" height="19.333333333333371"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="4Wk-gk-Hhd" firstAttribute="bottom" secondItem="Fhq-Dw-Jd9" secondAttribute="bottom" constant="50" id="3F3-Fu-DH8"/>
-                            <constraint firstItem="Fhq-Dw-Jd9" firstAttribute="top" secondItem="4Wk-gk-Hhd" secondAttribute="top" constant="10" id="7VQ-s9-ib7"/>
-                            <constraint firstItem="Fhq-Dw-Jd9" firstAttribute="leading" secondItem="4Wk-gk-Hhd" secondAttribute="leading" constant="10" id="AJ8-zh-jyD"/>
-                            <constraint firstItem="4Wk-gk-Hhd" firstAttribute="trailing" secondItem="Fhq-Dw-Jd9" secondAttribute="trailing" constant="10" id="Vuh-QO-z6J"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="4Wk-gk-Hhd"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WDz-Jj-aso" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5604" y="896"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="MRf-g8-mP6">
-            <objects>
-                <viewController storyboardIdentifier="tutorial3.1" id="pRe-nz-3ii" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Osp-Wa-hL5">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="E1k-6M-Md5">
-                                <rect key="frame" x="10" y="54" width="355" height="674"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="FeT-Nf-xNc">
-                                        <rect key="frame" x="0.0" y="0.0" width="355" height="146"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Atemübungen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g0V-D4-qMu">
-                                                <rect key="frame" x="0.0" y="0.0" width="355" height="42"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6Wf-Nl-PPK">
-                                                <rect key="frame" x="0.0" y="42" width="355" height="104"/>
-                                                <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5kg-Gr-ESc">
-                                                        <rect key="frame" x="0.0" y="51" width="212.66666666666666" height="2"/>
-                                                        <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="2" id="r5w-5s-BZf"/>
-                                                        </constraints>
-                                                    </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ZUHAUSE-MODUS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhW-2d-7Ca">
-                                                        <rect key="frame" x="222.66666666666663" y="43" width="132.33333333333337" height="18"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                            </stackView>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="27I-SQ-D13"/>
-                                        </constraints>
-                                    </stackView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UdK-O1-rcE">
-                                        <rect key="frame" x="0.0" y="166" width="355" height="508"/>
-                                        <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tutorial-tips" translatesAutoresizingMaskIntoConstraints="NO" id="GW8-p2-dYD">
-                                                <rect key="frame" x="308" y="0.0" width="47" height="73.333333333333329"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="100" id="07S-Jn-4pf"/>
-                                                    <constraint firstAttribute="width" secondItem="GW8-p2-dYD" secondAttribute="height" multiplier="576:898" id="VzY-bH-Jde"/>
-                                                </constraints>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lese Tipps oder informiere dich beim Chatbot über Panikattacken. " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RHs-kY-63s">
-                                                <rect key="frame" x="0.0" y="0.0" width="308" height="39"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nq7-38-dKB">
-                                                <rect key="frame" x="308" y="438.66666666666663" width="47" height="19.333333333333314"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tutorial-tips" translatesAutoresizingMaskIntoConstraints="NO" id="yR3-Vv-3Wg">
-                                                <rect key="frame" x="0.0" y="59" width="288" height="449"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="300" id="XTz-c0-AJ5"/>
-                                                    <constraint firstAttribute="width" secondItem="yR3-Vv-3Wg" secondAttribute="height" multiplier="576:898" id="etd-gY-WNu"/>
-                                                </constraints>
-                                            </imageView>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="RHs-kY-63s" firstAttribute="leading" secondItem="UdK-O1-rcE" secondAttribute="leading" id="2gs-6f-kG5"/>
-                                            <constraint firstItem="GW8-p2-dYD" firstAttribute="leading" secondItem="RHs-kY-63s" secondAttribute="trailing" id="BV7-Bb-4cJ"/>
-                                            <constraint firstItem="RHs-kY-63s" firstAttribute="top" secondItem="UdK-O1-rcE" secondAttribute="top" id="MWm-Pd-GUM"/>
-                                            <constraint firstAttribute="bottom" secondItem="nq7-38-dKB" secondAttribute="bottom" constant="50" id="Nja-i7-ePa"/>
-                                            <constraint firstItem="yR3-Vv-3Wg" firstAttribute="leading" secondItem="UdK-O1-rcE" secondAttribute="leading" id="Oum-RH-NTK"/>
-                                            <constraint firstItem="yR3-Vv-3Wg" firstAttribute="top" secondItem="RHs-kY-63s" secondAttribute="bottom" constant="20" id="TAu-S7-3B2"/>
-                                            <constraint firstAttribute="trailing" secondItem="GW8-p2-dYD" secondAttribute="trailing" id="eI1-Bw-zKB"/>
-                                            <constraint firstItem="nq7-38-dKB" firstAttribute="leading" secondItem="yR3-Vv-3Wg" secondAttribute="trailing" constant="20" id="j5S-4F-ZAF"/>
-                                            <constraint firstItem="GW8-p2-dYD" firstAttribute="top" secondItem="UdK-O1-rcE" secondAttribute="top" id="t1e-cx-SWn"/>
-                                            <constraint firstAttribute="bottom" secondItem="yR3-Vv-3Wg" secondAttribute="bottom" id="vVj-DT-WS5"/>
-                                            <constraint firstAttribute="trailing" secondItem="nq7-38-dKB" secondAttribute="trailing" id="zZd-bG-L7M"/>
-                                            <constraint firstItem="GW8-p2-dYD" firstAttribute="leading" secondItem="yR3-Vv-3Wg" secondAttribute="trailing" constant="20" id="zy1-CJ-Qeo"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="ndj-5g-CMQ" firstAttribute="bottom" secondItem="E1k-6M-Md5" secondAttribute="bottom" constant="50" id="IgB-7w-xva"/>
-                            <constraint firstItem="E1k-6M-Md5" firstAttribute="top" secondItem="ndj-5g-CMQ" secondAttribute="top" constant="10" id="UtZ-5N-V19"/>
-                            <constraint firstItem="E1k-6M-Md5" firstAttribute="leading" secondItem="ndj-5g-CMQ" secondAttribute="leading" constant="10" id="gGr-S5-Ceo"/>
-                            <constraint firstItem="ndj-5g-CMQ" firstAttribute="trailing" secondItem="E1k-6M-Md5" secondAttribute="trailing" constant="10" id="see-iF-AL2"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="ndj-5g-CMQ"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8Pc-bu-oE5" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="6308" y="895.56650246305423"/>
-        </scene>
-        <!--View Controller-->
         <scene sceneID="vbb-Pm-PEb">
             <objects>
                 <viewController storyboardIdentifier="tutorial1" id="kTB-Np-0DK" sceneMemberID="viewController">
@@ -1325,7 +1014,7 @@ PANIC</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qo1-0P-mwl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4220" y="1586"/>
+            <point key="canvasLocation" x="4918" y="895"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="F23-H6-znB">
@@ -1351,7 +1040,7 @@ PANIC</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="08n-AE-eVD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4905" y="1586"/>
+            <point key="canvasLocation" x="5604" y="895"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="uDz-sh-hir">
@@ -1377,15 +1066,13 @@ PANIC</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8xW-zW-Mpj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5604" y="1586"/>
+            <point key="canvasLocation" x="6303" y="894"/>
         </scene>
     </scenes>
     <resources>
         <image name="background" width="562" height="1218"/>
         <image name="bubble" width="592" height="592"/>
         <image name="jellyfish" width="1000" height="1000"/>
-        <image name="tutorial-lying-down" width="121" height="26"/>
-        <image name="tutorial-tips" width="288" height="449"/>
         <image name="tutorial1" width="312" height="437"/>
         <image name="tutorial3" width="313" height="437"/>
         <image name="tutorial4" width="313" height="437"/>
