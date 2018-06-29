@@ -10,13 +10,20 @@ import Foundation
 
 struct Message: Decodable {
     
-    var isResponse = true
+    var isResponse: Bool
     var heading: String
     var content: String
     
-    init(heading:String, content:String) {
+    init(content:String) {
+        self.heading = ""
+        self.content = content
+        self.isResponse = true
+    }
+    
+    init(heading:String, content:String, isResponse:Bool) {
         self.heading = heading
         self.content = content
+        self.isResponse = isResponse
     }
     
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ApiAI
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -26,7 +27,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        //configure chatbot
+        let configuration: AIConfiguration = AIDefaultConfiguration()
+        configuration.clientAccessToken = "fc3346e375ea4d6fa885328284c52072"
+        let apiai = ApiAI.shared()
+        apiai?.configuration = configuration
+        
+        //set first screen
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        if launchedBefore  {
+            self.window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "NavigationController")
+        } else {
+            self.window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "TutorialController")
+            UserDefaults.standard.set(true, forKey: "launchedBefore")
+        }
         return true
     }
 

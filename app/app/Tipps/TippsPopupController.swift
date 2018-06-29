@@ -7,25 +7,37 @@
 //
 
 import UIKit
+import AVFoundation
 
 class TippsPopupController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    var tipps = [Tipp]()
-    var displayedTipps = [Tipp]()
+    var tipps = [Message]()
+    var displayedTipps = [Message]()
+    var searchQuery: String?
+    var tipsController: TippsController?
     
-    let spacingBetweenRows:CGFloat = 10
+    let spacingBetweenRows:CGFloat = 8
+    let speechSynthesizer = AVSpeechSynthesizer()
+    
+    var audioOn = false
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadTipps()
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.backgroundColor = UIColor.clear
+        loadTipps()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
+    }
+    
+    @IBAction func close(_ sender: UIButton) {
+        tipsController?.closePopup()
+        displayedTipps.removeAll()
+        tableView.reloadData()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -43,53 +55,89 @@ class TippsPopupController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellIdentifier = "TippTableViewCell"
+        let message = displayedTipps[indexPath.section]
+        var cellId:String
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? TippTableViewCell else {
-            fatalError("The dequeued cell is not an instance of TippTableViewCell.")
+        if message.heading.isEmpty {
+            if message.isResponse {
+                cellId = "ResponseCell"
+            } else {
+                cellId = "InputCell"
+            }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? MessageTableViewCell else {
+                fatalError("The dequeued cell is not an instance of MessageTableViewCell.")
+            }
+            cell.messageLabel.text = message.content
+            return cell
         }
-        
-        let tipp = displayedTipps[indexPath.section]
-        cell.headingLabel.text = tipp.heading
-        cell.contentLabel.text = tipp.content
-        
-        return cell
-    }
-    
-    
-    func loadSampleTipps() {
-        for i in 1...3 {
-            let tipp = Tipp(heading: "Tipp \(i)", content: "dfsg gs dvfms fsgjzdfgsjdz svdfg fsdgfhs sf end\ntefthf tfefth ttae tafe fxgje jtejrshshtdj  trstrsrsjrs rs tes trs zrs zsrs z udtdzrsos tdsztisrs zrdrd")
-            tipps.append(tipp)
+            
+        else {
+            cellId = "TipCell"
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? TippTableViewCell else {
+                fatalError("The dequeued cell is not an instance of TipTableViewCell.")
+            }
+            cell.headingLabel.text = message.heading
+            cell.contentLabel.text = message.content
+            
+            return cell
         }
     }
     
-    
-    @IBAction func close(_ sender: UIButton) {
-        self.removeFromParentViewController()
-        self.view.removeFromSuperview()
-        displayedTipps.removeAll()
-        tableView.reloadData()
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = UIColor.clear
     }
     
-    func loadSearchResult(searchQuery: String?) {
+    func showSearchResult(searchQuery: String) {
         displayedTipps.removeAll()
-        if let search = searchQuery {
-            for tip in tipps {
-                if tip.content.contains(search)  {
-                    displayedTipps.append(tip)
-                }
+        for tip in tipps {
+            if tip.content.lowercased().contains(searchQuery.lowercased()) ||
+                tip.heading.lowercased().contains(searchQuery.lowercased()) {
+                displayedTipps.append(tip)
             }
         }
         tableView.reloadData()
-        
     }
     
-    func loadRandomTipp() {
-        displayedTipps.removeAll()
-        let randomIndex = Int(arc4random_uniform(UInt32(tipps.count)))
-        displayedTipps.append(tipps[randomIndex])
+    func showResponse(response: String) {
+        let message = Message(content: response)
+        displayedTipps.append(message)
         tableView.reloadData()
+        scrollToBottom()
+        if(audioOn) {
+            let speechUtterance = AVSpeechUtterance(string: response)
+            speechUtterance.voice = AVSpeechSynthesisVoice(language: "de-DE")
+            speechSynthesizer.speak(speechUtterance)
+        }
+    }
+    
+    func showInput(input: String) {
+        var message = Message(content: input)
+        message.isResponse = false
+        displayedTipps.append(message)
+        tableView.reloadData()
+        scrollToBottom()
+    }
+    
+    @IBAction func changeAudio(_ sender: UIButton) {
+        audioOn = !audioOn
+        sender.isSelected = !sender.isSelected
+    }
+    
+    func scrollToBottom() {
+        if tableView.numberOfSections > 0 {
+            tableView.scrollToRow(at: IndexPath(row: 0, section: tableView.numberOfSections-1), at: .bottom , animated: false)
+            tableView.layoutIfNeeded()
+        }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        tipsController?.searchField.resignFirstResponder()
+        super.touchesBegan(touches, with: event)
+    }
+    
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        tipsController?.searchField.resignFirstResponder()
+        return indexPath
     }
     
     private func loadTipps() {
@@ -98,11 +146,10 @@ class TippsPopupController: UIViewController, UITableViewDataSource, UITableView
         do {
             let data = try Data(contentsOf: tippsListURL)
             let decoder = PropertyListDecoder()
-            self.tipps = try decoder.decode([Tipp].self, from: data)
+            self.tipps = try decoder.decode([Message].self, from: data)
         } catch {
             print(error)
         }
         
     }
-    
 }
