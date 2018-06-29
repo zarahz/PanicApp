@@ -529,10 +529,10 @@ PANIC</string>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="asA-Kv-fRi">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="71.666666666666671" height="99.666666666666671"/>
+                                                                        <rect key="frame" x="10" y="0.0" width="71.666666666666671" height="99"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="viU-Dl-fDW">
-                                                                                <rect key="frame" x="14.999999999999996" y="10" width="41.666666666666657" height="79.666666666666671"/>
+                                                                                <rect key="frame" x="14.999999999999996" y="10" width="41.666666666666657" height="79"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -573,10 +573,10 @@ PANIC</string>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Uc-uX-i21">
-                                                                        <rect key="frame" x="263.33333333333331" y="0.0" width="71.666666666666686" height="99.333333333333329"/>
+                                                                        <rect key="frame" x="273.33333333333331" y="0.0" width="71.666666666666686" height="99.666666666666671"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBg-IA-x7u">
-                                                                                <rect key="frame" x="14.999999999999996" y="10" width="41.666666666666657" height="79.333333333333329"/>
+                                                                                <rect key="frame" x="14.999999999999996" y="10" width="41.666666666666657" height="79.666666666666671"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -629,7 +629,7 @@ PANIC</string>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pNq-eB-iPe">
-                                                                                        <rect key="frame" x="0.0" y="66.666666666666671" width="335" height="20.333333333333329"/>
+                                                                                        <rect key="frame" x="0.0" y="66" width="345" height="20.333333333333329"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                         <nil key="textColor"/>
                                                                                         <nil key="highlightedColor"/>
@@ -937,6 +937,10 @@ PANIC</string>
                                                                 <state key="normal" title="Standort setzten">
                                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="openMap:" destination="5GY-kU-cAt" eventType="touchUpInside" id="3Pf-QS-6nr"/>
+                                                                    <segue destination="mwl-Cy-B9Y" kind="show" identifier="map" id="KdS-tT-ebH"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -971,11 +975,14 @@ PANIC</string>
                                                         <rect key="frame" x="20" y="10" width="261" height="40"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v2n-jC-GgT">
-                                                                <rect key="frame" x="0.0" y="0.0" width="46" height="40"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="47" height="40"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="40" id="g8z-nt-6Lu"/>
                                                                 </constraints>
-                                                                <state key="normal" title="Button"/>
+                                                                <state key="normal" title="Sign In"/>
+                                                                <connections>
+                                                                    <action selector="spotifyLoginPressed:" destination="5GY-kU-cAt" eventType="touchUpInside" id="QEC-8E-SV1"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LMa-FQ-hPH">
                                                                 <rect key="frame" x="215" y="0.0" width="46" height="40"/>
@@ -1028,6 +1035,45 @@ PANIC</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kXz-37-6RI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1456.8" y="1462.6847290640394"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="d9z-KR-x8i">
+            <objects>
+                <viewController id="mwl-Cy-B9Y" customClass="MapViewController" customModule="app" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2kP-ag-tUk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="672"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8UY-uJ-JcF">
+                                <rect key="frame" x="0.0" y="44" width="375" height="594"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Eci-vS-LRF" appends="YES" id="zOe-VO-huK"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="8Ly-gW-KcE" firstAttribute="bottom" secondItem="8UY-uJ-JcF" secondAttribute="bottom" id="3BK-1w-hKp"/>
+                            <constraint firstItem="8UY-uJ-JcF" firstAttribute="leading" secondItem="8Ly-gW-KcE" secondAttribute="leading" id="f7Z-ac-F5a"/>
+                            <constraint firstItem="8Ly-gW-KcE" firstAttribute="trailing" secondItem="8UY-uJ-JcF" secondAttribute="trailing" id="hOC-0q-xT1"/>
+                            <constraint firstItem="8UY-uJ-JcF" firstAttribute="top" secondItem="8Ly-gW-KcE" secondAttribute="top" id="j5D-45-0Id"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="8Ly-gW-KcE"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="8UY-uJ-JcF" id="jdV-9c-9Ef"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MbL-or-ypR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="Eci-vS-LRF">
+                    <connections>
+                        <action selector="handleLongPress:" destination="mwl-Cy-B9Y" id="4Oy-Rg-vtN"/>
+                    </connections>
+                </pongPressGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2287" y="1462"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="I5u-PG-88W">
