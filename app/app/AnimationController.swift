@@ -9,6 +9,7 @@
 import UIKit
 
 class AnimationController: UIViewController {
+
     @IBOutlet weak var breatheLabel: UILabel!
     @IBOutlet weak var jellyfishHead: UIImageView!
     @IBOutlet weak var jellyfishTentacles: UIImageView!
