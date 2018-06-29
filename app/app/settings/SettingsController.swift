@@ -27,6 +27,7 @@ class SettingsController: UIViewController, UpdateModeImageProtocol, HomeLocatio
     var isUpdatingLocation:Bool!;
     var atHomeModeActive:Bool!;
     var homePosition: CLLocation?
+    var userPosition: CLLocation?
 
     //MARK: Mode variables
     var image = UIImage(named: "bubble");
@@ -61,7 +62,9 @@ class SettingsController: UIViewController, UpdateModeImageProtocol, HomeLocatio
     //MARK: Locationmanager
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation :CLLocation = locations[0] as CLLocation
-        
+        if let location = locations.first {
+            menuController?.userPosition = location
+        }
         print("\(userLocation) \n")
         
         if (atHomeModeActive && userLocation.horizontalAccuracy <= 10) {

@@ -35,6 +35,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         auth.redirectURL     = URL(string: "SpotifySDKDemo://panic.app")
             auth.sessionUserDefaultsKey = "current session"
         
+        //Location
+        Location.shared
+        
         //configure chatbot
         let configuration: AIConfiguration = AIDefaultConfiguration()
         configuration.clientAccessToken = "fc3346e375ea4d6fa885328284c52072"

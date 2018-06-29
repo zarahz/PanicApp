@@ -21,16 +21,25 @@ class MapViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         // set initial location in Honolulu location in Honolulu
-        let initialLocation = CLLocation(latitude: 21.282778, longitude: -157.829444)
-        centerMapOnLocation(location:initialLocation)
+        //let initialLocation = CLLocation(latitude: 21.282778, longitude: -157.829444)
+       //getCurrentUserPosition()
         
         if(UserDefaults.standard.location(forKey: "homeLocation") != nil){
+            //centerMapOnLocation(location:UserDefaults.standard.location(forKey: "homeLocation")!)
         addAnnotationOnLocation(pointedCoordinate: (UserDefaults.standard.location(forKey: "homeLocation")?.coordinate)!);
         }
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func getCurrentUserPosition(){
+        let location = menuController?.userPosition;
+        let span = MKCoordinateSpanMake(0.05, 0.05)
+        let region = MKCoordinateRegion(center: (location?.coordinate)!, span: span)
+        mapView.setRegion(region, animated: true)
+        centerMapOnLocation(location: location!)
     }
     
     func centerMapOnLocation(location: CLLocation) {

@@ -40,6 +40,9 @@ class SettingsMenuController: UIViewController, CLLocationManagerDelegate, SPTAu
     var player: SPTAudioStreamingController?
     var loginUrl: URL?
     
+    //MARK: location
+    var userPosition: CLLocation?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("loaded menu");
@@ -93,6 +96,8 @@ class SettingsMenuController: UIViewController, CLLocationManagerDelegate, SPTAu
     //function that is called when map sets home location
     func setHomeLocation(location: CLLocation){
         locationDelegate?.setHomeLocation(location: location)
+    }
+    @IBAction func openMap(_ sender: Any) {
         activateGPS((Any).self);
     }
     

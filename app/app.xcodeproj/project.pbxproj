@@ -23,6 +23,7 @@
 		AEC211BA20E0319B0069D683 /* SpotifyAudioPlayback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEC211B720E0319A0069D683 /* SpotifyAudioPlayback.framework */; };
 		AEC211BF20E031F00069D683 /* BridgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC211BE20E031F00069D683 /* BridgeViewController.m */; };
 		AEC211C020E03D6B0069D683 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEC211AA20DD64140069D683 /* MapKit.framework */; };
+		AED7B01620E65D3C00D71B95 /* MenuSingletons.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED7B01520E65D3C00D71B95 /* MenuSingletons.swift */; };
 		DA76468820BD55C50056A492 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA76468720BD55C50056A492 /* NavigationController.swift */; };
 		DA85693620C9C695003DBA4E /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA85693520C9C695003DBA4E /* Message.swift */; };
 		DA85693820CAE8E9003DBA4E /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA85693720CAE8E9003DBA4E /* MessageTableViewCell.swift */; };
@@ -58,6 +59,7 @@
 		AEC211BC20E031EF0069D683 /* app-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "app-Bridging-Header.h"; sourceTree = "<group>"; };
 		AEC211BD20E031F00069D683 /* BridgeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgeViewController.h; sourceTree = "<group>"; };
 		AEC211BE20E031F00069D683 /* BridgeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BridgeViewController.m; sourceTree = "<group>"; };
+		AED7B01520E65D3C00D71B95 /* MenuSingletons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSingletons.swift; sourceTree = "<group>"; };
 		DA76468720BD55C50056A492 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		DA85693520C9C695003DBA4E /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		DA85693720CAE8E9003DBA4E /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				AE28F7B420BE9E16001D36A0 /* SettingsController.swift */,
 				AEC211AF20DD73F20069D683 /* MapViewController.swift */,
 				AEC211B120E010270069D683 /* UserDefaultExtension.swift */,
+				AED7B01520E65D3C00D71B95 /* MenuSingletons.swift */,
 			);
 			path = settings;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 				DAC01EEE20BDBAA400A6BE28 /* TippsController.swift in Sources */,
 				AEC211B020DD73F20069D683 /* MapViewController.swift in Sources */,
 				DA85693820CAE8E9003DBA4E /* MessageTableViewCell.swift in Sources */,
+				AED7B01620E65D3C00D71B95 /* MenuSingletons.swift in Sources */,
 				DA76468820BD55C50056A492 /* NavigationController.swift in Sources */,
 				DA85693620C9C695003DBA4E /* Message.swift in Sources */,
 				DAC01EEC20BDAE0E00A6BE28 /* BubbleButton.swift in Sources */,
