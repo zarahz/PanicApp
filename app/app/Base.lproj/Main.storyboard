@@ -6,12 +6,23 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-Bold.ttf">
+            <string>Poppins-Bold</string>
+        </array>
+        <array key="Poppins-Thin.ttf">
+            <string>Poppins-Thin</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -88,12 +99,14 @@ PANIC</string>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Einstellungen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nsL-0J-REj">
                                 <rect key="frame" x="38" y="108" width="151" height="31"/>
+                                <rect key="frame" x="25" y="176" width="151" height="31.666666666666657"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TXj-Uw-qFu" userLabel="MenuContainer">
                                 <rect key="frame" x="0.0" y="140" width="375" height="672"/>
+                                <rect key="frame" x="0.0" y="207.66666666666669" width="375" height="604.33333333333326"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <segue destination="5GY-kU-cAt" kind="embed" identifier="menuContainer" id="T1i-ue-5vA"/>
@@ -255,10 +268,10 @@ PANIC</string>
             </objects>
             <point key="canvasLocation" x="1456.8" y="-1128.3251231527095"/>
         </scene>
-        <!--View Controller-->
+        <!--Menu Controller-->
         <scene sceneID="Yo8-iQ-UKZ">
             <objects>
-                <viewController id="fD4-KC-5a9" sceneMemberID="viewController">
+                <viewController id="fD4-KC-5a9" customClass="MenuController" customModule="app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="G9X-iZ-JcW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -269,6 +282,12 @@ PANIC</string>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fRW-5L-F40">
                                         <rect key="frame" x="0.0" y="0.0" width="345" height="124"/>
                                         <state key="normal" title="Atemübungen für zuhause"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fRW-5L-F40">
+                                        <rect key="frame" x="0.0" y="0.0" width="345" height="157.66666666666666"/>
+                                        <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="17"/>
+                                        <state key="normal" title="Atemübungen für zuhause" backgroundImage="card-transparent">
+                                            <color key="titleColor" red="0.2666666667" green="0.40000000000000002" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <segue destination="4Dl-5o-nF7" kind="show" id="KHX-7k-84K"/>
                                         </connections>
@@ -276,6 +295,11 @@ PANIC</string>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dq3-Zj-JrH">
                                         <rect key="frame" x="0.0" y="134" width="345" height="124"/>
                                         <state key="normal" title="Atemübungen für unterwegs"/>
+                                        <rect key="frame" x="0.0" y="167.66666666666669" width="345" height="157.33333333333331"/>
+                                        <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="17"/>
+                                        <state key="normal" title="Atemübungen für unterwegs" backgroundImage="card-transparent">
+                                            <color key="titleColor" red="0.2666666667" green="0.40000000000000002" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <segue destination="mWz-R5-aov" kind="show" id="hnG-FD-9uj"/>
                                         </connections>
@@ -283,6 +307,11 @@ PANIC</string>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YMy-mC-AYh">
                                         <rect key="frame" x="0.0" y="268" width="345" height="124"/>
                                         <state key="normal" title="Tipps und Tricks"/>
+                                        <rect key="frame" x="0.0" y="335" width="345" height="157.66666666666663"/>
+                                        <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="17"/>
+                                        <state key="normal" title="Tipps und Tricks" backgroundImage="card-transparent">
+                                            <color key="titleColor" red="0.2666666667" green="0.40000000000000002" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <segue destination="Gh4-sY-vXy" kind="show" id="GdS-xk-D5w"/>
                                         </connections>
@@ -290,6 +319,11 @@ PANIC</string>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RzK-DX-ExS">
                                         <rect key="frame" x="0.0" y="402" width="345" height="124"/>
                                         <state key="normal" title="Einstellungen"/>
+                                        <rect key="frame" x="0.0" y="502.66666666666657" width="345" height="157.33333333333331"/>
+                                        <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="17"/>
+                                        <state key="normal" title="Einstellungen" backgroundImage="card-transparent">
+                                            <color key="titleColor" red="0.2666666667" green="0.40000000000000002" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <segue destination="u8k-DK-eSc" kind="show" id="cjD-hl-Wl3"/>
                                         </connections>
@@ -703,40 +737,159 @@ PANIC</string>
             </objects>
             <point key="canvasLocation" x="3943.1999999999998" y="-844.58128078817742"/>
         </scene>
-        <!--View Controller-->
+        <!--Animation Controller-->
         <scene sceneID="dYO-Vi-fJX">
             <objects>
-                <viewController id="mWz-R5-aov" sceneMemberID="viewController">
+                <viewController id="mWz-R5-aov" customClass="AnimationController" customModule="app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xfF-eh-N8s">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s4n-t4-0Ac">
-                                <rect key="frame" x="67" y="124" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="gPO-gr-tzb">
+                                <rect key="frame" x="0.0" y="88" width="562" height="724"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Einatmen..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZMe-0I-A12">
-                                <rect key="frame" x="166" y="583" width="86" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Atemübungen für zuhause" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oRT-bh-nmM">
+                                <rect key="frame" x="23" y="103" width="218" height="24"/>
+                                <fontDescription key="fontDescription" name="Poppins-Thin" family="Poppins" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Atemübungen für zuhause" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oRT-bh-nmM">
-                                <rect key="frame" x="16" y="20" width="202" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZMe-0I-A12">
+                                <rect key="frame" x="129.66666666666666" y="699" width="124" height="34"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Einatmen...">
+                                        <attributes>
+                                            <font key="NSFont" size="24" name="Poppins-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" image="jellyfish-tentacles" translatesAutoresizingMaskIntoConstraints="NO" id="TuH-cb-D9D">
+                                <rect key="frame" x="61" y="332" width="245" height="296"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jellyfish-head-combined" translatesAutoresizingMaskIntoConstraints="NO" id="HlP-PF-9c4">
+                                <rect key="frame" x="91" y="196" width="201" height="185"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="HlP-PF-9c4" secondAttribute="height" multiplier="201:185" id="BHi-op-2JV"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="jellyfish-head-red" translatesAutoresizingMaskIntoConstraints="NO" id="mJx-ii-3c4">
+                                <rect key="frame" x="91" y="196" width="201" height="185"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" image="jellyfish-eyes" translatesAutoresizingMaskIntoConstraints="NO" id="bET-ec-cXA">
+                                <rect key="frame" x="73" y="312" width="233" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="bET-ec-cXA" secondAttribute="height" multiplier="61:8" constant="95.75" id="Ohl-BA-dzq"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0BW-yn-lg1">
+                                <rect key="frame" x="325" y="111" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="bubble-opaque"/>
+                            </button>
+                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aXK-kb-v56">
+                                <rect key="frame" x="293" y="111" width="29" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="bubble-opaque"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="o8a-xR-25q" firstAttribute="bottom" secondItem="ZMe-0I-A12" secondAttribute="bottom" constant="45" id="2yG-mH-ABs"/>
+                            <constraint firstAttribute="bottom" secondItem="gPO-gr-tzb" secondAttribute="bottom" id="3oD-pu-Ekq"/>
+                            <constraint firstItem="gPO-gr-tzb" firstAttribute="leading" secondItem="xfF-eh-N8s" secondAttribute="leading" id="89O-d6-J1O"/>
+                            <constraint firstItem="bET-ec-cXA" firstAttribute="leading" secondItem="o8a-xR-25q" secondAttribute="leading" constant="73" id="BLZ-KA-bOq"/>
+                            <constraint firstItem="HlP-PF-9c4" firstAttribute="top" secondItem="oRT-bh-nmM" secondAttribute="bottom" constant="69" id="Krw-ky-C5o"/>
+                            <constraint firstItem="HlP-PF-9c4" firstAttribute="leading" secondItem="o8a-xR-25q" secondAttribute="leading" constant="91" id="Srm-NL-K7J"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="oRT-bh-nmM" secondAttribute="trailing" constant="20" symbolic="YES" id="dEs-33-QtC"/>
+                            <constraint firstItem="HlP-PF-9c4" firstAttribute="centerX" secondItem="ZMe-0I-A12" secondAttribute="centerX" id="dp5-4o-rfN"/>
+                            <constraint firstItem="oRT-bh-nmM" firstAttribute="leading" secondItem="o8a-xR-25q" secondAttribute="leading" constant="23" id="eBR-OC-8Li"/>
+                            <constraint firstItem="HlP-PF-9c4" firstAttribute="top" secondItem="xfF-eh-N8s" secondAttribute="top" constant="196" id="eiV-zC-fYB"/>
+                            <constraint firstItem="gPO-gr-tzb" firstAttribute="top" secondItem="o8a-xR-25q" secondAttribute="top" id="gRK-wb-tta"/>
+                            <constraint firstItem="o8a-xR-25q" firstAttribute="trailing" secondItem="HlP-PF-9c4" secondAttribute="trailing" constant="83" id="jdd-cJ-WTI"/>
+                            <constraint firstItem="bET-ec-cXA" firstAttribute="top" secondItem="xfF-eh-N8s" secondAttribute="top" constant="312" id="kOY-Lt-5GD"/>
+                            <constraint firstItem="HlP-PF-9c4" firstAttribute="centerX" secondItem="bET-ec-cXA" secondAttribute="centerX" constant="2" id="uxA-iQ-H4G"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="o8a-xR-25q"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="oRT-bh-nmM"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="breatheLabel" destination="ZMe-0I-A12" id="R4y-Ow-px8"/>
+                        <outlet property="jellyfishHead" destination="HlP-PF-9c4" id="iyW-AF-9Z6"/>
+                        <outlet property="jellyfishRed" destination="mJx-ii-3c4" id="tja-0j-9sP"/>
+                        <outlet property="jellyfishTentacles" destination="TuH-cb-D9D" id="DeS-DU-qN0"/>
+                        <outlet property="spotifyButton" destination="aXK-kb-v56" id="ZBB-L1-phk"/>
+                        <outlet property="tutorialButton" destination="0BW-yn-lg1" id="aeG-Tn-ma2"/>
+                    </connections>
+                </viewController>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bubble-opaque" id="bMS-AL-2DB">
+                    <rect key="frame" x="0.0" y="0.0" width="34" height="34"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ehl-ic-igq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3176.8000000000002" y="89.408866995073893"/>
+        </scene>
+        <!--Tutorial Popup Controller-->
+        <scene sceneID="hV7-3d-Xdj">
+            <objects>
+                <viewController storyboardIdentifier="TutorialPopup" id="qGS-D2-vjt" customClass="TutorialPopupController" customModule="app" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6aA-dt-zdc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="card-opaque" translatesAutoresizingMaskIntoConstraints="NO" id="kzG-aI-yHm">
+                                <rect key="frame" x="67" y="255" width="240" height="308"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Cq-JG-5aB">
+                                <rect key="frame" x="147" y="495" width="82" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.26666666666666666" green="0.40000000000000002" blue="0.53725490196078429" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Los geht's!">
+                                            <attributes>
+                                                <font key="NSFont" size="15" name="Poppins-Bold"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <action selector="close:" destination="qGS-D2-vjt" eventType="touchUpInside" id="Gp5-lZ-55Y"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jg7-FR-fUe">
+                                <rect key="frame" x="91" y="289" width="192" height="198"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">Atme tief ein und drücke dabei auf den Kopf der Qualle - achte darauf, dass du mindestens so lange einatmest, wie die Qualle dir vorgibt. Wird die Qualle rot, solltest du aufhören. Lass beim Ausatmen los und konzentriere dich auf deine Atemzüge.</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="Poppins-ExtraLight"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="o8a-xR-25q"/>
+                        <viewLayoutGuide key="safeArea" id="evB-ze-qBD"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ehl-ic-igq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3eh-ji-8Hi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3176.8000000000002" y="89.505247376311857"/>
+            <point key="canvasLocation" x="3864.8000000000002" y="88.669950738916256"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="S9i-ZK-YMY">
@@ -767,6 +920,11 @@ PANIC</string>
                         <subviews>
                             <stackView contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="zrt-pE-MOd">
                                 <rect key="frame" x="37" y="54" width="301" height="529"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="604.33333333333326"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <stackView contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="zrt-pE-MOd">
+                                <rect key="frame" x="37" y="42.333333333333343" width="301" height="460.66666666666663"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="aHL-VG-WgD">
                                         <rect key="frame" x="0.0" y="0.0" width="301" height="126.33333333333333"/>
@@ -905,6 +1063,10 @@ PANIC</string>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GPS Zu Hause" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7h-mh-dqK">
                                                 <rect key="frame" x="0.0" y="0.0" width="163.66666666666666" height="66"/>
+                                        <rect key="frame" x="0.0" y="229.99999999999997" width="301" height="115.66666666666666"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GPS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7h-mh-dqK">
+                                                <rect key="frame" x="0.0" y="0.0" width="50" height="55.666666666666664"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                 <color key="textColor" red="0.38090997409999999" green="0.38090997409999999" blue="0.38090997409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -940,6 +1102,17 @@ PANIC</string>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
+                                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZXT-fJ-AYh">
+                                                <rect key="frame" x="0.0" y="55.666666666666686" width="301" height="60"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cef-Q9-k5c">
+                                                        <rect key="frame" x="38" y="20" width="46" height="19"/>
+                                                        <state key="normal" title="Button"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hyn-ER-mcF">
+                                                        <rect key="frame" x="235" y="14.333333333333314" width="46" height="30"/>
+                                                        <state key="normal" title="Button"/>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="0.79943331870000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -957,6 +1130,7 @@ PANIC</string>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="U2f-z6-BKU">
                                         <rect key="frame" x="0.0" y="402.66666666666669" width="301" height="126.33333333333331"/>
+                                        <rect key="frame" x="0.0" y="345.66666666666669" width="301" height="115"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spotify" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Tn-JL-Jww">
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="66.333333333333329"/>
@@ -1171,6 +1345,13 @@ PANIC</string>
         <image name="tutorial3" width="313" height="437"/>
         <image name="tutorial4" width="313" height="437"/>
         <image name="tutorial5" width="313" height="437"/>
+        <image name="bubble-opaque" width="1000" height="1000"/>
+        <image name="card-opaque" width="509" height="672"/>
+        <image name="card-transparent" width="1000" height="1000"/>
+        <image name="jellyfish-eyes" width="180" height="30"/>
+        <image name="jellyfish-head-combined" width="1000" height="900"/>
+        <image name="jellyfish-head-red" width="1000" height="900"/>
+        <image name="jellyfish-tentacles" width="144" height="174"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="hnG-FD-9uj"/>
