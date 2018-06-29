@@ -26,6 +26,9 @@ class AnimationController: UIViewController {
     var fillColor = UIViewPropertyAnimator()
     var removeColor = UIViewPropertyAnimator()
     
+    var popupController = UIStoryboard(name: "Main", bundle: nil) .
+        instantiateViewController(withIdentifier: "TutorialPopup") as? TutorialPopupController
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -125,6 +128,11 @@ class AnimationController: UIViewController {
     @objc func showTutorial () {
         
         breatheLabel.text = "Tutorial"
+        
+        self.addChildViewController(popupController!)
+        popupController?.view.frame = self.view.frame
+        self.view.addSubview((popupController?.view)!)
+        popupController?.didMove(toParentViewController: self)
         
     }
     
