@@ -23,5 +23,6 @@ class TutorialPopupController: UIViewController {
         self.view.removeFromSuperview()
         
     }
+    
 
 }

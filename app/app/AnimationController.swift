@@ -124,10 +124,7 @@ class AnimationController: UIViewController {
     
     
     // open popup to show tutorial
-    
     @objc func showTutorial () {
-        
-        breatheLabel.text = "Tutorial"
         
         self.addChildViewController(popupController!)
         popupController?.view.frame = self.view.frame
@@ -137,7 +134,7 @@ class AnimationController: UIViewController {
     }
     
     
-    // call Spotify shortcut
+    // call Spotify shortcut (play/pause? open app?)
     @objc func spotifyAction () {
         
         breatheLabel.text = "Spotify"

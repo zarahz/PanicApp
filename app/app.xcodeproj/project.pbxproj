@@ -23,6 +23,7 @@
 		3539DCB320C7BE3F0001B093 /* Poppins-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3539DCA120C7B9410001B093 /* Poppins-ThinItalic.ttf */; };
 		3539DCB520CFC2350001B093 /* AnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3539DCB420CFC2350001B093 /* AnimationController.swift */; };
 		3539DCBE20DE63CA0001B093 /* TutorialPopupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3539DCBD20DE63CA0001B093 /* TutorialPopupController.swift */; };
+		3539DCC020E654530001B093 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3539DCBF20E654530001B093 /* MenuController.swift */; };
 		AE28F7B320AF1CF1001D36A0 /* SettingsMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE28F7B220AF1CF1001D36A0 /* SettingsMenuController.swift */; };
 		AE28F7B520BE9E16001D36A0 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE28F7B420BE9E16001D36A0 /* SettingsController.swift */; };
 		AE81C8AA208F635D0031BC42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE81C8A9208F635D0031BC42 /* AppDelegate.swift */; };
@@ -56,6 +57,7 @@
 		3539DCA520C7B9410001B093 /* Poppins-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-MediumItalic.ttf"; path = "../../../../../../Downloads/Poppins/Poppins-MediumItalic.ttf"; sourceTree = "<group>"; };
 		3539DCB420CFC2350001B093 /* AnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationController.swift; sourceTree = "<group>"; };
 		3539DCBD20DE63CA0001B093 /* TutorialPopupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialPopupController.swift; sourceTree = "<group>"; };
+		3539DCBF20E654530001B093 /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		AE28F7B220AF1CF1001D36A0 /* SettingsMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsMenuController.swift; sourceTree = "<group>"; };
 		AE28F7B420BE9E16001D36A0 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		AE81C8A6208F635C0031BC42 /* app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = app.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,6 +134,7 @@
 				DA76468720BD55C50056A492 /* NavigationController.swift */,
 				3539DCB420CFC2350001B093 /* AnimationController.swift */,
 				3539DCBD20DE63CA0001B093 /* TutorialPopupController.swift */,
+				3539DCBF20E654530001B093 /* MenuController.swift */,
 				AE81C8B0208F635D0031BC42 /* Assets.xcassets */,
 				AE81C8B2208F635D0031BC42 /* LaunchScreen.storyboard */,
 				AE81C8B5208F635D0031BC42 /* Info.plist */,
@@ -254,6 +257,7 @@
 				DAC01EEC20BDAE0E00A6BE28 /* BubbleButton.swift in Sources */,
 				DAB2279720C00ACD0070CABF /* Tipp.swift in Sources */,
 				DAC01EF620BF1B6200A6BE28 /* TippsPopupController.swift in Sources */,
+				3539DCC020E654530001B093 /* MenuController.swift in Sources */,
 				AE81C8AA208F635D0031BC42 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
