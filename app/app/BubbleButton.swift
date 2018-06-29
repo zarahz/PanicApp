@@ -8,10 +8,13 @@
 
 import UIKit
 import AVFoundation
+import Darwin
 
 @IBDesignable class BubbleButton: UIButton {
     
     var ovalPath: UIBezierPath!
+    var soundpaths = ["bubble0", "bubble1", "bubble2", "bubble3", "bubble4", "bubble5", "bubble6", "bubble7", "bubble8", "bubble9", "bubble10"]
+    var soundIn: AVAudioPlayer!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -38,7 +41,10 @@ import AVFoundation
             if ovalPath.contains(location) == false {
                 button.cancelTracking(with: nil)
             } else {
-                makeSounds(pat:)
+                let randomIndex = Int(arc4random_uniform(10))
+                //let randomIndex = Int.random(in: 0..<10)
+                let path = soundpaths[randomIndex]
+                makeSounds(pat:path)
             }
         }
     }
