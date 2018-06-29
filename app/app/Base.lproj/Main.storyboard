@@ -529,10 +529,10 @@ PANIC</string>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="asA-Kv-fRi">
-                                                                        <rect key="frame" x="10" y="0.0" width="71.666666666666671" height="99"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="71.666666666666671" height="100"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="viU-Dl-fDW">
-                                                                                <rect key="frame" x="14.999999999999996" y="10" width="41.666666666666657" height="79"/>
+                                                                                <rect key="frame" x="14.999999999999996" y="10" width="41.666666666666657" height="80"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -573,7 +573,7 @@ PANIC</string>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Uc-uX-i21">
-                                                                        <rect key="frame" x="273.33333333333331" y="0.0" width="71.666666666666686" height="99.666666666666671"/>
+                                                                        <rect key="frame" x="263.33333333333331" y="0.0" width="71.666666666666686" height="99.666666666666671"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBg-IA-x7u">
                                                                                 <rect key="frame" x="14.999999999999996" y="10" width="41.666666666666657" height="79.666666666666671"/>
@@ -629,7 +629,7 @@ PANIC</string>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pNq-eB-iPe">
-                                                                                        <rect key="frame" x="0.0" y="66" width="345" height="20.333333333333329"/>
+                                                                                        <rect key="frame" x="0.0" y="66.666666666666671" width="335" height="20.333333333333329"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                         <nil key="textColor"/>
                                                                                         <nil key="highlightedColor"/>
@@ -703,22 +703,22 @@ PANIC</string>
             </objects>
             <point key="canvasLocation" x="3943.1999999999998" y="-844.58128078817742"/>
         </scene>
-        <!--View Controller-->
+        <!--Animation Controller-->
         <scene sceneID="dYO-Vi-fJX">
             <objects>
-                <viewController id="mWz-R5-aov" sceneMemberID="viewController">
+                <viewController id="mWz-R5-aov" customClass="AnimationController" customModule="app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xfF-eh-N8s">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s4n-t4-0Ac">
-                                <rect key="frame" x="67" y="124" width="240" height="128"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="jellyfish-head-combined" translatesAutoresizingMaskIntoConstraints="NO" id="s4n-t4-0Ac">
+                                <rect key="frame" x="107" y="201" width="160" height="145"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Einatmen..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZMe-0I-A12">
-                                <rect key="frame" x="166" y="583" width="86" height="21"/>
+                                <rect key="frame" x="144" y="598" width="86" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -729,6 +729,14 @@ PANIC</string>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0IT-XD-PRg">
+                                <rect key="frame" x="107" y="201" width="160" height="145"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="jellyfish-tentacles" translatesAutoresizingMaskIntoConstraints="NO" id="nmf-S3-duN">
+                                <rect key="frame" x="91" y="315" width="176" height="222"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="o8a-xR-25q"/>
@@ -736,7 +744,7 @@ PANIC</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ehl-ic-igq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3176.8000000000002" y="89.505247376311857"/>
+            <point key="canvasLocation" x="3176.8000000000002" y="89.408866995073893"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="S9i-ZK-YMY">
@@ -1210,6 +1218,8 @@ PANIC</string>
         <image name="background" width="562" height="1218"/>
         <image name="bubble" width="592" height="592"/>
         <image name="jellyfish" width="1000" height="1000"/>
+        <image name="jellyfish-head-combined" width="1000" height="900"/>
+        <image name="jellyfish-tentacles" width="600" height="725"/>
         <image name="microphone" width="50" height="50"/>
         <image name="microphone-highlighted" width="50" height="50"/>
         <image name="stop" width="50" height="50"/>
