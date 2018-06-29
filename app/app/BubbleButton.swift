@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 @IBDesignable class BubbleButton: UIButton {
     
@@ -36,6 +37,8 @@ import UIKit
             let location = touch.location(in: button)
             if ovalPath.contains(location) == false {
                 button.cancelTracking(with: nil)
+            } else {
+                makeSounds(pat:)
             }
         }
     }
@@ -59,5 +62,15 @@ import UIKit
             self.frame.origin.y = -250
         }, completion: nil
         )
+    }
+    func makeSounds(pat: String){
+        let path = Bundle.main.path(forResource: pat, ofType: "mp3")!
+        let url = URL(fileURLWithPath: path)
+        do {
+            soundIn = try AVAudioPlayer(contentsOf: url)
+            soundIn?.play()
+        } catch {
+            // couldn't load file :(
+        }
     }
 }

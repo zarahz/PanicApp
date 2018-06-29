@@ -75,8 +75,8 @@ class HomeController: UIViewController {
         
         timer5 = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(runTimedCode5), userInfo: nil, repeats: true)
         
-        let date0 = Date()
-        var date1 = date0.timeIntervalSinceNow
+        //let date0 = Date()
+        //var date1 = date0.timeIntervalSinceNow
         
         
         //UM BACKSALSH ZU MACHEN alt SHIFT 7!!!!!
@@ -215,6 +215,12 @@ class HomeController: UIViewController {
         }
     }
 }
+
+//handy unten links, oben rechts: einatmen: x steigend; ausatmen x fallend
+//handy oben rechts, unten links: einatmen: x fallend; ausatmen x steigend
+
+
+
 
 //data while breathing in: x-Achse zunehmend
 //data while breathing out: x-Achse abnehmend
