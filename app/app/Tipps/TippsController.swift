@@ -7,22 +7,22 @@
 //
 
 import UIKit
-import ApiAI
 
 class TippsController: UIViewController, UITextFieldDelegate {
     
     var bubbles = [BubbleButton]()
     var tipps = [Message]()
     var popupController: TippsPopupController!
-    var chatBotIsActive = false
+    let chatbotController = ChatbotController()
     
-    
+    @IBOutlet weak var speechButton: UIButton!
     @IBOutlet weak var bubbleView: UIView!
     @IBOutlet weak var tippView: UIView!
     @IBOutlet weak var tippHeading: UILabel!
     @IBOutlet weak var tippContent: UILabel!
-
+    
     @IBOutlet weak var searchField: UITextField!
+    @IBOutlet weak var explanationLabel: UILabel!
     
     @IBOutlet weak var popupContainer: UIView!
     
@@ -43,6 +43,8 @@ class TippsController: UIViewController, UITextFieldDelegate {
         let paddingView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 20))
         searchField.leftView = paddingView
         searchField.leftViewMode = .always
+        
+        UIView.animate(withDuration: 2.0, delay: 5.0, options: .curveEaseInOut, animations: {self.explanationLabel.alpha = 0}, completion: nil)
         
         createBubbles()
         loadTipps()
@@ -100,7 +102,7 @@ class TippsController: UIViewController, UITextFieldDelegate {
     
     func closePopup() {
         popupContainer.isHidden = true
-        chatBotIsActive = false
+        chatbotController.isActive = false
         searchField.text = ""
         searchField.resignFirstResponder()
     }
@@ -124,69 +126,42 @@ class TippsController: UIViewController, UITextFieldDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let popupController = segue.destination as? TippsPopupController {
             self.popupController = popupController
+            chatbotController.popupController = popupController
             popupController.tipsController = self
         }
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        if !chatBotIsActive {
+        if !chatbotController.isActive {
             showPopup()
-            sendWelcomeRequest()
+            chatbotController.sendEventRequest(eventName: "WELCOME")
         }
     }
     
-    func sendWelcomeRequest() {
-        let welcomeRequest = ApiAI.shared().eventRequest()
-        welcomeRequest?.event = AIEvent(name: "WELCOME")
-        welcomeRequest?.setMappedCompletionBlockSuccess({ (welcomeRequest, response) in
-            let response = response as! AIResponse
-            self.chatBotIsActive = true
-            if let textResponse = response.result.fulfillment.messages[0]["speech"] as? String{
-                self.popupController.showResponse(response: textResponse )
-            }
-        }, failure: { (request, error) in
-            print(error!)
-            self.popupController.showResponse(response: "Verbindung zum Chatbot nicht möglich" )
-        })
-        ApiAI.shared().enqueue(welcomeRequest)
-    }
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        //Display results while still typing?
+    @IBAction func startVoiceRecognition(_ sender: UIButton) {
+        if #available(iOS 10.0, *) {
+            if !chatbotController.isActive {
+                showPopup()
+                chatbotController.sendEventRequest(eventName: "WELCOME")
+            }
+            SpeechListener(chatbotController: self.chatbotController, button: sender).transcribeSpeech()
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         //searchField.resignFirstResponder()
         if let searchQuery = searchField.text {
             if !searchQuery.isEmpty {
-                if chatBotIsActive {
-                    sendMessageToBot(text: searchQuery)
+                if chatbotController.isActive {
+                    chatbotController.sendMessageToBot(text: searchQuery)
+                    textField.text = ""
                 } else {
                     self.popupController.showSearchResult(searchQuery: searchQuery)
                 }
             }
         }
         return true
-    }
-    
-    func sendMessageToBot(text: String) {
-        self.popupController.showInput(input: text )
-        self.searchField.text = ""
-        
-        let request = ApiAI.shared().textRequest()
-        request?.query = text
-        
-        request?.setMappedCompletionBlockSuccess({ (request, response) in
-            let response = response as! AIResponse
-            if let textResponse = response.result.fulfillment.messages[0]["speech"] as? String {
-                self.popupController.showResponse(response: textResponse )
-            }
-        }, failure: { (request, error) in
-            print(error!)
-            self.popupController.showResponse(response: "Verbindung zum Chatbot nicht möglich")
-        })
-        
-        ApiAI.shared().enqueue(request)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -204,7 +179,6 @@ class TippsController: UIViewController, UITextFieldDelegate {
                 closeTipp()
             }
         }
-        //super.touchesBegan(touches, with: event)
     }
     
     @objc func hideKeyboard() {
