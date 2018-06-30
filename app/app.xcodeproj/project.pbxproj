@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35F9463920E6740500BDCB5B /* AnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F9463820E6740500BDCB5B /* AnimationController.swift */; };
+		35F9463B20E6746300BDCB5B /* TutorialPopupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F9463A20E6746300BDCB5B /* TutorialPopupController.swift */; };
+		35F9463D20E6749000BDCB5B /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F9463C20E6749000BDCB5B /* MenuController.swift */; };
 		7DEBDBCD00C9B4F9EC43D87C /* Pods_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01718B50368B7167E2FFA1D2 /* Pods_app.framework */; };
 		84B5A6BE20D3F49D00554D97 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B5A6BD20D3F49D00554D97 /* AVFoundation.framework */; };
 		84B5A6C220D3FADA00554D97 /* error.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84B5A6BF20D3F7A000554D97 /* error.mp3 */; };
@@ -32,6 +35,14 @@
 		AE81C8AF208F635D0031BC42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE81C8AD208F635D0031BC42 /* Main.storyboard */; };
 		AE81C8B1208F635D0031BC42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE81C8B0208F635D0031BC42 /* Assets.xcassets */; };
 		AE81C8B4208F635D0031BC42 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE81C8B2208F635D0031BC42 /* LaunchScreen.storyboard */; };
+		AEC211B020DD73F20069D683 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC211AF20DD73F20069D683 /* MapViewController.swift */; };
+		AEC211B220E010270069D683 /* UserDefaultExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC211B120E010270069D683 /* UserDefaultExtension.swift */; };
+		AEC211B820E0319B0069D683 /* SpotifyMetadata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEC211B520E0319A0069D683 /* SpotifyMetadata.framework */; };
+		AEC211B920E0319B0069D683 /* SpotifyAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEC211B620E0319A0069D683 /* SpotifyAuthentication.framework */; };
+		AEC211BA20E0319B0069D683 /* SpotifyAudioPlayback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEC211B720E0319A0069D683 /* SpotifyAudioPlayback.framework */; };
+		AEC211BF20E031F00069D683 /* BridgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC211BE20E031F00069D683 /* BridgeViewController.m */; };
+		AEC211C020E03D6B0069D683 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEC211AA20DD64140069D683 /* MapKit.framework */; };
+		AED7B01620E65D3C00D71B95 /* MenuSingletons.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED7B01520E65D3C00D71B95 /* MenuSingletons.swift */; };
 		DA50D09F20DD590D00166AB4 /* ChatbotController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA50D09E20DD590D00166AB4 /* ChatbotController.swift */; };
 		DA76468820BD55C50056A492 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA76468720BD55C50056A492 /* NavigationController.swift */; };
 		DA839E1020D97FB70017C394 /* TutorialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA839E0F20D97FB70017C394 /* TutorialPageViewController.swift */; };
@@ -48,6 +59,9 @@
 
 /* Begin PBXFileReference section */
 		01718B50368B7167E2FFA1D2 /* Pods_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		35F9463820E6740500BDCB5B /* AnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationController.swift; sourceTree = "<group>"; };
+		35F9463A20E6746300BDCB5B /* TutorialPopupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialPopupController.swift; sourceTree = "<group>"; };
+		35F9463C20E6749000BDCB5B /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		373137FC0A262B831C1191A2 /* Pods-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-app.debug.xcconfig"; path = "Pods/Target Support Files/Pods-app/Pods-app.debug.xcconfig"; sourceTree = "<group>"; };
 		84B5A6BD20D3F49D00554D97 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		84B5A6BF20D3F7A000554D97 /* error.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = error.mp3; sourceTree = "<group>"; };
@@ -76,6 +90,17 @@
 		AE81C8B0208F635D0031BC42 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE81C8B3208F635D0031BC42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE81C8B5208F635D0031BC42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AEC211AA20DD64140069D683 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		AEC211AB20DD64180069D683 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		AEC211AF20DD73F20069D683 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		AEC211B120E010270069D683 /* UserDefaultExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultExtension.swift; sourceTree = "<group>"; };
+		AEC211B520E0319A0069D683 /* SpotifyMetadata.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyMetadata.framework; sourceTree = "<group>"; };
+		AEC211B620E0319A0069D683 /* SpotifyAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAuthentication.framework; sourceTree = "<group>"; };
+		AEC211B720E0319A0069D683 /* SpotifyAudioPlayback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAudioPlayback.framework; sourceTree = "<group>"; };
+		AEC211BC20E031EF0069D683 /* app-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "app-Bridging-Header.h"; sourceTree = "<group>"; };
+		AEC211BD20E031F00069D683 /* BridgeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgeViewController.h; sourceTree = "<group>"; };
+		AEC211BE20E031F00069D683 /* BridgeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BridgeViewController.m; sourceTree = "<group>"; };
+		AED7B01520E65D3C00D71B95 /* MenuSingletons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSingletons.swift; sourceTree = "<group>"; };
 		B1D4F5F4D01EDC4153407BB6 /* Pods_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA50D09E20DD590D00166AB4 /* ChatbotController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatbotController.swift; sourceTree = "<group>"; };
 		DA76468720BD55C50056A492 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
@@ -95,6 +120,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEC211B820E0319B0069D683 /* SpotifyMetadata.framework in Frameworks */,
+				AEC211BA20E0319B0069D683 /* SpotifyAudioPlayback.framework in Frameworks */,
+				AEC211C020E03D6B0069D683 /* MapKit.framework in Frameworks */,
+				AEC211B920E0319B0069D683 /* SpotifyAuthentication.framework in Frameworks */,
 				84B5A6BE20D3F49D00554D97 /* AVFoundation.framework in Frameworks */,
 				7DEBDBCD00C9B4F9EC43D87C /* Pods_app.framework in Frameworks */,
 				E0847396E11ED272EBC1BD62 /* Pods_app.framework in Frameworks */,
@@ -104,9 +133,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		35F9463720E6739E00BDCB5B /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				01718B50368B7167E2FFA1D2 /* Pods_app.framework */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		460BB247B87249941129FD40 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AEC211B720E0319A0069D683 /* SpotifyAudioPlayback.framework */,
+				AEC211B620E0319A0069D683 /* SpotifyAuthentication.framework */,
+				AEC211B520E0319A0069D683 /* SpotifyMetadata.framework */,
+				AEC211AB20DD64180069D683 /* CoreLocation.framework */,
+				AEC211AA20DD64140069D683 /* MapKit.framework */,
 				84B5A6BD20D3F49D00554D97 /* AVFoundation.framework */,
 				B1D4F5F4D01EDC4153407BB6 /* Pods_app.framework */,
 			);
@@ -164,6 +206,8 @@
 				98F39DBDDD9DF1989C0B74F4 /* Pods */,
 				460BB247B87249941129FD40 /* Frameworks */,
 				84D49A8D20E6597700BA008B /* Recovered References */,
+
+
 			);
 			sourceTree = "<group>";
 		};
@@ -178,10 +222,15 @@
 		AE81C8A8208F635C0031BC42 /* app */ = {
 			isa = PBXGroup;
 			children = (
+				AEC211BB20E031B30069D683 /* spotify */,
+				AEC211AE20DD73BD0069D683 /* settings */,
 				DA839E0E20D97F710017C394 /* tutorial */,
 				AE81C8A9208F635D0031BC42 /* AppDelegate.swift */,
 				AE81C8AB208F635D0031BC42 /* ViewController.swift */,
 				AE81C8AD208F635D0031BC42 /* Main.storyboard */,
+				35F9463820E6740500BDCB5B /* AnimationController.swift */,
+				35F9463A20E6746300BDCB5B /* TutorialPopupController.swift */,
+				35F9463C20E6749000BDCB5B /* MenuController.swift */,
 				DAB2279320BFD1DE0070CABF /* Tipps */,
 				DA76468720BD55C50056A492 /* NavigationController.swift */,
 				AE81C8B0208F635D0031BC42 /* Assets.xcassets */,
@@ -192,12 +241,32 @@
 				84B5A6C120D3F7A100554D97 /* out.mp3 */,
 				AE81C8B2208F635D0031BC42 /* LaunchScreen.storyboard */,
 				AE81C8B5208F635D0031BC42 /* Info.plist */,
-				AE28F7B220AF1CF1001D36A0 /* SettingsMenuController.swift */,
-				AE28F7B420BE9E16001D36A0 /* SettingsController.swift */,
 				DAC01EEB20BDAE0E00A6BE28 /* BubbleButton.swift */,
 				AE57696220CFF8CE00305DB4 /* home */,
 			);
 			path = app;
+			sourceTree = "<group>";
+		};
+		AEC211AE20DD73BD0069D683 /* settings */ = {
+			isa = PBXGroup;
+			children = (
+				AE28F7B220AF1CF1001D36A0 /* SettingsMenuController.swift */,
+				AE28F7B420BE9E16001D36A0 /* SettingsController.swift */,
+				AEC211AF20DD73F20069D683 /* MapViewController.swift */,
+				AEC211B120E010270069D683 /* UserDefaultExtension.swift */,
+				AED7B01520E65D3C00D71B95 /* MenuSingletons.swift */,
+			);
+			path = settings;
+			sourceTree = "<group>";
+		};
+		AEC211BB20E031B30069D683 /* spotify */ = {
+			isa = PBXGroup;
+			children = (
+				AEC211BD20E031F00069D683 /* BridgeViewController.h */,
+				AEC211BE20E031F00069D683 /* BridgeViewController.m */,
+				AEC211BC20E031EF0069D683 /* app-Bridging-Header.h */,
+			);
+			path = spotify;
 			sourceTree = "<group>";
 		};
 		DA839E0E20D97F710017C394 /* tutorial */ = {
@@ -257,6 +326,7 @@
 				TargetAttributes = {
 					AE81C8A5208F635C0031BC42 = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 0940;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
@@ -357,16 +427,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEC211B220E010270069D683 /* UserDefaultExtension.swift in Sources */,
 				AE28F7B520BE9E16001D36A0 /* SettingsController.swift in Sources */,
 				AE28F7B320AF1CF1001D36A0 /* SettingsMenuController.swift in Sources */,
+				AEC211BF20E031F00069D683 /* BridgeViewController.m in Sources */,
+				35F9463920E6740500BDCB5B /* AnimationController.swift in Sources */,
 				AE57696420CFF8CE00305DB4 /* HomeController.swift in Sources */,
 				AE81C8AC208F635D0031BC42 /* ViewController.swift in Sources */,
 				DAB2279920C00E040070CABF /* TippTableViewCell.swift in Sources */,
 				DAC01EEE20BDBAA400A6BE28 /* TippsController.swift in Sources */,
+				AEC211B020DD73F20069D683 /* MapViewController.swift in Sources */,
 				DA50D09F20DD590D00166AB4 /* ChatbotController.swift in Sources */,
 				DA85693820CAE8E9003DBA4E /* MessageTableViewCell.swift in Sources */,
+				AED7B01620E65D3C00D71B95 /* MenuSingletons.swift in Sources */,
 				DA76468820BD55C50056A492 /* NavigationController.swift in Sources */,
 				DA85693620C9C695003DBA4E /* Message.swift in Sources */,
+				35F9463B20E6746300BDCB5B /* TutorialPopupController.swift in Sources */,
+				35F9463D20E6749000BDCB5B /* MenuController.swift in Sources */,
 				DA839E1220D98C420017C394 /* TutorialViewController.swift in Sources */,
 				DA839E1020D97FB70017C394 /* TutorialPageViewController.swift in Sources */,
 				DAC01EEC20BDAE0E00A6BE28 /* BubbleButton.swift in Sources */,
@@ -515,6 +592,7 @@
 			baseConfigurationReference = 373137FC0A262B831C1191A2 /* Pods-app.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D6NKU8X2U5;
@@ -523,11 +601,13 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = app/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ios.panicapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "app/spotify/app-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -538,6 +618,7 @@
 			baseConfigurationReference = A8527A7842AFEEBF1F5E4972 /* Pods-app.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D6NKU8X2U5;
@@ -546,11 +627,12 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = app/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ios.panicapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "app/spotify/app-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
