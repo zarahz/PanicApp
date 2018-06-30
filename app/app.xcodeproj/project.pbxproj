@@ -133,14 +133,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		35F9463720E6739E00BDCB5B /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				01718B50368B7167E2FFA1D2 /* Pods_app.framework */,
-			);
-			name = "Recovered References";
-			sourceTree = "<group>";
-		};
 		460BB247B87249941129FD40 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,8 +198,6 @@
 				98F39DBDDD9DF1989C0B74F4 /* Pods */,
 				460BB247B87249941129FD40 /* Frameworks */,
 				84D49A8D20E6597700BA008B /* Recovered References */,
-
-
 			);
 			sourceTree = "<group>";
 		};
@@ -595,7 +585,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = D6NKU8X2U5;
+				DEVELOPMENT_TEAM = N9SYFC9J78;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -603,7 +593,7 @@
 				INFOPLIST_FILE = app/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ios.panicapp;
+				PRODUCT_BUNDLE_IDENTIFIER = ios.praktikum.panicapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "app/spotify/app-Bridging-Header.h";
@@ -621,7 +611,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = D6NKU8X2U5;
+				DEVELOPMENT_TEAM = N9SYFC9J78;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -629,7 +619,7 @@
 				INFOPLIST_FILE = app/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ios.panicapp;
+				PRODUCT_BUNDLE_IDENTIFIER = ios.praktikum.panicapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "app/spotify/app-Bridging-Header.h";

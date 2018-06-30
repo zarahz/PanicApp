@@ -214,6 +214,13 @@ class HomeController: UIViewController {
             // couldn't load file :(
         }
     }
+    override func viewWillDisappear(_ animated : Bool) {
+        super.viewWillDisappear(animated)
+        
+        if self.isMovingFromParentViewController {
+            breathing = false
+        }
+    }
 }
 
 //handy unten links, oben rechts: einatmen: x steigend; ausatmen x fallend
