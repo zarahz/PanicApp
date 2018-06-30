@@ -36,15 +36,16 @@ import Darwin
     }
     
     @objc func bubbleTapped(button: BubbleButton, event: UIEvent) {
+        
+        //one of the random bubble sounds should be played when tapped on the right position in the screen
+        let randomIndex = Int(arc4random_uniform(10))
+        //let randomIndex = Int.random(in: 0..<10)
+        let path = soundpaths[randomIndex]
+        makeSounds(pat:path)
         if let touch = event.touches(for: button)?.first {
             let location = touch.location(in: button)
             if ovalPath.contains(location) == false {
                 button.cancelTracking(with: nil)
-            } else {
-                let randomIndex = Int(arc4random_uniform(10))
-                //let randomIndex = Int.random(in: 0..<10)
-                let path = soundpaths[randomIndex]
-                makeSounds(pat:path)
             }
         }
     }
@@ -69,8 +70,9 @@ import Darwin
         }, completion: nil
         )
     }
+    
     func makeSounds(pat: String){
-        let path = Bundle.main.path(forResource: pat, ofType: "mp3")!
+        let path = Bundle.main.path(forResource: pat, ofType: "wav")!
         let url = URL(fileURLWithPath: path)
         do {
             soundIn = try AVAudioPlayer(contentsOf: url)
