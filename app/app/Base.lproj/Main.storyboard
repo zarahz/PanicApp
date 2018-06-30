@@ -34,6 +34,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
+                                    <action selector="startButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oUp-qa-mrp"/>
                                     <segue destination="mWz-R5-aov" kind="show" id="lNl-T1-9vn"/>
                                 </connections>
                             </button>
@@ -56,6 +57,7 @@ PANIC</string>
                                 </constraints>
                                 <state key="normal" title="Menü" backgroundImage="bubble"/>
                                 <connections>
+                                    <action selector="menuButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1bF-qx-vbp"/>
                                     <segue destination="fD4-KC-5a9" kind="show" id="AER-jv-4DE"/>
                                 </connections>
                             </button>
@@ -73,6 +75,10 @@ PANIC</string>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="o88-f9-01A"/>
+                    <connections>
+                        <outlet property="menuButton" destination="Vx2-78-JkN" id="hC6-uJ-sga"/>
+                        <outlet property="startButton" destination="6I7-AN-Smq" id="LBd-p5-Fbj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
