@@ -18,6 +18,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.png")!)
         
+        //shows current mode
+        setupNavigationBar()
+        //sets chosen background
         if(UserDefaults.standard.string(forKey: "background") != nil){
             let imageName = (UserDefaults.standard.string(forKey: "background"))! + ".png"
             self.view.backgroundColor = UIColor(patternImage: UIImage(named: imageName)!)
@@ -25,6 +28,7 @@ class ViewController: UIViewController {
         }
         // Do any additional setup after loading the view, typically from a nib.
         print("start")
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,8 +43,6 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
     
     //Buttons sollen sounds ergeben
     @IBAction func startButtonTapped(_ sender: UIButton) {

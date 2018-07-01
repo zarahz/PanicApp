@@ -29,6 +29,9 @@ class SettingsController: UIViewController, SettingsProtocol{
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.jpg")!)
         
+        //shows current mode
+        setupNavigationBar()
+        //sets chosen background
         if(UserDefaults.standard.string(forKey: "background") != nil){
             let imageName = (UserDefaults.standard.string(forKey: "background"))! + ".png"
             self.view.backgroundColor = UIColor(patternImage: UIImage(named: imageName)!)
