@@ -149,7 +149,7 @@ class HomeController: UIViewController {
 
             self.breathingData(index: index)
             if breatheIn {
-                makeSounds(pat: "in-2")
+                makeSounds(pat: "bubble10")
             }
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
@@ -188,14 +188,14 @@ class HomeController: UIViewController {
                     inError = true
                 //give out some error sound
                     if (Switch.isOn){
-                        makeSounds(pat: "error-2")
+                        makeSounds(pat: "bubble2")
                     }
                 }
             }
             
             //breathe out --> ab letztem index bei breathe in und dann alles in breathein false
         } else if self.breatheIn && index == 4{
-            makeSounds(pat: "out")
+            makeSounds(pat: "bubble0")
             
             //der Umschwung der Atmung ist zu unreliable, um Fehler erkennnen zu können --> keine Datenerhebung nötig
             //self.accData10[index] = getAverage()
@@ -209,7 +209,7 @@ class HomeController: UIViewController {
             if self.accData10[index+5] >= self.accData10[index+4]-threshold{
                 //give out some errorsound
                 if (Switch.isOn){
-                    makeSounds(pat: "error-2")
+                    makeSounds(pat: "bubble2")
                 }
             }
         }
@@ -222,7 +222,7 @@ class HomeController: UIViewController {
     
     
     func makeSounds(pat: String){
-        let path = Bundle.main.path(forResource: pat, ofType: "mp3")!
+        let path = Bundle.main.path(forResource: pat, ofType: "wav")!
         let url = URL(fileURLWithPath: path)
         do {
             soundIn = try AVAudioPlayer(contentsOf: url)
