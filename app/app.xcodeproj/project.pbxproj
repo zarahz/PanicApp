@@ -149,6 +149,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		84721FC220E8E0910007BFD4 /* breathe sounds */ = {
+			isa = PBXGroup;
+			children = (
+				84B5A6C520D3FE2400554D97 /* error-2.mp3 */,
+				84B5A6C120D3F7A100554D97 /* out.mp3 */,
+				84B5A6C020D3F7A000554D97 /* in-2.mp3 */,
+				84B5A6BF20D3F7A000554D97 /* error.mp3 */,
+			);
+			path = "breathe sounds";
+			sourceTree = "<group>";
+		};
 		84D49A8D20E6597700BA008B /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -187,6 +198,7 @@
 		AE57696220CFF8CE00305DB4 /* home */ = {
 			isa = PBXGroup;
 			children = (
+				845E078820E8D7D7003C58D1 /* AfterBreathViewController.swift */,
 				AE57696320CFF8CE00305DB4 /* HomeController.swift */,
 			);
 			path = home;
@@ -220,22 +232,18 @@
 				AE81C8A9208F635D0031BC42 /* AppDelegate.swift */,
 				AE81C8AB208F635D0031BC42 /* ViewController.swift */,
 				AE81C8AD208F635D0031BC42 /* Main.storyboard */,
-				845E078820E8D7D7003C58D1 /* AfterBreathViewController.swift */,
 				35F9463820E6740500BDCB5B /* AnimationController.swift */,
 				35F9463A20E6746300BDCB5B /* TutorialPopupController.swift */,
 				35F9463C20E6749000BDCB5B /* MenuController.swift */,
 				DAB2279320BFD1DE0070CABF /* Tipps */,
 				DA76468720BD55C50056A492 /* NavigationController.swift */,
 				AE81C8B0208F635D0031BC42 /* Assets.xcassets */,
-				84B5A6BF20D3F7A000554D97 /* error.mp3 */,
+				AE57696220CFF8CE00305DB4 /* home */,
+				84721FC220E8E0910007BFD4 /* breathe sounds */,
 				84D49AA420E673DE00BA008B /* bubble sounds */,
-				84B5A6C520D3FE2400554D97 /* error-2.mp3 */,
-				84B5A6C020D3F7A000554D97 /* in-2.mp3 */,
-				84B5A6C120D3F7A100554D97 /* out.mp3 */,
 				AE81C8B2208F635D0031BC42 /* LaunchScreen.storyboard */,
 				AE81C8B5208F635D0031BC42 /* Info.plist */,
 				DAC01EEB20BDAE0E00A6BE28 /* BubbleButton.swift */,
-				AE57696220CFF8CE00305DB4 /* home */,
 			);
 			path = app;
 			sourceTree = "<group>";

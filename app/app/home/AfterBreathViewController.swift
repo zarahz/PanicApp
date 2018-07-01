@@ -9,14 +9,20 @@
 import UIKit
 
 class AfterBreathViewController: UIViewController {
+    var feedbackCounterBreathe : Int = 0
+    var feedbackCounterError : Int = 0
 
+    @IBOutlet weak var data: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //color sind inverted auf Felix' iphone, evtl. muss hier noch black statt white eingefügt werden
         self.view.backgroundColor = UIColor.white.withAlphaComponent(0.8)
         self.showAnimate()
+        print(feedbackCounterBreathe)
+        
+        //TODO: percentage im Label anzeigen
 
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {

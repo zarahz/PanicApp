@@ -288,6 +288,7 @@ PANIC</string>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DATA PLACEHOLDER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SJH-Bj-LEm">
                                         <rect key="frame" x="50" y="62" width="164" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="data"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.9879181981086731" green="0.99617189168930054" blue="0.99605172872543335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -307,6 +308,9 @@ PANIC</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="e0m-KA-N12"/>
                     </view>
+                    <connections>
+                        <outlet property="data" destination="SJH-Bj-LEm" id="RLy-aF-Peb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k6M-rH-iwI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

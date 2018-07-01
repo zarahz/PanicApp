@@ -233,16 +233,18 @@ class HomeController: UIViewController {
     
     func showPopUp(){
         let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "afterBreatheID") as! AfterBreathViewController
+        popOverVC.feedbackCounterBreathe = self.feedbackCounterBreathe
+        popOverVC.feedbackCounterError = self.feedbackCounterError
         self.addChildViewController(popOverVC)
         popOverVC.view.frame = self.view.frame
         self.view.addSubview(popOverVC.view)
         popOverVC.didMove(toParentViewController: self)
+        
     }
     
     //stop breathing function when back is pressed
     override func viewWillDisappear(_ animated : Bool) {
         super.viewWillDisappear(animated)
-        
         if self.isMovingFromParentViewController {
             breathing = false
         }
