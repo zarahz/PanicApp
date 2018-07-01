@@ -83,6 +83,9 @@ class ChatbotController {
         case "exampleQuestions":
             sendEventRequest(eventName: "EXAMPLE_QUESTIONS")
             return true
+        case "strategies":
+            sendEventRequest(eventName: "STRATEGIES")
+            return true
         default: return false
         }
     }
