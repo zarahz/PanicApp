@@ -104,6 +104,11 @@ class SettingsMenuController: UIViewController, CLLocationManagerDelegate, SPTAu
     
     @IBAction func homeLocationClicked(_ sender: Any) {
         Location.shared.trackLocations(setCurrentPositionHome: true)
+        
+        normalizeButton(homeLocationButton)
+        normalizeButton(atHomeMode)
+        normalizeButton(onRoadMode)
+        highlightClickedButton(GPSMode)
     }
     
     //MARK: Design Button functions
