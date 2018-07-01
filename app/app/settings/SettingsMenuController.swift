@@ -13,7 +13,7 @@ import CoreLocation
 class SettingsMenuController: UIViewController, CLLocationManagerDelegate, SPTAudioStreamingPlaybackDelegate, SPTAudioStreamingDelegate {
     
     //MARK: delegate
-    var modeDelegate: UpdateModeImageProtocol!
+    var settingsDelegate: SettingsProtocol!
     
     //MARK: Design button outlets
     @IBOutlet var defaultDesignButton: UIButton!
@@ -71,7 +71,7 @@ class SettingsMenuController: UIViewController, CLLocationManagerDelegate, SPTAu
         normalizeButton(GPSMode)
         UserDefaults.standard.set(1, forKey: "mode")
         //update icon
-        modeDelegate?.modeChanged(image: atHomeImage!)
+        settingsDelegate?.modeChanged(image: atHomeImage!)
     }
     
     @IBAction func onRoadClicked(_ sender: Any) {
@@ -81,7 +81,7 @@ class SettingsMenuController: UIViewController, CLLocationManagerDelegate, SPTAu
         normalizeButton(atHomeMode)
         normalizeButton(GPSMode)
         //update icon
-        modeDelegate?.modeChanged(image: onRoadImage!)
+        settingsDelegate?.modeChanged(image: onRoadImage!)
     }
     
     @IBAction func activateGPS(_ sender: Any) {
@@ -115,12 +115,25 @@ class SettingsMenuController: UIViewController, CLLocationManagerDelegate, SPTAu
     func shapeDesignButton(_ button:UIButton){
         button.layer.cornerRadius = 0.5 * button.bounds.size.width
         button.clipsToBounds = true
-        button.addTarget(self, action: #selector(SettingsMenuController.thumbsUpButtonPressed(_:)), for: .touchUpInside)
+        //button.addTarget(self, action: #selector(SettingsMenuController.thumbsUpButtonPressed(_:)), for: .touchUpInside)
         //view.addSubview(button)
     }
     
-    @IBAction func thumbsUpButtonPressed(_ sender: Any?) {
-        print("thumbs up button pressed")
+    @IBAction func defaultWallpaper(_ sender: Any) {
+        UserDefaults.standard.set("background", forKey: "background")
+        settingsDelegate.changeBackground()
+    }
+    @IBAction func blueWallpaper(_ sender: Any) {
+        UserDefaults.standard.set("backgroundBlue", forKey: "background")
+        settingsDelegate.changeBackground()
+    }
+    @IBAction func greenWallpaper(_ sender: Any) {
+        UserDefaults.standard.set("backgroundGreen", forKey: "background")
+        settingsDelegate.changeBackground()
+    }
+    @IBAction func redWallpaper(_ sender: Any) {
+        UserDefaults.standard.set("backgroundRed", forKey: "background")
+        settingsDelegate.changeBackground()
     }
     
     //MARK: Spotify Functions

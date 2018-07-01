@@ -10,10 +10,6 @@ import Foundation
 import UIKit
 import MapKit
 
-protocol HandleMapSearch {
-    func dropPinZoomIn(placemark:MKPlacemark)
-}
-
 class MapViewController: UIViewController{
     @IBOutlet var mapView: MKMapView!
     
@@ -34,8 +30,10 @@ class MapViewController: UIViewController{
     }
     
     func getCurrentUserPosition(){
+        if(Location.shared.center != nil){
         let region = MKCoordinateRegion(center: Location.shared.center!, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
         mapView.setRegion(region, animated: true)
+        }
     }
     
     @IBAction func handleLongPress(_ sender: Any) {

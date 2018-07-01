@@ -35,6 +35,12 @@ class AnimationController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.png")!)
         
+        if(UserDefaults.standard.string(forKey: "background") != nil){
+            let imageName = (UserDefaults.standard.string(forKey: "background"))! + ".png"
+            self.view.backgroundColor = UIColor(patternImage: UIImage(named: imageName)!)
+            print(imageName)
+        }
+        
         // LongPressController that calls animation
         let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.touchJellyfish))
         jellyfishHead.isUserInteractionEnabled = true

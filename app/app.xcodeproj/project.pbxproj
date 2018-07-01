@@ -43,8 +43,7 @@
 		AEC211BA20E0319B0069D683 /* SpotifyAudioPlayback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEC211B720E0319A0069D683 /* SpotifyAudioPlayback.framework */; };
 		AEC211BF20E031F00069D683 /* BridgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC211BE20E031F00069D683 /* BridgeViewController.m */; };
 		AEC211C020E03D6B0069D683 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEC211AA20DD64140069D683 /* MapKit.framework */; };
-		AED7B01620E65D3C00D71B95 /* LocationSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED7B01520E65D3C00D71B95 /* LocationSingleton.swift */; };
-		AED7B01E20E82A2000D71B95 /* ModeSingelton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED7B01D20E82A2000D71B95 /* ModeSingelton.swift */; };
+		AED0397A20E969710004ABEC /* LocationSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED0397920E969710004ABEC /* LocationSingleton.swift */; };
 		DA50D09F20DD590D00166AB4 /* ChatbotController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA50D09E20DD590D00166AB4 /* ChatbotController.swift */; };
 		DA76468820BD55C50056A492 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA76468720BD55C50056A492 /* NavigationController.swift */; };
 		DA839E1020D97FB70017C394 /* TutorialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA839E0F20D97FB70017C394 /* TutorialPageViewController.swift */; };
@@ -103,8 +102,8 @@
 		AEC211BC20E031EF0069D683 /* app-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "app-Bridging-Header.h"; sourceTree = "<group>"; };
 		AEC211BD20E031F00069D683 /* BridgeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgeViewController.h; sourceTree = "<group>"; };
 		AEC211BE20E031F00069D683 /* BridgeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BridgeViewController.m; sourceTree = "<group>"; };
-		AED7B01520E65D3C00D71B95 /* LocationSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSingleton.swift; sourceTree = "<group>"; };
-		AED7B01D20E82A2000D71B95 /* ModeSingelton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeSingelton.swift; sourceTree = "<group>"; };
+		AED0397920E969710004ABEC /* LocationSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSingleton.swift; sourceTree = "<group>"; };
+		AED0397C20E969810004ABEC /* ModeSingelton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModeSingelton.swift; sourceTree = "<group>"; };
 		B1D4F5F4D01EDC4153407BB6 /* Pods_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA50D09E20DD590D00166AB4 /* ChatbotController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatbotController.swift; sourceTree = "<group>"; };
 		DA76468720BD55C50056A492 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
@@ -228,8 +227,8 @@
 		AE81C8A8208F635C0031BC42 /* app */ = {
 			isa = PBXGroup;
 			children = (
-				AED7B02220E949D800D71B95 /* Location */,
-				AED7B01F20E82A3200D71B95 /* singletons */,
+				AED0397B20E969810004ABEC /* singletons */,
+				AED0397820E969710004ABEC /* Location */,
 				AEC211BB20E031B30069D683 /* spotify */,
 				AEC211AE20DD73BD0069D683 /* settings */,
 				DA839E0E20D97F710017C394 /* tutorial */,
@@ -272,6 +271,23 @@
 			);
 			path = spotify;
 			sourceTree = "<group>";
+		};
+		AED0397820E969710004ABEC /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				AED0397920E969710004ABEC /* LocationSingleton.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		AED0397B20E969810004ABEC /* singletons */ = {
+			isa = PBXGroup;
+			children = (
+				AED0397C20E969810004ABEC /* ModeSingelton.swift */,
+			);
+			name = singletons;
+			path = app/singletons;
+			sourceTree = SOURCE_ROOT;
 		};
 		DA839E0E20D97F710017C394 /* tutorial */ = {
 			isa = PBXGroup;
@@ -438,13 +454,12 @@
 				35F9463920E6740500BDCB5B /* AnimationController.swift in Sources */,
 				AE57696420CFF8CE00305DB4 /* HomeController.swift in Sources */,
 				AE81C8AC208F635D0031BC42 /* ViewController.swift in Sources */,
-				AED7B01E20E82A2000D71B95 /* ModeSingelton.swift in Sources */,
 				DAB2279920C00E040070CABF /* TippTableViewCell.swift in Sources */,
 				DAC01EEE20BDBAA400A6BE28 /* TippsController.swift in Sources */,
 				AEC211B020DD73F20069D683 /* MapViewController.swift in Sources */,
 				DA50D09F20DD590D00166AB4 /* ChatbotController.swift in Sources */,
 				DA85693820CAE8E9003DBA4E /* MessageTableViewCell.swift in Sources */,
-				AED7B01620E65D3C00D71B95 /* LocationSingleton.swift in Sources */,
+				AED0397A20E969710004ABEC /* LocationSingleton.swift in Sources */,
 				DA76468820BD55C50056A492 /* NavigationController.swift in Sources */,
 				DA85693620C9C695003DBA4E /* Message.swift in Sources */,
 				35F9463B20E6746300BDCB5B /* TutorialPopupController.swift in Sources */,

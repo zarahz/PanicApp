@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //Location
         Location.shared
-        if(UserDefaults.standard.integer(forKey: "mode") == -1){
+        if(UserDefaults.standard.integer(forKey: "mode") == -1 && UserDefaults.standard.location(forKey: "homeLocation") != nil){
             Location.shared.setHomeLocation(location: UserDefaults.standard.location(forKey: "homeLocation")!)
         }
         

@@ -13,6 +13,19 @@ class MenuController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.png")!)
+        if(UserDefaults.standard.string(forKey: "background") != nil){
+            let imageName = (UserDefaults.standard.string(forKey: "background"))! + ".png"
+            self.view.backgroundColor = UIColor(patternImage: UIImage(named: imageName)!)
+            print(imageName)
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if(UserDefaults.standard.string(forKey: "background") != nil){
+            let imageName = (UserDefaults.standard.string(forKey: "background"))! + ".png"
+            self.view.backgroundColor = UIColor(patternImage: UIImage(named: imageName)!)
+            print(imageName)
+        }
     }
     
 }

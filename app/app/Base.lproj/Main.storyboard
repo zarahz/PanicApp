@@ -772,10 +772,6 @@ PANIC</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="pHr-B5-A9l">
-                                <rect key="frame" x="-94" y="88" width="562" height="724"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" image="jellyfish-tentacles" translatesAutoresizingMaskIntoConstraints="NO" id="Ovf-4R-D5z">
                                 <rect key="frame" x="65" y="337" width="245" height="296"/>
                                 <autoresizingMask key="autoresizingMask"/>
@@ -1015,6 +1011,9 @@ PANIC</string>
                                                                     <constraint firstAttribute="width" constant="40" id="nv6-ww-UT9"/>
                                                                     <constraint firstAttribute="height" constant="40" id="zfW-VN-ppC"/>
                                                                 </constraints>
+                                                                <connections>
+                                                                    <action selector="defaultWallpaper:" destination="5GY-kU-cAt" eventType="touchUpInside" id="daf-XD-aoJ"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1by-E6-Br1">
                                                                 <rect key="frame" x="73.666666666666657" y="0.0" width="40" height="40"/>
@@ -1023,6 +1022,9 @@ PANIC</string>
                                                                     <constraint firstAttribute="height" constant="40" id="Q9w-b1-zrp"/>
                                                                     <constraint firstAttribute="width" constant="40" id="r0a-5p-2L3"/>
                                                                 </constraints>
+                                                                <connections>
+                                                                    <action selector="blueWallpaper:" destination="5GY-kU-cAt" eventType="touchUpInside" id="c6E-4f-Efp"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QKL-nR-pTm">
                                                                 <rect key="frame" x="147.33333333333334" y="0.0" width="40" height="40"/>
@@ -1031,6 +1033,9 @@ PANIC</string>
                                                                     <constraint firstAttribute="width" constant="40" id="cl2-Wh-Gdf"/>
                                                                     <constraint firstAttribute="height" constant="40" id="mys-f1-XJr"/>
                                                                 </constraints>
+                                                                <connections>
+                                                                    <action selector="greenWallpaper:" destination="5GY-kU-cAt" eventType="touchUpInside" id="5Yt-LT-Nse"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U7P-Bc-rqO">
                                                                 <rect key="frame" x="221" y="0.0" width="40" height="40"/>
@@ -1039,6 +1044,9 @@ PANIC</string>
                                                                     <constraint firstAttribute="width" constant="40" id="5yc-02-3GO"/>
                                                                     <constraint firstAttribute="height" constant="40" id="WnD-bp-kJk"/>
                                                                 </constraints>
+                                                                <connections>
+                                                                    <action selector="redWallpaper:" destination="5GY-kU-cAt" eventType="touchUpInside" id="OYd-Zz-txk"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -1384,7 +1392,7 @@ PANIC</string>
         <image name="tutorial5" width="313" height="437"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lNl-T1-9vn"/>
+        <segue reference="hnG-FD-9uj"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

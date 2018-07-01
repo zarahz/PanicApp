@@ -10,23 +10,29 @@ import Foundation
 import CoreLocation
 import UIKit
 
-protocol UpdateModeImageProtocol {
+protocol SettingsProtocol {
     func modeChanged(image: UIImage)
+    func changeBackground()
 }
 
-class SettingsController: UIViewController, UpdateModeImageProtocol{
+class SettingsController: UIViewController, SettingsProtocol{
 
     //MARK: Mode variables
     var image = UIImage(named: "bubble");
     var jellyfishImage = UIImage(named: "jellyfish");
-    var modeChanged: UpdateModeImageProtocol?;
+    var modeChanged: SettingsProtocol?;
     
     //MARK: Mode Outlets
     @IBOutlet var modeImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.png")!)
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.jpg")!)
+        
+        if(UserDefaults.standard.string(forKey: "background") != nil){
+            let imageName = (UserDefaults.standard.string(forKey: "background"))! + ".png"
+            self.view.backgroundColor = UIColor(patternImage: UIImage(named: imageName)!)
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -37,8 +43,14 @@ class SettingsController: UIViewController, UpdateModeImageProtocol{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "menuContainer" {
             let menuControllerNext = segue.destination as! SettingsMenuController
-            menuControllerNext.modeDelegate = self
+            menuControllerNext.settingsDelegate = self
         }
+    }
+    
+    func changeBackground(){
+        let imageName = UserDefaults.standard.string(forKey: "background")! + ".png"
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: imageName)!)
+        print(imageName)
     }
     
     //MARK: mode
