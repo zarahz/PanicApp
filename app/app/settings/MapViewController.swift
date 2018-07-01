@@ -48,7 +48,12 @@ class MapViewController: UIViewController{
     }
     
     func addAnnotationOnLocation(pointedCoordinate: CLLocationCoordinate2D){
-        //mapView.removeAnnotation(mapView.annotations)
+        //first delete annotations
+        let previousAnnotations = self.mapView.annotations
+        if !previousAnnotations.isEmpty{
+            self.mapView.removeAnnotation(previousAnnotations[0])
+        }
+        //create new annotation
         let homeLocation =  CLLocation(latitude: pointedCoordinate.latitude, longitude: pointedCoordinate.longitude)
         UserDefaults.standard.set(location: homeLocation, forKey: "homeLocation");
         Location.shared.setHomeLocation(location: homeLocation)
