@@ -34,6 +34,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
+                                    <action selector="startButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oUp-qa-mrp"/>
                                     <segue destination="mWz-R5-aov" kind="show" id="lNl-T1-9vn"/>
                                 </connections>
                             </button>
@@ -47,12 +48,16 @@ PANIC</string>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vx2-78-JkN">
                                 <rect key="frame" x="147" y="366" width="80" height="80"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" button="YES" playsSound="YES"/>
+                                </accessibility>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="TUk-dJ-aGZ"/>
                                     <constraint firstAttribute="height" constant="80" id="qfj-TL-BW2"/>
                                 </constraints>
                                 <state key="normal" title="Menü" backgroundImage="bubble"/>
                                 <connections>
+                                    <action selector="menuButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1bF-qx-vbp"/>
                                     <segue destination="fD4-KC-5a9" kind="show" id="AER-jv-4DE"/>
                                 </connections>
                             </button>
@@ -70,6 +75,10 @@ PANIC</string>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="o88-f9-01A"/>
+                    <connections>
+                        <outlet property="menuButton" destination="Vx2-78-JkN" id="hC6-uJ-sga"/>
+                        <outlet property="startButton" destination="6I7-AN-Smq" id="LBd-p5-Fbj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -225,40 +234,92 @@ PANIC</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Wenn du bereit bist, tippe auf den Screen." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hPH-Uo-jDe">
-                                <rect key="frame" x="16" y="663" width="343" height="29"/>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ht4-p0-h3v">
+                                <rect key="frame" x="310" y="134" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lege das Gerät auf Deinen Bauch." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vLl-Mn-GXg">
-                                <rect key="frame" x="16" y="562" width="343" height="122"/>
+                                <accessibility key="accessibilityConfiguration" label="jkjhfk">
+                                    <accessibilityTraits key="traits" button="YES" allowsDirectInteraction="YES"/>
+                                </accessibility>
+                            </switch>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PHh-8E-Osl">
+                                <rect key="frame" x="164" y="524" width="39" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Atemübungen für zu Hause" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hnL-N1-IuH">
-                                <rect key="frame" x="16" y="88" width="343" height="122"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
+                                </accessibility>
+                                <connections>
+                                    <action selector="checkActionStart:" destination="4Dl-5o-nF7" eventType="touchUpInside" id="eqw-tA-loJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Bcv-bh-1rO"/>
                     </view>
+                    <connections>
+                        <outlet property="Switch" destination="Ht4-p0-h3v" id="7Pm-36-RVd"/>
+                        <outlet property="imageButton" destination="PHh-8E-Osl" id="Poo-Xo-IA3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PPT-AE-Fc8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1456.8" y="-1128.3251231527095"/>
         </scene>
-        <!--View Controller-->
+        <!--After Breath View Controller-->
+        <scene sceneID="JAx-gC-nG3">
+            <objects>
+                <viewController storyboardIdentifier="afterBreatheID" id="05J-T3-LOe" customClass="AfterBreathViewController" customModule="app" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Rbj-mk-0xj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3oH-AI-ZYs">
+                                <rect key="frame" x="55" y="258" width="264" height="296"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qBL-e2-eaP">
+                                        <rect key="frame" x="112" y="133" width="39" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Close">
+                                            <color key="titleColor" red="0.99989169836044312" green="1" blue="0.99988096952438354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="closePopUp:" destination="05J-T3-LOe" eventType="touchUpInside" id="eET-7q-nLT"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DATA PLACEHOLDER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SJH-Bj-LEm">
+                                        <rect key="frame" x="50" y="62" width="164" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="data"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.9879181981086731" green="0.99617189168930054" blue="0.99605172872543335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.08895999938249588" green="0.33846521377563477" blue="0.48815447092056274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="296" id="Ipk-g6-fDf"/>
+                                    <constraint firstAttribute="width" constant="264" id="dxU-5D-c30"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="3oH-AI-ZYs" firstAttribute="centerX" secondItem="Rbj-mk-0xj" secondAttribute="centerX" id="SYg-gj-B9s"/>
+                            <constraint firstItem="3oH-AI-ZYs" firstAttribute="centerY" secondItem="Rbj-mk-0xj" secondAttribute="centerY" id="tFJ-vA-Olm"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="e0m-KA-N12"/>
+                    </view>
+                    <connections>
+                        <outlet property="data" destination="SJH-Bj-LEm" id="RLy-aF-Peb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k6M-rH-iwI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2168.8000000000002" y="-1116.5024630541873"/>
+        </scene>
+        <!--Menu Controller-->
         <scene sceneID="Yo8-iQ-UKZ">
             <objects>
-                <viewController id="fD4-KC-5a9" sceneMemberID="viewController">
+                <viewController id="fD4-KC-5a9" customClass="MenuController" customModule="app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="G9X-iZ-JcW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -529,10 +590,10 @@ PANIC</string>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="asA-Kv-fRi">
-                                                                        <rect key="frame" x="10" y="0.0" width="71.666666666666671" height="99"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="71.666666666666671" height="100"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="viU-Dl-fDW">
-                                                                                <rect key="frame" x="14.999999999999996" y="10" width="41.666666666666657" height="79"/>
+                                                                                <rect key="frame" x="14.999999999999996" y="10" width="41.666666666666657" height="80"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -573,7 +634,7 @@ PANIC</string>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Uc-uX-i21">
-                                                                        <rect key="frame" x="273.33333333333331" y="0.0" width="71.666666666666686" height="99.666666666666671"/>
+                                                                        <rect key="frame" x="263.33333333333331" y="0.0" width="71.666666666666686" height="99.666666666666671"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBg-IA-x7u">
                                                                                 <rect key="frame" x="14.999999999999996" y="10" width="41.666666666666657" height="79.666666666666671"/>
@@ -629,7 +690,7 @@ PANIC</string>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pNq-eB-iPe">
-                                                                                        <rect key="frame" x="0.0" y="66" width="345" height="20.333333333333329"/>
+                                                                                        <rect key="frame" x="0.0" y="66.666666666666671" width="335" height="20.333333333333329"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                         <nil key="textColor"/>
                                                                                         <nil key="highlightedColor"/>
@@ -703,40 +764,136 @@ PANIC</string>
             </objects>
             <point key="canvasLocation" x="3943.1999999999998" y="-844.58128078817742"/>
         </scene>
-        <!--View Controller-->
+        <!--Animation Controller-->
         <scene sceneID="dYO-Vi-fJX">
             <objects>
-                <viewController id="mWz-R5-aov" sceneMemberID="viewController">
+                <viewController id="mWz-R5-aov" customClass="AnimationController" customModule="app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xfF-eh-N8s">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s4n-t4-0Ac">
-                                <rect key="frame" x="67" y="124" width="240" height="128"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="pHr-B5-A9l">
+                                <rect key="frame" x="-94" y="88" width="562" height="724"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" image="jellyfish-tentacles" translatesAutoresizingMaskIntoConstraints="NO" id="Ovf-4R-D5z">
+                                <rect key="frame" x="65" y="337" width="245" height="296"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dtv-QI-eCm">
+                                <rect key="frame" x="330" y="108" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="bubble-opaque"/>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Einatmen..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZMe-0I-A12">
-                                <rect key="frame" x="166" y="583" width="86" height="21"/>
+                                <rect key="frame" x="144" y="708" width="86" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Atemübungen für zuhause" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oRT-bh-nmM">
-                                <rect key="frame" x="16" y="20" width="202" height="21"/>
+                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KSH-fx-0d2">
+                                <rect key="frame" x="303" y="108" width="29" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <state key="normal" backgroundImage="bubble-opaque"/>
+                            </button>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="jellyfish-head-combined" translatesAutoresizingMaskIntoConstraints="NO" id="RCW-Ij-cc0">
+                                <rect key="frame" x="93" y="200" width="201" height="185"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="RCW-Ij-cc0" secondAttribute="height" multiplier="201:185" id="E1U-j8-WsF"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jellyfish-head-red" translatesAutoresizingMaskIntoConstraints="NO" id="9JN-0S-1UK">
+                                <rect key="frame" x="93" y="200" width="201" height="185"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jellyfish-eyes" translatesAutoresizingMaskIntoConstraints="NO" id="A2V-7C-ZLm">
+                                <rect key="frame" x="141" y="297" width="104" height="57"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="57" id="cER-IV-fJ0"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="RCW-Ij-cc0" firstAttribute="top" secondItem="9JN-0S-1UK" secondAttribute="top" id="4qd-Wn-pn3"/>
+                            <constraint firstItem="RCW-Ij-cc0" firstAttribute="bottom" secondItem="9JN-0S-1UK" secondAttribute="bottom" id="8hm-Qv-KFW"/>
+                            <constraint firstItem="RCW-Ij-cc0" firstAttribute="top" secondItem="o8a-xR-25q" secondAttribute="top" constant="112" id="DLc-Es-Isj"/>
+                            <constraint firstItem="A2V-7C-ZLm" firstAttribute="leading" secondItem="o8a-xR-25q" secondAttribute="leading" constant="141" id="GKF-IK-hhZ"/>
+                            <constraint firstItem="o8a-xR-25q" firstAttribute="trailing" secondItem="RCW-Ij-cc0" secondAttribute="trailing" constant="81" id="Gt5-XD-Arb"/>
+                            <constraint firstItem="A2V-7C-ZLm" firstAttribute="top" secondItem="o8a-xR-25q" secondAttribute="top" constant="209" id="LrP-gs-XYI"/>
+                            <constraint firstItem="RCW-Ij-cc0" firstAttribute="trailing" secondItem="9JN-0S-1UK" secondAttribute="trailing" id="Tie-sH-pZS"/>
+                            <constraint firstItem="RCW-Ij-cc0" firstAttribute="centerX" secondItem="A2V-7C-ZLm" secondAttribute="centerX" id="UBH-vY-I08"/>
+                            <constraint firstItem="RCW-Ij-cc0" firstAttribute="leading" secondItem="9JN-0S-1UK" secondAttribute="leading" id="VeK-HC-hlc"/>
+                            <constraint firstItem="RCW-Ij-cc0" firstAttribute="leading" secondItem="o8a-xR-25q" secondAttribute="leading" constant="93" id="qFF-2y-VcX"/>
+                            <constraint firstItem="RCW-Ij-cc0" firstAttribute="width" secondItem="RCW-Ij-cc0" secondAttribute="height" multiplier="201:185" id="vXS-ET-sdr"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="o8a-xR-25q"/>
                     </view>
+                    <connections>
+                        <outlet property="breatheLabel" destination="ZMe-0I-A12" id="rFa-M6-1rC"/>
+                        <outlet property="jellyfishHead" destination="RCW-Ij-cc0" id="Qsc-jd-T3j"/>
+                        <outlet property="jellyfishRed" destination="9JN-0S-1UK" id="AiA-68-mZw"/>
+                        <outlet property="jellyfishTentacles" destination="Ovf-4R-D5z" id="NcX-sx-pNv"/>
+                        <outlet property="spotifyButton" destination="Dtv-QI-eCm" id="DHf-30-gae"/>
+                        <outlet property="tutorialButton" destination="KSH-fx-0d2" id="Pqm-Dt-5Ba"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ehl-ic-igq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3176.8000000000002" y="89.505247376311857"/>
+            <point key="canvasLocation" x="3176.8000000000002" y="89.408866995073893"/>
+        </scene>
+        <!--Tutorial Popup Controller-->
+        <scene sceneID="qvJ-RB-2d0">
+            <objects>
+                <viewController storyboardIdentifier="TutorialPopup" id="D3c-dk-Wvi" customClass="TutorialPopupController" customModule="app" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6Yk-fw-jMb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="card-opaque" translatesAutoresizingMaskIntoConstraints="NO" id="2Wn-95-ph0">
+                                <rect key="frame" x="67" y="258" width="240" height="331"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1M7-e4-f7h">
+                                <rect key="frame" x="91" y="307" width="192" height="198"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">Atme tief ein und drücke dabei auf den Kopf der Qualle - achte darauf, dass du mindestens so lange einatmest, wie die Qualle dir vorgibt. Wird die Qualle rot, solltest du aufhören. Lass beim Ausatmen los und konzentriere dich auf deine Atemzüge.</string>
+                                        <attributes>
+                                            <font key="NSFont" metaFont="system" size="14"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yFQ-pg-ZfP">
+                                <rect key="frame" x="146" y="513" width="82" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.2666666667" green="0.40000000000000002" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Los geht's!">
+                                            <attributes>
+                                                <font key="NSFont" metaFont="system" size="15"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <action selector="close:" destination="D3c-dk-Wvi" eventType="touchUpInside" id="hL4-At-Hok"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="rEu-V4-jbx"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y9H-eA-kKG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3933.5999999999999" y="89.408866995073893"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="S9i-ZK-YMY">
@@ -1209,7 +1366,13 @@ PANIC</string>
         <image name="audio-off" width="52" height="52"/>
         <image name="background" width="562" height="1218"/>
         <image name="bubble" width="592" height="592"/>
+        <image name="bubble-opaque" width="1000" height="1000"/>
+        <image name="card-opaque" width="509" height="672"/>
         <image name="jellyfish" width="1000" height="1000"/>
+        <image name="jellyfish-eyes" width="180" height="30"/>
+        <image name="jellyfish-head-combined" width="1000" height="900"/>
+        <image name="jellyfish-head-red" width="1000" height="900"/>
+        <image name="jellyfish-tentacles" width="144" height="174"/>
         <image name="microphone" width="50" height="50"/>
         <image name="microphone-highlighted" width="50" height="50"/>
         <image name="stop" width="50" height="50"/>
