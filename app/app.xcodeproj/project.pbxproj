@@ -11,6 +11,7 @@
 		35F9463B20E6746300BDCB5B /* TutorialPopupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F9463A20E6746300BDCB5B /* TutorialPopupController.swift */; };
 		35F9463D20E6749000BDCB5B /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F9463C20E6749000BDCB5B /* MenuController.swift */; };
 		7DEBDBCD00C9B4F9EC43D87C /* Pods_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01718B50368B7167E2FFA1D2 /* Pods_app.framework */; };
+		845E078920E8D7D7003C58D1 /* AfterBreathViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E078820E8D7D7003C58D1 /* AfterBreathViewController.swift */; };
 		84B5A6BE20D3F49D00554D97 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B5A6BD20D3F49D00554D97 /* AVFoundation.framework */; };
 		84B5A6C220D3FADA00554D97 /* error.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84B5A6BF20D3F7A000554D97 /* error.mp3 */; };
 		84B5A6C320D3FADD00554D97 /* in-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84B5A6C020D3F7A000554D97 /* in-2.mp3 */; };
@@ -63,6 +64,7 @@
 		35F9463A20E6746300BDCB5B /* TutorialPopupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialPopupController.swift; sourceTree = "<group>"; };
 		35F9463C20E6749000BDCB5B /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		373137FC0A262B831C1191A2 /* Pods-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-app.debug.xcconfig"; path = "Pods/Target Support Files/Pods-app/Pods-app.debug.xcconfig"; sourceTree = "<group>"; };
+		845E078820E8D7D7003C58D1 /* AfterBreathViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterBreathViewController.swift; sourceTree = "<group>"; };
 		84B5A6BD20D3F49D00554D97 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		84B5A6BF20D3F7A000554D97 /* error.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = error.mp3; sourceTree = "<group>"; };
 		84B5A6C020D3F7A000554D97 /* in-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "in-2.mp3"; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 				AE81C8A9208F635D0031BC42 /* AppDelegate.swift */,
 				AE81C8AB208F635D0031BC42 /* ViewController.swift */,
 				AE81C8AD208F635D0031BC42 /* Main.storyboard */,
+				845E078820E8D7D7003C58D1 /* AfterBreathViewController.swift */,
 				35F9463820E6740500BDCB5B /* AnimationController.swift */,
 				35F9463A20E6746300BDCB5B /* TutorialPopupController.swift */,
 				35F9463C20E6749000BDCB5B /* MenuController.swift */,
@@ -437,6 +440,7 @@
 				DA839E1220D98C420017C394 /* TutorialViewController.swift in Sources */,
 				DA839E1020D97FB70017C394 /* TutorialPageViewController.swift in Sources */,
 				DAC01EEC20BDAE0E00A6BE28 /* BubbleButton.swift in Sources */,
+				845E078920E8D7D7003C58D1 /* AfterBreathViewController.swift in Sources */,
 				DAC01EF620BF1B6200A6BE28 /* TippsPopupController.swift in Sources */,
 				AE81C8AA208F635D0031BC42 /* AppDelegate.swift in Sources */,
 			);

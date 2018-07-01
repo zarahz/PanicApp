@@ -15,10 +15,12 @@ import AVFoundation
 
 
 class HomeController: UIViewController {
-    var myView = UIView(frame: CGRect(x: 0 , y: 0 , width: 1000 , height: 1000 ))
+    //var myView = UIView(frame: CGRect(x: 0 , y: 0 , width: 1000 , height: 1000 ))
     var motionManager = CMMotionManager()
     var counterStart = 0
     var counterBreath = 1
+    var feedbackCounterBreathe = 0
+    var feedbackCounterError = 0
     var breathing = false
     var timer5 : Timer?
     var breatheIn = true
@@ -27,7 +29,12 @@ class HomeController: UIViewController {
     var singleData = 0.0
     var index = 0
     var soundIn: AVAudioPlayer!
+    var inError = false
+    var outError = false
+
+    @IBOutlet weak var imageButton: UIButton!
     
+    @IBOutlet weak var Switch: UISwitch!
     
     //MARK: build up the view
     override func viewDidLoad() {
@@ -35,19 +42,28 @@ class HomeController: UIViewController {
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.png")!)
         // Do any additional setup after loading the view, typically from a nib.
         
-        self.view.addSubview(myView)
-        let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.checkActionStart))
-        self.myView.addGestureRecognizer(gesture)
-
+        //self.view.addSubview(myView)
+        //let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.checkActionStart))
+        //self.myView.addGestureRecognizer(gesture)
+        
+        let img : UIImage = UIImage(named: "jelly")!
+        imageButton.frame = CGRect(x: 0, y: 200, width: 500, height: 500)
+        imageButton.setBackgroundImage(img, for: UIControlState.normal)
     }
     
-    //MARK: tap on screen to start the breathing function
-    @objc func checkActionStart(sender : UITapGestureRecognizer) {
+    //MARK: tap on THE PICTURE to start the breathing function
+    
+    
+    @IBAction func checkActionStart(_ sender: Any) {
+    //}
+    //@objc func checkActionStart(sender : UITapGestureRecognizer) {
         counterStart=counterStart+1;
         if counterStart % 2 == 1 {
             print("Touched to start")
             breathing = true
             print(breathing)
+            //wenn der Switch beim starten auf feedback on ist, soll das während der Ausführung nicht mehr verändert werden können
+            Switch.isHidden = true
             self.startBreathing()
         } else {
             breathing = false
@@ -57,44 +73,25 @@ class HomeController: UIViewController {
             if timer5 != nil {
                 timer5?.invalidate()
                 timer5 = nil
-                
             }
+            Switch.isHidden = false
+            showPopUp()
         }
     }
     
+    //? --> kann wert haben oder nil. ! muss einen wert haben
+    //UM BACKSLASH ZU MACHEN alt SHIFT 7!!!!!
     
     //MARK: breathing
     func startBreathing(){
-        // TODO: audio ausgabe für start und ende und zwischendurch
-        // mehr Werte --> Durchschnitt bilden und abfragen
-        // startUpdate Methode
-        motionManager.accelerometerUpdateInterval = 0.2
         print("wir sind in startBreathing")
-        //? --> kann wert haben oder nil. ! muss einen wert haben
-        getData()
+        
+        motionManager.accelerometerUpdateInterval = 0.2
+        //wenn wir kein Feedback wollen, brauchen wir auch keine Daten erheben
+        
+            getData()
         
         timer5 = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(runTimedCode5), userInfo: nil, repeats: true)
-        
-        //let date0 = Date()
-        //var date1 = date0.timeIntervalSinceNow
-        
-        
-        //UM BACKSALSH ZU MACHEN alt SHIFT 7!!!!!
-        /*while (breathing){
-         while date1 > -4.0 && breathing{
-         date1 = date0.timeIntervalSinceNow
-         breathIn = true;
-         print("breathing in \(date1)")
-         }
-         while date1 > -10.0 && breathing {
-         date1 = date0.timeIntervalSinceNow
-         breathIn = false
-         print("breathing out\(date1)")
-         }
-         date1 = 0.0
-         
-         }*/
-        //timeintervalsincenow
     }
     
     override func didReceiveMemoryWarning() {
@@ -109,6 +106,7 @@ class HomeController: UIViewController {
             }
         }
     }
+    
     func getAverage() -> Double{
         var tmp = 0.0
         for i in 0...accData.count-1{
@@ -124,20 +122,28 @@ class HomeController: UIViewController {
     //546123
     //2311
     @objc func runTimedCode5(){
+
         self.index = 0
         //check if the user tapped a second time in order to stop the exercise
         if breathing {
+            //für den Feedback Screen checken, wie oft geatmet wurde in dieser Session
+            self.feedbackCounterBreathe += self.feedbackCounterBreathe
             
             //check if it is a breathe in or a breathe out
             if counterBreath%2 == 1{
                 breatheIn = true
-                //print("einatmen")// x 0.05 - 0.07; y -0.11 - -0.15; z -0.98 - -1.0
+                if(inError){
+                    feedbackCounterError += feedbackCounterError
+                    inError = false
+                }
             } else {
                 breatheIn = false
-                //print("ausatmen")// x0.06 - 0.02; y -0.12
+                if(outError){
+                    feedbackCounterError += feedbackCounterError
+                    outError = false
+                }
             }
             counterBreath += 1
-            
             
             print("5")
             self.breathingData(index: index)
@@ -172,30 +178,38 @@ class HomeController: UIViewController {
         print(index)
         print(self.breatheIn)
         
-        
+       //////////////////////////IN/////////////////////////////////
         if(self.breatheIn && index < 4){
-            
             self.accData10[index] = getAverage()
             //beim einatmen ist x steigend. es soll also dem nutzer melden, wenn es fallend ist, um ihn zu korrigieren
             if index > 0{
                 if self.accData10[index] <= self.accData10[index-1] {
+                    inError = true
                 //give out some error sound
-                    //makeSounds(pat: "error-2")
+                    if (Switch.isOn){
+                        makeSounds(pat: "error-2")
+                    }
                 }
             }
             
             //breathe out --> ab letztem index bei breathe in und dann alles in breathein false
         } else if self.breatheIn && index == 4{
             makeSounds(pat: "out")
-            self.accData10[index] = getAverage()
             
-            //breathe out
-        } else if !breatheIn {
+                self.accData10[index] = getAverage()
+            
+            
+            
+            //////////////////////////OUT/////////////////////////////////
+        } else if (!breatheIn) {
             self.accData10[index+5] = getAverage()
             //beim ausatmen ist x fallend. es soll also dem nutzer melden, wenn es steigend ist, um ihn zu korrigieren.
             if self.accData10[index+5] >= self.accData10[index+4]{
+                outError = true
                 //give out some errorsound
-                //makeSounds(pat: "error-2")
+                if (Switch.isOn){
+                    makeSounds(pat: "error-2")
+                }
             }
         }
         self.index += 1
@@ -204,6 +218,8 @@ class HomeController: UIViewController {
             motionManager.stopAccelerometerUpdates()
         }
     }
+    
+    
     func makeSounds(pat: String){
         let path = Bundle.main.path(forResource: pat, ofType: "mp3")!
         let url = URL(fileURLWithPath: path)
@@ -214,6 +230,16 @@ class HomeController: UIViewController {
             // couldn't load file :(
         }
     }
+    
+    func showPopUp(){
+        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "afterBreatheID") as! AfterBreathViewController
+        self.addChildViewController(popOverVC)
+        popOverVC.view.frame = self.view.frame
+        self.view.addSubview(popOverVC.view)
+        popOverVC.didMove(toParentViewController: self)
+    }
+    
+    //stop breathing function when back is pressed
     override func viewWillDisappear(_ animated : Bool) {
         super.viewWillDisappear(animated)
         
