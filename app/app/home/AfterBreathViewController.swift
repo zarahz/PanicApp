@@ -9,8 +9,8 @@
 import UIKit
 
 class AfterBreathViewController: UIViewController {
-    var feedbackCounterBreathe : Int = 0
-    var feedbackCounterError : Int = 0
+    var feedbackCounterBreathe = 0
+    var feedbackCounterError = 0
 
     @IBOutlet weak var data: UILabel!
     
@@ -22,7 +22,7 @@ class AfterBreathViewController: UIViewController {
         print(feedbackCounterBreathe)
         
         //TODO: percentage im Label anzeigen
-
+        data.text = "Falschatmung: \(feedbackCounterError) \n von \(feedbackCounterBreathe) Atemzügen"
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,6 +32,8 @@ class AfterBreathViewController: UIViewController {
     
     @IBAction func closePopUp(_ sender: Any) {
         //self.view.removeFromSuperview()s
+        feedbackCounterError = 0
+        feedbackCounterBreathe = 0
         self.removeAnimate()
     }
     

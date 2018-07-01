@@ -31,6 +31,7 @@ class HomeController: UIViewController {
     var soundIn: AVAudioPlayer!
     var inError = false
     var outError = false
+    let threshold = 0.1
 
     @IBOutlet weak var imageButton: UIButton!
     
@@ -127,45 +128,45 @@ class HomeController: UIViewController {
         //check if the user tapped a second time in order to stop the exercise
         if breathing {
             //für den Feedback Screen checken, wie oft geatmet wurde in dieser Session
-            self.feedbackCounterBreathe += self.feedbackCounterBreathe
+            self.feedbackCounterBreathe = self.feedbackCounterBreathe + 1
             
             //check if it is a breathe in or a breathe out
             if counterBreath%2 == 1{
                 breatheIn = true
                 if(inError){
-                    feedbackCounterError += feedbackCounterError
+                    self.feedbackCounterError = self.feedbackCounterError + 1
                     inError = false
                 }
             } else {
                 breatheIn = false
                 if(outError){
-                    feedbackCounterError += feedbackCounterError
+                    self.feedbackCounterError = self.feedbackCounterError + 1
                     outError = false
                 }
             }
             counterBreath += 1
             
-            print("5")
+
             self.breathingData(index: index)
             if breatheIn {
                 makeSounds(pat: "in-2")
             }
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                print("5+1")
+
                 self.breathingData(index: self.index)
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                print("5+1")
+
                 self.breathingData(index: self.index)
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-                print("5+1")
+
                 self.breathingData(index: self.index)
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
 
-                print("5+1")
+
                 self.breathingData(index: self.index)
                 if self.breatheIn {
                     self.breatheIn = false
@@ -175,15 +176,15 @@ class HomeController: UIViewController {
         }
     }
     func breathingData (index: Int) {
-        print(index)
+        //print(index)
         print(self.breatheIn)
         
-       //////////////////////////IN/////////////////////////////////
+       //////////////////////////IN///////////////////////////////// indexes 1 bis 3 werden auf errors überprüft
         if(self.breatheIn && index < 4){
             self.accData10[index] = getAverage()
             //beim einatmen ist x steigend. es soll also dem nutzer melden, wenn es fallend ist, um ihn zu korrigieren
             if index > 0{
-                if self.accData10[index] <= self.accData10[index-1] {
+                if self.accData10[index] <= self.accData10[index-1]+threshold {
                     inError = true
                 //give out some error sound
                     if (Switch.isOn){
@@ -196,16 +197,16 @@ class HomeController: UIViewController {
         } else if self.breatheIn && index == 4{
             makeSounds(pat: "out")
             
-                self.accData10[index] = getAverage()
+            //der Umschwung der Atmung ist zu unreliable, um Fehler erkennnen zu können --> keine Datenerhebung nötig
+            //self.accData10[index] = getAverage()
             
             
             
-            //////////////////////////OUT/////////////////////////////////
+            //////////////////////////OUT/////////////////////////////////index 5 bis 9
         } else if (!breatheIn) {
             self.accData10[index+5] = getAverage()
             //beim ausatmen ist x fallend. es soll also dem nutzer melden, wenn es steigend ist, um ihn zu korrigieren.
-            if self.accData10[index+5] >= self.accData10[index+4]{
-                outError = true
+            if self.accData10[index+5] >= self.accData10[index+4]-threshold{
                 //give out some errorsound
                 if (Switch.isOn){
                     makeSounds(pat: "error-2")
@@ -233,6 +234,7 @@ class HomeController: UIViewController {
     
     func showPopUp(){
         let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "afterBreatheID") as! AfterBreathViewController
+        print("Falschatmung \(feedbackCounterError)")
         popOverVC.feedbackCounterBreathe = self.feedbackCounterBreathe
         popOverVC.feedbackCounterError = self.feedbackCounterError
         self.addChildViewController(popOverVC)
