@@ -37,6 +37,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //Location
         Location.shared
+        if(UserDefaults.standard.integer(forKey: "mode") == -1){
+            Location.shared.setHomeLocation(location: UserDefaults.standard.location(forKey: "homeLocation")!)
+        }
         
         //configure chatbot
         let configuration: AIConfiguration = AIDefaultConfiguration()

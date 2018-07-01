@@ -12,8 +12,7 @@ import CoreLocation
 
 class SettingsMenuController: UIViewController, CLLocationManagerDelegate, SPTAudioStreamingPlaybackDelegate, SPTAudioStreamingDelegate {
     
-    //MARK: protocols
-    var locationDelegate: HomeLocationProtocol?
+    //MARK: delegate
     var modeDelegate: UpdateModeImageProtocol!
     
     //MARK: Design button outlets
@@ -66,43 +65,45 @@ class SettingsMenuController: UIViewController, CLLocationManagerDelegate, SPTAu
     
     //MARK: Mode Click Handler
     @IBAction func atHomeClicked(_ sender: Any) {
-        locationDelegate?.getHomeCoordinates(atHomeLocationClicked: false, stop: true);
+        Location.shared.stopGPS()
         highlightClickedButton(atHomeMode)
         normalizeButton(onRoadMode)
         normalizeButton(GPSMode)
-        modeDelegate?.modeChanged(image: atHomeImage!)
         UserDefaults.standard.set(1, forKey: "mode")
-        UserDefaults.standard.removeObject(forKey: "homePosition")
+        //update icon
+        modeDelegate?.modeChanged(image: atHomeImage!)
     }
     
     @IBAction func onRoadClicked(_ sender: Any) {
-        locationDelegate?.getHomeCoordinates(atHomeLocationClicked: false, stop: true);
+        Location.shared.stopGPS()
         UserDefaults.standard.set(0, forKey: "mode")
-        UserDefaults.standard.removeObject(forKey: "homePosition")
         highlightClickedButton(onRoadMode)
         normalizeButton(atHomeMode)
         normalizeButton(GPSMode)
+        //update icon
         modeDelegate?.modeChanged(image: onRoadImage!)
     }
     
     @IBAction func activateGPS(_ sender: Any) {
-    locationDelegate?.getHomeCoordinates(atHomeLocationClicked: false, stop: false);
+        Location.shared.trackLocations(setCurrentPositionHome: false);
         UserDefaults.standard.set(-1, forKey: "mode")
         normalizeButton(homeLocationButton)
         normalizeButton(atHomeMode)
         normalizeButton(onRoadMode)
         highlightClickedButton(GPSMode)
     }
+    
     //function that is called when map sets home location
     func setHomeLocation(location: CLLocation){
-        locationDelegate?.setHomeLocation(location: location)
+        Location.shared.setHomeLocation(location: location)
+        //locationDelegate?.setHomeLocation(location: location)
     }
     @IBAction func openMap(_ sender: Any) {
-        activateGPS((Any).self);
+        activateGPS(self);
     }
     
     @IBAction func homeLocationClicked(_ sender: Any) {
-        activateGPS(self)
+        Location.shared.trackLocations(setCurrentPositionHome: true)
     }
     
     //MARK: Design Button functions
@@ -159,14 +160,6 @@ class SettingsMenuController: UIViewController, CLLocationManagerDelegate, SPTAu
             if auth.canHandle(auth.redirectURL) {
                 // To do - build in error handling
             }
-        }
-    }
-    
-    //MARK: segue
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "map" {
-            let mapControllerNext = segue.destination as! MapViewController
-            mapControllerNext.menuController = self
         }
     }
     

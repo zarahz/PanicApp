@@ -10,22 +10,21 @@ import Foundation
 import UIKit
 import MapKit
 
+protocol HandleMapSearch {
+    func dropPinZoomIn(placemark:MKPlacemark)
+}
+
 class MapViewController: UIViewController{
     @IBOutlet var mapView: MKMapView!
-    //var locationDelegate: HomeLocationProtocol!
-    var menuController: SettingsMenuController?
-
+    
     let regionRadius: CLLocationDistance = 1000
     let annotation = MKPointAnnotation()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // set initial location in Honolulu location in Honolulu
-        //let initialLocation = CLLocation(latitude: 21.282778, longitude: -157.829444)
-       //getCurrentUserPosition()
+       getCurrentUserPosition()
         
         if(UserDefaults.standard.location(forKey: "homeLocation") != nil){
-            //centerMapOnLocation(location:UserDefaults.standard.location(forKey: "homeLocation")!)
         addAnnotationOnLocation(pointedCoordinate: (UserDefaults.standard.location(forKey: "homeLocation")?.coordinate)!);
         }
     }
@@ -35,17 +34,8 @@ class MapViewController: UIViewController{
     }
     
     func getCurrentUserPosition(){
-        let location = menuController?.userPosition;
-        let span = MKCoordinateSpanMake(0.05, 0.05)
-        let region = MKCoordinateRegion(center: (location?.coordinate)!, span: span)
+        let region = MKCoordinateRegion(center: Location.shared.center!, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
         mapView.setRegion(region, animated: true)
-        centerMapOnLocation(location: location!)
-    }
-    
-    func centerMapOnLocation(location: CLLocation) {
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
-                                                                  regionRadius, regionRadius)
-        mapView.setRegion(coordinateRegion, animated: true)
     }
     
     @IBAction func handleLongPress(_ sender: Any) {
@@ -58,15 +48,15 @@ class MapViewController: UIViewController{
     }
     
     func addAnnotationOnLocation(pointedCoordinate: CLLocationCoordinate2D){
-        
+        //mapView.removeAnnotation(mapView.annotations)
         let homeLocation =  CLLocation(latitude: pointedCoordinate.latitude, longitude: pointedCoordinate.longitude)
         UserDefaults.standard.set(location: homeLocation, forKey: "homeLocation");
+        Location.shared.setHomeLocation(location: homeLocation)
         
-        //locationDelegate?.setHomeLocation(location: homeLocation)
-        menuController?.setHomeLocation(location: homeLocation)
         annotation.coordinate = pointedCoordinate
         annotation.title = "Zu Hause"
         mapView.addAnnotation(annotation)
     }
 }
+
 

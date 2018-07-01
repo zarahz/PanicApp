@@ -529,10 +529,10 @@ PANIC</string>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="asA-Kv-fRi">
-                                                                        <rect key="frame" x="10" y="0.0" width="71.666666666666671" height="99"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="71.666666666666671" height="100"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="viU-Dl-fDW">
-                                                                                <rect key="frame" x="14.999999999999996" y="10" width="41.666666666666657" height="79"/>
+                                                                                <rect key="frame" x="14.999999999999996" y="10" width="41.666666666666657" height="80"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -573,7 +573,7 @@ PANIC</string>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Uc-uX-i21">
-                                                                        <rect key="frame" x="273.33333333333331" y="0.0" width="71.666666666666686" height="99.666666666666671"/>
+                                                                        <rect key="frame" x="263.33333333333331" y="0.0" width="71.666666666666686" height="99.666666666666671"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBg-IA-x7u">
                                                                                 <rect key="frame" x="14.999999999999996" y="10" width="41.666666666666657" height="79.666666666666671"/>
@@ -629,7 +629,7 @@ PANIC</string>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pNq-eB-iPe">
-                                                                                        <rect key="frame" x="0.0" y="66" width="345" height="20.333333333333329"/>
+                                                                                        <rect key="frame" x="0.0" y="66.666666666666671" width="335" height="20.333333333333329"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                         <nil key="textColor"/>
                                                                                         <nil key="highlightedColor"/>
@@ -1041,11 +1041,11 @@ PANIC</string>
             <objects>
                 <viewController id="mwl-Cy-B9Y" customClass="MapViewController" customModule="app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2kP-ag-tUk">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="672"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="584"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8UY-uJ-JcF">
-                                <rect key="frame" x="0.0" y="44" width="375" height="594"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="550"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="Eci-vS-LRF" appends="YES" id="zOe-VO-huK"/>
@@ -1062,6 +1062,8 @@ PANIC</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8Ly-gW-KcE"/>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="mapView" destination="8UY-uJ-JcF" id="jdV-9c-9Ef"/>
                     </connections>
@@ -1219,7 +1221,7 @@ PANIC</string>
         <image name="tutorial5" width="313" height="437"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hnG-FD-9uj"/>
+        <segue reference="lNl-T1-9vn"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

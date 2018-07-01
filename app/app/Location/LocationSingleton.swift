@@ -12,34 +12,33 @@ import CoreLocation
 class Location: NSObject, CLLocationManagerDelegate {
     static let shared = Location()
     fileprivate var locationManager = CLLocationManager()
-    //MARK: Location variables
-    var isUpdatingLocation:Bool!;
+    
     var atHomeModeActive:Bool!;
     var homePosition: CLLocation?
     var userPosition: CLLocation?
-    
+
     //MARK: mode
     var modeImage: UIImage?
+
+    var center: CLLocationCoordinate2D?
     
     override init() {
         super.init()
-        atHomeModeActive = false;
-        isUpdatingLocation = false;
+        atHomeModeActive = false
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest;
         locationManager.activityType = .fitness
         locationManager.requestAlwaysAuthorization()
-        print("init")
     }
     
     //MARK: Locationmanager
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation :CLLocation = locations[0] as CLLocation
-        if let location = locations.first {
-            userPosition = location
-        }
         print("\(userLocation) \n")
+        
+        center = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
+
         
         if (atHomeModeActive && userLocation.horizontalAccuracy <= 10) {
             homePosition = locations.last
@@ -54,7 +53,7 @@ class Location: NSObject, CLLocationManagerDelegate {
                 modeImage = UIImage(named: "jellyfish")
                 print("left radius")
             }else {
-                modeImage = UIImage(named: "bubble")!
+                modeImage = UIImage(named: "bubble")
             }
             print("\(String(describing: distance)) ------------- HOME POS : \(String(describing: homePosition)) \n")
         }
@@ -64,24 +63,28 @@ class Location: NSObject, CLLocationManagerDelegate {
         print("Error \(error)")
     }
     
-    func setHomeLocation(location: CLLocation){
-        homePosition = location;
-        getHomeCoordinates(atHomeLocationClicked: false, stop: false)
+    func trackLocations(setCurrentPositionHome:Bool){
+        //in case User clicked GPS button but home location was already set
+        if(homePosition != nil && !setCurrentPositionHome){
+            atHomeModeActive = false;
+        }else {
+            atHomeModeActive = true;
+        }
+        startGPS()
     }
     
-    func getHomeCoordinates(atHomeLocationClicked:Bool, stop:Bool){
-            locationManager.stopUpdatingLocation();
-            if(!stop){
-                //in case User clicked GPS button but home location was already set
-                if(homePosition != nil && !atHomeLocationClicked){
-                    atHomeModeActive = false;
-                }else {
-                    atHomeModeActive = true;
-                }
-                if CLLocationManager.locationServicesEnabled(){
-                    locationManager.startUpdatingLocation()
-                    isUpdatingLocation = true;
-                }
-            }
+    func startGPS(){
+        if CLLocationManager.locationServicesEnabled(){
+            locationManager.startUpdatingLocation()
+        }
+    }
+    
+    func stopGPS(){
+        locationManager.stopUpdatingLocation();
+    }
+    
+    func setHomeLocation(location: CLLocation){
+        homePosition = location;
+        trackLocations(setCurrentPositionHome: false)
     }
 }
