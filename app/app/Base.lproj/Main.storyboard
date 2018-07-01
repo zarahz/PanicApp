@@ -92,9 +92,6 @@ PANIC</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" insetsLayoutMarginsFromSafeArea="NO" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="dgj-AC-ZoM">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Einstellungen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nsL-0J-REj">
                                 <rect key="frame" x="38" y="108" width="151" height="31"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
@@ -118,17 +115,13 @@ PANIC</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="dgj-AC-ZoM" firstAttribute="bottom" secondItem="zjs-Hs-9gY" secondAttribute="bottom" constant="34" id="5kN-IK-S7R"/>
-                            <constraint firstItem="dgj-AC-ZoM" firstAttribute="trailing" secondItem="TXj-Uw-qFu" secondAttribute="trailing" id="9Oy-W9-SxE"/>
                             <constraint firstItem="TXj-Uw-qFu" firstAttribute="top" secondItem="KcJ-3w-9sM" secondAttribute="bottom" constant="52" id="Ays-Xa-ONM"/>
-                            <constraint firstItem="dgj-AC-ZoM" firstAttribute="leading" secondItem="TXj-Uw-qFu" secondAttribute="leading" id="Ig8-Y2-um0"/>
                             <constraint firstItem="nsL-0J-REj" firstAttribute="leading" secondItem="0io-vk-crq" secondAttribute="leading" constant="38" id="Lua-BI-7vR"/>
                             <constraint firstItem="TXj-Uw-qFu" firstAttribute="top" secondItem="nsL-0J-REj" secondAttribute="bottom" constant="0.66666666666665719" id="PK1-qP-gAT"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="nsL-0J-REj" secondAttribute="trailing" id="RB3-TK-oUG"/>
                             <constraint firstItem="TXj-Uw-qFu" firstAttribute="bottom" secondItem="zjs-Hs-9gY" secondAttribute="bottom" constant="34" id="RvA-Zb-t9D"/>
                             <constraint firstItem="zjs-Hs-9gY" firstAttribute="trailing" secondItem="KcJ-3w-9sM" secondAttribute="trailing" constant="16" id="aaE-hD-Y5f"/>
                             <constraint firstItem="TXj-Uw-qFu" firstAttribute="leading" secondItem="0io-vk-crq" secondAttribute="leading" id="bRb-c6-pS8"/>
-                            <constraint firstItem="dgj-AC-ZoM" firstAttribute="top" secondItem="0io-vk-crq" secondAttribute="top" id="gTj-as-95X"/>
                             <constraint firstAttribute="trailing" secondItem="TXj-Uw-qFu" secondAttribute="trailing" id="qeU-FV-DSi"/>
                             <constraint firstItem="nsL-0J-REj" firstAttribute="top" secondItem="zjs-Hs-9gY" secondAttribute="top" constant="20" id="syP-1a-P04"/>
                         </constraints>
@@ -1374,7 +1367,6 @@ PANIC</string>
     <resources>
         <image name="audio" width="52" height="52"/>
         <image name="audio-off" width="52" height="52"/>
-        <image name="background" width="562" height="1218"/>
         <image name="bubble" width="592" height="592"/>
         <image name="bubble-opaque" width="1000" height="1000"/>
         <image name="card-opaque" width="509" height="672"/>
