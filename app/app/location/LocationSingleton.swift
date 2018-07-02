@@ -15,15 +15,16 @@ class Location: NSObject, CLLocationManagerDelegate {
     
     var atHomeModeActive:Bool!;
     var homePosition: CLLocation?
-    var userPosition: CLLocation?
-
-    //MARK: mode
-    var modeImage: UIImage?
+    var outOfHomeArea: Bool!
+    
+    //needed to change mode image
+    var viewController:UIViewController?
 
     var center: CLLocationCoordinate2D?
     
     override init() {
         super.init()
+        outOfHomeArea = true
         atHomeModeActive = false
         locationManager = CLLocationManager()
         locationManager.delegate = self
@@ -43,6 +44,7 @@ class Location: NSObject, CLLocationManagerDelegate {
         if (atHomeModeActive && userLocation.horizontalAccuracy <= 10) {
             homePosition = locations.last
             UserDefaults.standard.set(location: homePosition!, forKey: "homeLocation")
+            viewController?.setupNavigationBar()
             atHomeModeActive = false;
         }
         
@@ -50,10 +52,12 @@ class Location: NSObject, CLLocationManagerDelegate {
             let distance: CLLocationDistance =
                 homePosition!.distance(from: locations.last!)
             if(distance > 15){
-                modeImage = UIImage(named: "jellyfish")
+                outOfHomeArea = true
+                viewController?.setupNavigationBar()
                 print("left radius")
             }else {
-                modeImage = UIImage(named: "bubble")
+                outOfHomeArea = false
+                viewController?.setupNavigationBar()
             }
             print("\(String(describing: distance)) ------------- HOME POS : \(String(describing: homePosition)) \n")
         }

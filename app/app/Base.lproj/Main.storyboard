@@ -89,7 +89,7 @@ PANIC</string>
         <!--Settings Controller-->
         <scene sceneID="ILL-pB-r41">
             <objects>
-                <viewController id="u8k-DK-eSc" customClass="SettingsController" customModule="app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsController" id="u8k-DK-eSc" customClass="SettingsController" customModule="app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleAspectFit" id="0io-vk-crq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -107,31 +107,19 @@ PANIC</string>
                                     <segue destination="5GY-kU-cAt" kind="embed" identifier="menuContainer" id="T1i-ue-5vA"/>
                                 </connections>
                             </containerView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jellyfish" translatesAutoresizingMaskIntoConstraints="NO" id="KcJ-3w-9sM">
-                                <rect key="frame" x="319" y="48" width="40" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="7Sx-J4-6DZ"/>
-                                    <constraint firstAttribute="width" constant="40" id="kkg-rE-vWU"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="TXj-Uw-qFu" firstAttribute="top" secondItem="KcJ-3w-9sM" secondAttribute="bottom" constant="52" id="Ays-Xa-ONM"/>
                             <constraint firstItem="nsL-0J-REj" firstAttribute="leading" secondItem="0io-vk-crq" secondAttribute="leading" constant="38" id="Lua-BI-7vR"/>
                             <constraint firstItem="TXj-Uw-qFu" firstAttribute="top" secondItem="nsL-0J-REj" secondAttribute="bottom" constant="0.66666666666665719" id="PK1-qP-gAT"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="nsL-0J-REj" secondAttribute="trailing" id="RB3-TK-oUG"/>
                             <constraint firstItem="TXj-Uw-qFu" firstAttribute="bottom" secondItem="zjs-Hs-9gY" secondAttribute="bottom" constant="34" id="RvA-Zb-t9D"/>
-                            <constraint firstItem="zjs-Hs-9gY" firstAttribute="trailing" secondItem="KcJ-3w-9sM" secondAttribute="trailing" constant="16" id="aaE-hD-Y5f"/>
                             <constraint firstItem="TXj-Uw-qFu" firstAttribute="leading" secondItem="0io-vk-crq" secondAttribute="leading" id="bRb-c6-pS8"/>
                             <constraint firstAttribute="trailing" secondItem="TXj-Uw-qFu" secondAttribute="trailing" id="qeU-FV-DSi"/>
                             <constraint firstItem="nsL-0J-REj" firstAttribute="top" secondItem="zjs-Hs-9gY" secondAttribute="top" constant="20" id="syP-1a-P04"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zjs-Hs-9gY"/>
                     </view>
-                    <connections>
-                        <outlet property="modeImage" destination="KcJ-3w-9sM" id="L7q-aR-eku"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CP0-rc-78i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1189,7 +1177,6 @@ PANIC</string>
                         <outlet property="homeLocationButton" destination="Cul-fj-f33" id="J66-p3-1qY"/>
                         <outlet property="onRoadMode" destination="Adv-CG-gJ0" id="4ga-hT-2fC"/>
                         <outlet property="redDesignButton" destination="U7P-Bc-rqO" id="6Ef-qy-HjB"/>
-                        <outlet property="setHomeLocationButton" destination="EoY-Cl-LOA" id="MEY-87-w2T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kXz-37-6RI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1372,7 +1359,6 @@ PANIC</string>
         <image name="bubble" width="592" height="592"/>
         <image name="bubble-opaque" width="1000" height="1000"/>
         <image name="card-opaque" width="509" height="672"/>
-        <image name="jellyfish" width="1000" height="1000"/>
         <image name="jellyfish-eyes" width="180" height="30"/>
         <image name="jellyfish-head-combined" width="1000" height="900"/>
         <image name="jellyfish-head-red" width="1000" height="900"/>

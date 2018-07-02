@@ -32,6 +32,7 @@ class TippsController: UIViewController, UITextFieldDelegate {
         
         //shows current mode
         setupNavigationBar()
+        Location.shared.viewController = self
         //sets chosen background
         if(UserDefaults.standard.string(forKey: "background") != nil){
             let imageName = (UserDefaults.standard.string(forKey: "background"))! + ".png"

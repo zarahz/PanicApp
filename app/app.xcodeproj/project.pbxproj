@@ -228,7 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				AED0397B20E969810004ABEC /* singletons */,
-				AED0397820E969710004ABEC /* Location */,
+				AED0397820E969710004ABEC /* location */,
 				AEC211BB20E031B30069D683 /* spotify */,
 				AEC211AE20DD73BD0069D683 /* settings */,
 				DA839E0E20D97F710017C394 /* tutorial */,
@@ -272,12 +272,12 @@
 			path = spotify;
 			sourceTree = "<group>";
 		};
-		AED0397820E969710004ABEC /* Location */ = {
+		AED0397820E969710004ABEC /* location */ = {
 			isa = PBXGroup;
 			children = (
 				AED0397920E969710004ABEC /* LocationSingleton.swift */,
 			);
-			path = Location;
+			path = location;
 			sourceTree = "<group>";
 		};
 		AED0397B20E969810004ABEC /* singletons */ = {

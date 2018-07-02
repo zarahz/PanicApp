@@ -13,7 +13,6 @@ import MapKit
 class MapViewController: UIViewController{
     @IBOutlet var mapView: MKMapView!
     
-    let regionRadius: CLLocationDistance = 1000
     let annotation = MKPointAnnotation()
     
     override func viewDidLoad() {

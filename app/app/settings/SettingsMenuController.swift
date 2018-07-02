@@ -22,15 +22,12 @@ class SettingsMenuController: UIViewController, CLLocationManagerDelegate, SPTAu
     @IBOutlet var redDesignButton: UIButton!
     
     //MARK: Location Button outlets
-    @IBOutlet var setHomeLocationButton: UIButton!
     @IBOutlet var homeLocationButton: UIButton!
     
     //MARK: Mode button outlets
     @IBOutlet var onRoadMode: UIButton!
     @IBOutlet var atHomeMode: UIButton!
     @IBOutlet var GPSMode: UIButton!
-    var onRoadImage = UIImage(named: "jellyfish");
-    var atHomeImage = UIImage(named: "bubble");
     
     //MARK: spotify
     @IBOutlet var login: UIButton!
@@ -65,26 +62,27 @@ class SettingsMenuController: UIViewController, CLLocationManagerDelegate, SPTAu
     
     //MARK: Mode Click Handler
     @IBAction func atHomeClicked(_ sender: Any) {
+        UserDefaults.standard.removeObject(forKey: "mode")
         Location.shared.stopGPS()
+        UserDefaults.standard.set(1, forKey: "mode")
         highlightClickedButton(atHomeMode)
         normalizeButton(onRoadMode)
         normalizeButton(GPSMode)
-        UserDefaults.standard.set(1, forKey: "mode")
-        //update icon
-        settingsDelegate?.modeChanged(image: atHomeImage!)
+        setupNavigationBar()
     }
     
     @IBAction func onRoadClicked(_ sender: Any) {
+        UserDefaults.standard.removeObject(forKey: "mode")
         Location.shared.stopGPS()
         UserDefaults.standard.set(0, forKey: "mode")
         highlightClickedButton(onRoadMode)
         normalizeButton(atHomeMode)
         normalizeButton(GPSMode)
-        //update icon
-        settingsDelegate?.modeChanged(image: onRoadImage!)
+        setupNavigationBar()
     }
     
     @IBAction func activateGPS(_ sender: Any) {
+        UserDefaults.standard.removeObject(forKey: "mode")
         Location.shared.trackLocations(setCurrentPositionHome: false);
         UserDefaults.standard.set(-1, forKey: "mode")
         normalizeButton(homeLocationButton)
@@ -93,11 +91,6 @@ class SettingsMenuController: UIViewController, CLLocationManagerDelegate, SPTAu
         highlightClickedButton(GPSMode)
     }
     
-    //function that is called when map sets home location
-    func setHomeLocation(location: CLLocation){
-        Location.shared.setHomeLocation(location: location)
-        //locationDelegate?.setHomeLocation(location: location)
-    }
     @IBAction func openMap(_ sender: Any) {
         activateGPS(self);
     }
@@ -115,8 +108,6 @@ class SettingsMenuController: UIViewController, CLLocationManagerDelegate, SPTAu
     func shapeDesignButton(_ button:UIButton){
         button.layer.cornerRadius = 0.5 * button.bounds.size.width
         button.clipsToBounds = true
-        //button.addTarget(self, action: #selector(SettingsMenuController.thumbsUpButtonPressed(_:)), for: .touchUpInside)
-        //view.addSubview(button)
     }
     
     @IBAction func defaultWallpaper(_ sender: Any) {
@@ -153,15 +144,15 @@ class SettingsMenuController: UIViewController, CLLocationManagerDelegate, SPTAu
         }
     }
     
-        func initializePlayer(authSession:SPTSession){
-            if self.player == nil {
-                self.player = SPTAudioStreamingController.sharedInstance()
-                self.player!.playbackDelegate = self
-                self.player!.delegate = self
-                try! player!.start(withClientId: auth.clientID)
-                self.player!.login(withAccessToken: authSession.accessToken)
-            }
+    func initializePlayer(authSession:SPTSession){
+        if self.player == nil {
+            self.player = SPTAudioStreamingController.sharedInstance()
+            self.player!.playbackDelegate = self
+            self.player!.delegate = self
+            try! player!.start(withClientId: auth.clientID)
+            self.player!.login(withAccessToken: authSession.accessToken)
         }
+    }
     
     func audioStreamingDidLogin(_ audioStreaming: SPTAudioStreamingController!) {
         // after a user authenticates a session, the SPTAudioStreamingController is then initialized and this method called

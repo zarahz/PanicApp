@@ -20,6 +20,7 @@ class ViewController: UIViewController {
         
         //shows current mode
         setupNavigationBar()
+        Location.shared.viewController = self
         //sets chosen background
         if(UserDefaults.standard.string(forKey: "background") != nil){
             let imageName = (UserDefaults.standard.string(forKey: "background"))! + ".png"
@@ -32,6 +33,9 @@ class ViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        //shows current mode
+        setupNavigationBar()
+        Location.shared.viewController = self
         if(UserDefaults.standard.string(forKey: "background") != nil){
             let imageName = (UserDefaults.standard.string(forKey: "background"))! + ".png"
             self.view.backgroundColor = UIColor(patternImage: UIImage(named: imageName)!)

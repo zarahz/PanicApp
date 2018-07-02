@@ -11,19 +11,10 @@ import CoreLocation
 import UIKit
 
 protocol SettingsProtocol {
-    func modeChanged(image: UIImage)
     func changeBackground()
 }
 
 class SettingsController: UIViewController, SettingsProtocol{
-
-    //MARK: Mode variables
-    var image = UIImage(named: "bubble");
-    var jellyfishImage = UIImage(named: "jellyfish");
-    var modeChanged: SettingsProtocol?;
-    
-    //MARK: Mode Outlets
-    @IBOutlet var modeImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +22,7 @@ class SettingsController: UIViewController, SettingsProtocol{
         
         //shows current mode
         setupNavigationBar()
+        Location.shared.viewController = self
         //sets chosen background
         if(UserDefaults.standard.string(forKey: "background") != nil){
             let imageName = (UserDefaults.standard.string(forKey: "background"))! + ".png"
@@ -45,8 +37,8 @@ class SettingsController: UIViewController, SettingsProtocol{
     //MARK: segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "menuContainer" {
-            let menuControllerNext = segue.destination as! SettingsMenuController
-            menuControllerNext.settingsDelegate = self
+            let menuController = segue.destination as! SettingsMenuController
+            menuController.settingsDelegate = self
         }
     }
     
@@ -54,11 +46,6 @@ class SettingsController: UIViewController, SettingsProtocol{
         let imageName = UserDefaults.standard.string(forKey: "background")! + ".png"
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: imageName)!)
         print(imageName)
-    }
-    
-    //MARK: mode
-    func modeChanged(image: UIImage) {
-        modeImage.image = image
     }
     
 }
