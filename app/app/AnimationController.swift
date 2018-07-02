@@ -149,7 +149,7 @@ class AnimationController: UIViewController {
     @objc func spotifyAction () {
         
         breatheLabel.text = "Spotify"
-        
+        Spotify.shared.startStopPlayer()
     }
     
     
