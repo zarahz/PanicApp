@@ -64,4 +64,21 @@ class Spotify: NSObject, SPTAudioStreamingPlaybackDelegate, SPTAudioStreamingDel
             }
         })
     }
+    
+    func startStopPlayer(){
+        if playing == false{
+            self.player?.setVolume(1, callback: {
+                (error) in
+                if (error != nil) {
+                    print("playing!")
+                }})
+        }else{
+            self.player?.setVolume(0, callback: {
+                (error) in
+                if (error != nil) {
+                    print("playing!")
+                }})
+        }
+        self.playing = !self.playing
+    }
 }
