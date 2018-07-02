@@ -12,10 +12,12 @@ import Darwin
 
 @IBDesignable class BubbleButton: UIButton {
     
+    // MARK: Properties
     var ovalPath: UIBezierPath!
     var soundpaths = ["bubble0", "bubble1", "bubble2", "bubble3", "bubble4", "bubble5", "bubble6", "bubble7", "bubble8", "bubble9", "bubble10"]
     var soundIn: AVAudioPlayer!
     
+    // MARK: Setup
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupButton()
@@ -35,6 +37,7 @@ import Darwin
         showsTouchWhenHighlighted = false
     }
     
+    // Only register taps inside circular area
     @objc func bubbleTapped(button: BubbleButton, event: UIEvent) {
         
         //one of the random bubble sounds should be played when tapped on the right position in the screen
@@ -50,6 +53,7 @@ import Darwin
         }
     }
     
+    // MARK: Animation
     func animate() {
         let yPos = self.frame.origin.y
         let duration = 20.0+Double(arc4random_uniform(10))
