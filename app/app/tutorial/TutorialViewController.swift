@@ -10,6 +10,7 @@ import UIKit
 
 class TutorialViewController: UIViewController, UIPageViewControllerDelegate {
 
+    // MARK: Properties
     @IBOutlet weak var pageControl: UIPageControl!
     
     override func viewDidLoad() {

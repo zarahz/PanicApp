@@ -14,9 +14,21 @@ import Speech
 
 class ChatbotController {
     
+    // MARK: Properties
     var isActive = false
     var popupController: TippsPopupController!
     var phoneNr: String?
+    
+    // MARK: Send requests to chatbot
+    
+    func sendMessageToBot(text: String) {
+        self.popupController.showInput(input: text )
+        
+        let request = ApiAI.shared().textRequest()
+        request?.query = text
+        handleCompletion(request: request)
+        ApiAI.shared().enqueue(request)
+    }
     
     func sendEventRequest(eventName: String) {
         let request = ApiAI.shared().eventRequest()
@@ -25,6 +37,7 @@ class ChatbotController {
         ApiAI.shared().enqueue(request)
     }
     
+    // MARK: Response handling
     func handleCompletion(request: AIRequest?) {
         request?.setMappedCompletionBlockSuccess({ (request, response) in
             self.isActive = true
@@ -39,15 +52,7 @@ class ChatbotController {
         })
     }
     
-    func sendMessageToBot(text: String) {
-        self.popupController.showInput(input: text )
-        
-        let request = ApiAI.shared().textRequest()
-        request?.query = text
-        handleCompletion(request: request)
-        ApiAI.shared().enqueue(request)
-    }
-    
+    // Handle action sent by chatbot
     private func handleAction(response: AIResponse) -> Bool {
         let action = response.result.action
         switch(action) {
@@ -57,7 +62,7 @@ class ChatbotController {
             }
             if let lastName = (response.result.parameters["last-name"] as? AIResponseParameter)?.stringValue {
                 if !name.isEmpty {
-                name = name+" "+lastName
+                    name = name+" "+lastName
                 } else {
                     name = lastName
                 }
@@ -92,6 +97,9 @@ class ChatbotController {
         }
     }
     
+    // MARK: Phone call functions
+    
+    // Make a call
     func callNumber() {
         if let nr = phoneNr {
             guard let number = URL(string: "tel://" + nr) else { return }
@@ -107,6 +115,7 @@ class ChatbotController {
         }
     }
     
+    // Look for contacts with given name
     func getContact(name: String) -> Bool {
         do {
             let store = CNContactStore()
@@ -151,7 +160,6 @@ class SpeechListener {
     }
     
     func transcribeSpeech() {
-        button.isSelected = true
         detectedText = nil
         let node = audioEngine.inputNode
         let format = node.inputFormat(forBus: 0)
@@ -160,34 +168,40 @@ class SpeechListener {
         do {
             try audioEngine.start() }
         catch {
-            print(error)
+            return
         }
-        var timer = Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false, block: { (timer) in
+        var timer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false, block: { (timer) in
             self.stopRecording()
             timer.invalidate()
         })
-        recognitionTask = speechRecognizer?.recognitionTask(with: request, resultHandler: { result, error in
-            if let result = result {
-                self.detectedText = result.bestTranscription.formattedString
-                timer.invalidate()
-                timer = Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false, block: { (timer) in
-                    if let text = self.detectedText {
-                        timer.invalidate()
-                        self.chatbotController.sendMessageToBot(text: text)
-                        self.stopRecording()
-                    }})
-            } else if let error = error {
-                print(error)
-                self.stopRecording() 
-                timer.invalidate()
-            }})
+        SFSpeechRecognizer.requestAuthorization { authStatus in
+            OperationQueue.main.addOperation {
+                if authStatus == SFSpeechRecognizerAuthorizationStatus.authorized {
+                    self.button.isSelected = true
+                    self.recognitionTask = self.speechRecognizer?.recognitionTask(with: self.request, resultHandler: { result, error in
+                        if let result = result {
+                            self.detectedText = result.bestTranscription.formattedString
+                            timer.invalidate()
+                            timer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false, block: { (timer) in
+                                if let text = self.detectedText {
+                                    timer.invalidate()
+                                    self.chatbotController.sendMessageToBot(text: text)
+                                    self.stopRecording()
+                                }})
+                        } else if error != nil {
+                            self.stopRecording()
+                            timer.invalidate()
+                        }})
+                }
+            }
+        }
     }
     
-    func stopRecording() { 
-        audioEngine.stop()
-        request.endAudio()
-        recognitionTask?.cancel()
-        detectedText = nil
-        button.isSelected = false
+    func stopRecording() {
+        self.audioEngine.stop()
+        self.request.endAudio()
+        self.recognitionTask?.cancel()
+        self.detectedText = nil
+        self.button.isSelected = false
     }
 }
