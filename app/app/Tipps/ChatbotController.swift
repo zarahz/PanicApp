@@ -88,10 +88,13 @@ class ChatbotController {
         case "exampleQuestions":
             sendEventRequest(eventName: "EXAMPLE_QUESTIONS")
             return true
+        case "strategies":
+            sendEventRequest(eventName: "STRATEGIES")
+            return true
         case "randomTip":
             let randomIndex = Int(arc4random_uniform(UInt32(popupController.tipps.count)))
-            let tippText = popupController.tipps[randomIndex].content
-            self.popupController.showResponse(response: tippText)
+            let tipp = popupController.tipps[randomIndex].content
+            popupController.showResponse(response: tipp)
             return true
         default: return false
         }
