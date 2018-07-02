@@ -34,6 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Spotify
         auth.redirectURL     = URL(string: "SpotifySDKDemo://panic.app")
             auth.sessionUserDefaultsKey = "current session"
+        Spotify.shared
         
         //Location
         Location.shared

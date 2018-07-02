@@ -44,6 +44,8 @@
 		AEC211BF20E031F00069D683 /* BridgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC211BE20E031F00069D683 /* BridgeViewController.m */; };
 		AEC211C020E03D6B0069D683 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEC211AA20DD64140069D683 /* MapKit.framework */; };
 		AED0397A20E969710004ABEC /* LocationSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED0397920E969710004ABEC /* LocationSingleton.swift */; };
+		AED0397F20EA7AAF0004ABEC /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED0397E20EA7AAF0004ABEC /* ViewControllerExtension.swift */; };
+		AED0398220EA7B050004ABEC /* SpotifySingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED0398120EA7B050004ABEC /* SpotifySingleton.swift */; };
 		DA50D09F20DD590D00166AB4 /* ChatbotController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA50D09E20DD590D00166AB4 /* ChatbotController.swift */; };
 		DA76468820BD55C50056A492 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA76468720BD55C50056A492 /* NavigationController.swift */; };
 		DA839E1020D97FB70017C394 /* TutorialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA839E0F20D97FB70017C394 /* TutorialPageViewController.swift */; };
@@ -103,7 +105,8 @@
 		AEC211BD20E031F00069D683 /* BridgeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgeViewController.h; sourceTree = "<group>"; };
 		AEC211BE20E031F00069D683 /* BridgeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BridgeViewController.m; sourceTree = "<group>"; };
 		AED0397920E969710004ABEC /* LocationSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSingleton.swift; sourceTree = "<group>"; };
-		AED0397C20E969810004ABEC /* ModeSingelton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModeSingelton.swift; sourceTree = "<group>"; };
+		AED0397E20EA7AAF0004ABEC /* ViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
+		AED0398120EA7B050004ABEC /* SpotifySingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifySingleton.swift; sourceTree = "<group>"; };
 		B1D4F5F4D01EDC4153407BB6 /* Pods_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA50D09E20DD590D00166AB4 /* ChatbotController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatbotController.swift; sourceTree = "<group>"; };
 		DA76468720BD55C50056A492 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
@@ -227,8 +230,8 @@
 		AE81C8A8208F635C0031BC42 /* app */ = {
 			isa = PBXGroup;
 			children = (
+				AED0398020EA7ACF0004ABEC /* extensions */,
 				AED0397B20E969810004ABEC /* singletons */,
-				AED0397820E969710004ABEC /* location */,
 				AEC211BB20E031B30069D683 /* spotify */,
 				AEC211AE20DD73BD0069D683 /* settings */,
 				DA839E0E20D97F710017C394 /* tutorial */,
@@ -257,7 +260,6 @@
 				AE28F7B220AF1CF1001D36A0 /* SettingsMenuController.swift */,
 				AE28F7B420BE9E16001D36A0 /* SettingsController.swift */,
 				AEC211AF20DD73F20069D683 /* MapViewController.swift */,
-				AEC211B120E010270069D683 /* UserDefaultExtension.swift */,
 			);
 			path = settings;
 			sourceTree = "<group>";
@@ -272,22 +274,24 @@
 			path = spotify;
 			sourceTree = "<group>";
 		};
-		AED0397820E969710004ABEC /* location */ = {
-			isa = PBXGroup;
-			children = (
-				AED0397920E969710004ABEC /* LocationSingleton.swift */,
-			);
-			path = location;
-			sourceTree = "<group>";
-		};
 		AED0397B20E969810004ABEC /* singletons */ = {
 			isa = PBXGroup;
 			children = (
-				AED0397C20E969810004ABEC /* ModeSingelton.swift */,
+				AED0397920E969710004ABEC /* LocationSingleton.swift */,
+				AED0398120EA7B050004ABEC /* SpotifySingleton.swift */,
 			);
 			name = singletons;
 			path = app/singletons;
 			sourceTree = SOURCE_ROOT;
+		};
+		AED0398020EA7ACF0004ABEC /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AED0397E20EA7AAF0004ABEC /* ViewControllerExtension.swift */,
+				AEC211B120E010270069D683 /* UserDefaultExtension.swift */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
 		};
 		DA839E0E20D97F710017C394 /* tutorial */ = {
 			isa = PBXGroup;
@@ -467,6 +471,8 @@
 				DA839E1220D98C420017C394 /* TutorialViewController.swift in Sources */,
 				DA839E1020D97FB70017C394 /* TutorialPageViewController.swift in Sources */,
 				DAC01EEC20BDAE0E00A6BE28 /* BubbleButton.swift in Sources */,
+				AED0397F20EA7AAF0004ABEC /* ViewControllerExtension.swift in Sources */,
+				AED0398220EA7B050004ABEC /* SpotifySingleton.swift in Sources */,
 				845E078920E8D7D7003C58D1 /* AfterBreathViewController.swift in Sources */,
 				DAC01EF620BF1B6200A6BE28 /* TippsPopupController.swift in Sources */,
 				AE81C8AA208F635D0031BC42 /* AppDelegate.swift in Sources */,
