@@ -10,8 +10,10 @@ import UIKit
 
 @IBDesignable class BubbleButton: UIButton {
     
+    // MARK: Properties
     var ovalPath: UIBezierPath!
     
+    // MARK: Setup
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupButton()
@@ -31,6 +33,7 @@ import UIKit
         showsTouchWhenHighlighted = false
     }
     
+    // Only register taps inside circular area
     @objc func bubbleTapped(button: BubbleButton, event: UIEvent) {
         if let touch = event.touches(for: button)?.first {
             let location = touch.location(in: button)
@@ -40,6 +43,7 @@ import UIKit
         }
     }
     
+    // MARK: Animation
     func animate() {
         let yPos = self.frame.origin.y
         let duration = 20.0+Double(arc4random_uniform(10))

@@ -10,6 +10,7 @@ import Foundation
 
 struct Message: Decodable {
     
+    // MARK: Properties
     var isResponse: Bool
     var heading: String
     var content: String

@@ -10,6 +10,7 @@ import UIKit
 
 class TippsController: UIViewController, UITextFieldDelegate {
     
+    // MARK: Properties
     var bubbles = [BubbleButton]()
     var tipps = [Message]()
     var popupController: TippsPopupController!
@@ -25,15 +26,14 @@ class TippsController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var explanationLabel: UILabel!
     
     @IBOutlet weak var popupContainer: UIView!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.png")!)
         searchField.delegate = self
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardChanged(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.hideKeyboard))
-        self.view.addGestureRecognizer(tapGesture)
+        // Layout
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.png")!)
         
         tippView.layer.shadowColor = UIColor.black.cgColor
         tippView.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
@@ -46,10 +46,20 @@ class TippsController: UIViewController, UITextFieldDelegate {
         
         UIView.animate(withDuration: 2.0, delay: 5.0, options: .curveEaseInOut, animations: {self.explanationLabel.alpha = 0}, completion: nil)
         
+        // Handle change of keyboard size
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardChanged(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
+        
+        // Hide keyboard after tap on view
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.hideKeyboard))
+        self.view.addGestureRecognizer(tapGesture)
+        
         createBubbles()
         loadTipps()
     }
     
+    // MARK: Setup functions
+    
+    // Create and animate bubble buttons
     private func createBubbles() {
         let viewWidth = Int(UIScreen.main.bounds.width)
         let viewHeight = Int(UIScreen.main.bounds.height)
@@ -65,6 +75,31 @@ class TippsController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    // Load tips from property list
+    private func loadTipps() {
+        let tippsListURL: URL = URL(fileURLWithPath:Bundle.main.path(forResource:"tippsList", ofType: "plist")!)
+        do {
+            let data = try Data(contentsOf: tippsListURL)
+            let decoder = PropertyListDecoder()
+            self.tipps = try decoder.decode([Message].self, from: data)
+        } catch {
+            fatalError("Tips couldn't be loaded.")
+        }
+    }
+    
+    // Communication with popupController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let popupController = segue.destination as? TippsPopupController {
+            self.popupController = popupController
+            chatbotController.popupController = popupController
+            popupController.tipsController = self
+        }
+    }
+    
+    
+    // MARK: User interaction handling
+    
+    // Pop bubble and show tip
     @objc func pop(_ bubble: BubbleButton) {
         UIView.transition(with: bubble, duration: 0.2, options: [.transitionCrossDissolve, .curveEaseIn], animations: { bubble.transform = CGAffineTransform(scaleX: 1.2, y: 1.2) }, completion: { _ in
             bubble.transform = CGAffineTransform(scaleX: 1, y: 1)
@@ -74,63 +109,7 @@ class TippsController: UIViewController, UITextFieldDelegate {
         } )
     }
     
-    private func showRandomTipp() {
-        let randomIndex = Int(arc4random_uniform(UInt32(tipps.count)))
-        tippHeading.text = popupController.tipps[randomIndex].heading.uppercased()
-        tippContent.text = popupController.tipps[randomIndex].content
-        
-        tippView.isHidden = false
-        
-        tippView.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
-        UIView.transition(with: tippView, duration: 0.2, options: .transitionCrossDissolve, animations: { self.tippView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)}, completion: nil)
-        
-        view.bringSubview(toFront: tippView)
-    }
-    
-    @IBAction func closeTipp() {
-        tippView.isHidden = true
-        view.sendSubview(toBack: tippView)
-    }
-    
-    private func showPopup() {
-        closeTipp()
-        popupController.view.frame.origin.y = view.frame.height
-        UIView.animate(withDuration:0.2, animations: {self.popupController.view.frame.origin.y = self.popupContainer.frame.origin.y},
-                       completion: nil)
-        popupContainer.isHidden = false
-    }
-    
-    func closePopup() {
-        popupContainer.isHidden = true
-        chatbotController.isActive = false
-        searchField.text = ""
-        searchField.resignFirstResponder()
-    }
-    
-    @objc private func keyboardChanged(notification: NSNotification) {
-        if let userInfo = notification.userInfo {
-            let keyboardRect = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
-            let keyboardY = keyboardRect?.origin.y ?? 0
-            let duration:TimeInterval = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
-            let animationCurveRawNSN = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber
-            
-            UIView.animate(withDuration: duration,
-                           delay: 0,
-                           options: UIViewAnimationOptions(rawValue: UIViewAnimationOptions.RawValue(truncating: animationCurveRawNSN!)),
-                           animations: { self.view.frame.size.height = keyboardY},
-                           completion: {_ in self.popupController.scrollToBottom()})
-            popupController.scrollToBottom()
-        }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let popupController = segue.destination as? TippsPopupController {
-            self.popupController = popupController
-            chatbotController.popupController = popupController
-            popupController.tipsController = self
-        }
-    }
-    
+    // Open chatbot view
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if !chatbotController.isActive {
             showPopup()
@@ -138,7 +117,7 @@ class TippsController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    
+    // Activate voice rcognition
     @IBAction func startVoiceRecognition(_ sender: UIButton) {
         if #available(iOS 10.0, *) {
             if !chatbotController.isActive {
@@ -146,11 +125,11 @@ class TippsController: UIViewController, UITextFieldDelegate {
                 chatbotController.sendEventRequest(eventName: "WELCOME")
             }
             SpeechListener(chatbotController: self.chatbotController, button: sender).transcribeSpeech()
-        }
+            }
     }
     
+    // Send textfield input to chatbot
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        //searchField.resignFirstResponder()
         if let searchQuery = searchField.text {
             if !searchQuery.isEmpty {
                 if chatbotController.isActive {
@@ -164,6 +143,7 @@ class TippsController: UIViewController, UITextFieldDelegate {
         return true
     }
     
+    // Recognize bubble touches
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first
         let touchLocation = (touch?.location(in: self.bubbleView))!
@@ -181,20 +161,67 @@ class TippsController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    
+    // MARK: View management
+    
+    // Hide keyboard
     @objc func hideKeyboard() {
         searchField.resignFirstResponder()
     }
     
-    private func loadTipps() {
-        let tippsListURL: URL = URL(fileURLWithPath:Bundle.main.path(forResource:"tippsList", ofType: "plist")!)
-        do {
-            let data = try Data(contentsOf: tippsListURL)
-            let decoder = PropertyListDecoder()
-            self.tipps = try decoder.decode([Message].self, from: data)
-        } catch {
-            print(error)
+    // Adjust chat view depending on keyboard size
+    @objc private func keyboardChanged(notification: NSNotification) {
+        if let userInfo = notification.userInfo {
+            let keyboardRect = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+            let keyboardY = keyboardRect?.origin.y ?? 0
+            let duration:TimeInterval = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
+            let animationCurveRawNSN = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber
+            
+            UIView.animate(withDuration: duration,
+                           delay: 0,
+                           options: UIViewAnimationOptions(rawValue: UIViewAnimationOptions.RawValue(truncating: animationCurveRawNSN!)),
+                           animations: { self.view.frame.size.height = keyboardY},
+                           completion: {_ in self.popupController.scrollToBottom()})
+            popupController.scrollToBottom()
+            self.view.layoutIfNeeded()
         }
+    }
+    
+    // Load and show tip
+    private func showRandomTipp() {
+        let randomIndex = Int(arc4random_uniform(UInt32(tipps.count)))
+        tippHeading.text = popupController.tipps[randomIndex].heading.uppercased()
+        tippContent.text = popupController.tipps[randomIndex].content
         
+        tippView.isHidden = false
+        
+        tippView.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+        UIView.transition(with: tippView, duration: 0.2, options: .transitionCrossDissolve, animations: { self.tippView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)}, completion: nil)
+        
+        view.bringSubview(toFront: tippView)
+    }
+    
+    // Hide tip view
+    @IBAction func closeTipp() {
+        tippView.isHidden = true
+        view.sendSubview(toBack: tippView)
+    }
+    
+    // Show chatbot view
+    private func showPopup() {
+        closeTipp()
+        popupController.view.frame.origin.y = view.frame.height
+        UIView.animate(withDuration:0.2, animations: {self.popupController.view.frame.origin.y = self.popupContainer.frame.origin.y},
+                       completion: nil)
+        popupContainer.isHidden = false
+    }
+    
+    // Hide chatbot view
+    func closePopup() {
+        popupContainer.isHidden = true
+        chatbotController.isActive = false
+        searchField.text = ""
+        searchField.resignFirstResponder()
     }
     
 }
