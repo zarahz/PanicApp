@@ -26,6 +26,7 @@ class MenuController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        Spotify.shared.changeVolumeTo(volume: 1)
         //shows current mode
         setupNavigationBar()
         Location.shared.viewController = self

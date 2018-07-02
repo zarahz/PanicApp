@@ -115,7 +115,7 @@ class SettingsMenuController: UIViewController{
     
     //MARK: Spotify
     @IBAction func spotifyLoginPressed(_ sender: Any) {
-        if UIApplication.shared.canOpenURL(Spotify.shared.loginUrl!) {
+       if UIApplication.shared.openURL(Spotify.shared.loginUrl!) {
             if Spotify.shared.auth.canHandle(Spotify.shared.auth.redirectURL) {
                 // To do - build in error handling
             }

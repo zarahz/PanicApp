@@ -81,4 +81,13 @@ class Spotify: NSObject, SPTAudioStreamingPlaybackDelegate, SPTAudioStreamingDel
         }
         self.playing = !self.playing
     }
+    
+    func changeVolumeTo(volume:Double){
+        if playing == true{
+            self.player?.setVolume(volume, callback: {
+                (error) in
+                if (error != nil) {
+                    print("playing!")
+                }})
+        }}
 }

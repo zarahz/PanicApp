@@ -42,6 +42,8 @@ class HomeController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.png")!)
         
+        //Lowers music
+        Spotify.shared.changeVolumeTo(volume: 0.5)
         //shows current mode
         setupNavigationBar()
         Location.shared.viewController = self
