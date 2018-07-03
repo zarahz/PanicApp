@@ -34,7 +34,7 @@ class HomeController: UIViewController {
     let threshold = 0.1
 
     @IBOutlet weak var imageButton: UIButton!
-    
+    @IBOutlet weak var GifView: UIImageView!
     @IBOutlet weak var Switch: UISwitch!
     
     //MARK: build up the view
@@ -59,9 +59,11 @@ class HomeController: UIViewController {
         //let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.checkActionStart))
         //self.myView.addGestureRecognizer(gesture)
         
-        let img : UIImage = UIImage(named: "jelly")!
+        /*let img : UIImage = UIImage(named: "jelly")!
         imageButton.frame = CGRect(x: 0, y: 200, width: 500, height: 500)
-        imageButton.setBackgroundImage(img, for: UIControlState.normal)
+        imageButton.setBackgroundImage(img, for: UIControlState.normal)*/
+        
+        GifView.loadGif(name: "fishes")
     }
     
     //MARK: tap on THE PICTURE to start the breathing function

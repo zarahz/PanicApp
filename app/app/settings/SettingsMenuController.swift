@@ -29,6 +29,10 @@ class SettingsMenuController: UIViewController{
     @IBOutlet var atHomeMode: UIButton!
     @IBOutlet var GPSMode: UIButton!
     
+    //MARK: spotify button outlets
+    @IBOutlet var spotifyLogOut: UIButton!
+    @IBOutlet var spotifyLogIn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,6 +44,8 @@ class SettingsMenuController: UIViewController{
         shapeDesignButton(blueDesignButton);
         shapeDesignButton(greenDesignButton);
         shapeDesignButton(redDesignButton);
+        
+        disableSpotifyLogOut()
     }
     
     override func didReceiveMemoryWarning() {
@@ -113,10 +119,25 @@ class SettingsMenuController: UIViewController{
         settingsDelegate.changeBackground()
     }
     
-    //MARK: Spotify
+    //MARK: Spotify functions
+    func disableSpotifyLogOut(){
+        if((Spotify.shared.player?.initialized)!==false){
+            spotifyLogOut.isEnabled = false;
+        }
+    }
+    
+    @IBAction func spotifyLogoutPressed(_ sender: Any) {
+        Spotify.shared.logOut()
+        normalizeButton(spotifyLogOut)
+        normalizeButton(spotifyLogIn)
+        spotifyLogIn.setTitle("Anmelden", for: UIControlState.normal)
+    }
+    
     @IBAction func spotifyLoginPressed(_ sender: Any) {
        if UIApplication.shared.openURL(Spotify.shared.loginUrl!) {
             if Spotify.shared.auth.canHandle(Spotify.shared.auth.redirectURL) {
+                spotifyLogIn.setTitle("Angemeldet", for: UIControlState.normal)
+                highlightClickedButton(spotifyLogIn)
                 // To do - build in error handling
             }
         }
@@ -140,12 +161,18 @@ class SettingsMenuController: UIViewController{
     }
     
     func highlightActiveButton(){
+        //highlight mode
         if(UserDefaults.standard.integer(forKey: "mode") == 1){
             atHomeClicked(self)
         }else if(UserDefaults.standard.integer(forKey: "mode") == 0){
             onRoadClicked(self)
         }else{
             activateGPS(self)
+        }
+        
+        if(Spotify.shared.player?.initialized)!{
+            highlightClickedButton(spotifyLogIn)
+            spotifyLogIn.setTitle("Angemeldet", for: UIControlState.normal)
         }
     }
 }

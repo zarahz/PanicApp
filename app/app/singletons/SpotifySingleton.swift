@@ -96,4 +96,8 @@ class Spotify: NSObject, SPTAudioStreamingPlaybackDelegate, SPTAudioStreamingDel
             self.player?.setIsPlaying(play, callback: nil)
         self.playing = play
     }
+    
+    func logOut(){
+        self.session = nil
+    }
 }

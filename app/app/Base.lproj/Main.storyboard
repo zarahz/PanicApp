@@ -219,16 +219,14 @@ PANIC</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ht4-p0-h3v">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ht4-p0-h3v">
                                 <rect key="frame" x="310" y="134" width="49" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration" label="jkjhfk">
                                     <accessibilityTraits key="traits" button="YES" allowsDirectInteraction="YES"/>
                                 </accessibility>
                             </switch>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PHh-8E-Osl">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PHh-8E-Osl">
                                 <rect key="frame" x="164" y="524" width="39" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" button="YES" image="YES"/>
                                 </accessibility>
@@ -236,11 +234,19 @@ PANIC</string>
                                     <action selector="checkActionStart:" destination="4Dl-5o-nF7" eventType="touchUpInside" id="eqw-tA-loJ"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ql2-kR-jVa">
+                                <rect key="frame" x="0.0" y="268" width="375" height="234"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="PHh-8E-Osl" firstAttribute="top" secondItem="ql2-kR-jVa" secondAttribute="bottom" constant="20" id="4Jl-wV-J08"/>
+                            <constraint firstItem="ql2-kR-jVa" firstAttribute="top" secondItem="Ht4-p0-h3v" secondAttribute="bottom" constant="100" id="gdE-qo-AN9"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Bcv-bh-1rO"/>
                     </view>
                     <connections>
+                        <outlet property="GifView" destination="ql2-kR-jVa" id="a2A-L1-VCL"/>
                         <outlet property="Switch" destination="Ht4-p0-h3v" id="7Pm-36-RVd"/>
                         <outlet property="imageButton" destination="PHh-8E-Osl" id="Poo-Xo-IA3"/>
                     </connections>
@@ -1053,8 +1059,8 @@ PANIC</string>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="1L8-hj-sFK">
                                         <rect key="frame" x="0.0" y="244" width="301" height="114"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GPS Zu Hause" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7h-mh-dqK">
-                                                <rect key="frame" x="0.0" y="0.0" width="163.66666666666666" height="54"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Standort Zu Hause" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7h-mh-dqK">
+                                                <rect key="frame" x="0.0" y="0.0" width="210.33333333333334" height="54"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                 <color key="textColor" red="0.38090997409999999" green="0.38090997409999999" blue="0.38090997409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -1125,21 +1131,28 @@ PANIC</string>
                                                         <rect key="frame" x="20" y="10" width="261" height="40"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v2n-jC-GgT">
-                                                                <rect key="frame" x="0.0" y="0.0" width="47" height="40"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="69" height="40"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="40" id="g8z-nt-6Lu"/>
                                                                 </constraints>
-                                                                <state key="normal" title="Sign In"/>
+                                                                <state key="normal" title="Anmelden">
+                                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
                                                                 <connections>
                                                                     <action selector="spotifyLoginPressed:" destination="5GY-kU-cAt" eventType="touchUpInside" id="QEC-8E-SV1"/>
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LMa-FQ-hPH">
-                                                                <rect key="frame" x="215" y="0.0" width="46" height="40"/>
+                                                                <rect key="frame" x="191" y="0.0" width="70" height="40"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="40" id="IfT-Oe-lYD"/>
                                                                 </constraints>
-                                                                <state key="normal" title="Button"/>
+                                                                <state key="normal" title="Abmelden">
+                                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="spotifyLogoutPressed:" destination="5GY-kU-cAt" eventType="touchUpInside" id="hvZ-Ai-VK1"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -1179,6 +1192,8 @@ PANIC</string>
                         <outlet property="homeLocationButton" destination="Cul-fj-f33" id="J66-p3-1qY"/>
                         <outlet property="onRoadMode" destination="Adv-CG-gJ0" id="4ga-hT-2fC"/>
                         <outlet property="redDesignButton" destination="U7P-Bc-rqO" id="6Ef-qy-HjB"/>
+                        <outlet property="spotifyLogIn" destination="v2n-jC-GgT" id="sGm-u0-rqU"/>
+                        <outlet property="spotifyLogOut" destination="LMa-FQ-hPH" id="ep3-FH-kjZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kXz-37-6RI" userLabel="First Responder" sceneMemberID="firstResponder"/>
