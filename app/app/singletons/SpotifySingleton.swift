@@ -13,7 +13,6 @@ class Spotify: NSObject, SPTAudioStreamingPlaybackDelegate, SPTAudioStreamingDel
     static let shared = Spotify()
     
     //MARK: spotify
-    @IBOutlet var login: UIButton!
     var auth = SPTAuth.defaultInstance()!
     var session:SPTSession!
     var player: SPTAudioStreamingController?

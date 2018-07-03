@@ -63,7 +63,6 @@ class SettingsMenuController: UIViewController{
     }
     
     @IBAction func onRoadClicked(_ sender: Any) {
-        UserDefaults.standard.removeObject(forKey: "mode")
         Location.shared.stopGPS()
         UserDefaults.standard.set(0, forKey: "mode")
         highlightClickedButton(onRoadMode)
@@ -73,10 +72,8 @@ class SettingsMenuController: UIViewController{
     }
     
     @IBAction func activateGPS(_ sender: Any) {
-        UserDefaults.standard.removeObject(forKey: "mode")
         Location.shared.trackLocations(setCurrentPositionHome: false);
         UserDefaults.standard.set(-1, forKey: "mode")
-        normalizeButton(homeLocationButton)
         normalizeButton(atHomeMode)
         normalizeButton(onRoadMode)
         highlightClickedButton(GPSMode)
@@ -89,7 +86,6 @@ class SettingsMenuController: UIViewController{
     
     @IBAction func homeLocationClicked(_ sender: Any) {
         Location.shared.trackLocations(setCurrentPositionHome: true)
-        normalizeButton(homeLocationButton)
         normalizeButton(atHomeMode)
         normalizeButton(onRoadMode)
         highlightClickedButton(GPSMode)
