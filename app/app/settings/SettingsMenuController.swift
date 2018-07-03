@@ -45,7 +45,7 @@ class SettingsMenuController: UIViewController{
         shapeDesignButton(greenDesignButton);
         shapeDesignButton(redDesignButton);
         
-        disableSpotifyLogOut()
+        //disableSpotifyLogOut()
     }
     
     override func didReceiveMemoryWarning() {
@@ -120,17 +120,17 @@ class SettingsMenuController: UIViewController{
     }
     
     //MARK: Spotify functions
-    func disableSpotifyLogOut(){
+    /*func disableSpotifyLogOut(){
         if((Spotify.shared.player?.initialized)!==false){
             spotifyLogOut.isEnabled = false;
         }
-    }
+    }*/
     
     @IBAction func spotifyLogoutPressed(_ sender: Any) {
-        Spotify.shared.logOut()
+        /*Spotify.shared.logOut()
         normalizeButton(spotifyLogOut)
         normalizeButton(spotifyLogIn)
-        spotifyLogIn.setTitle("Anmelden", for: UIControlState.normal)
+        spotifyLogIn.setTitle("Anmelden", for: UIControlState.normal)*/
     }
     
     @IBAction func spotifyLoginPressed(_ sender: Any) {
@@ -170,10 +170,10 @@ class SettingsMenuController: UIViewController{
             activateGPS(self)
         }
         
-        if(Spotify.shared.player?.initialized)!{
+        /*if(Spotify.shared.player?.initialized)!{*/
             highlightClickedButton(spotifyLogIn)
             spotifyLogIn.setTitle("Angemeldet", for: UIControlState.normal)
-        }
+        //}
     }
 }
 
