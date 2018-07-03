@@ -19,8 +19,8 @@ class HomeController: UIViewController {
     var motionManager = CMMotionManager()
     var counterStart = 0
     var counterBreath = 1
-    var feedbackCounterBreathe = 0
-    var feedbackCounterError = 0
+    var feedbackCounterBreathe = 0.0
+    var feedbackCounterError = 0.0
     var breathing = false
     var timer5 : Timer?
     var breatheIn = true
@@ -33,14 +33,20 @@ class HomeController: UIViewController {
     var outError = false
     let threshold = 0.1
 
+    @IBOutlet weak var feedbackLabel: UILabel!
     @IBOutlet weak var imageButton: UIButton!
     @IBOutlet weak var GifView: UIImageView!
     @IBOutlet weak var Switch: UISwitch!
+    @IBOutlet weak var bubbleButton: UIButton!
+    @IBOutlet weak var howto: UILabel!
     
     //MARK: build up the view
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.png")!)
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "fishesbg0.png")!)
+        //self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
+        
+        GifView.image = UIImage(named: "fishesframe0")
         
         //Lowers music
         Spotify.shared.changeVolumeTo(volume: 0.5)
@@ -48,11 +54,11 @@ class HomeController: UIViewController {
         setupNavigationBar()
         Location.shared.viewController = self
         //sets chosen background
-        if(UserDefaults.standard.string(forKey: "background") != nil){
+        /*if(UserDefaults.standard.string(forKey: "background") != nil){
             let imageName = (UserDefaults.standard.string(forKey: "background"))! + ".png"
             self.view.backgroundColor = UIColor(patternImage: UIImage(named: imageName)!)
             print(imageName)
-        }
+        }*/
         // Do any additional setup after loading the view, typically from a nib.
         
         //self.view.addSubview(myView)
@@ -63,25 +69,31 @@ class HomeController: UIViewController {
         imageButton.frame = CGRect(x: 0, y: 200, width: 500, height: 500)
         imageButton.setBackgroundImage(img, for: UIControlState.normal)*/
         
-        GifView.loadGif(name: "fishes")
+
     }
     
     //MARK: tap on THE PICTURE to start the breathing function
     
     
-    @IBAction func checkActionStart(_ sender: Any) {
+    @IBAction func bubblePressed(_ sender: Any) {
+        makeSounds(pat:"bubble7")
     //}
     //@objc func checkActionStart(sender : UITapGestureRecognizer) {
         counterStart=counterStart+1;
         if counterStart % 2 == 1 {
             print("Touched to start")
+            bubbleButton.setTitle("Ende", for: UIControlState.normal)
             breathing = true
             print(breathing)
             //wenn der Switch beim starten auf feedback on ist, soll das während der Ausführung nicht mehr verändert werden können
             Switch.isHidden = true
+            howto.isHidden = true
+            feedbackLabel.isHidden = true
+            GifView.loadGif(name: "fishes3")
             self.startBreathing()
         } else {
             breathing = false
+            bubbleButton.setTitle("Start", for: UIControlState.normal)
             print("Touched to end")
             print(breathing)
             
@@ -89,6 +101,9 @@ class HomeController: UIViewController {
                 timer5?.invalidate()
                 timer5 = nil
             }
+            howto.isHidden = false
+            feedbackLabel.isHidden = false
+            GifView.image = UIImage(named: "fishesframe0")
             Switch.isHidden = false
             showPopUp()
         }
@@ -127,7 +142,7 @@ class HomeController: UIViewController {
         for i in 0...accData.count-1{
             tmp = tmp + accData[i]
         }
-        print(tmp/Double(accData.count))
+        //print(tmp/Double(accData.count))
         tmp = tmp/Double(accData.count)
         accData.removeAll()
         return tmp
@@ -190,16 +205,18 @@ class HomeController: UIViewController {
         }
     }
     func breathingData (index: Int) {
-        //print(index)
-        print(self.breatheIn)
+        print(index)
+        //print(self.breatheIn)
         
-       //////////////////////////IN///////////////////////////////// indexes 1 bis 3 werden auf errors überprüft
+       //////////////////////////IN///////////////////////////////// indexes 2 bis 3 werden auf errors überprüft
         if(self.breatheIn && index < 4){
             self.accData10[index] = getAverage()
             //beim einatmen ist x steigend. es soll also dem nutzer melden, wenn es fallend ist, um ihn zu korrigieren
-            if index > 0{
-                if self.accData10[index] <= self.accData10[index-1]+threshold {
+            if index > 1{
+                if self.accData10[index] <= (self.accData10[index-1]+threshold){
+                    print("aktueller Wert \(self.accData10[index]), <= vorheriger Wert mit threshold \(self.accData10[index-1]+threshold)")
                     inError = true
+                    print("hier geschieht der in error")
                 //give out some error sound
                     if (Switch.isOn){
                         makeSounds(pat: "bubble2")
@@ -212,16 +229,19 @@ class HomeController: UIViewController {
             makeSounds(pat: "bubble0")
             
             //der Umschwung der Atmung ist zu unreliable, um Fehler erkennnen zu können --> keine Datenerhebung nötig
-            //self.accData10[index] = getAverage()
+            self.accData10[index] = getAverage()
             
             
             
-            //////////////////////////OUT/////////////////////////////////index 5 bis 9
-        } else if (!breatheIn) {
+            //////////////////////////OUT/////////////////////////////////index 6 bis 8
+        } else if (!breatheIn && index > 5 && index < 9) {
             self.accData10[index+5] = getAverage()
             //beim ausatmen ist x fallend. es soll also dem nutzer melden, wenn es steigend ist, um ihn zu korrigieren.
-            if self.accData10[index+5] >= self.accData10[index+4]-threshold{
+            if self.accData10[index+5] >= (self.accData10[index+4]-threshold){
                 //give out some errorsound
+                print("aktueller Wert \(self.accData10[index+5]),>= vorheriger Wert mit threshold \(self.accData10[index+4]-threshold)")
+                outError = true
+                print("hier geschieht der out error")
                 if (Switch.isOn){
                     makeSounds(pat: "bubble2")
                 }
