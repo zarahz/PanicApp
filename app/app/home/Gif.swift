@@ -3,10 +3,10 @@
 //  app
 //
 //  Created by admin on 02.07.18.
-//  Copyright © 2018 Zarah Zahreddin. All rights reserved.
+//  Copyright © 2018 Katharina Bause. All rights reserved.
 //
 
-//got this code from https://www.youtube.com/watch?v=Rm61mxcSD4U and https://github.com/swiftgif/SwiftGif
+//got the original code from https://www.youtube.com/watch?v=Rm61mxcSD4U and https://github.com/swiftgif/SwiftGif
 import Foundation
 import UIKit
 import ImageIO
@@ -214,7 +214,6 @@ extension UIImage {
             }
         }
         
-        // Heyhey
         let animation = UIImage.animatedImage(with: frames,
                                               duration: Double(duration) / 1000.0)
         

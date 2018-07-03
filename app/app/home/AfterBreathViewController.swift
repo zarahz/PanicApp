@@ -3,7 +3,7 @@
 //  app
 //
 //  Created by admin on 01.07.18.
-//  Copyright © 2018 Zarah Zahreddin. All rights reserved.
+//  Copyright © 2018 Katharina Bause. All rights reserved.
 //
 
 import UIKit
@@ -21,9 +21,8 @@ class AfterBreathViewController: UIViewController {
 
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
         self.showAnimate()
-        print(feedbackCounterBreathe)
-        
-        //TODO: percentage im Label anzeigen
+
+        //show different feedback based on the error quote
         if(feedbackCounterError/feedbackCounterBreathe > 0.7){
             fbString = "Versuche dich das nächste mal \n mehr zu konzentrieren"
         } else if(feedbackCounterError/feedbackCounterBreathe <= 0.7 && feedbackCounterError/feedbackCounterBreathe > 0.3){
@@ -48,8 +47,7 @@ class AfterBreathViewController: UIViewController {
         self.removeAnimate()
     }
     
-
-    //Animation über größer/ kleiner
+    //animation by showing the pop up larger and smaller
     func showAnimate(){
         self.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
         self.view.alpha = 0.0;
@@ -69,15 +67,4 @@ class AfterBreathViewController: UIViewController {
             }
         })
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
