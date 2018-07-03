@@ -16,16 +16,17 @@ class AnimationController: UIViewController {
     @IBOutlet weak var jellyfishRed: UIImageView!
     @IBOutlet weak var tutorialButton: UIButton!
     @IBOutlet weak var spotifyButton: UIButton!
-    
+    @IBOutlet var animationView: UIView!
     
     let defText = "Einatmen..."
-    let breatheText = "Ausatmen..."
+    let breatheText = "Ausatmen.."
     let red = UIColor(red:1.00, green:0.49, blue:0.49, alpha:1.0)
     let breatheIn = 3.0
     let breatheOut = 4.0
     
     var fillColor = UIViewPropertyAnimator()
     var removeColor = UIViewPropertyAnimator()
+    var bubbles = [BubbleButton]()
     
     var popupController = UIStoryboard(name: "Main", bundle: nil) .
         instantiateViewController(withIdentifier: "TutorialPopup") as? TutorialPopupController
@@ -34,6 +35,7 @@ class AnimationController: UIViewController {
         
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.png")!)
+        createBubbles()
         
         //shows current mode
         setupNavigationBar()
@@ -145,13 +147,13 @@ class AnimationController: UIViewController {
     }
     
     
-    // call Spotify shortcut (play/pause? open app?)
+    // call Spotify shortcut with play and pause
     @objc func spotifyAction () {
         
-        breatheLabel.text = "Spotify"
         if( UserDefaults.standard.integer(forKey:"loggedIn") == 1){
         Spotify.shared.pausePlayer()
         }
+
     }
     
     
@@ -183,7 +185,7 @@ class AnimationController: UIViewController {
     
     
     // fades text in and sets new text
-    func fadeIn (dur: Double, del: Double, obj: UILabel, text: String) {
+    private func fadeIn (dur: Double, del: Double, obj: UILabel, text: String) {
         
         UIView.animate(withDuration: dur,
                        delay: del,
@@ -198,7 +200,7 @@ class AnimationController: UIViewController {
     
     
     // fades text out and right back in
-    func fadeOut (dur: Double, del: Double, obj: UILabel) {
+    private func fadeOut (dur: Double, del: Double, obj: UILabel) {
         
         UIView.animate(withDuration: dur,
                        delay: del,
@@ -208,6 +210,22 @@ class AnimationController: UIViewController {
                        completion: { (finished:Bool) in self.fadeIn(dur:1, del:1, obj:obj, text:self.defText)}
         )
         
+    }
+    
+    // creates bubbles in background
+    private func createBubbles() {
+        let viewWidth = Int(UIScreen.main.bounds.width)
+        let viewHeight = Int(UIScreen.main.bounds.height)
+        for _ in 0...5 {
+            let bubbleWidth = 50 + Int(arc4random_uniform(100))
+            let xPos = Int(arc4random_uniform(UInt32(viewWidth-bubbleWidth)))
+            let yPos = Int(arc4random_uniform(UInt32(viewHeight)))
+            let bubble = BubbleButton(frame: CGRect(x: xPos, y: yPos, width: bubbleWidth, height: bubbleWidth))
+            bubble.addTarget(self, action: #selector(TippsController.pop(_:)), for: .touchDown)
+            bubbles.append(bubble)
+            self.animationView.insertSubview(bubble, at:0)
+            bubble.animate()
+        }
     }
     
     

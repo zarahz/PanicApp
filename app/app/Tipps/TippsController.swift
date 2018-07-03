@@ -47,10 +47,10 @@ class TippsController: UIViewController, UITextFieldDelegate {
         // Layout
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.png")!)
         
-        tippView.layer.shadowColor = UIColor.black.cgColor
+        /* tippView.layer.shadowColor = UIColor.black.cgColor
         tippView.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
         tippView.layer.shadowOpacity = 1.0
-        tippView.layer.shadowRadius = 8.0
+        tippView.layer.shadowRadius = 8.0 */
         
         let paddingView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 20))
         searchField.leftView = paddingView
