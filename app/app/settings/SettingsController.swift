@@ -12,6 +12,7 @@ import UIKit
 
 protocol SettingsProtocol {
     func changeBackground()
+    func changeModeIcon()
 }
 
 class SettingsController: UIViewController, SettingsProtocol{
@@ -48,4 +49,7 @@ class SettingsController: UIViewController, SettingsProtocol{
         print(imageName)
     }
     
+    func changeModeIcon(){
+        setupNavigationBar()
+    }
 }

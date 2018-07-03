@@ -54,7 +54,7 @@ class SettingsMenuController: UIViewController{
         highlightClickedButton(atHomeMode)
         normalizeButton(onRoadMode)
         normalizeButton(GPSMode)
-        setupNavigationBar()
+        settingsDelegate.changeModeIcon()
     }
     
     @IBAction func onRoadClicked(_ sender: Any) {
@@ -64,7 +64,7 @@ class SettingsMenuController: UIViewController{
         highlightClickedButton(onRoadMode)
         normalizeButton(atHomeMode)
         normalizeButton(GPSMode)
-        setupNavigationBar()
+        settingsDelegate.changeModeIcon()
     }
     
     @IBAction func activateGPS(_ sender: Any) {
