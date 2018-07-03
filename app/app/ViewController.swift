@@ -28,9 +28,7 @@ class ViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
-        super.viewDidAppear(animated)
-        
+
         animateJellyfish(delay:0)
         animateButtons()
         createBubbles()
@@ -38,10 +36,12 @@ class ViewController: UIViewController {
     }
     
     override func viewDidDisappear(_ animated: Bool) {
+
+        jellyfishHead.transform = CGAffineTransform(scaleX: 1, y: 1)
+        jellyfishTentacles.transform = CGAffineTransform(scaleX: 1, y: 1)
         
-        super.viewDidDisappear(animated)
-        
-        
+        menuButton.transform = CGAffineTransform(scaleX: 1, y: 1)
+        startButton.transform = CGAffineTransform(scaleX: 1, y: 1)
         
     }
 

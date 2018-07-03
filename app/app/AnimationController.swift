@@ -137,10 +137,10 @@ class AnimationController: UIViewController {
     }
     
     
-    // call Spotify shortcut (play/pause? open app?)
+    // call Spotify shortcut with play and pause
     @objc func spotifyAction () {
         
-        breatheLabel.text = "Spotify"
+        breatheLabel.text = "Spotify is being called"
         
     }
     
@@ -200,8 +200,7 @@ class AnimationController: UIViewController {
         
     }
     
-    
-    // alpha? 
+    // creates bubbles in background
     private func createBubbles() {
         let viewWidth = Int(UIScreen.main.bounds.width)
         let viewHeight = Int(UIScreen.main.bounds.height)

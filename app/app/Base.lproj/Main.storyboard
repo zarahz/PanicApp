@@ -317,11 +317,11 @@ P A N I C</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Yk8-XF-zIs">
-                                <rect key="frame" x="15" y="79" width="345" height="573"/>
+                                <rect key="frame" x="50" y="114" width="275" height="503"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fRW-5L-F40">
-                                        <rect key="frame" x="0.0" y="0.0" width="345" height="106.5"/>
-                                        <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="17"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="275" height="92.5"/>
+                                        <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="16"/>
                                         <state key="normal" title="Atemübungen für zuhause" backgroundImage="card-transparent">
                                             <color key="titleColor" red="0.2666666667" green="0.40000000000000002" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -330,8 +330,8 @@ P A N I C</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dq3-Zj-JrH">
-                                        <rect key="frame" x="0.0" y="116.5" width="345" height="106.5"/>
-                                        <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="17"/>
+                                        <rect key="frame" x="0.0" y="102.5" width="275" height="92.5"/>
+                                        <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="16"/>
                                         <state key="normal" title="Atemübungen für unterwegs" backgroundImage="card-transparent">
                                             <color key="titleColor" red="0.2666666667" green="0.40000000000000002" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -340,8 +340,8 @@ P A N I C</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YMy-mC-AYh">
-                                        <rect key="frame" x="0.0" y="233" width="345" height="107"/>
-                                        <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="17"/>
+                                        <rect key="frame" x="0.0" y="205" width="275" height="93"/>
+                                        <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="16"/>
                                         <state key="normal" title="Tipps und Tricks" backgroundImage="card-transparent">
                                             <color key="titleColor" red="0.2666666667" green="0.40000000000000002" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -350,8 +350,8 @@ P A N I C</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RzK-DX-ExS">
-                                        <rect key="frame" x="0.0" y="350" width="345" height="106.5"/>
-                                        <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="17"/>
+                                        <rect key="frame" x="0.0" y="308" width="275" height="92.5"/>
+                                        <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="16"/>
                                         <state key="normal" title="Einstellungen" backgroundImage="card-transparent">
                                             <color key="titleColor" red="0.2666666667" green="0.40000000000000002" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -360,8 +360,8 @@ P A N I C</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jjg-Om-bfX">
-                                        <rect key="frame" x="0.0" y="466.5" width="345" height="106.5"/>
-                                        <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="17"/>
+                                        <rect key="frame" x="0.0" y="410.5" width="275" height="92.5"/>
+                                        <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="16"/>
                                         <state key="normal" title="Tutorial" backgroundImage="card-transparent">
                                             <color key="titleColor" red="0.2666666667" green="0.40000000000000002" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -372,12 +372,12 @@ P A N I C</string>
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="BUc-pl-Nct" firstAttribute="bottom" secondItem="Yk8-XF-zIs" secondAttribute="bottom" constant="15" id="0by-7X-mts"/>
-                            <constraint firstItem="Yk8-XF-zIs" firstAttribute="top" secondItem="BUc-pl-Nct" secondAttribute="top" constant="15" id="LRy-3d-WfN"/>
-                            <constraint firstItem="BUc-pl-Nct" firstAttribute="trailing" secondItem="Yk8-XF-zIs" secondAttribute="trailing" constant="15" id="VFE-z9-ugP"/>
-                            <constraint firstItem="Yk8-XF-zIs" firstAttribute="leading" secondItem="BUc-pl-Nct" secondAttribute="leading" constant="15" id="cw7-Le-3VP"/>
+                            <constraint firstItem="BUc-pl-Nct" firstAttribute="bottom" secondItem="Yk8-XF-zIs" secondAttribute="bottom" constant="50" id="0by-7X-mts"/>
+                            <constraint firstItem="Yk8-XF-zIs" firstAttribute="top" secondItem="BUc-pl-Nct" secondAttribute="top" constant="50" id="LRy-3d-WfN"/>
+                            <constraint firstItem="BUc-pl-Nct" firstAttribute="trailing" secondItem="Yk8-XF-zIs" secondAttribute="trailing" constant="50" id="VFE-z9-ugP"/>
+                            <constraint firstItem="Yk8-XF-zIs" firstAttribute="leading" secondItem="BUc-pl-Nct" secondAttribute="leading" constant="50" id="cw7-Le-3VP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="BUc-pl-Nct"/>
                     </view>
@@ -807,7 +807,7 @@ P A N I C</string>
                                     <constraint firstAttribute="height" constant="20" id="vOM-as-LbS"/>
                                     <constraint firstAttribute="width" constant="20" id="zxJ-4L-a41"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="play-icon"/>
+                                <state key="normal" image="play-icon"/>
                             </button>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="jellyfish-tentacles" translatesAutoresizingMaskIntoConstraints="NO" id="Ovf-4R-D5z">
                                 <rect key="frame" x="75" y="243" width="215" height="260"/>
@@ -1432,7 +1432,7 @@ P A N I C</string>
         <image name="tutorial5" width="313" height="437"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lNl-T1-9vn"/>
+        <segue reference="hnG-FD-9uj"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
