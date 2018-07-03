@@ -219,16 +219,14 @@ PANIC</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ht4-p0-h3v">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ht4-p0-h3v">
                                 <rect key="frame" x="310" y="134" width="49" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration" label="jkjhfk">
                                     <accessibilityTraits key="traits" button="YES" allowsDirectInteraction="YES"/>
                                 </accessibility>
                             </switch>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PHh-8E-Osl">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PHh-8E-Osl">
                                 <rect key="frame" x="164" y="524" width="39" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" button="YES" image="YES"/>
                                 </accessibility>
@@ -236,11 +234,19 @@ PANIC</string>
                                     <action selector="checkActionStart:" destination="4Dl-5o-nF7" eventType="touchUpInside" id="eqw-tA-loJ"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ql2-kR-jVa">
+                                <rect key="frame" x="0.0" y="268" width="375" height="234"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="PHh-8E-Osl" firstAttribute="top" secondItem="ql2-kR-jVa" secondAttribute="bottom" constant="20" id="4Jl-wV-J08"/>
+                            <constraint firstItem="ql2-kR-jVa" firstAttribute="top" secondItem="Ht4-p0-h3v" secondAttribute="bottom" constant="100" id="gdE-qo-AN9"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Bcv-bh-1rO"/>
                     </view>
                     <connections>
+                        <outlet property="GifView" destination="ql2-kR-jVa" id="a2A-L1-VCL"/>
                         <outlet property="Switch" destination="Ht4-p0-h3v" id="7Pm-36-RVd"/>
                         <outlet property="imageButton" destination="PHh-8E-Osl" id="Poo-Xo-IA3"/>
                     </connections>
