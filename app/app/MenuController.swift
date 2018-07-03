@@ -37,8 +37,8 @@ class MenuController: UIViewController {
             let imageName = (UserDefaults.standard.string(forKey: "background"))! + ".png"
             self.view.backgroundColor = UIColor(patternImage: UIImage(named: imageName)!)
             print(imageName)
-        createBubbles()
         }
+        createBubbles()
     }
     
     
