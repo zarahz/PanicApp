@@ -257,9 +257,5 @@ class HomeController: UIViewController {
 }
 
 
-//546123
-//2311
-
-
 //data while breathing in: x-Achse zunehmend
 //data while breathing out: x-Achse abnehmend
