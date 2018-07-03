@@ -2,93 +2,109 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <array>
-    <dict>
-        <key>heading</key>
-        <string>ERSTE HILFE</string>
-        <key>content</key>
-        <string>Beschäftige deine Sinne. Gehe raus an die frische Luft, tanze ein wenig im Zimmer umher oder höre Deine Lieblingsmusik, während Du mitsingst. </string>
-        <key>isResponse</key>
-        <true/>
-    </dict>
-    <dict>
-        <key>heading</key>
-        <string>ESSEN UND TRINKEN</string>
-        <key>content</key>
-        <string>Kaugummi kauen hilft tatsächlich dabei, den Stress abzubauen und die Angst zu reduzieren. Auch etwas Erfrischendes wie ein Glas kaltes Wasser trinken kann sehr helfen.</string>
-        <key>isResponse</key>
-        <true/>
-    </dict>
-    <dict>
-        <key>heading</key>
-        <string>UNTERSTÜTZUNG</string>
-        <key>content</key>
-        <string>Suche dir Unterstützung in Situationen, die dich überfordern, z.B. durch Babysitter, Haushaltshilfe oder Psychotherapeut.</string>
-        <key>isResponse</key>
-        <true/>
-    </dict>
-    <dict>
-        <key>heading</key>
-        <string>SOZIALES UMFELD</string>
-        <key>content</key>
-        <string>Ein stabiler Freundeskreis und/ oder eine stabile Partnerschaft sind wichtig, um ein Gefühl der Sicherheit zu schaffen. </string>
-        <key>isResponse</key>
-        <true/>
-    </dict>
-    <dict>
-        <key>heading</key>
-        <string>SICHERHEIT</string>
-        <key>content</key>
-        <string>Versuche, deine Umwelt so zu gestalten, dass sie dir ein Gefühl der Sicherheit gibt. Achte auch auf sichere Wohn- und Arbeitsverhältnisse. </string>
-        <key>isResponse</key>
-        <true/>
-    </dict>
-    <dict>
-        <key>heading</key>
-        <string>KAFFEE &amp; CO.</string>
-        <key>content</key>
-        <string>Meide Koffein, Nikotin, Zucker und psychoaktive Drogen.</string>
-        <key>isResponse</key>
-        <true/>
-    </dict>
-    <dict>
-        <key>heading</key>
-        <string>SCHLAF</string>
-        <key>content</key>
-        <string>Achte darauf, ausreichend zu schlafen. </string>
-        <key>isResponse</key>
-        <true/>
-    </dict>
-    <dict>
-        <key>heading</key>
-        <string>SPORT</string>
-        <key>content</key>
-        <string>Treibe regelmäßig Sport. </string>
-        <key>isResponse</key>
-        <true/>
-    </dict>
-    <dict>
-        <key>heading</key>
-        <string>KOMMUNIKATION</string>
-        <key>content</key>
-        <string>Ziehe dich nicht zurück, sondern sprich mit einer vertrauenswürdigen Person aus Familie oder Freundeskreis über deine Panikattacken.</string>
-        <key>isResponse</key>
-        <true/>
-    </dict>
-    <dict>
-        <key>heading</key>
-        <string>PAUSEN</string>
-        <key>content</key>
-        <string>Vermeide dauerhafte Anspannung. Versuche, dir untertags immer wieder emotionale Pausen zu können.</string>
-        <key>isResponse</key>
-        <true/>
-    </dict>
-    <dict>
-        <key>heading</key>
-        <string>UNTERZUCKER</string>
-        <key>content</key>
-        <string>Iss regelmäßig kleinere Mahlzeiten, um eine Unterzuckerung zu vermeiden.</string>
-        <key>isResponse</key>
-        <true/>
-    </dict>
+	<dict>
+		<key>heading</key>
+		<string>ERSTE HILFE</string>
+		<key>content</key>
+		<string>Beschäftige deine Sinne. Gehe raus an die frische Luft, tanze ein wenig im Zimmer umher oder höre Deine Lieblingsmusik, während Du mitsingst. </string>
+		<key>isResponse</key>
+		<true/>
+	</dict>
+	<dict>
+		<key>heading</key>
+		<string>ESSEN UND TRINKEN</string>
+		<key>content</key>
+		<string>Kaugummi kauen hilft tatsächlich dabei, den Stress abzubauen und die Angst zu reduzieren. Auch etwas Erfrischendes wie ein Glas kaltes Wasser trinken kann sehr helfen.</string>
+		<key>isResponse</key>
+		<true/>
+	</dict>
+	<dict>
+		<key>heading</key>
+		<string>UNTERSTÜTZUNG</string>
+		<key>content</key>
+		<string>Suche dir Unterstützung in Situationen, die dich überfordern. Falls dein Therapeut keine Zeit hat, ruf einfach eine Freundin an oder sprich jemanden in der Nähe an, wenn du es dir zutraust.</string>
+		<key>isResponse</key>
+		<true/>
+	</dict>
+	<dict>
+		<key>heading</key>
+		<string>SOZIALES UMFELD</string>
+		<key>content</key>
+		<string>Ein stabiler Freundeskreis und/ oder eine stabile Partnerschaft sind wichtig, um ein Gefühl der Sicherheit zu schaffen. </string>
+		<key>isResponse</key>
+		<true/>
+	</dict>
+	<dict>
+		<key>heading</key>
+		<string>SICHERHEIT</string>
+		<key>content</key>
+		<string>Versuche, deine Umwelt so zu gestalten, dass sie dir ein Gefühl der Sicherheit gibt. Achte auch auf sichere Wohn- und Arbeitsverhältnisse. </string>
+		<key>isResponse</key>
+		<true/>
+	</dict>
+	<dict>
+		<key>heading</key>
+		<string>KAFFEE &amp; CO.</string>
+		<key>content</key>
+		<string>Hast du schon versucht, Kaffee zu meiden? Das kann auch helfen, sodass panische Zustände seltener auftreten. Selbiges gilt übrigens für Nikotin!</string>
+		<key>isResponse</key>
+		<true/>
+	</dict>
+	<dict>
+		<key>heading</key>
+		<string>SCHLAF</string>
+		<key>content</key>
+		<string>Achte darauf, ausreichend zu schlafen. Ein fester Schlafrhythmus hilft dir, besser mit Stress zurechtzukommen - aber auch ein Powernap kann helfen.</string>
+		<key>isResponse</key>
+		<true/>
+	</dict>
+	<dict>
+		<key>heading</key>
+		<string>SPORT</string>
+		<key>content</key>
+		<string>Sport kann helfen, um Panikattacken vorzubeugen. Probiere es doch mal mit ein paar Yogaübungen oder geh auf eine entspannte Joggingrunde.</string>
+		<key>isResponse</key>
+		<true/>
+	</dict>
+	<dict>
+		<key>heading</key>
+		<string>HILFE SUCHEN</string>
+		<key>content</key>
+		<string>Ziehe dich nicht zurück, sondern sprich mit einer vertrauenswürdigen Person aus Familie oder Freundeskreis über deine Panikattacken - mehr Leute verstehen, wie es dir geht, als du denkst!</string>
+		<key>isResponse</key>
+		<true/>
+	</dict>
+	<dict>
+		<key>heading</key>
+		<string>PAUSEN</string>
+		<key>content</key>
+		<string>Vermeide dauerhafte Anspannung. Versuche, dir tagsüber immer wieder emotionale Pausen zu gönnen - vor allem, wenn du stressige Tage hast.</string>
+		<key>isResponse</key>
+		<true/>
+	</dict>
+	<dict>
+		<key>heading</key>
+		<string>UNTERZUCKER</string>
+		<key>content</key>
+		<string>Bist du hungrig oder unterzuckert, sind Panikattacken wahrscheinlicher. Nimm dir kleine Snacks mit, wenn du unterwegs bist, und vergiss nicht zu essen. </string>
+		<key>isResponse</key>
+		<true/>
+	</dict>
+	<dict>
+		<key>heading</key>
+		<string>ARZT</string>
+		<key>content</key>
+		<string>Hast du schon länger Panikattacken, solltest du einmal deinen Hausarzt aufsuchen. Ein Psychologe kann dir helfen, die Panikattacken dauerhaft loszuwerden</string>
+		<key>isResponse</key>
+		<true/>
+	</dict>
+	<dict>
+		<key>heading</key>
+		<string>ABLENKUNG</string>
+		<key>content</key>
+		<string>Sobald du merkst, dass du panisch wirst, kannst du dich ablenken - am besten mit etwas, das dich geistig fordert. Versuch mal auf einem Bein zu stehen oder löse ein Sudoku.</string>
+		<key>isResponse</key>
+		<true/>
+	</dict>
 </array>
 </plist>

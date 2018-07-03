@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35ADAAD120EAA554002F2666 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35ADAAC320EAA533002F2666 /* Poppins-Regular.ttf */; };
+		35ADAAD420EAA554002F2666 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35ADAAC620EAA53A002F2666 /* Poppins-SemiBold.ttf */; };
+		35ADAAD620EAA554002F2666 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35ADAAC820EAA53E002F2666 /* Poppins-Medium.ttf */; };
+		35ADAAD720EAA554002F2666 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35ADAAC920EAA541002F2666 /* Poppins-Bold.ttf */; };
+		35ADAADB20EAA554002F2666 /* Poppins-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35ADAACD20EAA54A002F2666 /* Poppins-Thin.ttf */; };
+		35ADAADD20EAA554002F2666 /* Poppins-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35ADAACF20EAA54F002F2666 /* Poppins-Light.ttf */; };
+		35ADAAE020EAA623002F2666 /* Poppins-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35ADAADF20EAA620002F2666 /* Poppins-ExtraLight.ttf */; };
 		35F9463920E6740500BDCB5B /* AnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F9463820E6740500BDCB5B /* AnimationController.swift */; };
 		35F9463B20E6746300BDCB5B /* TutorialPopupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F9463A20E6746300BDCB5B /* TutorialPopupController.swift */; };
 		35F9463D20E6749000BDCB5B /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F9463C20E6749000BDCB5B /* MenuController.swift */; };
@@ -48,6 +55,13 @@
 
 /* Begin PBXFileReference section */
 		01718B50368B7167E2FFA1D2 /* Pods_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		35ADAAC320EAA533002F2666 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Regular.ttf"; path = "../../../../../../../Downloads/Poppins/Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		35ADAAC620EAA53A002F2666 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-SemiBold.ttf"; path = "../../../../../../../Downloads/Poppins/Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
+		35ADAAC820EAA53E002F2666 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Medium.ttf"; path = "../../../../../../../Downloads/Poppins/Poppins-Medium.ttf"; sourceTree = "<group>"; };
+		35ADAAC920EAA541002F2666 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Bold.ttf"; path = "../../../../../../../Downloads/Poppins/Poppins-Bold.ttf"; sourceTree = "<group>"; };
+		35ADAACD20EAA54A002F2666 /* Poppins-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Thin.ttf"; path = "../../../../../../../Downloads/Poppins/Poppins-Thin.ttf"; sourceTree = "<group>"; };
+		35ADAACF20EAA54F002F2666 /* Poppins-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Light.ttf"; path = "../../../../../../../Downloads/Poppins/Poppins-Light.ttf"; sourceTree = "<group>"; };
+		35ADAADF20EAA620002F2666 /* Poppins-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-ExtraLight.ttf"; path = "../../../../../../../Downloads/Poppins/Poppins-ExtraLight.ttf"; sourceTree = "<group>"; };
 		35F9463820E6740500BDCB5B /* AnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationController.swift; sourceTree = "<group>"; };
 		35F9463A20E6746300BDCB5B /* TutorialPopupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialPopupController.swift; sourceTree = "<group>"; };
 		35F9463C20E6749000BDCB5B /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
@@ -111,6 +125,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		35ADAAC220EAA50B002F2666 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				35ADAAC920EAA541002F2666 /* Poppins-Bold.ttf */,
+				35ADAADF20EAA620002F2666 /* Poppins-ExtraLight.ttf */,
+				35ADAACF20EAA54F002F2666 /* Poppins-Light.ttf */,
+				35ADAAC820EAA53E002F2666 /* Poppins-Medium.ttf */,
+				35ADAAC320EAA533002F2666 /* Poppins-Regular.ttf */,
+				35ADAAC620EAA53A002F2666 /* Poppins-SemiBold.ttf */,
+				35ADAACD20EAA54A002F2666 /* Poppins-Thin.ttf */,
+			);
+			name = Fonts;
+			path = home/Fonts;
+			sourceTree = "<group>";
+		};
 		35F9463720E6739E00BDCB5B /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -191,6 +220,7 @@
 				AE81C8B2208F635D0031BC42 /* LaunchScreen.storyboard */,
 				AE81C8B5208F635D0031BC42 /* Info.plist */,
 				DAC01EEB20BDAE0E00A6BE28 /* BubbleButton.swift */,
+				35ADAAC220EAA50B002F2666 /* Fonts */,
 				AE57696220CFF8CE00305DB4 /* home */,
 			);
 			path = app;
@@ -308,12 +338,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35ADAAE020EAA623002F2666 /* Poppins-ExtraLight.ttf in Resources */,
+				35ADAADB20EAA554002F2666 /* Poppins-Thin.ttf in Resources */,
+				35ADAAD620EAA554002F2666 /* Poppins-Medium.ttf in Resources */,
 				AE81C8B4208F635D0031BC42 /* LaunchScreen.storyboard in Resources */,
+				35ADAADD20EAA554002F2666 /* Poppins-Light.ttf in Resources */,
 				DAB2279D20C0511A0070CABF /* tippsList.plist in Resources */,
 				84B5A6C620D3FE2500554D97 /* error-2.mp3 in Resources */,
+				35ADAAD120EAA554002F2666 /* Poppins-Regular.ttf in Resources */,
+				35ADAAD720EAA554002F2666 /* Poppins-Bold.ttf in Resources */,
 				AE81C8B1208F635D0031BC42 /* Assets.xcassets in Resources */,
 				AE81C8AF208F635D0031BC42 /* Main.storyboard in Resources */,
 				84B5A6C420D3FADF00554D97 /* out.mp3 in Resources */,
+				35ADAAD420EAA554002F2666 /* Poppins-SemiBold.ttf in Resources */,
 				84B5A6C320D3FADD00554D97 /* in-2.mp3 in Resources */,
 				84B5A6C220D3FADA00554D97 /* error.mp3 in Resources */,
 			);

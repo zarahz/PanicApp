@@ -12,6 +12,20 @@
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-Bold.ttf">
+            <string>Poppins-Bold</string>
+        </array>
+        <array key="Poppins-ExtraLight.ttf">
+            <string>Poppins-ExtraLight</string>
+        </array>
+        <array key="Poppins-Light.ttf">
+            <string>Poppins-Light</string>
+        </array>
+        <array key="Poppins-Regular.ttf">
+            <string>Poppins-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -21,13 +35,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6I7-AN-Smq">
-                                <rect key="frame" x="209" y="456" width="150" height="150"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Myd-yw-2w5">
+                                <rect key="frame" x="63" y="630" width="72" height="70"/>
+                                <string key="text">DON'T
+PANIC</string>
+                                <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="25"/>
+                                <color key="textColor" red="0.2666666667" green="0.40000000000000002" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="jellyfish-tentacles" translatesAutoresizingMaskIntoConstraints="NO" id="GTn-4X-YzN">
+                                <rect key="frame" x="51" y="288" width="174" height="211"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="jellyfish-head-combined" translatesAutoresizingMaskIntoConstraints="NO" id="MpW-L8-SLT">
+                                <rect key="frame" x="42" y="198" width="203" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="jellyfish-eyes" translatesAutoresizingMaskIntoConstraints="NO" id="9WM-9B-rqI">
+                                <rect key="frame" x="107" y="264" width="72" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vx2-78-JkN">
+                                <rect key="frame" x="183" y="542" width="62" height="62"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="TUk-dJ-aGZ"/>
+                                    <constraint firstAttribute="height" constant="80" id="qfj-TL-BW2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
+                                <state key="normal" title="Menü" backgroundImage="bubble">
+                                    <color key="titleColor" red="0.2666666667" green="0.40000000000000002" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="menuButton:" destination="RcN-DP-E2F" eventType="touchUpInside" id="gzY-hR-2X9"/>
+                                    <segue destination="fD4-KC-5a9" kind="show" id="AER-jv-4DE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6I7-AN-Smq">
+                                <rect key="frame" x="227" y="630" width="123" height="123"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="M2t-ln-b0A"/>
                                     <constraint firstAttribute="height" constant="150" id="Yje-ab-Ywq"/>
                                 </constraints>
-                                <state key="normal" title="Start" backgroundImage="bubble"/>
+                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
+                                <state key="normal" title="Start" backgroundImage="bubble">
+                                    <color key="titleColor" red="0.2666666667" green="0.40000000000000002" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="75"/>
@@ -35,25 +87,6 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="mWz-R5-aov" kind="show" id="lNl-T1-9vn"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Myd-yw-2w5">
-                                <rect key="frame" x="16" y="596" width="74.333333333333329" height="60"/>
-                                <string key="text">DON'T
-PANIC</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vx2-78-JkN">
-                                <rect key="frame" x="147" y="366" width="80" height="80"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="TUk-dJ-aGZ"/>
-                                    <constraint firstAttribute="height" constant="80" id="qfj-TL-BW2"/>
-                                </constraints>
-                                <state key="normal" title="Menü" backgroundImage="bubble"/>
-                                <connections>
-                                    <segue destination="fD4-KC-5a9" kind="show" id="AER-jv-4DE"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -70,10 +103,18 @@ PANIC</string>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="o88-f9-01A"/>
+                    <connections>
+                        <outlet property="homeView" destination="8bC-Xf-vdC" id="VgI-a2-v55"/>
+                        <outlet property="jellyfishHead" destination="MpW-L8-SLT" id="BP6-RK-2VA"/>
+                        <outlet property="jellyfishTentacles" destination="GTn-4X-YzN" id="FrG-KS-wJO"/>
+                        <outlet property="menuButton" destination="Vx2-78-JkN" id="Pgn-gk-zFX"/>
+                        <outlet property="startButton" destination="6I7-AN-Smq" id="xKV-ee-JUR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="RcN-DP-E2F" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1080.8" y="133.5832083958021"/>
+            <point key="canvasLocation" x="1080.8" y="133.00492610837438"/>
         </scene>
         <!--Settings Controller-->
         <scene sceneID="ILL-pB-r41">
@@ -268,35 +309,50 @@ PANIC</string>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fRW-5L-F40">
                                         <rect key="frame" x="0.0" y="0.0" width="345" height="124"/>
-                                        <state key="normal" title="Atemübungen für zuhause"/>
+                                        <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="17"/>
+                                        <state key="normal" title="Atemübungen für zuhause" backgroundImage="card-transparent">
+                                            <color key="titleColor" red="0.2666666667" green="0.40000000000000002" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <segue destination="4Dl-5o-nF7" kind="show" id="KHX-7k-84K"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dq3-Zj-JrH">
                                         <rect key="frame" x="0.0" y="134" width="345" height="124"/>
-                                        <state key="normal" title="Atemübungen für unterwegs"/>
+                                        <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="17"/>
+                                        <state key="normal" title="Atemübungen für unterwegs" backgroundImage="card-transparent">
+                                            <color key="titleColor" red="0.2666666667" green="0.40000000000000002" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <segue destination="mWz-R5-aov" kind="show" id="hnG-FD-9uj"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YMy-mC-AYh">
                                         <rect key="frame" x="0.0" y="268" width="345" height="124"/>
-                                        <state key="normal" title="Tipps und Tricks"/>
+                                        <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="17"/>
+                                        <state key="normal" title="Tipps und Tricks" backgroundImage="card-transparent">
+                                            <color key="titleColor" red="0.2666666667" green="0.40000000000000002" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <segue destination="Gh4-sY-vXy" kind="show" id="GdS-xk-D5w"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RzK-DX-ExS">
                                         <rect key="frame" x="0.0" y="402" width="345" height="124"/>
-                                        <state key="normal" title="Einstellungen"/>
+                                        <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="17"/>
+                                        <state key="normal" title="Einstellungen" backgroundImage="card-transparent">
+                                            <color key="titleColor" red="0.2666666667" green="0.40000000000000002" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <segue destination="u8k-DK-eSc" kind="show" id="cjD-hl-Wl3"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jjg-Om-bfX">
                                         <rect key="frame" x="0.0" y="536" width="345" height="124"/>
-                                        <state key="normal" title="Tutorial"/>
+                                        <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="17"/>
+                                        <state key="normal" title="Tutorial" backgroundImage="card-transparent">
+                                            <color key="titleColor" red="0.2666666667" green="0.40000000000000002" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <segue destination="HSy-Hn-X7c" kind="show" id="nPu-1P-xVP"/>
                                         </connections>
@@ -313,6 +369,9 @@ PANIC</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="BUc-pl-Nct"/>
                     </view>
+                    <connections>
+                        <outlet property="MenuView" destination="G9X-iZ-JcW" id="zJR-zb-txx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hcK-9t-1XQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -326,9 +385,9 @@ PANIC</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zerplatze die Blasen um Tipps zu bekommen ..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rNE-JE-eso">
-                                <rect key="frame" x="30" y="188" width="315" height="40.666666666666657"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zerplatze die Blasen, um Tipps zu bekommen..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rNE-JE-eso">
+                                <rect key="frame" x="30" y="188" width="315" height="47.666666666666657"/>
+                                <fontDescription key="fontDescription" name="Poppins-ExtraLight" family="Poppins" pointSize="17"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -396,34 +455,40 @@ PANIC</string>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Ts-Up-dhd">
                                 <rect key="frame" x="87" y="236" width="200" height="300"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jZp-cf-gSb">
-                                        <rect key="frame" x="162" y="0.0" width="30" height="42"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <state key="normal" title="×"/>
-                                        <connections>
-                                            <action selector="closeTipp" destination="Gh4-sY-vXy" eventType="touchUpInside" id="RAr-jB-SxZ"/>
-                                        </connections>
-                                    </button>
+                                    <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="card-opaque" translatesAutoresizingMaskIntoConstraints="NO" id="3bi-ch-G6T">
+                                        <rect key="frame" x="-5" y="-8" width="212" height="315"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="rVd-fH-Pak">
-                                        <rect key="frame" x="10" y="52" width="180" height="55.666666666666657"/>
+                                        <rect key="frame" x="10" y="46" width="180" height="63"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nMr-UC-Wwy">
-                                                <rect key="frame" x="0.0" y="0.0" width="180" height="20.333333333333332"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="180" height="24"/>
+                                                <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oLh-kZ-Yu0">
-                                                <rect key="frame" x="0.0" y="35.333333333333314" width="180" height="20.333333333333329"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <rect key="frame" x="0.0" y="39" width="180" height="24"/>
+                                                <fontDescription key="fontDescription" name="Poppins-ExtraLight" family="Poppins" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jZp-cf-gSb">
+                                        <rect key="frame" x="65" y="243" width="70" height="42"/>
+                                        <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="17"/>
+                                        <state key="normal" title="Okay!">
+                                            <color key="titleColor" red="0.2666666667" green="0.40000000000000002" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="closeTipp" destination="Gh4-sY-vXy" eventType="touchUpInside" id="RAr-jB-SxZ"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="9Ns-bT-10p"/>
                                     <constraint firstItem="rVd-fH-Pak" firstAttribute="top" secondItem="jZp-cf-gSb" secondAttribute="bottom" constant="10" id="DKT-ra-lJQ"/>
@@ -711,31 +776,22 @@ PANIC</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="pHr-B5-A9l">
-                                <rect key="frame" x="-94" y="88" width="562" height="724"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Einatmen..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZMe-0I-A12">
+                                <rect key="frame" x="144" y="708" width="86" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                                <fontDescription key="fontDescription" name="Poppins-ExtraLight" family="Poppins" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KSH-fx-0d2">
+                                <rect key="frame" x="338" y="108" width="21" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="help-icon"/>
+                            </button>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" image="jellyfish-tentacles" translatesAutoresizingMaskIntoConstraints="NO" id="Ovf-4R-D5z">
                                 <rect key="frame" x="65" y="337" width="245" height="296"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dtv-QI-eCm">
-                                <rect key="frame" x="330" y="108" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="bubble-opaque"/>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Einatmen..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZMe-0I-A12">
-                                <rect key="frame" x="144" y="708" width="86" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KSH-fx-0d2">
-                                <rect key="frame" x="303" y="108" width="29" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="bubble-opaque"/>
-                            </button>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="jellyfish-head-combined" translatesAutoresizingMaskIntoConstraints="NO" id="RCW-Ij-cc0">
                                 <rect key="frame" x="93" y="200" width="201" height="185"/>
                                 <constraints>
@@ -751,8 +807,12 @@ PANIC</string>
                                     <constraint firstAttribute="height" constant="57" id="cER-IV-fJ0"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dtv-QI-eCm">
+                                <rect key="frame" x="302" y="108" width="22" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="play-icon"/>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="RCW-Ij-cc0" firstAttribute="top" secondItem="9JN-0S-1UK" secondAttribute="top" id="4qd-Wn-pn3"/>
                             <constraint firstItem="RCW-Ij-cc0" firstAttribute="bottom" secondItem="9JN-0S-1UK" secondAttribute="bottom" id="8hm-Qv-KFW"/>
@@ -769,6 +829,7 @@ PANIC</string>
                         <viewLayoutGuide key="safeArea" id="o8a-xR-25q"/>
                     </view>
                     <connections>
+                        <outlet property="AnimationView" destination="xfF-eh-N8s" id="WS1-Ts-XPU"/>
                         <outlet property="breatheLabel" destination="ZMe-0I-A12" id="rFa-M6-1rC"/>
                         <outlet property="jellyfishHead" destination="RCW-Ij-cc0" id="Qsc-jd-T3j"/>
                         <outlet property="jellyfishRed" destination="9JN-0S-1UK" id="AiA-68-mZw"/>
@@ -1305,8 +1366,9 @@ PANIC</string>
         <image name="audio-off" width="52" height="52"/>
         <image name="background" width="562" height="1218"/>
         <image name="bubble" width="592" height="592"/>
-        <image name="bubble-opaque" width="1000" height="1000"/>
         <image name="card-opaque" width="509" height="672"/>
+        <image name="card-transparent" width="902" height="580"/>
+        <image name="help-icon" width="200" height="200"/>
         <image name="jellyfish" width="1000" height="1000"/>
         <image name="jellyfish-eyes" width="180" height="30"/>
         <image name="jellyfish-head-combined" width="1000" height="900"/>
@@ -1314,6 +1376,7 @@ PANIC</string>
         <image name="jellyfish-tentacles" width="144" height="174"/>
         <image name="microphone" width="50" height="50"/>
         <image name="microphone-highlighted" width="50" height="50"/>
+        <image name="play-icon" width="200" height="200"/>
         <image name="stop" width="50" height="50"/>
         <image name="tutorial1" width="312" height="437"/>
         <image name="tutorial3" width="313" height="437"/>
@@ -1321,7 +1384,7 @@ PANIC</string>
         <image name="tutorial5" width="313" height="437"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hnG-FD-9uj"/>
+        <segue reference="lNl-T1-9vn"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
