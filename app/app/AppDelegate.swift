@@ -80,9 +80,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
-        
-        //restart player
-        Spotify.shared.startStopPlayer(play:true)
+        if( UserDefaults.standard.bool(forKey:"loggedIn")){
+            //restart player
+            Spotify.shared.startStopPlayer(play:true)
+        }
         
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     }

@@ -98,6 +98,6 @@ class Spotify: NSObject, SPTAudioStreamingPlaybackDelegate, SPTAudioStreamingDel
     }
     
     func logOut(){
-        self.session = nil
+        SPTAuth.defaultInstance().session = nil
     }
 }

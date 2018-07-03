@@ -45,7 +45,6 @@ class SettingsMenuController: UIViewController{
         shapeDesignButton(greenDesignButton);
         shapeDesignButton(redDesignButton);
         
-        //disableSpotifyLogOut()
     }
     
     override func didReceiveMemoryWarning() {
@@ -127,18 +126,26 @@ class SettingsMenuController: UIViewController{
     }*/
     
     @IBAction func spotifyLogoutPressed(_ sender: Any) {
-        /*Spotify.shared.logOut()
-        normalizeButton(spotifyLogOut)
+        Spotify.shared.logOut()
+        highlightClickedButton(spotifyLogOut)
         normalizeButton(spotifyLogIn)
-        spotifyLogIn.setTitle("Anmelden", for: UIControlState.normal)*/
+        spotifyLogIn.setTitle("Anmelden", for: UIControlState.normal)
+        spotifyLogOut.setTitle("Abgemeldet", for: UIControlState.normal)
+        UserDefaults.standard.set(-1, forKey: "loggedIn")
+        Spotify.shared.startStopPlayer(play: false)
+        spotifyLogOut.isEnabled = false
     }
     
     @IBAction func spotifyLoginPressed(_ sender: Any) {
        if UIApplication.shared.openURL(Spotify.shared.loginUrl!) {
             if Spotify.shared.auth.canHandle(Spotify.shared.auth.redirectURL) {
-                spotifyLogIn.setTitle("Angemeldet", for: UIControlState.normal)
                 highlightClickedButton(spotifyLogIn)
+                normalizeButton(spotifyLogOut)
+                spotifyLogIn.setTitle("Angemeldet", for: UIControlState.normal)
+                spotifyLogOut.setTitle("Abmelden", for: UIControlState.normal)
                 // To do - build in error handling
+                 UserDefaults.standard.set(1, forKey: "loggedIn")
+                spotifyLogOut.isEnabled = true
             }
         }
     }
@@ -170,10 +177,17 @@ class SettingsMenuController: UIViewController{
             activateGPS(self)
         }
         
-        /*if(Spotify.shared.player?.initialized)!{*/
+        if(UserDefaults.standard.integer(forKey: "loggedIn") == 1){
             highlightClickedButton(spotifyLogIn)
             spotifyLogIn.setTitle("Angemeldet", for: UIControlState.normal)
-        //}
+            spotifyLogOut.isEnabled = true
+        }else if(UserDefaults.standard.integer(forKey: "loggedIn") == -1){
+            highlightClickedButton(spotifyLogOut)
+            spotifyLogOut.setTitle("Abgemeldet", for: UIControlState.normal)
+            spotifyLogOut.isEnabled = false
+        }else{
+            spotifyLogOut.isEnabled = false
+        }
     }
 }
 
