@@ -149,7 +149,9 @@ class AnimationController: UIViewController {
     @objc func spotifyAction () {
         
         breatheLabel.text = "Spotify"
+        if( UserDefaults.standard.integer(forKey:"loggedIn") == 1){
         Spotify.shared.pausePlayer()
+        }
     }
     
     

@@ -80,7 +80,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
-        if( UserDefaults.standard.bool(forKey:"loggedIn")){
+        if( UserDefaults.standard.integer(forKey:"loggedIn") == 1){
             //restart player
             Spotify.shared.startStopPlayer(play:true)
         }
