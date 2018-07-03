@@ -1,3 +1,4 @@
+
 //
 //  SpotifySingleton.swift
 //  app
@@ -65,18 +66,18 @@ class Spotify: NSObject, SPTAudioStreamingPlaybackDelegate, SPTAudioStreamingDel
         })
     }
     
-    func startStopPlayer(){
+    func pausePlayer(){
         if playing == false{
-            self.player?.setVolume(1, callback: {
+            self.player?.setIsPlaying(true,callback: {
                 (error) in
                 if (error != nil) {
                     print("playing!")
                 }})
         }else{
-            self.player?.setVolume(0, callback: {
+            self.player?.setIsPlaying(false, callback: {
                 (error) in
                 if (error != nil) {
-                    print("playing!")
+                    print("paused!")
                 }})
         }
         self.playing = !self.playing
@@ -90,4 +91,9 @@ class Spotify: NSObject, SPTAudioStreamingPlaybackDelegate, SPTAudioStreamingDel
                     print("playing!")
                 }})
         }}
+    
+    func startStopPlayer(play:Bool){
+            self.player?.setIsPlaying(play, callback: nil)
+        self.playing = play
+    }
 }
