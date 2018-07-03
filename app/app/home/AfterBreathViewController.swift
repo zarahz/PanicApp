@@ -9,20 +9,31 @@
 import UIKit
 
 class AfterBreathViewController: UIViewController {
-    var feedbackCounterBreathe = 0
-    var feedbackCounterError = 0
+    var feedbackCounterBreathe = 0.0
+    var feedbackCounterError = 0.0
+    var fbString = ""
 
     @IBOutlet weak var data: UILabel!
     
+    @IBOutlet weak var feedbackText: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        //color sind inverted auf Felix' iphone, evtl. muss hier noch black statt white eingefügt werden
-        self.view.backgroundColor = UIColor.white.withAlphaComponent(0.8)
+
+        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
         self.showAnimate()
         print(feedbackCounterBreathe)
         
         //TODO: percentage im Label anzeigen
-        data.text = "Falschatmung: \(feedbackCounterError) \n von \(feedbackCounterBreathe) Atemzügen"
+        if(feedbackCounterError/feedbackCounterBreathe > 0.7){
+            fbString = "Versuche dich das nächste mal \n mehr zu konzentrieren"
+        } else if(feedbackCounterError/feedbackCounterBreathe <= 0.7 && feedbackCounterError/feedbackCounterBreathe > 0.3){
+        fbString = "Toll gemacht!"
+        } else {
+            fbString = "Das war perfekt!"
+        }
+        data.text = "\(Int(feedbackCounterBreathe) - Int(feedbackCounterError)) von \(Int(feedbackCounterBreathe)) Atemzügen"
+        
+        feedbackText.text = fbString
     }
 
     override func didReceiveMemoryWarning() {
