@@ -3,7 +3,7 @@
 //  app
 //
 //  Created by admin on 01.06.18.
-//  Copyright © 2018 Zarah Zahreddin. All rights reserved.
+//  Copyright © 2018 Katharina Bause. All rights reserved.
 //
 
 import Foundation
@@ -15,7 +15,6 @@ import AVFoundation
 
 
 class HomeController: UIViewController {
-    //var myView = UIView(frame: CGRect(x: 0 , y: 0 , width: 1000 , height: 1000 ))
     var motionManager = CMMotionManager()
     var counterStart = 0
     var counterBreath = 1
@@ -44,7 +43,6 @@ class HomeController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "fishesbg0.png")!)
-        //self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
         
         GifView.image = UIImage(named: "fishesframe0")
         
@@ -54,53 +52,41 @@ class HomeController: UIViewController {
         setupNavigationBar()
         Location.shared.viewController = self
         //sets chosen background
-        /*if(UserDefaults.standard.string(forKey: "background") != nil){
+        if(UserDefaults.standard.string(forKey: "background") != nil){
             let imageName = (UserDefaults.standard.string(forKey: "background"))! + ".png"
             self.view.backgroundColor = UIColor(patternImage: UIImage(named: imageName)!)
             print(imageName)
-        }*/
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        //self.view.addSubview(myView)
-        //let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.checkActionStart))
-        //self.myView.addGestureRecognizer(gesture)
-        
-        /*let img : UIImage = UIImage(named: "jelly")!
-        imageButton.frame = CGRect(x: 0, y: 200, width: 500, height: 500)
-        imageButton.setBackgroundImage(img, for: UIControlState.normal)*/
-        
+        }
 
     }
     
-    //MARK: tap on THE PICTURE to start the breathing function
+    //MARK: tap on THE BUBBLE to start the breathing function
     
     
     @IBAction func bubblePressed(_ sender: Any) {
         makeSounds(pat:"bubble7")
-    //}
-    //@objc func checkActionStart(sender : UITapGestureRecognizer) {
         counterStart=counterStart+1;
+        //check if the bubble is pressed multiple times. When pressed the 2./4./6. time, it should end the function
         if counterStart % 2 == 1 {
-            print("Touched to start")
             bubbleButton.setTitle("Ende", for: UIControlState.normal)
             breathing = true
-            print(breathing)
-            //wenn der Switch beim starten auf feedback on ist, soll das während der Ausführung nicht mehr verändert werden können
+            
+            //hide UI elements that should not be seen while in breathing function
             Switch.isHidden = true
             howto.isHidden = true
             feedbackLabel.isHidden = true
             GifView.loadGif(name: "fishes3")
             self.startBreathing()
         } else {
+            
             breathing = false
             bubbleButton.setTitle("Start", for: UIControlState.normal)
-            print("Touched to end")
-            print(breathing)
             
             if timer5 != nil {
                 timer5?.invalidate()
                 timer5 = nil
             }
+            //show UI elements that should not be seen while in breathing function
             howto.isHidden = false
             feedbackLabel.isHidden = false
             GifView.image = UIImage(named: "fishesframe0")
@@ -109,26 +95,14 @@ class HomeController: UIViewController {
         }
     }
     
-    //? --> kann wert haben oder nil. ! muss einen wert haben
-    //UM BACKSLASH ZU MACHEN alt SHIFT 7!!!!!
-    
     //MARK: breathing
     func startBreathing(){
-        print("wir sind in startBreathing")
-        
         motionManager.accelerometerUpdateInterval = 0.2
-        //wenn wir kein Feedback wollen, brauchen wir auch keine Daten erheben
-        
-            getData()
-        
+        getData()
         timer5 = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(runTimedCode5), userInfo: nil, repeats: true)
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+
+    //retrieve data from the accelerometer
     func getData(){
         motionManager.startAccelerometerUpdates(to: OperationQueue.current!){ (data, error) in
             if let myData = data{
@@ -137,31 +111,31 @@ class HomeController: UIViewController {
         }
     }
     
+    //get the average out of the last pieces of data in order to eliminate outliers
     func getAverage() -> Double{
         var tmp = 0.0
         for i in 0...accData.count-1{
             tmp = tmp + accData[i]
         }
-        //print(tmp/Double(accData.count))
         tmp = tmp/Double(accData.count)
         accData.removeAll()
         return tmp
     }
     
-    //if it looks stupid but works, it is not stupid.
-    //546123
-    //2311
+    //run after 5 seconds
     @objc func runTimedCode5(){
 
         self.index = 0
         //check if the user tapped a second time in order to stop the exercise
         if breathing {
-            //für den Feedback Screen checken, wie oft geatmet wurde in dieser Session
+            //count how many breathes took place in this session for the feedback screen afterwards
             self.feedbackCounterBreathe = self.feedbackCounterBreathe + 1
             
             //check if it is a breathe in or a breathe out
             if counterBreath%2 == 1{
                 breatheIn = true
+                
+                //at every next breathe in/ out, reset the error and increase the errorcounter
                 if(inError){
                     self.feedbackCounterError = self.feedbackCounterError + 1
                     inError = false
@@ -175,71 +149,59 @@ class HomeController: UIViewController {
             }
             counterBreath += 1
             
-
+            //run code every second to keep user updated and gain data
             self.breathingData(index: index)
             if breatheIn {
-                makeSounds(pat: "bubble10")
+                makeSounds(pat: "inFinal")
             }
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-
                 self.breathingData(index: self.index)
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-
                 self.breathingData(index: self.index)
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-
                 self.breathingData(index: self.index)
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
-
-
                 self.breathingData(index: self.index)
+                //change to breathe out phase
                 if self.breatheIn {
                     self.breatheIn = false
                 }
             }
-            
         }
     }
     func breathingData (index: Int) {
-        print(index)
-        //print(self.breatheIn)
         
-       //////////////////////////IN///////////////////////////////// indexes 2 bis 3 werden auf errors überprüft
+       //////////////////////////IN/////////////////////////////////
         if(self.breatheIn && index < 4){
             self.accData10[index] = getAverage()
-            //beim einatmen ist x steigend. es soll also dem nutzer melden, wenn es fallend ist, um ihn zu korrigieren
+            //if setup correctly, the x rises while breathing in. Therefor the user should be notified if it decreases
             if index > 1{
                 if self.accData10[index] <= (self.accData10[index-1]+threshold){
-                    print("aktueller Wert \(self.accData10[index]), <= vorheriger Wert mit threshold \(self.accData10[index-1]+threshold)")
                     inError = true
-                    print("hier geschieht der in error")
-                //give out some error sound
+                    //give out some error sound
                     if (Switch.isOn){
                         makeSounds(pat: "bubble2")
                     }
                 }
             }
             
-            //breathe out --> ab letztem index bei breathe in und dann alles in breathein false
+            //breathe out --> only 4 seconds breathing in and 6 for breathing out. Therefor the last in must inofficially be an out
         } else if self.breatheIn && index == 4{
-            makeSounds(pat: "bubble0")
-            
-            //der Umschwung der Atmung ist zu unreliable, um Fehler erkennnen zu können --> keine Datenerhebung nötig
+            makeSounds(pat: "outFinal")
             self.accData10[index] = getAverage()
             
             
-            
-            //////////////////////////OUT/////////////////////////////////index 6 bis 8
+        
+            //////////////////////////OUT/////////////////////////////////
         } else if (!breatheIn && index > 5 && index < 9) {
             self.accData10[index+5] = getAverage()
-            //beim ausatmen ist x fallend. es soll also dem nutzer melden, wenn es steigend ist, um ihn zu korrigieren.
+            //while breathing out, x is decreasing. Therefor the user should be informed if it is increasing
             if self.accData10[index+5] >= (self.accData10[index+4]-threshold){
                 //give out some errorsound
-                print("aktueller Wert \(self.accData10[index+5]),>= vorheriger Wert mit threshold \(self.accData10[index+4]-threshold)")
                 outError = true
                 print("hier geschieht der out error")
                 if (Switch.isOn){
@@ -247,14 +209,16 @@ class HomeController: UIViewController {
                 }
             }
         }
+        //setup for next breathe
         self.index += 1
         self.index = self.index%5
+        
         if(!breathing && index == 4){
             motionManager.stopAccelerometerUpdates()
         }
     }
     
-    
+    //player for the sounds
     func makeSounds(pat: String){
         let path = Bundle.main.path(forResource: pat, ofType: "wav")!
         let url = URL(fileURLWithPath: path)
@@ -262,10 +226,11 @@ class HomeController: UIViewController {
             soundIn = try AVAudioPlayer(contentsOf: url)
             soundIn?.play()
         } catch {
-            // couldn't load file :(
+            // couldn't load file
         }
     }
     
+    //setup after breathe screen
     func showPopUp(){
         let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "afterBreatheID") as! AfterBreathViewController
         print("Falschatmung \(feedbackCounterError)")
@@ -275,7 +240,6 @@ class HomeController: UIViewController {
         popOverVC.view.frame = self.view.frame
         self.view.addSubview(popOverVC.view)
         popOverVC.didMove(toParentViewController: self)
-        
     }
     
     //stop breathing function when back is pressed
@@ -285,12 +249,16 @@ class HomeController: UIViewController {
             breathing = false
         }
     }
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
 }
 
-//handy unten links, oben rechts: einatmen: x steigend; ausatmen x fallend
-//handy oben rechts, unten links: einatmen: x fallend; ausatmen x steigend
 
-
+//546123
+//2311
 
 
 //data while breathing in: x-Achse zunehmend

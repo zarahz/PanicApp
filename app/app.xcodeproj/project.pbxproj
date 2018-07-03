@@ -21,11 +21,9 @@
 		84414B2320EB8746006C83EB /* fishesframe0.png in Resources */ = {isa = PBXBuildFile; fileRef = 84414B2220EB8746006C83EB /* fishesframe0.png */; };
 		84414B2720EB8E9A006C83EB /* fishesbg0.png in Resources */ = {isa = PBXBuildFile; fileRef = 84414B2620EB8E9A006C83EB /* fishesbg0.png */; };
 		845E078920E8D7D7003C58D1 /* AfterBreathViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E078820E8D7D7003C58D1 /* AfterBreathViewController.swift */; };
+		849C17C220EBB61800C2E081 /* outFinal.wav in Resources */ = {isa = PBXBuildFile; fileRef = 849C17C120EBB61800C2E081 /* outFinal.wav */; };
+		849C17C420EBB62000C2E081 /* inFinal.wav in Resources */ = {isa = PBXBuildFile; fileRef = 849C17C320EBB62000C2E081 /* inFinal.wav */; };
 		84B5A6BE20D3F49D00554D97 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B5A6BD20D3F49D00554D97 /* AVFoundation.framework */; };
-		84B5A6C220D3FADA00554D97 /* error.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84B5A6BF20D3F7A000554D97 /* error.mp3 */; };
-		84B5A6C320D3FADD00554D97 /* in-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84B5A6C020D3F7A000554D97 /* in-2.mp3 */; };
-		84B5A6C420D3FADF00554D97 /* out.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84B5A6C120D3F7A100554D97 /* out.mp3 */; };
-		84B5A6C620D3FE2500554D97 /* error-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84B5A6C520D3FE2400554D97 /* error-2.mp3 */; };
 		84D49AB020E6778900BA008B /* bubble2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 84D49AA520E6778800BA008B /* bubble2.wav */; };
 		84D49AB120E6778900BA008B /* bubble4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 84D49AA620E6778800BA008B /* bubble4.wav */; };
 		84D49AB220E6778900BA008B /* bubble0.wav in Resources */ = {isa = PBXBuildFile; fileRef = 84D49AA720E6778800BA008B /* bubble0.wav */; };
@@ -87,11 +85,9 @@
 		84414B2220EB8746006C83EB /* fishesframe0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fishesframe0.png; sourceTree = "<group>"; };
 		84414B2620EB8E9A006C83EB /* fishesbg0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fishesbg0.png; sourceTree = "<group>"; };
 		845E078820E8D7D7003C58D1 /* AfterBreathViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterBreathViewController.swift; sourceTree = "<group>"; };
+		849C17C120EBB61800C2E081 /* outFinal.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = outFinal.wav; sourceTree = "<group>"; };
+		849C17C320EBB62000C2E081 /* inFinal.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = inFinal.wav; sourceTree = "<group>"; };
 		84B5A6BD20D3F49D00554D97 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		84B5A6BF20D3F7A000554D97 /* error.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = error.mp3; sourceTree = "<group>"; };
-		84B5A6C020D3F7A000554D97 /* in-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "in-2.mp3"; sourceTree = "<group>"; };
-		84B5A6C120D3F7A100554D97 /* out.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = out.mp3; sourceTree = "<group>"; };
-		84B5A6C520D3FE2400554D97 /* error-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "error-2.mp3"; sourceTree = "<group>"; };
 		84D49AA520E6778800BA008B /* bubble2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bubble2.wav; sourceTree = "<group>"; };
 		84D49AA620E6778800BA008B /* bubble4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bubble4.wav; sourceTree = "<group>"; };
 		84D49AA720E6778800BA008B /* bubble0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bubble0.wav; sourceTree = "<group>"; };
@@ -193,10 +189,8 @@
 		84721FC220E8E0910007BFD4 /* breathe sounds */ = {
 			isa = PBXGroup;
 			children = (
-				84B5A6C520D3FE2400554D97 /* error-2.mp3 */,
-				84B5A6C120D3F7A100554D97 /* out.mp3 */,
-				84B5A6C020D3F7A000554D97 /* in-2.mp3 */,
-				84B5A6BF20D3F7A000554D97 /* error.mp3 */,
+				849C17C320EBB62000C2E081 /* inFinal.wav */,
+				849C17C120EBB61800C2E081 /* outFinal.wav */,
 			);
 			path = "breathe sounds";
 			sourceTree = "<group>";
@@ -442,25 +436,24 @@
 				84D49AB020E6778900BA008B /* bubble2.wav in Resources */,
 				3597359D20EBC89C002E2D4B /* Poppins-ExtraLight.otf in Resources */,
 				84D49AB720E6778900BA008B /* bubble1.wav in Resources */,
-				84B5A6C620D3FE2500554D97 /* error-2.mp3 in Resources */,
-				3597359720EBC89C002E2D4B /* Poppins-Bold.otf in Resources */,
+				35ADAAD120EAA554002F2666 /* Poppins-Regular.ttf in Resources */,
+				35ADAAD720EAA554002F2666 /* Poppins-Bold.ttf in Resources */,
 				AE81C8B1208F635D0031BC42 /* Assets.xcassets in Resources */,
-				3597359820EBC89C002E2D4B /* Poppins-Regular.otf in Resources */,
+				849C17C420EBB62000C2E081 /* inFinal.wav in Resources */,
 				AE81C8AF208F635D0031BC42 /* Main.storyboard in Resources */,
 				84D49AB420E6778900BA008B /* bubble10.wav in Resources */,
-				84B5A6C420D3FADF00554D97 /* out.mp3 in Resources */,
 				84D49AB220E6778900BA008B /* bubble0.wav in Resources */,
 				84D49AB920E6778900BA008B /* bubble8.wav in Resources */,
 				84D74F2220EB6F42006BCDA0 /* fishes3.gif in Resources */,
 				3597359920EBC89C002E2D4B /* Poppins-Light.otf in Resources */,
 				84D49AB320E6778900BA008B /* bubble9.wav in Resources */,
-				84B5A6C320D3FADD00554D97 /* in-2.mp3 in Resources */,
-				84B5A6C220D3FADA00554D97 /* error.mp3 in Resources */,
+				35ADAAD420EAA554002F2666 /* Poppins-SemiBold.ttf in Resources */,
 				84D49AB520E6778900BA008B /* bubble3.wav in Resources */,
 				84D49ABA20E6778900BA008B /* bubble5.wav in Resources */,
 				3597359A20EBC89C002E2D4B /* Poppins-SemiBold.otf in Resources */,
 				84D49AB120E6778900BA008B /* bubble4.wav in Resources */,
 				84414B2320EB8746006C83EB /* fishesframe0.png in Resources */,
+				849C17C220EBB61800C2E081 /* outFinal.wav in Resources */,
 				84D49AB820E6778900BA008B /* bubble7.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
