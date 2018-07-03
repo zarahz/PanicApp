@@ -38,5 +38,25 @@ extension UIViewController {
         let barButton = UIBarButtonItem(customView: button)
         self.navigationItem.rightBarButtonItem = barButton
     }
+    
+    func getMode() -> Int{
+        switch UserDefaults.standard.integer(forKey: "mode") {
+        //on Road mode
+        case 0:
+            return 0
+        //at home mode
+        case 1:
+            return 1
+        //GPS mode
+        case -1:
+            if(Location.shared.outOfHomeArea){
+                return 0
+            }else{
+                return 1
+            }
+        default:
+            return 0
+        }
+    }
 }
 

@@ -67,5 +67,14 @@ class ViewController: UIViewController {
             // couldn't load file :(
         }
     }
+    
+    //distinguish mode on start
+    @IBAction func start(_ sender: Any) {
+        if(getMode() == 0){
+            self.performSegue(withIdentifier: "startToJelly", sender: nil)
+        }else{
+            self.performSegue(withIdentifier: "startToHome", sender: nil)
+        }
+    }
 }
 
