@@ -25,10 +25,24 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.png")!)
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        super.viewDidAppear(animated)
         
         animateJellyfish(delay:0)
         animateButtons()
         createBubbles()
+        
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        
+        super.viewDidDisappear(animated)
+        
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,7 +65,7 @@ class ViewController: UIViewController {
         }
     }
     
-    private func animateJellyfish(delay: Double) {
+    func animateJellyfish(delay: Double) {
         
         UIView.animate(withDuration: 1,
                        delay: delay,
