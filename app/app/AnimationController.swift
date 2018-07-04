@@ -23,6 +23,8 @@ class AnimationController: UIViewController {
     let red = UIColor(red:1.00, green:0.49, blue:0.49, alpha:1.0)
     let breatheIn = 3.0
     let breatheOut = 4.0
+    let play = UIImage(named: "play-icon.png")
+    let pause = UIImage(named: "pause-icon.png")
     
     var fillColor = UIViewPropertyAnimator()
     var removeColor = UIViewPropertyAnimator()
@@ -54,6 +56,7 @@ class AnimationController: UIViewController {
         
         // Touch for Spotify shortcut
         spotifyButton.addTarget(self, action: #selector(self.spotifyAction), for: .touchDown)
+        spotifyButton.setImage(play, for: .normal)
         
         // Touch for Tutorial popup
         tutorialButton.addTarget(self, action: #selector(self.showTutorial), for: .touchDown)
@@ -152,6 +155,17 @@ class AnimationController: UIViewController {
         
         if( UserDefaults.standard.integer(forKey:"loggedIn") == 1){
         Spotify.shared.pausePlayer()
+        } else {
+            breatheLabel.text = "Logge dich in den Einstellungen bei Spotify ein, um Musik abzuspielen."
+        }
+        
+        if (spotifyButton.imageView?.image == play) {
+            spotifyButton.setImage(pause, for: .normal)
+            
+        }
+        else {
+            spotifyButton.setImage(play, for: .normal)
+            
         }
 
     }

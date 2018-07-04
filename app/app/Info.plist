@@ -53,13 +53,13 @@
 	<string>Rede mit diesem Chatbot über Speech Recognition</string>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Poppins-Bold.otf</string>
-		<string>Poppins-Light.otf</string>
-		<string>Poppins-Medium.otf</string>
-		<string>Poppins-Regular.otf</string>
-		<string>Poppins-SemiBold.otf</string>
-		<string>Poppins-Thin.otf</string>
-		<string>Poppins-ExtraLight.otf</string>
+		<string>Poppins-Bold.ttf</string>
+		<string>Poppins-Light.ttf</string>
+		<string>Poppins-Medium.ttf</string>
+		<string>Poppins-Regular.ttf</string>
+		<string>Poppins-SemiBold.ttf</string>
+		<string>Poppins-Thin.ttf</string>
+		<string>Poppins-ExtraLight.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
